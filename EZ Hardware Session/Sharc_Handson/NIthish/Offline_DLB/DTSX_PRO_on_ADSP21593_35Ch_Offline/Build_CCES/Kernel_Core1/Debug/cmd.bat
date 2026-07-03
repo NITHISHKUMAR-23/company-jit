@@ -1,0 +1,2 @@
+hostapp.exe -u
+@pause

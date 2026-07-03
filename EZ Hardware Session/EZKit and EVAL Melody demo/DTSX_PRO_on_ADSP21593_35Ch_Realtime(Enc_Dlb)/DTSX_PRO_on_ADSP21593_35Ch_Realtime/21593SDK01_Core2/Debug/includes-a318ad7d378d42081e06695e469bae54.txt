@@ -1,0 +1,4 @@
+-I"D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core2/system"
+-I"D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core2/src/System/Include"
+-I"D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core2/Customer_PP"
+-I"D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core2/src"

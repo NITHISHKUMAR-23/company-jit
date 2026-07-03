@@ -1,0 +1,7 @@
+nameid=BUN-000761
+user_name=KannanAK
+user_org=Jasmin Infotech Pvt Ltd
+user_email=kannan.ak@jasmin-infotech.com
+tokens=hdmi_player_tool(2024-12-31) 
+comment= Note: This license will expire on (2024-12-31)
+nobinding=true

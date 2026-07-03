@@ -1,0 +1,216 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.11.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Tue Mar  7 11:36:10 2023
+'>
+<MSG id='03F264C0' mid='li3140' type='Informational' >
+<TEXT><![CDATA[The following serial numbers are due to expire:
+EVAL-CCES-UHNY-XX4H-Q2DJ-DVG4-VQDG-54ZM-NS01 expires in 3 days.
+]]></TEXT>
+</MSG>
+<MSG id='03EB8BF8' mid='li3201' type='Informational' suppressed=''>
+<TEXT><![CDATA[Successfully eliminated 21814 bytes in processor 'SC5XX_CORE1'
+]]></TEXT>
+<EXTENDED_INFO><![CDATA[Eliminated object (adi_ospi_clock_rate., .adi_ospi_clock_rate..end) of size 100 bytes from 'src\adi_clockrates_SC59x_config.doj(seg_swco)'
+Eliminated object (adi_spi_clock_rate., .adi_spi_clock_rate..end) of size 50 bytes from 'src\adi_clockrates_SC59x_config.doj(seg_swco)'
+Eliminated object (adi_uart_byte_delay., .adi_uart_byte_delay..end) of size 350 bytes from 'src\adi_clockrates_SC59x_config.doj(seg_swco)'
+Eliminated object (adi_uart_baud_read., .adi_uart_baud_read..end) of size 150 bytes from 'src\adi_clockrates_SC59x_config.doj(seg_swco)'
+Eliminated object (adi_uart_baud_init., .adi_uart_baud_init..end) of size 180 bytes from 'src\adi_clockrates_SC59x_config.doj(seg_swco)'
+Eliminated object (adi_dmc_self_refresh., .adi_dmc_self_refresh..end) of size 166 bytes from 'src\adi_dmc.doj(seg_swco)'
+Eliminated object (adi_initComponents., .adi_initComponents..end) of size 26 bytes from 'system\adi_initialize.doj(seg_swco)'
+Eliminated object (adi_pwr_SetPWRReg., .adi_pwr_SetPWRReg..end) of size 20 bytes from 'system\services\pwr\adi_pwr.doj(seg_int_code)'
+Eliminated object (adi_pwr_SetPowerMode., .adi_pwr_SetPowerMode..end) of size 778 bytes from 'system\services\pwr\adi_pwr.doj(seg_int_code)'
+Eliminated object (adi_pwr_SetClkOutSelectRegister., .adi_pwr_SetClkOutSelectRegister..end) of size 82 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampVal1Reg., .adi_pwr_GetTStampVal1Reg..end) of size 66 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampVal0Reg., .adi_pwr_GetTStampVal0Reg..end) of size 66 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampCnt1Reg., .adi_pwr_GetTStampCnt1Reg..end) of size 66 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampCnt0Reg., .adi_pwr_GetTStampCnt0Reg..end) of size 66 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCGUStatReg., .adi_pwr_GetCGUStatReg..end) of size 392 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetDPM0StatReg., .adi_pwr_GetDPM0StatReg..end) of size 134 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCDU0StatReg., .adi_pwr_GetCDU0StatReg..end) of size 388 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetSCLKBufDisableStatusReg., .adi_pwr_GetSCLKBufDisableStatusReg..end) of size 166 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCCLKBufDisableStatusReg., .adi_pwr_GetCCLKBufDisableStatusReg..end) of size 116 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_IsPeripheralDisabled., .adi_pwr_IsPeripheralDisabled..end) of size 86 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_ConfigureDPMPeripheralClocks., .adi_pwr_ConfigureDPMPeripheralClocks..end) of size 818 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_DisablePeripheral., .adi_pwr_DisablePeripheral..end) of size 146 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetPowerMode., .adi_pwr_GetPowerMode..end) of size 196 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_DPM0LockRegisters., .adi_pwr_DPM0LockRegisters..end) of size 54 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_CGU1LockRegisters., .adi_pwr_CGU1LockRegisters..end) of size 54 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_CGU0LockRegisters., .adi_pwr_CGU0LockRegisters..end) of size 54 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_CDULockRegisters., .adi_pwr_CDULockRegisters..end) of size 54 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_ConfigCGUTSCtlReg., .adi_pwr_ConfigCGUTSCtlReg..end) of size 82 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetPLLClkFreq., .adi_pwr_GetPLLClkFreq..end) of size 218 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCoreClkFreq., .adi_pwr_GetCoreClkFreq..end) of size 254 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetOutClkFreq., .adi_pwr_GetOutClkFreq..end) of size 254 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetSystemFreq., .adi_pwr_GetSystemFreq..end) of size 526 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetDDRClkFreq., .adi_pwr_GetDDRClkFreq..end) of size 254 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetFreq., .adi_pwr_GetFreq..end) of size 218 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (.SWITCH.3, .SWITCH.3.end) of size 16 bytes from 'system\services\smpu\adi_smpu.doj(seg_dmda)'
+Eliminated object (.SWITCH.4, .SWITCH.4.end) of size 16 bytes from 'system\services\smpu\adi_smpu.doj(seg_dmda)'
+Eliminated object (adi_smpu_SetSecureBusErrorReturnType., .adi_smpu_SetSecureBusErrorReturnType..end) of size 64 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureInterruptEnable., .adi_smpu_SetSecureInterruptEnable..end) of size 64 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionBypassMask., .adi_smpu_SetRegionBypassMask..end) of size 124 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionBypassCode., .adi_smpu_SetRegionBypassCode..end) of size 124 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionReadProtectInvert., .adi_smpu_SetRegionReadProtectInvert..end) of size 80 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionReadProtectEnable., .adi_smpu_SetRegionReadProtectEnable..end) of size 80 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionWriteProtectInvert., .adi_smpu_SetRegionWriteProtectInvert..end) of size 80 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionWriteProtectEnable., .adi_smpu_SetRegionWriteProtectEnable..end) of size 80 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionEnable., .adi_smpu_SetRegionEnable..end) of size 78 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalBusErrorReturnType., .adi_smpu_SetRegionalBusErrorReturnType..end) of size 58 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalBusErrorDisable., .adi_smpu_SetRegionalBusErrorDisable..end) of size 58 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalInterruptEnable., .adi_smpu_SetRegionalInterruptEnable..end) of size 58 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureRegionalLock., .adi_smpu_SetSecureRegionalLock..end) of size 64 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureGlobalLock., .adi_smpu_SetSecureGlobalLock..end) of size 64 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalLock., .adi_smpu_SetRegionalLock..end) of size 58 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetMasterLock., .adi_smpu_SetMasterLock..end) of size 58 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetBusErrorDetails., .adi_smpu_GetBusErrorDetails..end) of size 198 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetInterruptDetails., .adi_smpu_GetInterruptDetails..end) of size 198 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetStatus., .adi_smpu_GetStatus..end) of size 54 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetRevision., .adi_smpu_GetRevision..end) of size 112 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_UnInit., .adi_smpu_UnInit..end) of size 114 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionRange., .adi_smpu_SetRegionRange..end) of size 176 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureRegionPermissions., .adi_smpu_SetSecureRegionPermissions..end) of size 252 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (gaTimers., gaTimers.+0x100) of size 256 bytes from 'system\services\tmr\adi_tmr.doj(seg_dmda)'
+Eliminated object (pTimerRegs., pTimerRegs.+0x4) of size 4 bytes from 'system\services\tmr\adi_tmr.doj(seg_dmda)'
+Eliminated object (gaTimerStaticConfig., gaTimerStaticConfig.+0x240) of size 576 bytes from 'system\services\tmr\adi_tmr.doj(seg_dmda)'
+Eliminated object (gDataInterruptFlag., gDataInterruptFlag.+0x1) of size 1 bytes from 'system\services\tmr\adi_tmr.doj(seg_dmda)'
+Eliminated object (eState.0., eState.0.+0x4) of size 4 bytes from 'system\services\tmr\adi_tmr.doj(seg_dmda)'
+Eliminated object (Local_Callback., .Local_Callback..end) of size 34 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (DataIntHandler., .DataIntHandler..end) of size 98 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (StatusIntHandler., .StatusIntHandler..end) of size 198 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (EnableTimers., .EnableTimers..end) of size 42 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_GetPeriod., .adi_tmr_GetPeriod..end) of size 54 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_GetWidth., .adi_tmr_GetWidth..end) of size 54 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_GetDelay., .adi_tmr_GetDelay..end) of size 54 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_GetCount., .adi_tmr_GetCount..end) of size 54 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableStatusInt., .adi_tmr_EnableStatusInt..end) of size 70 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableDataInt., .adi_tmr_EnableDataInt..end) of size 70 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableTriggerOut., .adi_tmr_EnableTriggerOut..end) of size 82 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableOrderedTrigToggle., .adi_tmr_EnableOrderedTrigToggle..end) of size 58 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableTriggerIn., .adi_tmr_EnableTriggerIn..end) of size 84 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableTriggerModeToggle., .adi_tmr_EnableTriggerModeToggle..end) of size 58 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetTrigSlaveMode., .adi_tmr_SetTrigSlaveMode..end) of size 60 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_Enable., .adi_tmr_Enable..end) of size 176 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableGracefulStop., .adi_tmr_EnableGracefulStop..end) of size 116 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_BCastDelay., .adi_tmr_BCastDelay..end) of size 30 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_BCastWidth., .adi_tmr_BCastWidth..end) of size 30 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_BCastPeriod., .adi_tmr_BCastPeriod..end) of size 30 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetDelay., .adi_tmr_SetDelay..end) of size 74 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetWidth., .adi_tmr_SetWidth..end) of size 74 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetPeriod., .adi_tmr_SetPeriod..end) of size 74 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetEmuRun., .adi_tmr_SetEmuRun..end) of size 58 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_EnableBroadcast., .adi_tmr_EnableBroadcast..end) of size 58 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_DisableOutput., .adi_tmr_DisableOutput..end) of size 58 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetInputSource., .adi_tmr_SetInputSource..end) of size 98 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetClkInSource., .adi_tmr_SetClkInSource..end) of size 80 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetPulsePolarity., .adi_tmr_SetPulsePolarity..end) of size 98 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetIRQMode., .adi_tmr_SetIRQMode..end) of size 80 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetPeriodWindow., .adi_tmr_SetPeriodWindow..end) of size 104 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetWidthWindow., .adi_tmr_SetWidthWindow..end) of size 104 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_SetMode., .adi_tmr_SetMode..end) of size 80 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_GroupEnable., .adi_tmr_GroupEnable..end) of size 36 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_Config., .adi_tmr_Config..end) of size 648 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_Init., .adi_tmr_Init..end) of size 110 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_Open., .adi_tmr_Open..end) of size 1068 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_UnInit., .adi_tmr_UnInit..end) of size 108 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_Close., .adi_tmr_Close..end) of size 260 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_MeasureCLK., .adi_tmr_MeasureCLK..end) of size 440 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (adi_tmr_MonitorCLKChange., .adi_tmr_MonitorCLKChange..end) of size 310 bytes from 'system\services\tmr\adi_tmr.doj(seg_swco)'
+Eliminated object (gSECData., gSECData.+0xc) of size 12 bytes from 'libssl.dlb[adi_sec.doj](seg_dmda)'
+Eliminated object (DefaultErrorHandler., .DefaultErrorHandler..end) of size 12 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetCOPPeriod., .adi_sec_SetCOPPeriod..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetSysResetDelay., .adi_sec_SetSysResetDelay..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetFaultDelay., .adi_sec_SetFaultDelay..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SelectTriggerEvent., .adi_sec_SelectTriggerEvent..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearFault., .adi_sec_ClearFault..end) of size 28 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetFaultID., .adi_sec_GetFaultID..end) of size 40 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableCOPMode., .adi_sec_EnableCOPMode..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableFaultInput., .adi_sec_EnableFaultInput..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableSystemReset., .adi_sec_EnableSystemReset..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableTriggerOutput., .adi_sec_EnableTriggerOutput..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableFaultOutput., .adi_sec_EnableFaultOutput..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableSFI., .adi_sec_EnableSFI..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ResetSFI., .adi_sec_ResetSFI..end) of size 26 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetPriorityLevels., .adi_sec_SetPriorityLevels..end) of size 66 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetUnGroupedMask., .adi_sec_SetUnGroupedMask..end) of size 78 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetGroupMask., .adi_sec_SetGroupMask..end) of size 66 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetPriorityMask., .adi_sec_SetPriorityMask..end) of size 86 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearNMIStatus., .adi_sec_ClearNMIStatus..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearWFIStatus., .adi_sec_ClearWFIStatus..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetWFIStatus., .adi_sec_GetWFIStatus..end) of size 86 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableNMI., .adi_sec_EnableNMI..end) of size 78 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_WaitForIdle., .adi_sec_WaitForIdle..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ResetSCI., .adi_sec_ResetSCI..end) of size 56 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableSCI., .adi_sec_EnableSCI..end) of size 78 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearPendStatus., .adi_sec_ClearPendStatus..end) of size 56 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetSIDChannelID., .adi_sec_GetSIDChannelID..end) of size 94 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetSIDGrouping., .adi_sec_SetSIDGrouping..end) of size 94 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetPriority., .adi_sec_SetPriority..end) of size 96 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableError., .adi_sec_EnableError..end) of size 80 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableEdgeSense., .adi_sec_EnableEdgeSense..end) of size 80 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableFault., .adi_sec_EnableFault..end) of size 80 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_Raise., .adi_sec_Raise..end) of size 64 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetAddrError., .adi_sec_GetAddrError..end) of size 118 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetLockWriteError., .adi_sec_GetLockWriteError..end) of size 118 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_SEC_ErrorHandler., .adi_SEC_ErrorHandler..end) of size 584 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_Reset., .adi_sec_Reset..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_Enable., .adi_sec_Enable..end) of size 90 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_Init., .adi_sec_Init..end) of size 398 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_RegisterErrorHandler., .adi_sec_RegisterErrorHandler..end) of size 120 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_int_UninstallHandler., .adi_int_UninstallHandler..end) of size 280 bytes from 'libssl.dlb[adi_int.doj](seg_swco)'
+Eliminated object (adi_int_EnableInt., .adi_int_EnableInt..end) of size 180 bytes from 'libssl.dlb[adi_int.doj](seg_swco)'
+Eliminated object (adi_int_ClearPending., .adi_int_ClearPending..end) of size 106 bytes from 'libssl.dlb[adi_int.doj](seg_swco)'
+Eliminated object (__simd_memsetD., .__simd_memsetD..end) of size 304 bytes from 'libc.dlb[memset_XI_SIMD_ba.doj](seg_swco)'
+Eliminated object (osal_snHeapIndex., osal_snHeapIndex.+0x4) of size 4 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)'
+Eliminated object (_adi_osal_InitInterrupts., ._adi_osal_InitInterrupts..end) of size 16 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (_adi_osal_HeapInstall., ._adi_osal_HeapInstall..end) of size 174 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (_adi_osal_MemAlloc., ._adi_osal_MemAlloc..end) of size 108 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (_adi_osal_MemFree., ._adi_osal_MemFree..end) of size 46 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (adi_osal_DeactivateHandler., .adi_osal_DeactivateHandler..end) of size 66 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (adi_rtl_sid_use_check., .adi_rtl_sid_use_check..end) of size 306 bytes from 'libc.dlb[adi_rtl_sid_use_check_ba.doj](seg_swco)'
+Eliminated object (_heap_install., ._heap_install..end) of size 228 bytes from 'libc.dlb[heap_install_ba.doj](seg_swco)'
+Eliminated object (_heap_malloc., ._heap_malloc..end) of size 214 bytes from 'libc.dlb[heap_malloc_ba.doj](seg_swco)'
+Eliminated object (_heap_free., ._heap_free..end) of size 30 bytes from 'libc.dlb[heap_free_ba.doj](seg_swco)'
+Eliminated object (_adi_osal_gHandlerTableSize., _adi_osal_gHandlerTableSize.+0x4) of size 4 bytes from 'libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)'
+Eliminated object (adi_rtl_deactivate_dispatched_handler., .adi_rtl_deactivate_dispatched_handler..end) of size 104 bytes from 'libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)'
+Eliminated object (.__clear_imask, .__clear_imask.end) of size 320 bytes from 'libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)'
+Eliminated object (__sys_int_chid_table., __sys_int_chid_table.+0x5) of size 5 bytes from 'libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)'
+Eliminated object (__installed_heap_num., __installed_heap_num.+0x4) of size 4 bytes from 'libc.dlb[heap_num_ba.doj](seg_dmda)'
+Eliminated object (__max_heap_num., __max_heap_num.+0x4) of size 4 bytes from 'libc.dlb[heaps_ba.doj](seg_dmda)'
+Eliminated object (__heaps., __heaps.+0x20) of size 32 bytes from 'libc.dlb[heaps_ba.doj](seg_dmda)'
+Eliminated object (_heap_lookup., ._heap_lookup..end) of size 90 bytes from 'libc.dlb[heap_lookup_ba.doj](seg_swco)'
+Eliminated object (free., .free..end) of size 170 bytes from 'libc.dlb[free_ba.doj](seg_swco)'
+Eliminated object (__find_block_to_free., .__find_block_to_free..end) of size 296 bytes from 'libc.dlb[heap_find_block_ba.doj](seg_swco)'
+]]></EXTENDED_INFO>
+</MSG>
+<MSG id='03FE59A0' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    system\services\pwr\adi_pwr.doj(seg_int_code)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libcc.dlb[divrem_u32.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='03FE60A0' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\SC59x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_SC59x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_int_data)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[adi_rtl_sid_use_check_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+</DOCUMENT>

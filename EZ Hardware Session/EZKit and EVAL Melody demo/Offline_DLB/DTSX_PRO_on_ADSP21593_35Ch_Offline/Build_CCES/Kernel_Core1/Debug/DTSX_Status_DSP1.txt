@@ -1,0 +1,51 @@
+BD15-parma_chid-48-1509k-200.pcm 
+Es_Flag							:	0
+DialNorm						:	0 dB 
+DecoderError					:	0
+ExtensionError					:	0
+SamplingFrequencyOriginal		:	48000 kHz 
+SamplingFrequencyDecoded		:	48000 kHz 
+NumberofChannelsOriginal		:	2.0
+ChannelConfigurationOriginal	:	0x00000006	 L R
+ReplacementGrp_ChSet			:	0	 0	 0
+StreamType						:	DTS-HD Master Audio
+LtRtStream						:	0
+HeadPhoneStream					:	0
+DRC_Presence					:	0
+NeoX_Flag					:	0
+Type1CertifiedContentFlag        :    0
+
+BD15-parma_chid-48-1509k-200.pcm 
+Es_Flag							:	0
+DialNorm						:	0 dB 
+DecoderError					:	0
+ExtensionError					:	0
+SamplingFrequencyOriginal		:	48000 kHz 
+SamplingFrequencyDecoded		:	48000 kHz 
+NumberofChannelsOriginal		:	2.0
+ChannelConfigurationOriginal	:	0x00000006	 L R
+ReplacementGrp_ChSet			:	0	 0	 0
+StreamType						:	DTS-HD Master Audio
+LtRtStream						:	0
+HeadPhoneStream					:	0
+DRC_Presence					:	0
+NeoX_Flag					:	0
+Type1CertifiedContentFlag        :    0
+
+UE51M-anthem0xF1_30.pcm 
+Es_Flag							:	0
+DialNorm						:	0 dB 
+DecoderError					:	0
+ExtensionError					:	0
+SamplingFrequencyOriginal		:	48000 kHz 
+SamplingFrequencyDecoded		:	48000 kHz 
+NumberofChannelsOriginal		:	5.1
+ChannelConfigurationOriginal	:	0x0000003F	 C L R Ls Rs LFE1
+ReplacementGrp_ChSet			:	0	 0	 0
+StreamType						:	DTS:X Master Audio
+LtRtStream						:	0
+HeadPhoneStream					:	0
+DRC_Presence					:	0
+NeoX_Flag					:	0
+Type1CertifiedContentFlag        :    0
+

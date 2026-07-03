@@ -1,0 +1,2 @@
+-I"D:/35-Channel_DTSX_PRO/Realtime_32ch/21593SDK01_35CH_Source/21593_init_Core1/system"
+-I"D:/35-Channel_DTSX_PRO/Realtime_32ch/21593SDK01_35CH_Source/21593_init_Core1/src"

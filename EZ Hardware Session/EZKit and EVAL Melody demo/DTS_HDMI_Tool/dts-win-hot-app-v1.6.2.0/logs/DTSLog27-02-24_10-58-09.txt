@@ -1,0 +1,1 @@
+[ error ] [dts-hot-security.cpp][DtsSecurity::DTS_HOT_SAPI_InstallLicense][109] Valid license file dts-hdmi-player.lic not found in working directory Error: 28009

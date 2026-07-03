@@ -1,0 +1,50 @@
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/SPI0_Func.c
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/stdio.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/stdio_21xxx.h
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/../Include/Function_Prototype.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/stdint.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/yvals.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/drivers/spi/adi_spi_2156x.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/adi_osal.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/adi_osal_arch.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/stdbool.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/adi_types.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/int/adi_int.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/int/adi_int_id.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/platform.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/platform_include.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/cdef21593.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/ADSP-2159x-core_cdef.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/ADSP-2159x-core.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/def21593.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/ADSP-21593.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/defSC59x_id_macros.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/ADSP_SC5xx_legacy.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/ADSP-21593_cdef.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/internal_system_prototypes.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/processor_include.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/2159x.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/SC59x.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/platform_include.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/adi_core.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/platform.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/cache.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/builtins.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/builtins_support.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/interrupt.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sysreg.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/builtins.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/sys/builtins_support.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/platform_include.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/drivers/spi/adi_spi_config_SC59x.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/pdma/adi_pdma_2156x.h
+src/System/Framework/SPI0_Func.doj: ../system/services/pdma/adi_pdma_config_2156x.h
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/../Include/Commn.h
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/../Include/SPI1_macros.h
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/../Include/SPI0_macros.h
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/../Include/Extern_Core1.h
+src/System/Framework/SPI0_Func.doj: ../src/System/Framework/../Include/commn.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/dma/adi_dma.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/dma/adi_mdma_2156x.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/dma/adi_mdma_config_SC59x.h
+src/System/Framework/SPI0_Func.doj: C:/Analog\ Devices/CrossCore\ Embedded\ Studio\ 2.11.1/SHARC/include/services/dma/adi_emdma_2156x.h
