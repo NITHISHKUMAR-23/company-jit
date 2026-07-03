@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/analog/cces/3.0.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Mon Feb  3 12:43:04 2025
+'>
+<MSG id='055763B8' mid='li1021' type='Error' >
+<TEXT><![CDATA[The following symbols referenced in processor '21593_CORE_1' could not be resolved:
+        'interest [interest.]' referenced from 'src\simple_interest_Core1.doj']]></TEXT>
+</MSG>
+</DOCUMENT>

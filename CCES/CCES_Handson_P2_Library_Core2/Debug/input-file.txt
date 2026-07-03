@@ -1,0 +1,6 @@
+"src/CCES_Handson_P2_Library_Core2.doj"
+"system/adi_initialize.doj"
+"system/mcapi/GeneratedSources/mcapi_config.doj"
+"system/startup_ldf/app_IVT.doj"
+"system/startup_ldf/app_heaptab.doj"
+"system/startup_ldf/app_startup.doj"

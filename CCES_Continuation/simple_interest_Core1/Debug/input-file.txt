@@ -1,0 +1,8 @@
+"src/simple_interest_Core1.doj"
+"system/adi_initialize.doj"
+"system/mcapi/GeneratedSources/mcapi_config.doj"
+"system/pinmux/GeneratedSources/pinmux_config.doj"
+"system/sru/sru_config.doj"
+"system/startup_ldf/app_IVT.doj"
+"system/startup_ldf/app_heaptab.doj"
+"system/startup_ldf/app_startup.doj"
