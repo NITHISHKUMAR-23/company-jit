@@ -1,0 +1,1 @@
+-iD:/MIPS and Memory Optimization/diamond_pattern_without_optimization_Core1/system

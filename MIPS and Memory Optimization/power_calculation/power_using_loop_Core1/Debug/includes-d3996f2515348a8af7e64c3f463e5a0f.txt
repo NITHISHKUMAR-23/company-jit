@@ -1,0 +1,1 @@
+-I"D:/MIPS and Memory Optimization/power_using_loop_Core1/system"

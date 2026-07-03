@@ -1,0 +1,1 @@
+-I"D:/MIPS and Memory Optimization/shift_numbers_using_for_loop_Core1/system"
