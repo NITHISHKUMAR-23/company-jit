@@ -1,0 +1,6 @@
+[ info ] [dts-hot-security.cpp][DtsSecurity::DTS_HOT_SAPI_InstallLicense][99] Valid License file dts-hdmi-player.lic found : Success.
+[ error ] [dts-wasapi.cpp][AudioEndPoint::GetAudioEndPointSupported][282] Device does not support DTS streams
+[ error ] [dts-hot-win-dts-player.cpp][DTSPlayer::DTSPackerPlayer][659] failed to initialize Output 
+
+[ info ] [dts-hot-player-factory.cpp][WinPlayerFactory::CreateDTSPlayer][85] Seeking to beginning of stream, 0 playback(s) left
+[ info ] [dts-hot-player-app.cpp][PlayerApp::CloseStream][301] Input File Closed

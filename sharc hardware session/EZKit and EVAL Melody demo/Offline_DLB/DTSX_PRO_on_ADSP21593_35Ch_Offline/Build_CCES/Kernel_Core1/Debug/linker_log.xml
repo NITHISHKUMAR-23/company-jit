@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.11.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Tue Oct 22 18:28:58 2024
+'>
+<MSG id='06A02408' mid='li2050' type='Warning' suppressed=''>
+<TEXT><![CDATA[Symbol '___field_interrupt' is defined in more than one library.
+        Defined in:     ..\..\..\..\Core1\Library\fopen_Core1.dlb[field_interrupt.doj]
+        Redefined in:   libc.dlb[field_interrupt.doj]
+        Definition from ..\..\..\..\Core1\Library\fopen_Core1.dlb[field_interrupt.doj] will be used.]]></TEXT>
+</MSG>
+<MSG id='06CE76E8' mid='li2050' type='Warning' suppressed=''>
+<TEXT><![CDATA[Symbol '___inits' is defined in more than one library.
+        Defined in:     ..\..\..\..\Core1\Library\fopen_Core1.dlb[inits.doj]
+        Redefined in:   libc.dlb[inits.doj]
+        Definition from ..\..\..\..\Core1\Library\fopen_Core1.dlb[inits.doj] will be used.]]></TEXT>
+</MSG>
+<MSG id='06CE77C8' mid='li2050' type='Warning' suppressed=''>
+<TEXT><![CDATA[Symbol '___ctor_NULL_marker' is defined in more than one library.
+        Defined in:     ..\..\..\..\Core1\Library\fopen_Core1.dlb[set_c.doj]
+        Redefined in:   libc.dlb[set_c.doj]
+        Definition from ..\..\..\..\Core1\Library\fopen_Core1.dlb[set_c.doj] will be used.]]></TEXT>
+</MSG>
+<MSG id='06CE79F8' mid='li2050' type='Warning' suppressed=''>
+<TEXT><![CDATA[Symbol '__ctor_NULL_marker.' is defined in more than one library.
+        Defined in:     ..\..\..\..\Core1\Library\fopen_Core1.dlb[set_c.doj]
+        Redefined in:   libc.dlb[set_c.doj]
+        Definition from ..\..\..\..\Core1\Library\fopen_Core1.dlb[set_c.doj] will be used.]]></TEXT>
+</MSG>
+<MSG id='09479760' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    app_startup.doj(seg_int_code)
+    app_startup.doj(seg_int_code)
+    libc.dlb[cache_set_range_ba.doj](seg_int_code)
+    libc.dlb[flush_data_buffer_ba.doj](seg_int_code)
+    libc.dlb[lib_set_cache_ba.doj](seg_int_code)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09479A00' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2_uncached']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    system\mcapi\GeneratedSources\mcapi_config.doj(seg_l2_uncached)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09478EA0' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_sdram_cpp_ctors_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    app_startup.doj(seg_ctdml)
+    ..\..\..\..\Core1\Library\fopen_Core1.dlb[set_c.doj](seg_ctdml)
+    app_startup.doj(seg_ctdml)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09479AE0' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'DTSX_Library_NW_Code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    ..\..\..\..\Core1\Library\dts-3d_Core1.dlb[dts-3d-hull.doj](seg_dts_no_function_call)
+    ..\..\..\..\Core1\Library\dts-3d_Core1.dlb[dts-3d-vector-base-panner.doj](seg_dts_no_function_call)
+    ..\..\..\..\Core1\Library\dts-3d_Core1.dlb[dts-3d-virtual-custom-vector-base-panner.doj](seg_dts_no_function_call)
+    ..\..\..\..\Core1\Library\dts-base_Core1.dlb[dts-base-math.doj](seg_dts_parma_delay_process)]]></EXTENDED_INFO>
+</MSG>
+</DOCUMENT>

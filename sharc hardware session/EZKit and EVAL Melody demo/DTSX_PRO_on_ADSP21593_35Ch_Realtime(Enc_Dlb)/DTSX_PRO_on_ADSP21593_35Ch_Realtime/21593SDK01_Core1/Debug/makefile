@@ -1,0 +1,122 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL := ${ComSpec}
+
+-include ../makefile.init
+
+RM := clean
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include system/startup_ldf/subdir.mk
+-include system/sru/subdir.mk
+-include system/services/spu/subdir.mk
+-include system/services/pwr/subdir.mk
+-include system/services/pdma/subdir.mk
+-include system/services/pcg/subdir.mk
+-include system/services/int/subdir.mk
+-include system/services/gpio/subdir.mk
+-include system/services/dma/subdir.mk
+-include system/services/dai/subdir.mk
+-include system/pinmux/GeneratedSources/subdir.mk
+-include system/drivers/twi/subdir.mk
+-include system/drivers/sport/subdir.mk
+-include system/drivers/spdif/subdir.mk
+-include system/drivers/asrc/subdir.mk
+-include system/subdir.mk
+-include src/System/Framework/subdir.mk
+-include src/AudioAlgorithms/Decoder/DTSX/Kernel/subdir.mk
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(DSP_DEPS)),)
+-include $(DSP_DEPS)
+endif
+ifneq ($(strip $(CC_DEPS)),)
+-include $(CC_DEPS)
+endif
+ifneq ($(strip $(C++_DEPS)),)
+-include $(C++_DEPS)
+endif
+ifneq ($(strip $(C_UPPER_DEPS)),)
+-include $(C_UPPER_DEPS)
+endif
+ifneq ($(strip $(CXX_DEPS)),)
+-include $(CXX_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+ifneq ($(strip $(CPP_DEPS)),)
+-include $(CPP_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+LINKER_LOG_OUTPUTS += \
+linker_log.xml \
+
+OBJS := $(SRC_OBJS)
+# Quote makefile variable : OBJS 
+OBJS := $(subst \ ,@, $(OBJS))
+OBJS := $(foreach var, $(OBJS), "$(subst @, ,$(var))")
+# Quote makefile variable : DSP_DEPS 
+DSP_DEPS := $(subst \ ,@, $(DSP_DEPS))
+DSP_DEPS := $(foreach var, $(DSP_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : CC_DEPS 
+CC_DEPS := $(subst \ ,@, $(CC_DEPS))
+CC_DEPS := $(foreach var, $(CC_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : C++_DEPS 
+C++_DEPS := $(subst \ ,@, $(C++_DEPS))
+C++_DEPS := $(foreach var, $(C++_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : C_UPPER_DEPS 
+C_UPPER_DEPS := $(subst \ ,@, $(C_UPPER_DEPS))
+C_UPPER_DEPS := $(foreach var, $(C_UPPER_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : CXX_DEPS 
+CXX_DEPS := $(subst \ ,@, $(CXX_DEPS))
+CXX_DEPS := $(foreach var, $(CXX_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : ASM_DEPS 
+ASM_DEPS := $(subst \ ,@, $(ASM_DEPS))
+ASM_DEPS := $(foreach var, $(ASM_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : S_DEPS 
+S_DEPS := $(subst \ ,@, $(S_DEPS))
+S_DEPS := $(foreach var, $(S_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : C_DEPS 
+C_DEPS := $(subst \ ,@, $(C_DEPS))
+C_DEPS := $(foreach var, $(C_DEPS), "$(subst @, ,$(var))")
+# Quote makefile variable : CPP_DEPS 
+CPP_DEPS := $(subst \ ,@, $(CPP_DEPS))
+CPP_DEPS := $(foreach var, $(CPP_DEPS), "$(subst @, ,$(var))")
+
+# All Target
+all: 21593SDK01_Core1.dxe
+
+# Tool invocations
+21593SDK01_Core1.dxe: $(LDF_SRCS) $(SRC_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: CrossCore SHARC Linker'
+	cc21k -proc ADSP-21593 -si-revision any -T "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/system/startup_ldf/21593SDK_Core1.ldf" -no-mem -map 21593SDK01_Core1.map.xml -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/startup_ldf" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/drivers/asrc" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/drivers/sport" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/services/dai" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/services/dma" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/services/pcg" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/services/pdma" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/system/services/spu" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/Debug/src/System/Framework" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework" -L "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/SPI0_Func.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/SPI1_Fun.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/SPIRead.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/SPI1_Optical.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/SPI_Interrupts.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/Receiver_ISR.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/Txmitter.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/Init_Struct_Core1.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/System/Framework/Init_Struct_Core1_Source.doj" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library/dts_lbr_Core1.dlb" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library/dts_lbr_dec_Core1.dlb" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library/dts-3d_Core1.dlb" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library/dts-base_Core1.dlb" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library/dts-flib_Core1.dlb" "D:/EZ Hardware Session/EZKit and EVAL Melody demo/DTSX_PRO_on_ADSP21593_35Ch_Realtime(Enc_Dlb)/DTSX_PRO_on_ADSP21593_35Ch_Realtime/21593SDK01_Core1/src/AudioAlgorithms/Decoder/DTSX/Library/dtshd-c-decoder_Core1.dlb" -flags-link -MDCORE1,-MDDEBUG -add-debug-libpaths -o 21593SDK01_Core1.dxe @input-file.txt
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+linker_log.xml: 21593SDK01_Core1.dxe $(LDF_SRCS) $(SRC_OBJS)
+
+# Other Targets
+clean:
+	-$(RM) $(DXE) $(DSP_DEPS) $(CC_DEPS) $(LINKER_LOG_OUTPUTS) $(C++_DEPS) $(OBJS) $(C_UPPER_DEPS) $(CXX_DEPS) $(ASM_DEPS) $(S_DEPS) $(C_DEPS) $(CPP_DEPS)  21593SDK01_Core1.dxe
+	-@echo ' '
+
+.PHONY: all clean dependents
+
+-include ../makefile.targets

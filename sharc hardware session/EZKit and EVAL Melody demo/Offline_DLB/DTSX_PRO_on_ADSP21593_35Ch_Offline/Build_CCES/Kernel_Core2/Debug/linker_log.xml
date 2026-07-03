@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.11.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Tue Oct 22 17:51:05 2024
+'>
+<MSG id='093455D8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    app_startup.doj(seg_int_code)
+    app_startup.doj(seg_int_code)
+    libc.dlb[cache_set_range_ba.doj](seg_int_code)
+    libc.dlb[flush_data_buffer_ba.doj](seg_int_code)
+    libc.dlb[lib_set_cache_ba.doj](seg_int_code)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09346058' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2_uncached']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    system\mcapi\GeneratedSources\mcapi_config.doj(seg_l2_uncached)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09346598' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_sdram_cpp_ctors_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    app_startup.doj(seg_ctdml)
+    app_startup.doj(seg_ctdml)
+    libc.dlb[set_c.doj](seg_ctdml)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09345DB8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'DTSX_Library_NW_Code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    ..\..\..\..\Core2\Library\dtshd-c-decoder_Core2.dlb[dts_tables_misc.doj](seg_dts_before_parma)
+    ..\..\..\..\Core2\Library\dts-3d_Core2.dlb[dts-3d-virtual-custom-vector-base-panner.doj](seg_dts_no_function_call)
+    ..\..\..\..\Core2\Library\dts-parma-dec_Core2.dlb[dts-parma-dec-stereo.doj](seg_dts_no_function_call)
+    ..\..\..\..\Core2\Library\dtshd-c-decoder_Core2.dlb[dtshd_asset_decoder.doj](seg_dts_StatusUpdate_Code)
+    ..\..\..\..\Core2\Library\dtshd-c-decoder_Core2.dlb[dtshd_asset_decoder.doj](seg_dts_blind_parma)
+    ..\..\..\..\Core2\Library\dtshd-c-decoder_Core2.dlb[dts_peak_limit.doj](seg_dts_parma)
+    ..\..\..\..\Core2\Library\dts-3d_Core2.dlb[dts-3d-channel-layout-f32.doj](seg_dts_unused)
+    ..\..\..\..\Core2\Library\dts-flib_Core2.dlb[dts-flib-fft-c-n-simd-f32.doj](seg_dts_unused)
+    ..\..\..\..\Core2\Library\dts-flib_Core2.dlb[dts-flib-std-functions.doj](seg_dts_unused)
+    ..\..\..\..\Core2\Library\dts-tbhdx_Core2.dlb[srs_tbhdx.doj](seg_dts_unused)
+    ..\..\..\..\Core2\Library\dts-flib_Core2.dlb[dts-flib-fft-c-n-simd-f32.doj](seg_dts_wrapper)
+    ..\..\..\..\Core2\Library\dtshd-c-decoder_Core2.dlb[dts_player_parma_control.doj](seg_dts_Aux_postprocessor)
+    ..\..\..\..\Core2\Library\dts-parma-dec_Core2.dlb[dts-parma-dec-api.doj](seg_dts_Aux_postprocessor)
+    ..\..\..\..\Core2\Library\dtshd-c-decoder_Core2.dlb[dtshd_interface.doj](seg_dts_swco_asm)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09344FB8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'DTSX_Trubass_Lib_PM_Code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    ..\..\..\..\Core2\Library\dts-common-srs_Core2.dlb[srs_math.doj](seg_dts_extpp_nocall)
+    ..\..\..\..\Core2\Library\dts-common-srs_Core2.dlb[srs_misc.doj](seg_dts_extpp_nocall)
+    ..\..\..\..\Core2\Library\dts-tbhdx_Core2.dlb[dts_extpp_interface.doj](seg_dts_TBHDX_code)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='09345A38' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'DTSX_Library_SW_Code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    ..\..\..\..\Core2\Library\dts-flib_Core2.dlb[PARMA_asm.doj](seg_dts_swco_asm)
+    ..\..\..\..\Core2\Library\dts-flib_Core2.dlb[cfftf_simd.doj](seg_dts_swco_asm)]]></EXTENDED_INFO>
+</MSG>
+</DOCUMENT>

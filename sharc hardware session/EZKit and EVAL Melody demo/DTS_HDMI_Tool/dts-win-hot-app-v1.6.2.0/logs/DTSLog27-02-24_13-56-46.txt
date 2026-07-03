@@ -1,0 +1,2 @@
+[ error ] [dts-hot-player-app.cpp][PlayerApp::dtsParseCommandLine][243] No Input Specified
+[ error ] [dts-hot-player-app.cpp][PlayerApp::dtsParseCommandLine][250] Endpoint Not chosen, choose from following Endpoints
