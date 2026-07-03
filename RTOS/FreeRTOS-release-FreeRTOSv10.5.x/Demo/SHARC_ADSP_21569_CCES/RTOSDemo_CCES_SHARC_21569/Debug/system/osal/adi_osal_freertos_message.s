@@ -1,0 +1,1033 @@
+	.file "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_message.c";
+//  Compilation time: Thu Oct 24 14:39:50 2024
+//  Compiler options: -c -file-attr ProjectName=RTOSDemo_CCES_SHARC_21569 -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision any -g -save-temps -path-output .\system\osal -ED -D_DEBUG -D__ADI_FREERTOS -DCORE0 -DADI_DEBUG -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/SHARC_215xx/osal -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/osal -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/system -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/Include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Demo/Common/include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/SHARC_215xx -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -threads -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo system\osal\adi_osal_freertos_message.d -o system\osal\adi_osal_freertos_message.doj
+//  Compiler version: 9.0.1.0 (3c32de17843e2a15d59cba36e76935c59d53d107)
+//  Architecture: ADSP-21569
+//  Silicon revision: any
+//  Anomalies summary:
+//   Disabled: w_anomaly_45, w_anomaly_2126x_4, w_dag_stall, w_2136x_multi, w_2136x_mem_write, w_09000014, w_09000018, w_09000020, w_07000009_1, w_07000009_2, w_09000021, w_15000003, w_09000022, w_15000004, w_15000011, w_09000023, w_15000005, w_15000016, w_15000023, w_20000022, w_20000020, w_20000024, w_20000023, w_20000009, w_20000083
+//   Enabled: w_20000002, w_20000069
+//   Always on: w_simd, w_restore_loop_stack
+
+.MESSAGE/SUPPRESS 2555;
+.MESSAGE/SUPPRESS 2561;
+.MESSAGE/SUPPRESS 2565;
+
+
+	.section/SW/DOUBLE32 seg_swco;
+
+.epctext:
+
+adi_osal_MsgQueueCreate.:
+.LNadi_osal_MsgQueueCreate.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 32 bytes
+//  Scratch registers used: {r0,r2,r4,r8,r12,i4,i12,acc,scc}
+//  No call preserved registers used.
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_message.c":113
+	modify(i7,-6) (nw);
+	dm(-5,i6)=r12;
+	dm(-6,i6)=r8;
+	dm(-7,i6)=r4;
+	r2=pass r4;
+.LN0:
+// line 117
+	if ne jump (pc,.P34L2);
+
+.LN1:
+// line 119
+	i12=4;
+	dm(-2,i6)=i12;
+	jump (pc,.P34L4);
+
+.P34L2:
+.LN2:
+// line 122
+	cjump _adi_osal_IsCurrentLevelISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ0-1;
+.LCJ0:
+	r2=fext r0 by 0:8;
+	r2=pass r2;
+.LN3:
+	if eq jump (pc,.P34L7);
+
+.LN4:
+// line 124
+	i4=dm(-7,i6);
+	dm(m5,i4)=m15;
+.LN5:
+// line 125
+	i12=19;
+	dm(-2,i6)=i12;
+	jump (pc,.P34L4);
+
+.P34L7:
+.LN6:
+// line 128
+	r4=dm(-5,i6);
+.LN7:
+	r12=m5;
+	r8=4;
+	cjump xQueueGenericCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ1-1;
+.LCJ1:
+.LN8:
+	dm(-3,i6)=r0;
+	r2=pass r0;
+.LN9:
+// line 130
+	if eq jump (pc,.P34L11);
+
+.LN10:
+// line 132
+	i4=dm(-7,i6);
+	dm(i4,m5)=r0;
+.LN11:
+// line 133
+	dm(-4,i6)=m13;
+.LN12:
+// line 134
+	jump (pc,.P34L12);
+
+.P34L11:
+.LN13:
+// line 137
+	i4=dm(-7,i6);
+	dm(m5,i4)=m15;
+.LN14:
+// line 138
+	dm(-4,i6)=m14;
+
+.P34L12:
+.LN15:
+// line 141
+	r2=dm(-4,i6);
+	dm(-2,i6)=r2;
+
+.P34L4:
+.LN16:
+// line 142
+	r0=dm(-2,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_MsgQueueCreate..end:
+.adi_osal_MsgQueueCreate..end:
+	.global adi_osal_MsgQueueCreate.;
+	.type adi_osal_MsgQueueCreate.,STT_FUNC;
+
+adi_osal_MsgQueueDestroy.:
+.LNadi_osal_MsgQueueDestroy.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 24 bytes
+//  Scratch registers used: {r0,r2,r4,i12,acc,scc}
+//  No call preserved registers used.
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_message.c":159
+	modify(i7,-4) (nw);
+	dm(-4,i6)=r4;
+.LN17:
+// line 160
+	dm(-3,i6)=m13;
+.LN18:
+// line 162
+	cjump _adi_osal_IsCurrentLevelISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ2-1;
+.LCJ2:
+	r2=fext r0 by 0:8;
+	r2=pass r2;
+.LN19:
+	if eq jump (pc,.P37L2);
+
+.LN20:
+// line 164
+	i12=19;
+	dm(-2,i6)=i12;
+	jump (pc,.P37L4);
+
+.P37L2:
+.LN21:
+// line 167
+	r4=dm(-4,i6);
+	r2=pass r4;
+	if eq jump (pc,.P37L6);
+
+	r2=m7;
+	comp(r4,r2);
+	if ne jump (pc,.P37L7);
+
+.P37L6:
+.LN22:
+// line 169
+	i12=4;
+	dm(-2,i6)=i12;
+	jump (pc,.P37L4);
+
+.P37L7:
+.LN23:
+// line 172
+	cjump vQueueDelete. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ3-1;
+.LCJ3:
+.LN24:
+// line 174
+	r2=dm(-3,i6);
+	dm(-2,i6)=r2;
+
+.P37L4:
+.LN25:
+// line 175
+	r0=dm(-2,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_MsgQueueDestroy..end:
+.adi_osal_MsgQueueDestroy..end:
+	.global adi_osal_MsgQueueDestroy.;
+	.type adi_osal_MsgQueueDestroy.,STT_FUNC;
+
+adi_osal_MsgQueuePost.:
+.LNadi_osal_MsgQueuePost.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 40 bytes
+//  Scratch registers used: {r0-r2,r4,r8,r12,i4,i12,acc,scc}
+//  No call preserved registers used.
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_message.c":193
+	modify(i7,-6) (nw);
+	dm(-6,i6)=r8;
+	dm(-7,i6)=r4;
+.LN26:
+// line 195
+	dm(-4,i6)=m14;
+.LN27:
+// line 198
+	r2=m7;
+	comp(r4,r2);
+	if eq jump (pc,.P39L1);
+
+	r2=pass r4;
+	if ne jump (pc,.P39L2);
+
+.P39L1:
+.LN28:
+// line 200
+	i12=4;
+	dm(-3,i6)=i12;
+	jump (pc,.P39L5);
+
+.P39L2:
+.LN29:
+// line 204
+	cjump _adi_osal_IsCurrentLevelISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ4-1;
+.LCJ4:
+	r2=fext r0 by 0:8;
+	r2=pass r2;
+.LN30:
+	if eq jump (pc,.P39L8);
+
+.LN31:
+// line 206
+	dm(-2,i6)=m13;
+.LN32:
+// line 208
+	r4=dm(-7,i6);
+	r8=dm(-6,i6);
+.LN33:
+	i4=modify(i6,-2) (nw);
+	r12=i4;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	cjump xQueueGenericSendFromISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ5-1;
+.LCJ5:
+	modify(i7,2) (nw);
+.LN34:
+	dm(-5,i6)=r0;
+	r2=pass r0;
+.LN35:
+// line 210
+	if eq jump (pc,.P39L11);
+
+.LN36:
+// line 213
+	r2=dm(-2,i6);
+	r2=pass r2;
+	if eq jump (pc,.P39L14);
+
+.LN37:
+	r2=dm(_adi_OSRescheduleIntID.);
+	dm(822644744)=r2;
+.LN38:
+	jump (pc,.P39L15);
+
+.P39L14:
+
+.P39L15:
+.LN39:
+// line 214
+	jump (pc,.P39L12);
+
+.P39L11:
+
+.P39L12:
+.LN40:
+// line 215
+	jump (pc,.P39L9);
+
+.P39L8:
+.LN41:
+// line 218
+	r4=dm(-7,i6);
+	r8=dm(-6,i6);
+.LN42:
+	r12=m5;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	cjump xQueueGenericSend. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ6-1;
+.LCJ6:
+	modify(i7,2) (nw);
+.LN43:
+	dm(-5,i6)=r0;
+
+.P39L9:
+.LN44:
+// line 221
+	r2=dm(-5,i6);
+	r1=m5;
+	r2=btgl r2 by r1;
+	if not sz jump (pc,.P39L17);
+
+.LN45:
+// line 223
+	dm(-4,i6)=m13;
+.LN46:
+// line 224
+	jump (pc,.P39L18);
+
+.P39L17:
+
+.P39L18:
+.LN47:
+// line 226
+	r2=dm(-4,i6);
+	dm(-3,i6)=r2;
+
+.P39L5:
+.LN48:
+// line 227
+	r0=dm(-3,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_MsgQueuePost..end:
+.adi_osal_MsgQueuePost..end:
+	.global adi_osal_MsgQueuePost.;
+	.type adi_osal_MsgQueuePost.,STT_FUNC;
+
+adi_osal_MsgQueuePend.:
+.LNadi_osal_MsgQueuePend.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 32 bytes
+//  Scratch registers used: {r0-r2,r4,r8,r12,i4,i12,acc,scc}
+//  No call preserved registers used.
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_message.c":261
+	modify(i7,-6) (nw);
+	dm(-5,i6)=r12;
+	dm(-6,i6)=r8;
+	dm(-7,i6)=r4;
+.LN49:
+// line 262
+	dm(-4,i6)=m14;
+	r2=65535;
+	compu(r12,r2);
+.LN50:
+// line 266
+	if le jump (pc,.P42L2);
+
+	r2=m7;
+	comp(r12,r2);
+	if eq jump (pc,.P42L2);
+
+.LN51:
+// line 269
+	i12=16;
+	dm(-2,i6)=i12;
+	jump (pc,.P42L5);
+
+.P42L2:
+.LN52:
+// line 273
+	cjump _adi_osal_IsSchedLocked. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ7-1;
+.LCJ7:
+	r2=fext r0 by 0:8;
+	r2=pass r2;
+.LN53:
+	if eq jump (pc,.P42L8);
+
+.LN54:
+// line 275
+	i12=19;
+	dm(-2,i6)=i12;
+	jump (pc,.P42L5);
+
+.P42L8:
+.LN55:
+// line 278
+	cjump _adi_osal_IsCurrentLevelISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ8-1;
+.LCJ8:
+	r2=fext r0 by 0:8;
+	r2=pass r2;
+.LN56:
+	if eq jump (pc,.P42L12);
+
+.LN57:
+// line 280
+	i12=19;
+	dm(-2,i6)=i12;
+	jump (pc,.P42L5);
+
+.P42L12:
+.LN58:
+// line 283
+	r2=dm(-7,i6);
+	r2=pass r2;
+	if eq jump (pc,.P42L15);
+
+	r1=m7;
+	comp(r2,r1);
+	if ne jump (pc,.P42L16);
+
+.P42L15:
+.LN59:
+// line 285
+	i12=4;
+	dm(-2,i6)=i12;
+	jump (pc,.P42L5);
+
+.P42L16:
+.LN60:
+// line 288
+	r2=dm(-5,i6);
+	r2=pass r2;
+	if eq jump (pc,.P42L22);
+
+	comp(r2,r1);
+	if eq jump (pc,.P42L23);
+
+	jump (pc,.P42L21);
+
+.P42L22:
+.LN61:
+// line 291
+	dm(-3,i6)=m13;
+.LN62:
+// line 292
+	jump (pc,.P42L24);
+
+.P42L23:
+.LN63:
+// line 294
+	dm(-3,i6)=m15;
+.LN64:
+// line 295
+	jump (pc,.P42L24);
+
+.P42L21:
+.LN65:
+// line 297
+	dm(-3,i6)=r2;
+
+.P42L24:
+.LN66:
+// line 301
+	r4=dm(-7,i6);
+	i4=dm(-6,i6);
+	r8=dm(i4,m5);
+	r12=dm(-3,i6);
+.LN67:
+	cjump xQueueReceive. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ9-1;
+.LCJ9:
+	r2=m5;
+	r2=btgl r0 by r2;
+.LN68:
+	if not sz jump (pc,.P42L26);
+
+.LN69:
+// line 303
+	dm(-4,i6)=m13;
+.LN70:
+// line 304
+	jump (pc,.P42L27);
+
+.P42L26:
+
+.P42L27:
+.LN71:
+// line 306
+	r2=dm(-4,i6);
+	dm(-2,i6)=r2;
+
+.P42L5:
+.LN72:
+// line 307
+	r0=dm(-2,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_MsgQueuePend..end:
+.adi_osal_MsgQueuePend..end:
+	.global adi_osal_MsgQueuePend.;
+	.type adi_osal_MsgQueuePend.,STT_FUNC;
+
+_adi_osal_IsCurrentLevelISR.:
+.LN_adi_osal_IsCurrentLevelISR.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 16 bytes
+//  Scratch registers used: {r0,r2,i12,acc}
+//  No call preserved registers used.
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\SHARC_ADSP_21569_CCES\RTOSDemo_CCES_SHARC_21569\..\..\..\Source\portable\CCES\SHARC_215xx\osal\adi_osal_arch_internal.h":117
+	modify(i7,-2) (nw);
+
+.LN73:
+// line 122
+	r2=imaskp;
+
+.LN74:
+	r2=pass r2;
+	r0=m5;
+	if ne r0=m6;
+.LN75:
+	dm(-2,i6)=r0;
+
+.LN76:
+// line 117
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN._adi_osal_IsCurrentLevelISR..end:
+._adi_osal_IsCurrentLevelISR..end:
+	.type _adi_osal_IsCurrentLevelISR.,STT_FUNC;
+
+_adi_osal_IsSchedLocked.:
+.LN_adi_osal_IsSchedLocked.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 8 bytes
+//  Scratch registers used: {r0,r2,i12,acc}
+//  No call preserved registers used.
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+.LN77:
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\osal_freertos.h":293
+	cjump xTaskGetSchedulerState. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ10-1;
+.LCJ10:
+.LN78:
+	r2=pass r0;
+	r0=m5;
+	if eq r0=m6;
+.LN79:
+// line 291
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN._adi_osal_IsSchedLocked..end:
+._adi_osal_IsSchedLocked..end:
+	.type _adi_osal_IsSchedLocked.,STT_FUNC;
+
+	.file_attr ProjectName="RTOSDemo_CCES_SHARC_21569";
+	.file_attr FuncName="llabs.";
+	.file_attr FuncName="llmin.";
+	.file_attr FuncName="llmax.";
+	.file_attr FuncName="_adi_osal_IsMemoryAligned.";
+	.file_attr FuncName="_adi_osal_IsCurrentLevelISR.";
+	.file_attr FuncName="disable_interrupts.";
+	.file_attr FuncName="enable_interrupts.";
+	.file_attr FuncName="_adi_osal_IsSchedLocked.";
+	.file_attr FuncName="adi_osal_MsgQueueCreate.";
+	.file_attr FuncName="adi_osal_MsgQueueDestroy.";
+	.file_attr FuncName="adi_osal_MsgQueuePost.";
+	.file_attr FuncName="adi_osal_MsgQueuePend.";
+	.file_attr Encoding="SW";
+	.file_attr Content="Code";
+.epctext.end:
+
+	.extern xQueueGenericCreate.;
+	.type xQueueGenericCreate.,STT_FUNC;
+	.extern vQueueDelete.;
+	.type vQueueDelete.,STT_FUNC;
+	.extern xQueueGenericSendFromISR.;
+	.type xQueueGenericSendFromISR.,STT_FUNC;
+	.extern xQueueGenericSend.;
+	.type xQueueGenericSend.,STT_FUNC;
+	.extern xQueueReceive.;
+	.type xQueueReceive.,STT_FUNC;
+	.extern xTaskGetSchedulerState.;
+	.type xTaskGetSchedulerState.,STT_FUNC;
+
+	.section .debug_abbrev;
+
+	.align 1;
+	.type .epcabbrev,STT_OBJECT;
+.epcabbrev:
+	.inc/binary ".\system\osal\adi_osal_freertos_message.sbn", 0, 288;
+.epcabbrev.end:
+
+	.section .debug_info;
+
+	.align 1;
+	.type .epcdebug,STT_OBJECT;
+.epcdebug:
+	.byte =
+		0x7D,0x29,0x00,0x00,0x02,0x00;
+	.var = .epcabbrev;
+	.byte =
+		0x04,0x01,0x44,0x3A,0x5C,0x52,0x54,0x4F,0x53,0x5C,0x46,0x72,
+		0x65,0x65,0x52,0x54,0x4F,0x53,0x2D,0x72,0x65,0x6C,0x65,0x61,
+		0x73,0x65,0x2D,0x46,0x72,0x65,0x65,0x52,0x54,0x4F,0x53,0x76,
+		0x31,0x30,0x2E,0x35,0x2E,0x78,0x5C,0x53,0x6F,0x75,0x72,0x63,
+		0x65,0x5C,0x70,0x6F,0x72,0x74,0x61,0x62,0x6C,0x65,0x5C,0x43,
+		0x43,0x45,0x53,0x5C,0x6F,0x73,0x61,0x6C,0x5C,0x61,0x64,0x69,
+		0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x66,0x72,0x65,0x65,0x72,0x74,
+		0x6F,0x73,0x5F,0x6D,0x65,0x73,0x73,0x61,0x67,0x65,0x2E,0x63,
+		0x00,0x0C;
+	.var = .epcline;
+	.inc/binary ".\system\osal\adi_osal_freertos_message.sbn", 288, 9750;
+	.var = .LNadi_osal_MsgQueueCreate.;
+	.var = .LN.adi_osal_MsgQueueCreate..end;
+	.byte =
+		0x01,0x1E,0x18,0x00,0x00,0x01,0x00,0x14,0x70,0x68,0x4D,0x73,
+		0x67,0x51,0x00,0x0C,0x27,0x00,0x00,0x02,0x86,0x64,0x00,0x14,
+		0x61,0x4D,0x73,0x67,0x51,0x00,0x06,0x27,0x00,0x00,0x02,0x86,
+		0x68,0x00,0x14,0x6E,0x4D,0x61,0x78,0x4D,0x73,0x67,0x73,0x00,
+		0x27,0x05,0x00,0x00,0x02,0x86,0x6C,0x00,0x15,0x00,0x00,0x00,
+		0x00;
+	.var = .LN0;
+	.var = .LN.adi_osal_MsgQueueCreate..end;
+	.byte =
+		0x16,0x65,0x52,0x65,0x74,0x53,0x74,0x61,0x74,0x75,0x73,0x00,
+		0x01,0x1E,0x18,0x00,0x00,0x02,0x86,0x70,0x00,0x00,0x00,0x00,
+		0x00,0x16,0x70,0x4D,0x65,0x73,0x73,0x61,0x67,0x65,0x51,0x00,
+		0x01,0x86,0x23,0x00,0x00,0x02,0x86,0x74,0x00,0x00,0x00,0x00,
+		0x00,0x00,0x00,0x05,0x00,0xEB,0x03,0x00,0x00,0x05,0x00,0x75,
+		0x14,0x00,0x00,0x13,0x77,0x27,0x00,0x00,0x61,0x64,0x69,0x5F,
+		0x6F,0x73,0x61,0x6C,0x5F,0x4D,0x73,0x67,0x51,0x75,0x65,0x75,
+		0x65,0x44,0x65,0x73,0x74,0x72,0x6F,0x79,0x00,0x01;
+	.var = .LNadi_osal_MsgQueueDestroy.;
+	.var = .LN.adi_osal_MsgQueueDestroy..end;
+	.byte =
+		0x01,0x1E,0x18,0x00,0x00,0x01,0x00,0x14,0x68,0x4D,0x73,0x67,
+		0x51,0x00,0x77,0x27,0x00,0x00,0x02,0x86,0x70,0x00,0x15,0x00,
+		0x00,0x00,0x00;
+	.var = .LN17;
+	.var = .LN.adi_osal_MsgQueueDestroy..end;
+	.byte =
+		0x16,0x65,0x52,0x65,0x74,0x53,0x74,0x61,0x74,0x75,0x73,0x00,
+		0x01,0x1E,0x18,0x00,0x00,0x02,0x86,0x74;
+	.var = .LN17-.LNadi_osal_MsgQueueDestroy.;
+	.byte =
+		0x00,0x00,0x00,0x11,0x75,0x14,0x00,0x00,0x13,0x39,0x28,0x00,
+		0x00,0x61,0x64,0x69,0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x4D,0x73,
+		0x67,0x51,0x75,0x65,0x75,0x65,0x50,0x6F,0x73,0x74,0x00,0x01;
+	.var = .LNadi_osal_MsgQueuePost.;
+	.var = .LN.adi_osal_MsgQueuePost..end;
+	.byte =
+		0x01,0x1E,0x18,0x00,0x00,0x01,0x00,0x14,0x68,0x4D,0x73,0x67,
+		0x51,0x00,0x77,0x27,0x00,0x00,0x02,0x86,0x64,0x00,0x14,0x70,
+		0x4D,0x73,0x67,0x00,0xEB,0x03,0x00,0x00,0x02,0x86,0x68,0x00,
+		0x15,0x00,0x00,0x00,0x00;
+	.var = .LN26;
+	.var = .LN.adi_osal_MsgQueuePost..end;
+	.byte =
+		0x16,0x6E,0x52,0x65,0x74,0x56,0x61,0x6C,0x75,0x65,0x00,0x01,
+		0x32,0x0C,0x00,0x00,0x02,0x86,0x6C,0x00,0x00,0x00,0x00,0x00,
+		0x16,0x65,0x52,0x65,0x74,0x53,0x74,0x61,0x74,0x75,0x73,0x00,
+		0x01,0x1E,0x18,0x00,0x00,0x02,0x86,0x70;
+	.var = .LN26-.LNadi_osal_MsgQueuePost.;
+	.byte =
+		0x00,0x15,0x00,0x00,0x00,0x00;
+	.var = .LN31;
+	.var = .LN41;
+	.byte =
+		0x16,0x6E,0x48,0x69,0x67,0x68,0x65,0x72,0x50,0x72,0x69,0x6F,
+		0x72,0x69,0x74,0x79,0x54,0x61,0x73,0x6B,0x57,0x6F,0x6B,0x65,
+		0x6E,0x00,0x01,0x32,0x0C,0x00,0x00,0x02,0x86,0x78,0x00,0x00,
+		0x00,0x00,0x00,0x00,0x00,0x00,0x13,0xDC,0x28,0x00,0x00,0x61,
+		0x64,0x69,0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x4D,0x73,0x67,0x51,
+		0x75,0x65,0x75,0x65,0x50,0x65,0x6E,0x64,0x00,0x01;
+	.var = .LNadi_osal_MsgQueuePend.;
+	.var = .LN.adi_osal_MsgQueuePend..end;
+	.byte =
+		0x01,0x1E,0x18,0x00,0x00,0x01,0x00,0x14,0x68,0x4D,0x73,0x67,
+		0x51,0x00,0x77,0x27,0x00,0x00,0x02,0x86,0x64,0x00,0x14,0x70,
+		0x70,0x4D,0x73,0x67,0x00,0x06,0x27,0x00,0x00,0x02,0x86,0x68,
+		0x00,0x14,0x6E,0x54,0x69,0x6D,0x65,0x6F,0x75,0x74,0x49,0x6E,
+		0x54,0x69,0x63,0x6B,0x73,0x00,0x57,0x19,0x00,0x00,0x02,0x86,
+		0x6C,0x00,0x15,0x00,0x00,0x00,0x00;
+	.var = .LN49;
+	.var = .LN.adi_osal_MsgQueuePend..end;
+	.byte =
+		0x16,0x65,0x52,0x65,0x74,0x53,0x74,0x61,0x74,0x75,0x73,0x00,
+		0x01,0x1E,0x18,0x00,0x00,0x02,0x86,0x70;
+	.var = .LN49-.LNadi_osal_MsgQueuePend.;
+	.byte =
+		0x00,0x16,0x6E,0x54,0x69,0x6D,0x65,0x54,0x69,0x63,0x6B,0x73,
+		0x00,0x01,0x55,0x0C,0x00,0x00,0x02,0x86,0x74;
+	.var = .LN49-.LNadi_osal_MsgQueuePend.;
+	.byte =
+		0x00,0x00,0x00,0x13,0x1C,0x29,0x00,0x00,0x5F,0x61,0x64,0x69,
+		0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x49,0x73,0x43,0x75,0x72,0x72,
+		0x65,0x6E,0x74,0x4C,0x65,0x76,0x65,0x6C,0x49,0x53,0x52,0x00,
+		0x01;
+	.var = .LN_adi_osal_IsCurrentLevelISR.;
+	.var = .LN._adi_osal_IsCurrentLevelISR..end;
+	.byte =
+		0x01,0xF4,0x01,0x00,0x00,0x01,0x02,0x15,0x00,0x00,0x00,0x00;
+	.var = .LN73;
+	.var = .LN76;
+	.byte =
+		0x00,0x00,0x13,0x58,0x29,0x00,0x00,0x5F,0x61,0x64,0x69,0x5F,
+		0x6F,0x73,0x61,0x6C,0x5F,0x49,0x73,0x53,0x63,0x68,0x65,0x64,
+		0x4C,0x6F,0x63,0x6B,0x65,0x64,0x00,0x01;
+	.var = .LN_adi_osal_IsSchedLocked.;
+	.var = .LN._adi_osal_IsSchedLocked..end;
+	.byte =
+		0x01,0xF4,0x01,0x00,0x00,0x00,0x02,0x15,0x00,0x00,0x00,0x00;
+	.var = .LN77;
+	.var = .LN79;
+	.byte =
+		0x00,0x00,0x16,0x5F,0x61,0x64,0x69,0x5F,0x4F,0x53,0x52,0x65,
+		0x73,0x63,0x68,0x65,0x64,0x75,0x6C,0x65,0x49,0x6E,0x74,0x49,
+		0x44,0x00,0x01,0x27,0x05,0x00,0x00,0x05,0x03;
+	.var = _adi_OSRescheduleIntID.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x01,0x00;
+.epcdebug.end:
+
+	.section .debug_line;
+
+	.align 1;
+	.type .epcline,STT_OBJECT;
+.epcline:
+	.inc/binary ".\system\osal\adi_osal_freertos_message.sbn", 10038, 2364;
+	.var = .LNadi_osal_MsgQueueCreate.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x79,0x00,0x05,0x02;
+	.var = .LN0;
+	.byte =
+		0x05,0x05,0x0D,0x00,0x05,0x02;
+	.var = .LN1;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN2;
+	.byte =
+		0x0C,0x00,0x05,0x02;
+	.var = .LN3;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN4;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN5;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN6;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN7;
+	.byte =
+		0x05,0x11,0x01,0x00,0x05,0x02;
+	.var = .LN8;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN9;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN10;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN11;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN12;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN13;
+	.byte =
+		0x05,0x09,0x0C,0x00,0x05,0x02;
+	.var = .LN14;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN15;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN16;
+	.byte =
+		0x05,0x01,0x0A,0x00,0x05,0x02;
+	.var = .LN.adi_osal_MsgQueueCreate..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNadi_osal_MsgQueueDestroy.;
+	.byte =
+		0x04,0x01,0x05,0x01,0xA7,0x00,0x05,0x02;
+	.var = .LN17;
+	.byte =
+		0x05,0x15,0x0A,0x00,0x05,0x02;
+	.var = .LN18;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN19;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN20;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN21;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN22;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN23;
+	.byte =
+		0x05,0x11,0x0C,0x00,0x05,0x02;
+	.var = .LN24;
+	.byte =
+		0x05,0x05,0x0B,0x00,0x05,0x02;
+	.var = .LN25;
+	.byte =
+		0x05,0x01,0x0A,0x00,0x05,0x02;
+	.var = .LN.adi_osal_MsgQueueDestroy..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNadi_osal_MsgQueuePost.;
+	.byte =
+		0x04,0x01,0x05,0x01,0xC9,0x00,0x05,0x02;
+	.var = .LN26;
+	.byte =
+		0x05,0x15,0x0B,0x00,0x05,0x02;
+	.var = .LN27;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN28;
+	.byte =
+		0x05,0x08,0x0B,0x00,0x05,0x02;
+	.var = .LN29;
+	.byte =
+		0x05,0x09,0x0D,0x00,0x05,0x02;
+	.var = .LN30;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN31;
+	.byte =
+		0x05,0x14,0x0B,0x00,0x05,0x02;
+	.var = .LN32;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN33;
+	.byte =
+		0x05,0x15,0x01,0x00,0x05,0x02;
+	.var = .LN34;
+	.byte =
+		0x05,0x09,0x01,0x00,0x05,0x02;
+	.var = .LN35;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN36;
+	.byte =
+		0x05,0x0D,0x0C,0x00,0x05,0x02;
+	.var = .LN37;
+	.byte =
+		0x01,0x00,0x05,0x02;
+	.var = .LN38;
+	.byte =
+		0x01,0x00,0x05,0x02;
+	.var = .LN39;
+	.byte =
+		0x05,0x09,0x0A,0x00,0x05,0x02;
+	.var = .LN40;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN41;
+	.byte =
+		0x05,0x09,0x0C,0x00,0x05,0x02;
+	.var = .LN42;
+	.byte =
+		0x05,0x15,0x01,0x00,0x05,0x02;
+	.var = .LN43;
+	.byte =
+		0x05,0x09,0x01,0x00,0x05,0x02;
+	.var = .LN44;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN45;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN46;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN47;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN48;
+	.byte =
+		0x05,0x01,0x0A,0x00,0x05,0x02;
+	.var = .LN.adi_osal_MsgQueuePost..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNadi_osal_MsgQueuePend.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x03,0x84,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN49;
+	.byte =
+		0x05,0x15,0x0A,0x00,0x05,0x02;
+	.var = .LN50;
+	.byte =
+		0x05,0x05,0x0D,0x00,0x05,0x02;
+	.var = .LN51;
+	.byte =
+		0x05,0x0A,0x0C,0x00,0x05,0x02;
+	.var = .LN52;
+	.byte =
+		0x05,0x09,0x0D,0x00,0x05,0x02;
+	.var = .LN53;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN54;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN55;
+	.byte =
+		0x0C,0x00,0x05,0x02;
+	.var = .LN56;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN57;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN58;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN59;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN60;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN61;
+	.byte =
+		0x05,0x0D,0x0C,0x00,0x05,0x02;
+	.var = .LN62;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN63;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN64;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN65;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN66;
+	.byte =
+		0x05,0x05,0x0D,0x00,0x05,0x02;
+	.var = .LN67;
+	.byte =
+		0x05,0x1F,0x01,0x00,0x05,0x02;
+	.var = .LN68;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN69;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN70;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN71;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN72;
+	.byte =
+		0x05,0x01,0x0A,0x00,0x05,0x02;
+	.var = .LN.adi_osal_MsgQueuePend..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LN_adi_osal_IsCurrentLevelISR.;
+	.byte =
+		0x04,0x2E,0x05,0x06,0x7D,0x00,0x05,0x02;
+	.var = .LN73;
+	.byte =
+		0x05,0x05,0x0E,0x00,0x05,0x02;
+	.var = .LN74;
+	.byte =
+		0x01,0x00,0x05,0x02;
+	.var = .LN75;
+	.byte =
+		0x01,0x00,0x05,0x02;
+	.var = .LN76;
+	.byte =
+		0x05,0x06,0x03,0x7B,0x01,0x00,0x05,0x02;
+	.var = .LN._adi_osal_IsCurrentLevelISR..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LN_adi_osal_IsSchedLocked.;
+	.byte =
+		0x04,0x26,0x05,0x14,0x03,0xA2,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN77;
+	.byte =
+		0x05,0x3E,0x0B,0x00,0x05,0x02;
+	.var = .LN78;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN79;
+	.byte =
+		0x05,0x14,0x03,0x7E,0x01,0x00,0x05,0x02;
+	.var = .LN._adi_osal_IsSchedLocked..end;
+	.byte =
+		0x00,0x01,0x01;
+.epcline.end:
+
+	.section .debug_pubnames;
+
+	.align 1;
+.epcpubnames:
+	.type .epcpubnames,STT_OBJECT;
+	.byte =
+		0x9B,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.inc/binary ".\system\osal\adi_osal_freertos_message.sbn", 12402, 149;
+.epcpubnames.end:
+
+	.section .debug_aranges;
+
+	.align 1;
+.epcaranges:
+	.type .epcaranges,STT_OBJECT;
+	.byte =
+		0x44,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0x04,0x00,0x00,0x00,0x00,0x00;
+	.var = .LNadi_osal_MsgQueueCreate.;
+	.var = .LN.adi_osal_MsgQueueCreate..end-.LNadi_osal_MsgQueueCreate.;
+	.var = .LN_adi_osal_IsCurrentLevelISR.;
+	.var = .LN._adi_osal_IsCurrentLevelISR..end-.LN_adi_osal_IsCurrentLevelISR.;
+	.var = .LNadi_osal_MsgQueueDestroy.;
+	.var = .LN.adi_osal_MsgQueueDestroy..end-.LNadi_osal_MsgQueueDestroy.;
+	.var = .LNadi_osal_MsgQueuePost.;
+	.var = .LN.adi_osal_MsgQueuePost..end-.LNadi_osal_MsgQueuePost.;
+	.var = .LNadi_osal_MsgQueuePend.;
+	.var = .LN.adi_osal_MsgQueuePend..end-.LNadi_osal_MsgQueuePend.;
+	.var = .LN_adi_osal_IsSchedLocked.;
+	.var = .LN._adi_osal_IsSchedLocked..end-.LN_adi_osal_IsSchedLocked.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00;
+.epcaranges.end:
+
+	.section/DOUBLE32 seg_dmda;
+
+
+	.extern _adi_OSRescheduleIntID.;
+	.type _adi_OSRescheduleIntID.,STT_OBJECT;

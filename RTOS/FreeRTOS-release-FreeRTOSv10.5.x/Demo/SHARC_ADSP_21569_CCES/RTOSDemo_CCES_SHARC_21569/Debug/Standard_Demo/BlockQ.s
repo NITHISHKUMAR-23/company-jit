@@ -1,0 +1,1171 @@
+	.file "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c";
+//  Compilation time: Thu Oct 24 14:40:16 2024
+//  Compiler options: -c -file-attr ProjectName=RTOSDemo_CCES_SHARC_21569 -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision any -g -save-temps -path-output .\Standard_Demo -ED -D_DEBUG -D__ADI_FREERTOS -DCORE0 -DADI_DEBUG -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/SHARC_215xx/osal -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/osal -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/system -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/Include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Demo/Common/include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/SHARC_215xx -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -threads -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo Standard_Demo\BlockQ.d -o Standard_Demo\BlockQ.doj
+//  Compiler version: 9.0.1.0 (3c32de17843e2a15d59cba36e76935c59d53d107)
+//  Architecture: ADSP-21569
+//  Silicon revision: any
+//  Anomalies summary:
+//   Disabled: w_anomaly_45, w_anomaly_2126x_4, w_dag_stall, w_2136x_multi, w_2136x_mem_write, w_09000014, w_09000018, w_09000020, w_07000009_1, w_07000009_2, w_09000021, w_15000003, w_09000022, w_15000004, w_15000011, w_09000023, w_15000005, w_15000016, w_15000023, w_20000022, w_20000020, w_20000024, w_20000023, w_20000009, w_20000083
+//   Enabled: w_20000002, w_20000069
+//   Always on: w_simd, w_restore_loop_stack
+
+.MESSAGE/SUPPRESS 2555;
+.MESSAGE/SUPPRESS 2561;
+.MESSAGE/SUPPRESS 2565;
+
+
+	.section/SW/DOUBLE32 seg_swco;
+
+.epctext:
+
+xAreBlockingQueuesStillRunning.:
+.LNxAreBlockingQueuesStillRunning.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 24 bytes
+//  Scratch registers used: {r0-r2,i4,i12,m4,acc}
+//  Call preserved registers used: {i5}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c":261
+	modify(i7,-4) (nw);
+	r2=i5;
+	dm(-4,i6)=r2;
+.LN0:
+// line 264
+	dm(-3,i6)=m14;
+.LN1:
+// line 273
+	dm(-2,i6)=m13;
+
+.P37L1:
+//-------------------------------------------------------------------
+//   Loop at "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c" line 273 col 2
+//-------------------------------------------------------------------
+	r2=dm(-2,i6);
+	r1=3;
+	comp(r2,r1);
+	if ge jump (pc,.P37L3);
+
+	m4=r2;
+.LN2:
+// line 275
+	i4=sBlockingConsumerCount.;
+	r2=dm(m4,i4) (swse);                    // Use of volatile in loops precludes optimizations. 
+	m4=dm(-2,i6);
+	i5=sLastBlockingConsumerCount.0.;
+	r1=dm(m4,i5) (swse);
+	comp(r2,r1);
+	if ne jump (pc,.P37L5);
+
+.LN3:
+// line 277
+	dm(-3,i6)=m13;
+.LN4:
+// line 278
+	jump (pc,.P37L6);
+
+.P37L5:
+
+.P37L6:
+.LN5:
+// line 279
+	m4=dm(-2,i6);
+	r2=dm(m4,i4) (sw);                      // Use of volatile in loops precludes optimizations. 
+	m4=dm(-2,i6);
+	dm(m4,i5)=r2 (sw);
+.LN6:
+// line 282
+	m4=dm(-2,i6);
+	i4=sBlockingProducerCount.;
+	r2=dm(m4,i4) (swse);                    // Use of volatile in loops precludes optimizations. 
+	m4=dm(-2,i6);
+	i5=sLastBlockingProducerCount.1.;
+	r1=dm(m4,i5) (swse);
+	comp(r2,r1);
+	if ne jump (pc,.P37L8);
+
+.LN7:
+// line 284
+	dm(-3,i6)=m13;
+.LN8:
+// line 285
+	jump (pc,.P37L9);
+
+.P37L8:
+
+.P37L9:
+.LN9:
+// line 286
+	m4=dm(-2,i6);
+	r2=dm(m4,i4) (sw);                      // Use of volatile in loops precludes optimizations. 
+	m4=dm(-2,i6);
+	dm(m4,i5)=r2 (sw);
+.LN10:
+// line 273
+	r2=dm(-2,i6);
+	r2=r2+1;
+	dm(-2,i6)=r2;
+	jump (pc,.P37L1);
+//-------------------------------------------------------------------
+//   End Loop L1
+//-------------------------------------------------------------------
+
+.P37L3:
+//-------------------------------------------------------------------
+//   Part of top level (no loop)
+//-------------------------------------------------------------------
+.LN11:
+// line 289
+	r0=dm(-3,i6);
+	i5=dm(-4,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.xAreBlockingQueuesStillRunning..end:
+.xAreBlockingQueuesStillRunning..end:
+	.global xAreBlockingQueuesStillRunning.;
+	.type xAreBlockingQueuesStillRunning.,STT_FUNC;
+
+vStartBlockingQueueTasks.:
+.LNvStartBlockingQueueTasks.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 80 bytes
+//  Scratch registers used: {r1-r2,r4,r8,r12,i4,i12}
+//  Call preserved registers used: {r9-r10}
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c":97
+	modify(i7,-14) (nw);
+	dm(-14,i6)=r9;
+	dm(-13,i6)=r10;
+	dm(-12,i6)=r4;
+.LN12:
+// line 101
+	dm(-5,i6)=m14;
+.LN13:
+	i12=5;
+	dm(-4,i6)=i12;
+.LN14:
+// line 102
+	i12=1000;
+	dm(-3,i6)=i12;
+.LN15:
+// line 103
+	dm(-2,i6)=m13;
+.LN16:
+// line 108
+	r4=12;
+	cjump pvPortMalloc. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ0-1;
+.LCJ0:
+.LN17:
+	dm(-11,i6)=r0;
+.LN18:
+// line 112
+	r4=dm(-5,i6);
+.LN19:
+	r12=m5;
+	r8=2;
+	cjump xQueueGenericCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ1-1;
+.LCJ1:
+.LN20:
+	i4=dm(-11,i6);
+	dm(i4,m5)=r0;
+.LN21:
+// line 115
+	r2=dm(-3,i6);
+	i4=dm(-11,i6);
+	dm(m6,i4)=r2;
+.LN22:
+// line 119
+	i4=dm(-11,i6);
+	i12=sBlockingConsumerCount.;
+	dm(2,i4)=i12;
+.LN23:
+// line 122
+	r4=12;
+	cjump pvPortMalloc. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ2-1;
+.LCJ2:
+.LN24:
+	dm(-10,i6)=r0;
+.LN25:
+// line 125
+	i4=dm(-11,i6);
+	r2=dm(i4,m5);
+	i4=r0;
+	dm(i4,m5)=r2;
+.LN26:
+// line 129
+	r2=dm(-2,i6);
+	i4=dm(-10,i6);
+	dm(m6,i4)=r2;
+.LN27:
+// line 133
+	i4=dm(-10,i6);
+	i12=sBlockingProducerCount.;
+	dm(2,i4)=i12;
+.LN28:
+// line 138
+	r2=dm(-11,i6);
+	r1=dm(-12,i6);
+.LN29:
+	r8=.sQConsB.2;
+	r10=vBlockingQueueConsumer.;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	dm(i7,m7)=r1;
+	dm(i7,m7)=r2;
+	r12=200;
+	r4=r10;
+	cjump xTaskCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ3-1;
+.LCJ3:
+	modify(i7,4) (nw);
+.LN30:
+// line 139
+	r2=dm(-10,i6);
+.LN31:
+	r8=.sQProdB.3;
+	r9=vBlockingQueueProducer.;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	dm(i7,m7)=m13;
+	dm(i7,m7)=r2;
+	r12=200;
+	r4=r9;
+	cjump xTaskCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ4-1;
+.LCJ4:
+	modify(i7,4) (nw);
+.LN32:
+// line 146
+	r4=12;
+	cjump pvPortMalloc. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ5-1;
+.LCJ5:
+.LN33:
+	dm(-9,i6)=r0;
+.LN34:
+// line 147
+	r4=dm(-5,i6);
+.LN35:
+	r12=m5;
+	r8=2;
+	cjump xQueueGenericCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ6-1;
+.LCJ6:
+.LN36:
+	i4=dm(-9,i6);
+	dm(i4,m5)=r0;
+.LN37:
+// line 148
+	r2=dm(-2,i6);
+	i4=dm(-9,i6);
+	dm(m6,i4)=r2;
+.LN38:
+// line 149
+	i4=dm(-9,i6);
+	i12=sBlockingProducerCount.+2;
+	dm(2,i4)=i12;
+.LN39:
+// line 151
+	r4=12;
+	cjump pvPortMalloc. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ7-1;
+.LCJ7:
+.LN40:
+	dm(-8,i6)=r0;
+.LN41:
+// line 152
+	i4=dm(-9,i6);
+	r2=dm(i4,m5);
+	i4=r0;
+	dm(i4,m5)=r2;
+.LN42:
+// line 153
+	r2=dm(-3,i6);
+	i4=dm(-8,i6);
+	dm(m6,i4)=r2;
+.LN43:
+// line 154
+	i4=dm(-8,i6);
+	i12=sBlockingConsumerCount.+2;
+	dm(2,i4)=i12;
+.LN44:
+// line 156
+	r2=dm(-9,i6);
+.LN45:
+	r8=.sQConsB.4;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	dm(i7,m7)=m13;
+	dm(i7,m7)=r2;
+	r12=200;
+	r4=r10;
+	cjump xTaskCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ8-1;
+.LCJ8:
+	modify(i7,4) (nw);
+.LN46:
+// line 157
+	r2=dm(-8,i6);
+	r1=dm(-12,i6);
+.LN47:
+	r8=.sQProdB.5;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	dm(i7,m7)=r1;
+	dm(i7,m7)=r2;
+	r12=200;
+	r4=r9;
+	cjump xTaskCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ9-1;
+.LCJ9:
+	modify(i7,4) (nw);
+.LN48:
+// line 163
+	r4=12;
+	cjump pvPortMalloc. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ10-1;
+.LCJ10:
+.LN49:
+	dm(-7,i6)=r0;
+.LN50:
+// line 164
+	r4=dm(-4,i6);
+.LN51:
+	r12=m5;
+	r8=2;
+	cjump xQueueGenericCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ11-1;
+.LCJ11:
+.LN52:
+	i4=dm(-7,i6);
+	dm(i4,m5)=r0;
+.LN53:
+// line 165
+	r2=dm(-3,i6);
+	i4=dm(-7,i6);
+	dm(m6,i4)=r2;
+.LN54:
+// line 166
+	i4=dm(-7,i6);
+	i12=sBlockingProducerCount.+4;
+	dm(2,i4)=i12;
+.LN55:
+// line 168
+	r4=12;
+	cjump pvPortMalloc. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ12-1;
+.LCJ12:
+.LN56:
+	dm(-6,i6)=r0;
+.LN57:
+// line 169
+	i4=dm(-7,i6);
+	r2=dm(i4,m5);
+	i4=r0;
+	dm(i4,m5)=r2;
+.LN58:
+// line 170
+	r2=dm(-3,i6);
+	i4=dm(-6,i6);
+	dm(m6,i4)=r2;
+.LN59:
+// line 171
+	i4=dm(-6,i6);
+	i12=sBlockingConsumerCount.+4;
+	dm(2,i4)=i12;
+.LN60:
+// line 173
+	r2=dm(-7,i6);
+.LN61:
+	r8=.sQProdB.6;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	dm(i7,m7)=m13;
+	dm(i7,m7)=r2;
+	r12=200;
+	r4=r9;
+	cjump xTaskCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ13-1;
+.LCJ13:
+	modify(i7,4) (nw);
+.LN62:
+// line 174
+	r2=dm(-6,i6);
+.LN63:
+	r8=.sQConsB.7;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	dm(i7,m7)=m13;
+	dm(i7,m7)=r2;
+	r12=200;
+	r4=r10;
+	cjump xTaskCreate. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ14-1;
+.LCJ14:
+	modify(i7,4) (nw);
+.LN64:
+// line 175
+	r9=dm(-14,i6);
+	r10=dm(-13,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.vStartBlockingQueueTasks..end:
+.vStartBlockingQueueTasks..end:
+	.global vStartBlockingQueueTasks.;
+	.type vStartBlockingQueueTasks.,STT_FUNC;
+
+vBlockingQueueProducer.:
+.LNvBlockingQueueProducer.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 40 bytes
+//  Scratch registers used: {r2,r4,r8,r12,i4,m4,acc,scc}
+//  Call preserved registers used: {r15,m3}
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c":179
+	modify(i7,-6) (nw);
+	dm(-7,i6)=r15;
+	r2=m3;
+	dm(-6,i6)=r2;
+	dm(-5,i6)=r4;
+.LN65:
+// line 180
+	m4=-7;
+	dm(m4,i6)=m13 (sw);
+.LN66:
+// line 182
+	m3=-3;
+	dm(m3,i6)=m13 (sw);
+.LN67:
+// line 184
+	dm(-3,i6)=r4;
+
+.P49L1:
+//-------------------------------------------------------------------
+//   Loop at "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c" line 186 col 2
+//-------------------------------------------------------------------
+.LN68:
+// line 188
+	i4=dm(-3,i6);
+	r4=dm(i4,m5);
+	r12=dm(m6,i4);
+.LN69:
+	r8=i6;
+	r15=-14;
+	r8=r8+r15;
+	modify(i7,m7) (nw);
+	dm(i7,m7)=m13;
+	cjump xQueueGenericSend. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ15-1;
+.LCJ15:
+	modify(i7,2) (nw);
+	r2=m5;
+	r2=btgl r0 by r2;
+.LN70:
+	if sz jump (pc,.P49L5);
+
+.LN71:
+// line 190
+	dm(m3,i6)=m14 (sw);
+.LN72:
+// line 191
+	jump (pc,.P49L6);
+
+.P49L5:
+.LN73:
+// line 196
+	r2=dm(-3,i6) (swse);
+	r2=pass r2;
+	if ne jump (pc,.P49L8);
+
+.LN74:
+// line 198
+	i4=dm(-3,i6);
+	i4=dm(2,i4);
+	r2=dm(m5,i4) (swse);                      // Use of volatile in loops precludes optimizations. 
+	r2=r2+1;
+	dm(m5,i4)=r2 (sw);                        // Use of volatile in loops precludes optimizations. 
+.LN75:
+// line 199
+	jump (pc,.P49L9);
+
+.P49L8:
+
+.P49L9:
+.LN76:
+// line 203
+	r2=dm(-7,i6) (sw);
+	r2=r2+1;
+	dm(-7,i6)=r2 (sw);
+
+.P49L6:
+	jump (pc,.P49L1);
+//-------------------------------------------------------------------
+//   End Loop L1
+//-------------------------------------------------------------------
+.LN.vBlockingQueueProducer..end:
+.vBlockingQueueProducer..end:
+	.type vBlockingQueueProducer.,STT_FUNC;
+
+vBlockingQueueConsumer.:
+.LNvBlockingQueueConsumer.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 32 bytes
+//  Scratch registers used: {r1-r2,r4,r8,r12,i4,m4,acc,scc}
+//  Call preserved registers used: {r15,m3}
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c":214
+	modify(i7,-6) (nw);
+	dm(-7,i6)=r15;
+	r2=m3;
+	dm(-6,i6)=r2;
+	dm(-5,i6)=r4;
+.LN77:
+// line 215
+	m4=-7;
+	dm(m4,i6)=m13 (sw);
+.LN78:
+// line 217
+	m3=-3;
+	dm(m3,i6)=m13 (sw);
+.LN79:
+// line 219
+	dm(-3,i6)=r4;
+
+.P47L1:
+//-------------------------------------------------------------------
+//   Loop at "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\Common\Minimal\BlockQ.c" line 221 col 2
+//-------------------------------------------------------------------
+.LN80:
+// line 223
+	i4=dm(-3,i6);
+	r4=dm(i4,m5);
+	r12=dm(m6,i4);
+.LN81:
+	r8=i6;
+	r15=-16;
+	r8=r8+r15;
+	cjump xQueueReceive. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ16-1;
+.LCJ16:
+	r2=m5;
+	r2=btgl r0 by r2;
+.LN82:
+	if not sz jump (pc,.P47L5);
+
+.LN83:
+// line 225
+	r2=dm(-8,i6) (sw);
+	r1=dm(-7,i6) (sw);
+	comp(r2,r1);
+	if eq jump (pc,.P47L8);
+
+.LN84:
+// line 228
+	dm(-7,i6)=r2 (sw);
+.LN85:
+// line 230
+	dm(m3,i6)=m14 (sw);
+.LN86:
+// line 231
+	jump (pc,.P47L9);
+
+.P47L8:
+.LN87:
+// line 236
+	r2=dm(-3,i6) (swse);
+	r2=pass r2;
+	if ne jump (pc,.P47L11);
+
+.LN88:
+// line 238
+	i4=dm(-3,i6);
+	i4=dm(2,i4);
+	r2=dm(m5,i4) (swse);                      // Use of volatile in loops precludes optimizations. 
+	r2=r2+1;
+	dm(m5,i4)=r2 (sw);                        // Use of volatile in loops precludes optimizations. 
+.LN89:
+// line 239
+	jump (pc,.P47L12);
+
+.P47L11:
+
+.P47L12:
+.LN90:
+// line 243
+	r2=dm(-7,i6) (sw);
+	r2=r2+1;
+	dm(-7,i6)=r2 (sw);
+
+.P47L9:
+.LN91:
+// line 254
+	jump (pc,.P47L6);
+
+.P47L5:
+
+.P47L6:
+	jump (pc,.P47L1);
+//-------------------------------------------------------------------
+//   End Loop L1
+//-------------------------------------------------------------------
+.LN.vBlockingQueueConsumer..end:
+.vBlockingQueueConsumer..end:
+	.type vBlockingQueueConsumer.,STT_FUNC;
+
+	.file_attr ProjectName="RTOSDemo_CCES_SHARC_21569";
+	.file_attr FuncName="xAreBlockingQueuesStillRunning.";
+	.file_attr FuncName="disable_interrupts.";
+	.file_attr FuncName="enable_interrupts.";
+	.file_attr FuncName="llabs.";
+	.file_attr FuncName="llmin.";
+	.file_attr FuncName="llmax.";
+	.file_attr FuncName="vStartBlockingQueueTasks.";
+	.file_attr FuncName="vBlockingQueueProducer.";
+	.file_attr FuncName="vBlockingQueueConsumer.";
+	.file_attr Encoding="SW";
+	.file_attr Content="CodeData";
+.epctext.end:
+
+	.extern pvPortMalloc.;
+	.type pvPortMalloc.,STT_FUNC;
+	.extern xQueueGenericCreate.;
+	.type xQueueGenericCreate.,STT_FUNC;
+	.extern xTaskCreate.;
+	.type xTaskCreate.,STT_FUNC;
+	.extern xQueueGenericSend.;
+	.type xQueueGenericSend.,STT_FUNC;
+	.extern xQueueReceive.;
+	.type xQueueReceive.,STT_FUNC;
+
+	.section .debug_abbrev;
+
+	.align 1;
+	.type .epcabbrev,STT_OBJECT;
+.epcabbrev:
+	.inc/binary ".\Standard_Demo\BlockQ.sbn", 0, 309;
+.epcabbrev.end:
+
+	.section .debug_info;
+
+	.align 1;
+	.type .epcdebug,STT_OBJECT;
+.epcdebug:
+	.byte =
+		0xA9,0x1F,0x00,0x00,0x02,0x00;
+	.var = .epcabbrev;
+	.byte =
+		0x04,0x01,0x44,0x3A,0x5C,0x52,0x54,0x4F,0x53,0x5C,0x46,0x72,
+		0x65,0x65,0x52,0x54,0x4F,0x53,0x2D,0x72,0x65,0x6C,0x65,0x61,
+		0x73,0x65,0x2D,0x46,0x72,0x65,0x65,0x52,0x54,0x4F,0x53,0x76,
+		0x31,0x30,0x2E,0x35,0x2E,0x78,0x5C,0x44,0x65,0x6D,0x6F,0x5C,
+		0x43,0x6F,0x6D,0x6D,0x6F,0x6E,0x5C,0x4D,0x69,0x6E,0x69,0x6D,
+		0x61,0x6C,0x5C,0x42,0x6C,0x6F,0x63,0x6B,0x51,0x2E,0x63,0x00,
+		0x0C;
+	.var = .epcline;
+	.inc/binary ".\Standard_Demo\BlockQ.sbn", 309, 6971;
+	.var = .LNxAreBlockingQueuesStillRunning.;
+	.var = .LN.xAreBlockingQueuesStillRunning..end;
+	.byte =
+		0x01,0x77,0x0D,0x00,0x00,0x01,0x00,0x14,0x00,0x00,0x00,0x00;
+	.var = .LN0;
+	.var = .LN.xAreBlockingQueuesStillRunning..end;
+	.byte =
+		0x15,0x73,0x4C,0x61,0x73,0x74,0x42,0x6C,0x6F,0x63,0x6B,0x69,
+		0x6E,0x67,0x43,0x6F,0x6E,0x73,0x75,0x6D,0x65,0x72,0x43,0x6F,
+		0x75,0x6E,0x74,0x00,0x01,0x41,0x1C,0x00,0x00,0x05,0x03;
+	.var = sLastBlockingConsumerCount.0.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x15,0x73,0x4C,0x61,0x73,0x74,0x42,
+		0x6C,0x6F,0x63,0x6B,0x69,0x6E,0x67,0x50,0x72,0x6F,0x64,0x75,
+		0x63,0x65,0x72,0x43,0x6F,0x75,0x6E,0x74,0x00,0x01,0x33,0x1C,
+		0x00,0x00,0x05,0x03;
+	.var = sLastBlockingProducerCount.1.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x15,0x78,0x52,0x65,0x74,0x75,0x72,
+		0x6E,0x00,0x01,0x77,0x0D,0x00,0x00,0x02,0x86,0x74;
+	.var = .LN0-.LNxAreBlockingQueuesStillRunning.;
+	.byte =
+		0x00,0x15,0x78,0x54,0x61,0x73,0x6B,0x73,0x00,0x01,0x77,0x0D,
+		0x00,0x00,0x02,0x86,0x78;
+	.var = .LN0-.LNxAreBlockingQueuesStillRunning.;
+	.byte =
+		0x00,0x00,0x00,0x0D,0x41,0x1C,0x00,0x00,0x1B,0x02,0x00,0x00,
+		0x0E,0x03,0x00,0x02,0x00,0x0D,0x4F,0x1C,0x00,0x00,0x1B,0x02,
+		0x00,0x00,0x0E,0x03,0x00,0x02,0x00,0x16,0xCA,0x1D,0x00,0x00,
+		0x76,0x53,0x74,0x61,0x72,0x74,0x42,0x6C,0x6F,0x63,0x6B,0x69,
+		0x6E,0x67,0x51,0x75,0x65,0x75,0x65,0x54,0x61,0x73,0x6B,0x73,
+		0x00,0x01;
+	.var = .LNvStartBlockingQueueTasks.;
+	.var = .LN.vStartBlockingQueueTasks..end;
+	.byte =
+		0x01,0x01,0x00,0x17,0x75,0x78,0x50,0x72,0x69,0x6F,0x72,0x69,
+		0x74,0x79,0x00,0x88,0x0D,0x00,0x00,0x02,0x86,0x50,0x00,0x14,
+		0x00,0x00,0x00,0x00;
+	.var = .LN12;
+	.var = .LN.vStartBlockingQueueTasks..end;
+	.inc/binary ".\Standard_Demo\BlockQ.sbn", 7280, 220;
+	.var = .LN12-.LNvStartBlockingQueueTasks.;
+	.byte =
+		0x00,0x15,0x75,0x78,0x51,0x75,0x65,0x75,0x65,0x53,0x69,0x7A,
+		0x65,0x35,0x00,0x01,0xCF,0x1D,0x00,0x00,0x02,0x86,0x70;
+	.var = .LN13-.LNvStartBlockingQueueTasks.;
+	.byte =
+		0x00,0x15,0x78,0x42,0x6C,0x6F,0x63,0x6B,0x54,0x69,0x6D,0x65,
+		0x00,0x01,0xCA,0x1D,0x00,0x00,0x02,0x86,0x74;
+	.var = .LN14-.LNvStartBlockingQueueTasks.;
+	.byte =
+		0x00,0x15,0x78,0x44,0x6F,0x6E,0x74,0x42,0x6C,0x6F,0x63,0x6B,
+		0x00,0x01,0xCA,0x1D,0x00,0x00,0x02,0x86,0x78;
+	.var = .LN15-.LNvStartBlockingQueueTasks.;
+	.byte =
+		0x00,0x00,0x00,0x12,0x9A,0x0D,0x00,0x00,0x12,0x88,0x0D,0x00,
+		0x00,0x0A,0x00,0x4E,0x1B,0x00,0x00,0x16,0x7E,0x1E,0x00,0x00,
+		0x76,0x42,0x6C,0x6F,0x63,0x6B,0x69,0x6E,0x67,0x51,0x75,0x65,
+		0x75,0x65,0x50,0x72,0x6F,0x64,0x75,0x63,0x65,0x72,0x00,0x01;
+	.var = .LNvBlockingQueueProducer.;
+	.var = .LN.vBlockingQueueProducer..end;
+	.byte =
+		0x01,0x00,0x00,0x17,0x70,0x76,0x50,0x61,0x72,0x61,0x6D,0x65,
+		0x74,0x65,0x72,0x73,0x00,0xD2,0x03,0x00,0x00,0x02,0x86,0x6C,
+		0x00,0x14,0x00,0x00,0x00,0x00;
+	.var = .LN65;
+	.var = .LN.vBlockingQueueProducer..end;
+	.byte =
+		0x15,0x75,0x73,0x56,0x61,0x6C,0x75,0x65,0x00,0x01,0xB5,0x06,
+		0x00,0x00,0x02,0x86,0x72;
+	.var = .LN65-.LNvBlockingQueueProducer.;
+	.byte =
+		0x00,0x15,0x70,0x78,0x51,0x75,0x65,0x75,0x65,0x50,0x61,0x72,
+		0x61,0x6D,0x65,0x74,0x65,0x72,0x73,0x00,0x01,0xD4,0x1D,0x00,
+		0x00,0x02,0x86,0x74;
+	.var = .LN65-.LNvBlockingQueueProducer.;
+	.byte =
+		0x00,0x15,0x73,0x45,0x72,0x72,0x6F,0x72,0x45,0x76,0x65,0x72,
+		0x4F,0x63,0x63,0x75,0x72,0x72,0x65,0x64,0x00,0x01,0x1B,0x02,
+		0x00,0x00,0x02,0x86,0x7A;
+	.var = .LN66-.LNvBlockingQueueProducer.;
+	.byte =
+		0x00,0x00,0x00,0x16,0x3F,0x1F,0x00,0x00,0x76,0x42,0x6C,0x6F,
+		0x63,0x6B,0x69,0x6E,0x67,0x51,0x75,0x65,0x75,0x65,0x43,0x6F,
+		0x6E,0x73,0x75,0x6D,0x65,0x72,0x00,0x01;
+	.var = .LNvBlockingQueueConsumer.;
+	.var = .LN.vBlockingQueueConsumer..end;
+	.byte =
+		0x01,0x00,0x00,0x17,0x70,0x76,0x50,0x61,0x72,0x61,0x6D,0x65,
+		0x74,0x65,0x72,0x73,0x00,0xD2,0x03,0x00,0x00,0x02,0x86,0x6C,
+		0x00,0x14,0x00,0x00,0x00,0x00;
+	.var = .LN77;
+	.var = .LN.vBlockingQueueConsumer..end;
+	.byte =
+		0x15,0x75,0x73,0x44,0x61,0x74,0x61,0x00,0x01,0xB5,0x06,0x00,
+		0x00,0x02,0x86,0x70,0x00,0x00,0x00,0x00,0x00,0x15,0x75,0x73,
+		0x45,0x78,0x70,0x65,0x63,0x74,0x65,0x64,0x56,0x61,0x6C,0x75,
+		0x65,0x00,0x01,0xB5,0x06,0x00,0x00,0x02,0x86,0x72;
+	.var = .LN77-.LNvBlockingQueueConsumer.;
+	.byte =
+		0x00,0x15,0x70,0x78,0x51,0x75,0x65,0x75,0x65,0x50,0x61,0x72,
+		0x61,0x6D,0x65,0x74,0x65,0x72,0x73,0x00,0x01,0xD4,0x1D,0x00,
+		0x00,0x02,0x86,0x74;
+	.var = .LN77-.LNvBlockingQueueConsumer.;
+	.byte =
+		0x00,0x15,0x73,0x45,0x72,0x72,0x6F,0x72,0x45,0x76,0x65,0x72,
+		0x4F,0x63,0x63,0x75,0x72,0x72,0x65,0x64,0x00,0x01,0x1B,0x02,
+		0x00,0x00,0x02,0x86,0x7A;
+	.var = .LN78-.LNvBlockingQueueConsumer.;
+	.byte =
+		0x00,0x00,0x00,0x15,0x73,0x42,0x6C,0x6F,0x63,0x6B,0x69,0x6E,
+		0x67,0x43,0x6F,0x6E,0x73,0x75,0x6D,0x65,0x72,0x43,0x6F,0x75,
+		0x6E,0x74,0x00,0x01,0x9D,0x1F,0x00,0x00,0x05,0x03;
+	.var = sBlockingConsumerCount.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x15,0x73,0x42,0x6C,0x6F,0x63,0x6B,
+		0x69,0x6E,0x67,0x50,0x72,0x6F,0x64,0x75,0x63,0x65,0x72,0x43,
+		0x6F,0x75,0x6E,0x74,0x00,0x01,0x8F,0x1F,0x00,0x00,0x05,0x03;
+	.var = sBlockingProducerCount.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x0D,0x9D,0x1F,0x00,0x00,0x29,0x1B,
+		0x00,0x00,0x0E,0x03,0x00,0x02,0x00,0x0D,0xAB,0x1F,0x00,0x00,
+		0x29,0x1B,0x00,0x00,0x0E,0x03,0x00,0x02,0x00,0x00,0x00;
+.epcdebug.end:
+
+	.section .debug_line;
+
+	.align 1;
+	.type .epcline,STT_OBJECT;
+.epcline:
+	.inc/binary ".\Standard_Demo\BlockQ.sbn", 7500, 2080;
+	.var = .LNxAreBlockingQueuesStillRunning.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x03,0x84,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN0;
+	.byte =
+		0x05,0x0C,0x0C,0x00,0x05,0x02;
+	.var = .LN1;
+	.byte =
+		0x05,0x02,0x12,0x00,0x05,0x02;
+	.var = .LN2;
+	.byte =
+		0x05,0x03,0x0B,0x00,0x05,0x02;
+	.var = .LN3;
+	.byte =
+		0x05,0x04,0x0B,0x00,0x05,0x02;
+	.var = .LN4;
+	.byte =
+		0x05,0x03,0x0A,0x00,0x05,0x02;
+	.var = .LN5;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN6;
+	.byte =
+		0x0C,0x00,0x05,0x02;
+	.var = .LN7;
+	.byte =
+		0x05,0x04,0x0B,0x00,0x05,0x02;
+	.var = .LN8;
+	.byte =
+		0x05,0x03,0x0A,0x00,0x05,0x02;
+	.var = .LN9;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN10;
+	.byte =
+		0x05,0x30,0x03,0x73,0x01,0x00,0x05,0x02;
+	.var = .LN11;
+	.byte =
+		0x05,0x02,0x19,0x00,0x05,0x02;
+	.var = .LN.xAreBlockingQueuesStillRunning..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNvStartBlockingQueueTasks.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x69,0x00,0x05,0x02;
+	.var = .LN12;
+	.byte =
+		0x05,0x13,0x0D,0x00,0x05,0x02;
+	.var = .LN13;
+	.byte =
+		0x05,0x26,0x01,0x00,0x05,0x02;
+	.var = .LN14;
+	.byte =
+		0x05,0x12,0x0A,0x00,0x05,0x02;
+	.var = .LN15;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN16;
+	.byte =
+		0x05,0x42,0x0E,0x00,0x05,0x02;
+	.var = .LN17;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN18;
+	.byte =
+		0x0D,0x00,0x05,0x02;
+	.var = .LN19;
+	.byte =
+		0x05,0x1F,0x01,0x00,0x05,0x02;
+	.var = .LN20;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN21;
+	.byte =
+		0x0C,0x00,0x05,0x02;
+	.var = .LN22;
+	.byte =
+		0x0D,0x00,0x05,0x02;
+	.var = .LN23;
+	.byte =
+		0x05,0x42,0x0C,0x00,0x05,0x02;
+	.var = .LN24;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN25;
+	.byte =
+		0x0C,0x00,0x05,0x02;
+	.var = .LN26;
+	.byte =
+		0x0D,0x00,0x05,0x02;
+	.var = .LN27;
+	.byte =
+		0x0D,0x00,0x05,0x02;
+	.var = .LN28;
+	.byte =
+		0x0E,0x00,0x05,0x02;
+	.var = .LN29;
+	.byte =
+		0x05,0x0D,0x01,0x00,0x05,0x02;
+	.var = .LN30;
+	.byte =
+		0x05,0x02,0x0A,0x00,0x05,0x02;
+	.var = .LN31;
+	.byte =
+		0x05,0x0D,0x01,0x00,0x05,0x02;
+	.var = .LN32;
+	.byte =
+		0x05,0x42,0x10,0x00,0x05,0x02;
+	.var = .LN33;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN34;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN35;
+	.byte =
+		0x05,0x1F,0x01,0x00,0x05,0x02;
+	.var = .LN36;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN37;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN38;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN39;
+	.byte =
+		0x05,0x42,0x0B,0x00,0x05,0x02;
+	.var = .LN40;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN41;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN42;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN43;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN44;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN45;
+	.byte =
+		0x05,0x0D,0x01,0x00,0x05,0x02;
+	.var = .LN46;
+	.byte =
+		0x05,0x02,0x0A,0x00,0x05,0x02;
+	.var = .LN47;
+	.byte =
+		0x05,0x0D,0x01,0x00,0x05,0x02;
+	.var = .LN48;
+	.byte =
+		0x05,0x42,0x0F,0x00,0x05,0x02;
+	.var = .LN49;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN50;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN51;
+	.byte =
+		0x05,0x1F,0x01,0x00,0x05,0x02;
+	.var = .LN52;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN53;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN54;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN55;
+	.byte =
+		0x05,0x42,0x0B,0x00,0x05,0x02;
+	.var = .LN56;
+	.byte =
+		0x05,0x02,0x01,0x00,0x05,0x02;
+	.var = .LN57;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN58;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN59;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN60;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN61;
+	.byte =
+		0x05,0x0D,0x01,0x00,0x05,0x02;
+	.var = .LN62;
+	.byte =
+		0x05,0x02,0x0A,0x00,0x05,0x02;
+	.var = .LN63;
+	.byte =
+		0x05,0x0D,0x01,0x00,0x05,0x02;
+	.var = .LN64;
+	.byte =
+		0x05,0x01,0x0A,0x00,0x05,0x02;
+	.var = .LN.vStartBlockingQueueTasks..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNvBlockingQueueProducer.;
+	.byte =
+		0x04,0x01,0x05,0x01,0xBB,0x00,0x05,0x02;
+	.var = .LN65;
+	.byte =
+		0x05,0x0A,0x0A,0x00,0x05,0x02;
+	.var = .LN66;
+	.byte =
+		0x05,0x07,0x0B,0x00,0x05,0x02;
+	.var = .LN67;
+	.byte =
+		0x05,0x02,0x0B,0x00,0x05,0x02;
+	.var = .LN68;
+	.byte =
+		0x05,0x03,0x0D,0x00,0x05,0x02;
+	.var = .LN69;
+	.byte =
+		0x05,0x07,0x01,0x00,0x05,0x02;
+	.var = .LN70;
+	.byte =
+		0x05,0x03,0x01,0x00,0x05,0x02;
+	.var = .LN71;
+	.byte =
+		0x05,0x04,0x0B,0x00,0x05,0x02;
+	.var = .LN72;
+	.byte =
+		0x05,0x03,0x0A,0x00,0x05,0x02;
+	.var = .LN73;
+	.byte =
+		0x05,0x04,0x0E,0x00,0x05,0x02;
+	.var = .LN74;
+	.byte =
+		0x05,0x05,0x0B,0x00,0x05,0x02;
+	.var = .LN75;
+	.byte =
+		0x05,0x04,0x0A,0x00,0x05,0x02;
+	.var = .LN76;
+	.byte =
+		0x0D,0x00,0x05,0x02;
+	.var = .LN.vBlockingQueueProducer..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNvBlockingQueueConsumer.;
+	.byte =
+		0x04,0x01,0x05,0x01,0xDE,0x00,0x05,0x02;
+	.var = .LN77;
+	.byte =
+		0x05,0x12,0x0A,0x00,0x05,0x02;
+	.var = .LN78;
+	.byte =
+		0x05,0x07,0x0B,0x00,0x05,0x02;
+	.var = .LN79;
+	.byte =
+		0x05,0x02,0x0B,0x00,0x05,0x02;
+	.var = .LN80;
+	.byte =
+		0x05,0x03,0x0D,0x00,0x05,0x02;
+	.var = .LN81;
+	.byte =
+		0x05,0x14,0x01,0x00,0x05,0x02;
+	.var = .LN82;
+	.byte =
+		0x05,0x03,0x01,0x00,0x05,0x02;
+	.var = .LN83;
+	.byte =
+		0x05,0x04,0x0B,0x00,0x05,0x02;
+	.var = .LN84;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN85;
+	.byte =
+		0x0B,0x00,0x05,0x02;
+	.var = .LN86;
+	.byte =
+		0x05,0x04,0x0A,0x00,0x05,0x02;
+	.var = .LN87;
+	.byte =
+		0x05,0x05,0x0E,0x00,0x05,0x02;
+	.var = .LN88;
+	.byte =
+		0x05,0x06,0x0B,0x00,0x05,0x02;
+	.var = .LN89;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN90;
+	.byte =
+		0x0D,0x00,0x05,0x02;
+	.var = .LN91;
+	.byte =
+		0x05,0x03,0x14,0x00,0x05,0x02;
+	.var = .LN.vBlockingQueueConsumer..end;
+	.byte =
+		0x00,0x01,0x01;
+.epcline.end:
+
+	.section .debug_pubnames;
+
+	.align 1;
+.epcpubnames:
+	.type .epcpubnames,STT_OBJECT;
+	.byte =
+		0x4E,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0xAD,0x1F,0x00,0x00,0x6D,0x1B,0x00,0x00,0x78,0x41,0x72,0x65,
+		0x42,0x6C,0x6F,0x63,0x6B,0x69,0x6E,0x67,0x51,0x75,0x65,0x75,
+		0x65,0x73,0x53,0x74,0x69,0x6C,0x6C,0x52,0x75,0x6E,0x6E,0x69,
+		0x6E,0x67,0x00,0x4F,0x1C,0x00,0x00,0x76,0x53,0x74,0x61,0x72,
+		0x74,0x42,0x6C,0x6F,0x63,0x6B,0x69,0x6E,0x67,0x51,0x75,0x65,
+		0x75,0x65,0x54,0x61,0x73,0x6B,0x73,0x00,0x00,0x00,0x00,0x00;
+.epcpubnames.end:
+
+	.section .debug_aranges;
+
+	.align 1;
+.epcaranges:
+	.type .epcaranges,STT_OBJECT;
+	.byte =
+		0x34,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0x04,0x00,0x00,0x00,0x00,0x00;
+	.var = .LNxAreBlockingQueuesStillRunning.;
+	.var = .LN.xAreBlockingQueuesStillRunning..end-.LNxAreBlockingQueuesStillRunning.;
+	.var = .LNvStartBlockingQueueTasks.;
+	.var = .LN.vStartBlockingQueueTasks..end-.LNvStartBlockingQueueTasks.;
+	.var = .LNvBlockingQueueConsumer.;
+	.var = .LN.vBlockingQueueConsumer..end-.LNvBlockingQueueConsumer.;
+	.var = .LNvBlockingQueueProducer.;
+	.var = .LN.vBlockingQueueProducer..end-.LNvBlockingQueueProducer.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00;
+.epcaranges.end:
+
+	.section/DOUBLE32 seg_dmda;
+
+	.align 4;
+	.type sBlockingConsumerCount.,STT_OBJECT;
+	.byte sBlockingConsumerCount.[] =
+		0x00,0x00,0x00,0x00,0x00,0x00;
+	.align 4;
+	.type sBlockingProducerCount.,STT_OBJECT;
+	.byte sBlockingProducerCount.[] =
+		0x00,0x00,0x00,0x00,0x00,0x00;
+	.align 4;
+	.type sLastBlockingConsumerCount.0.,STT_OBJECT;
+	.byte sLastBlockingConsumerCount.0.[] =
+		0x00,0x00,0x00,0x00,0x00,0x00;
+	.align 4;
+	.type sLastBlockingProducerCount.1.,STT_OBJECT;
+	.byte sLastBlockingProducerCount.1.[] =
+		0x00,0x00,0x00,0x00,0x00,0x00;
+	.align 8;
+	.type .sQConsB.2,STT_OBJECT;
+	.byte .sQConsB.2[] =
+		0x51,0x43,0x6F,0x6E,0x73,0x42,0x31,0x00;
+	.align 8;
+	.type .sQProdB.3,STT_OBJECT;
+	.byte .sQProdB.3[] =
+		0x51,0x50,0x72,0x6F,0x64,0x42,0x32,0x00;
+	.align 8;
+	.type .sQConsB.4,STT_OBJECT;
+	.byte .sQConsB.4[] =
+		0x51,0x43,0x6F,0x6E,0x73,0x42,0x33,0x00;
+	.align 8;
+	.type .sQProdB.5,STT_OBJECT;
+	.byte .sQProdB.5[] =
+		0x51,0x50,0x72,0x6F,0x64,0x42,0x34,0x00;
+	.align 8;
+	.type .sQProdB.6,STT_OBJECT;
+	.byte .sQProdB.6[] =
+		0x51,0x50,0x72,0x6F,0x64,0x42,0x35,0x00;
+	.align 8;
+	.type .sQConsB.7,STT_OBJECT;
+	.byte .sQConsB.7[] =
+		0x51,0x43,0x6F,0x6E,0x73,0x42,0x36,0x00;

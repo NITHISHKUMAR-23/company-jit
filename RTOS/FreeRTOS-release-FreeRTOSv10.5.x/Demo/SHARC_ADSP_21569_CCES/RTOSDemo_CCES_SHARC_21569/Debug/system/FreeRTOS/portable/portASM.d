@@ -1,0 +1,12 @@
+system/FreeRTOS/portable/portASM.doj: ../../../../Source/portable/CCES/SHARC_215xx/portmacro.h
+system/FreeRTOS/portable/portASM.doj: ../Include/FreeRTOSConfig.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/asm_sprt.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/def21569.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/platform_include.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-2156x-core.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP_2156x_HPC.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP_SC5xx_legacy.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/sys/anomaly_macros_rtl.h
+system/FreeRTOS/portable/portASM.doj: C:/analog/cces/3.0.1/SHARC/include/sys/def2156x_id_macros.h
+system/FreeRTOS/portable/portASM.doj: ../../../../Source/portable/CCES/SHARC_215xx/portASM.asm
+system/FreeRTOS/portable/portASM.doj: ../../../../Source/portable/CCES/SHARC_215xx/portASM.h

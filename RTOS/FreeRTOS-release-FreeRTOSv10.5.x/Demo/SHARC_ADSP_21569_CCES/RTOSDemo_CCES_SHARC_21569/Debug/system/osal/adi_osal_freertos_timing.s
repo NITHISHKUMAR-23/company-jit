@@ -1,0 +1,409 @@
+	.file "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_timing.c";
+//  Compilation time: Thu Oct 24 14:39:53 2024
+//  Compiler options: -c -file-attr ProjectName=RTOSDemo_CCES_SHARC_21569 -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision any -g -save-temps -path-output .\system\osal -ED -D_DEBUG -D__ADI_FREERTOS -DCORE0 -DADI_DEBUG -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/SHARC_215xx/osal -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/osal -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/system -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/Include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Demo/Common/include -ID:/RTOS/FreeRTOS-release-FreeRTOSv10.5.x/Demo/SHARC_ADSP_21569_CCES/RTOSDemo_CCES_SHARC_21569/../../../Source/portable/CCES/SHARC_215xx -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -threads -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo system\osal\adi_osal_freertos_timing.d -o system\osal\adi_osal_freertos_timing.doj
+//  Compiler version: 9.0.1.0 (3c32de17843e2a15d59cba36e76935c59d53d107)
+//  Architecture: ADSP-21569
+//  Silicon revision: any
+//  Anomalies summary:
+//   Disabled: w_anomaly_45, w_anomaly_2126x_4, w_dag_stall, w_2136x_multi, w_2136x_mem_write, w_09000014, w_09000018, w_09000020, w_07000009_1, w_07000009_2, w_09000021, w_15000003, w_09000022, w_15000004, w_15000011, w_09000023, w_15000005, w_15000016, w_15000023, w_20000022, w_20000020, w_20000024, w_20000023, w_20000009, w_20000083
+//   Enabled: w_20000002, w_20000069
+//   Always on: w_simd, w_restore_loop_stack
+
+.MESSAGE/SUPPRESS 2555;
+.MESSAGE/SUPPRESS 2561;
+.MESSAGE/SUPPRESS 2565;
+
+
+	.section/SW/DOUBLE32 seg_swco;
+
+.epctext:
+
+adi_osal_TimeTick.:
+.LNadi_osal_TimeTick.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 8 bytes
+//  Scratch registers used: {i12}
+//  No call preserved registers used.
+//-------------------------------------------------------------------
+.LN0:
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_timing.c":119
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_TimeTick..end:
+.adi_osal_TimeTick..end:
+	.global adi_osal_TimeTick.;
+	.type adi_osal_TimeTick.,STT_FUNC;
+
+adi_osal_TickPeriodInMicroSec.:
+.LNadi_osal_TickPeriodInMicroSec.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 16 bytes
+//  Scratch registers used: {r0-r2,i4,i12,acc}
+//  No call preserved registers used.
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_timing.c":88
+	modify(i7,-2) (nw);
+	dm(-3,i6)=r4;
+.LN1:
+// line 92
+	dm(-2,i6)=m14;
+.LN2:
+// line 94
+	r2=dm(_adi_osal_gnTickPeriod.);
+	r1=m7;
+	comp(r2,r1);
+	if ne jump (pc,.P35L2);
+
+	i4=r4;
+.LN3:
+// line 96
+	dm(m5,i4)=m15;
+.LN4:
+// line 97
+	jump (pc,.P35L3);
+
+.P35L2:
+	i4=r4;
+.LN5:
+// line 100
+	dm(i4,m5)=r2;
+.LN6:
+// line 101
+	dm(-2,i6)=m13;
+
+.P35L3:
+.LN7:
+// line 103
+	r0=dm(-2,i6);
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_TickPeriodInMicroSec..end:
+.adi_osal_TickPeriodInMicroSec..end:
+	.global adi_osal_TickPeriodInMicroSec.;
+	.type adi_osal_TickPeriodInMicroSec.,STT_FUNC;
+
+adi_osal_GetCurrentTick.:
+.LNadi_osal_GetCurrentTick.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 16 bytes
+//  Scratch registers used: {r0,r2,i4,i12,acc,scc}
+//  No call preserved registers used.
+//  Registers that could be clobbered by function calls: {r0-r2,r4,r8,r12,s0-s15,i4,i12-i13,b4,b12-b13,m4,m12,ustat1-ustat4,acc,mcc,scc,btf,sacc,smcc,sscc,sbtf,stky,stkyy,mrf,mrb,msf,msb,lcntr,px}
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Source\portable\CCES\osal\adi_osal_freertos_timing.c":140
+	modify(i7,-2) (nw);
+	dm(-2,i6)=r4;
+.LN8:
+// line 143
+	cjump _adi_osal_IsCurrentLevelISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ0-1;
+.LCJ0:
+	r2=fext r0 by 0:8;
+	r2=pass r2;
+.LN9:
+	if eq jump (pc,.P36L2);
+
+.LN10:
+// line 145
+	cjump xTaskGetTickCountFromISR. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ1-1;
+.LCJ1:
+.LN11:
+	i4=dm(-2,i6);
+	dm(i4,m5)=r0;
+.LN12:
+// line 146
+	jump (pc,.P36L3);
+
+.P36L2:
+.LN13:
+// line 149
+	cjump xTaskGetTickCount. (db); dm(i7,m7)=r2; dm(i7,m7)=.LCJ2-1;
+.LCJ2:
+.LN14:
+	i4=dm(-2,i6);
+	dm(i4,m5)=r0;
+
+.P36L3:
+.LN15:
+// line 152
+	r0=m5;
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN.adi_osal_GetCurrentTick..end:
+.adi_osal_GetCurrentTick..end:
+	.global adi_osal_GetCurrentTick.;
+	.type adi_osal_GetCurrentTick.,STT_FUNC;
+
+_adi_osal_IsCurrentLevelISR.:
+.LN_adi_osal_IsCurrentLevelISR.:
+//-------------------------------------------------------------------
+//  Procedure statistics:
+//  Frame size            = 16 bytes
+//  Scratch registers used: {r0,r2,i12,acc}
+//  No call preserved registers used.
+//-------------------------------------------------------------------
+// line "D:\RTOS\FreeRTOS-release-FreeRTOSv10.5.x\Demo\SHARC_ADSP_21569_CCES\RTOSDemo_CCES_SHARC_21569\..\..\..\Source\portable\CCES\SHARC_215xx\osal\adi_osal_arch_internal.h":117
+	modify(i7,-2) (nw);
+
+.LN16:
+// line 122
+	r2=imaskp;
+
+.LN17:
+	r2=pass r2;
+	r0=m5;
+	if ne r0=m6;
+.LN18:
+	dm(-2,i6)=r0;
+
+.LN19:
+// line 117
+	i12=dm(m7,i6);
+	jump (m14,i12) (db); rframe; nop;
+.LN._adi_osal_IsCurrentLevelISR..end:
+._adi_osal_IsCurrentLevelISR..end:
+	.type _adi_osal_IsCurrentLevelISR.,STT_FUNC;
+
+	.file_attr ProjectName="RTOSDemo_CCES_SHARC_21569";
+	.file_attr FuncName="adi_osal_TimeTick.";
+	.file_attr FuncName="adi_osal_TickPeriodInMicroSec.";
+	.file_attr FuncName="_adi_osal_IsMemoryAligned.";
+	.file_attr FuncName="_adi_osal_IsCurrentLevelISR.";
+	.file_attr FuncName="disable_interrupts.";
+	.file_attr FuncName="enable_interrupts.";
+	.file_attr FuncName="adi_osal_GetCurrentTick.";
+	.file_attr Encoding="SW";
+	.file_attr Content="Code";
+.epctext.end:
+
+	.extern xTaskGetTickCountFromISR.;
+	.type xTaskGetTickCountFromISR.,STT_FUNC;
+	.extern xTaskGetTickCount.;
+	.type xTaskGetTickCount.,STT_FUNC;
+
+	.section .debug_abbrev;
+
+	.align 1;
+	.type .epcabbrev,STT_OBJECT;
+.epcabbrev:
+	.inc/binary ".\system\osal\adi_osal_freertos_timing.sbn", 0, 309;
+.epcabbrev.end:
+
+	.section .debug_info;
+
+	.align 1;
+	.type .epcdebug,STT_OBJECT;
+.epcdebug:
+	.byte =
+		0x35,0x26,0x00,0x00,0x02,0x00;
+	.var = .epcabbrev;
+	.byte =
+		0x04,0x01,0x44,0x3A,0x5C,0x52,0x54,0x4F,0x53,0x5C,0x46,0x72,
+		0x65,0x65,0x52,0x54,0x4F,0x53,0x2D,0x72,0x65,0x6C,0x65,0x61,
+		0x73,0x65,0x2D,0x46,0x72,0x65,0x65,0x52,0x54,0x4F,0x53,0x76,
+		0x31,0x30,0x2E,0x35,0x2E,0x78,0x5C,0x53,0x6F,0x75,0x72,0x63,
+		0x65,0x5C,0x70,0x6F,0x72,0x74,0x61,0x62,0x6C,0x65,0x5C,0x43,
+		0x43,0x45,0x53,0x5C,0x6F,0x73,0x61,0x6C,0x5C,0x61,0x64,0x69,
+		0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x66,0x72,0x65,0x65,0x72,0x74,
+		0x6F,0x73,0x5F,0x74,0x69,0x6D,0x69,0x6E,0x67,0x2E,0x63,0x00,
+		0x0C;
+	.var = .epcline;
+	.inc/binary ".\system\osal\adi_osal_freertos_timing.sbn", 309, 9349;
+	.var = .LNadi_osal_TimeTick.;
+	.var = .LN.adi_osal_TimeTick..end;
+	.byte =
+		0x01,0x01,0x00,0x14,0x00,0x00,0x00,0x00;
+	.var = .LN0;
+	.var = .LN.adi_osal_TimeTick..end;
+	.byte =
+		0x00,0x00,0x15,0x7D,0x25,0x00,0x00,0x61,0x64,0x69,0x5F,0x6F,
+		0x73,0x61,0x6C,0x5F,0x54,0x69,0x63,0x6B,0x50,0x65,0x72,0x69,
+		0x6F,0x64,0x49,0x6E,0x4D,0x69,0x63,0x72,0x6F,0x53,0x65,0x63,
+		0x00,0x01;
+	.var = .LNadi_osal_TickPeriodInMicroSec.;
+	.var = .LN.adi_osal_TickPeriodInMicroSec..end;
+	.byte =
+		0x01,0x1D,0x18,0x00,0x00,0x01,0x00,0x16,0x70,0x6E,0x54,0x69,
+		0x63,0x6B,0x50,0x65,0x72,0x69,0x6F,0x64,0x00,0x7D,0x25,0x00,
+		0x00,0x02,0x86,0x74,0x00,0x14,0x00,0x00,0x00,0x00;
+	.var = .LN1;
+	.var = .LN.adi_osal_TickPeriodInMicroSec..end;
+	.byte =
+		0x17,0x72,0x74,0x6E,0x56,0x61,0x6C,0x75,0x65,0x00,0x01,0x1D,
+		0x18,0x00,0x00,0x02,0x86,0x78;
+	.var = .LN1-.LNadi_osal_TickPeriodInMicroSec.;
+	.byte =
+		0x00,0x00,0x00,0x05,0x00,0x26,0x05,0x00,0x00,0x15,0xD0,0x25,
+		0x00,0x00,0x61,0x64,0x69,0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x47,
+		0x65,0x74,0x43,0x75,0x72,0x72,0x65,0x6E,0x74,0x54,0x69,0x63,
+		0x6B,0x00,0x01;
+	.var = .LNadi_osal_GetCurrentTick.;
+	.var = .LN.adi_osal_GetCurrentTick..end;
+	.byte =
+		0x01,0x1D,0x18,0x00,0x00,0x01,0x00,0x16,0x70,0x6E,0x54,0x69,
+		0x63,0x6B,0x73,0x00,0x7D,0x25,0x00,0x00,0x02,0x86,0x78,0x00,
+		0x14,0x00,0x00,0x00,0x00;
+	.var = .LN8;
+	.var = .LN.adi_osal_GetCurrentTick..end;
+	.byte =
+		0x00,0x00,0x15,0x10,0x26,0x00,0x00,0x5F,0x61,0x64,0x69,0x5F,
+		0x6F,0x73,0x61,0x6C,0x5F,0x49,0x73,0x43,0x75,0x72,0x72,0x65,
+		0x6E,0x74,0x4C,0x65,0x76,0x65,0x6C,0x49,0x53,0x52,0x00,0x01;
+	.var = .LN_adi_osal_IsCurrentLevelISR.;
+	.var = .LN._adi_osal_IsCurrentLevelISR..end;
+	.byte =
+		0x01,0xF3,0x01,0x00,0x00,0x01,0x02,0x14,0x00,0x00,0x00,0x00;
+	.var = .LN16;
+	.var = .LN19;
+	.byte =
+		0x00,0x00,0x17,0x5F,0x61,0x64,0x69,0x5F,0x6F,0x73,0x61,0x6C,
+		0x5F,0x67,0x6E,0x54,0x69,0x63,0x6B,0x50,0x65,0x72,0x69,0x6F,
+		0x64,0x00,0x01,0x26,0x05,0x00,0x00,0x05,0x03;
+	.var = _adi_osal_gnTickPeriod.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x01,0x00;
+.epcdebug.end:
+
+	.section .debug_line;
+
+	.align 1;
+	.type .epcline,STT_OBJECT;
+.epcline:
+	.inc/binary ".\system\osal\adi_osal_freertos_timing.sbn", 9658, 2323;
+	.var = .LNadi_osal_TimeTick.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x7D,0x00,0x05,0x02;
+	.var = .LN0;
+	.byte =
+		0x05,0x05,0x0B,0x00,0x05,0x02;
+	.var = .LN.adi_osal_TimeTick..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNadi_osal_TickPeriodInMicroSec.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x60,0x00,0x05,0x02;
+	.var = .LN1;
+	.byte =
+		0x05,0x15,0x0D,0x00,0x05,0x02;
+	.var = .LN2;
+	.byte =
+		0x05,0x05,0x0B,0x00,0x05,0x02;
+	.var = .LN3;
+	.byte =
+		0x05,0x09,0x0B,0x00,0x05,0x02;
+	.var = .LN4;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN5;
+	.byte =
+		0x05,0x09,0x0C,0x00,0x05,0x02;
+	.var = .LN6;
+	.byte =
+		0x0A,0x00,0x05,0x02;
+	.var = .LN7;
+	.byte =
+		0x05,0x05,0x0B,0x00,0x05,0x02;
+	.var = .LN.adi_osal_TickPeriodInMicroSec..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LNadi_osal_GetCurrentTick.;
+	.byte =
+		0x04,0x01,0x05,0x01,0x94,0x00,0x05,0x02;
+	.var = .LN8;
+	.byte =
+		0x05,0x08,0x0C,0x00,0x05,0x02;
+	.var = .LN9;
+	.byte =
+		0x05,0x05,0x01,0x00,0x05,0x02;
+	.var = .LN10;
+	.byte =
+		0x05,0x36,0x0B,0x00,0x05,0x02;
+	.var = .LN11;
+	.byte =
+		0x05,0x09,0x01,0x00,0x05,0x02;
+	.var = .LN12;
+	.byte =
+		0x05,0x05,0x0A,0x00,0x05,0x02;
+	.var = .LN13;
+	.byte =
+		0x05,0x2F,0x0C,0x00,0x05,0x02;
+	.var = .LN14;
+	.byte =
+		0x05,0x09,0x01,0x00,0x05,0x02;
+	.var = .LN15;
+	.byte =
+		0x05,0x05,0x0C,0x00,0x05,0x02;
+	.var = .LN.adi_osal_GetCurrentTick..end;
+	.byte =
+		0x00,0x01,0x01,0x00,0x05,0x02;
+	.var = .LN_adi_osal_IsCurrentLevelISR.;
+	.byte =
+		0x04,0x2F,0x05,0x06,0x7D,0x00,0x05,0x02;
+	.var = .LN16;
+	.byte =
+		0x05,0x05,0x0E,0x00,0x05,0x02;
+	.var = .LN17;
+	.byte =
+		0x01,0x00,0x05,0x02;
+	.var = .LN18;
+	.byte =
+		0x01,0x00,0x05,0x02;
+	.var = .LN19;
+	.byte =
+		0x05,0x06,0x03,0x7B,0x01,0x00,0x05,0x02;
+	.var = .LN._adi_osal_IsCurrentLevelISR..end;
+	.byte =
+		0x00,0x01,0x01;
+.epcline.end:
+
+	.section .debug_pubnames;
+
+	.align 1;
+.epcpubnames:
+	.type .epcpubnames,STT_OBJECT;
+	.byte =
+		0x82,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0x39,0x26,0x00,0x00,0xDC,0x24,0x00,0x00,0x61,0x64,0x69,0x5F,
+		0x6F,0x73,0x61,0x6C,0x5F,0x54,0x69,0x6D,0x65,0x54,0x69,0x63,
+		0x6B,0x00,0x0E,0x25,0x00,0x00,0x61,0x64,0x69,0x5F,0x6F,0x73,
+		0x61,0x6C,0x5F,0x54,0x69,0x63,0x6B,0x50,0x65,0x72,0x69,0x6F,
+		0x64,0x49,0x6E,0x4D,0x69,0x63,0x72,0x6F,0x53,0x65,0x63,0x00,
+		0x83,0x25,0x00,0x00,0x61,0x64,0x69,0x5F,0x6F,0x73,0x61,0x6C,
+		0x5F,0x47,0x65,0x74,0x43,0x75,0x72,0x72,0x65,0x6E,0x74,0x54,
+		0x69,0x63,0x6B,0x00,0xD0,0x25,0x00,0x00,0x5F,0x61,0x64,0x69,
+		0x5F,0x6F,0x73,0x61,0x6C,0x5F,0x49,0x73,0x43,0x75,0x72,0x72,
+		0x65,0x6E,0x74,0x4C,0x65,0x76,0x65,0x6C,0x49,0x53,0x52,0x00,
+		0x00,0x00,0x00,0x00;
+.epcpubnames.end:
+
+	.section .debug_aranges;
+
+	.align 1;
+.epcaranges:
+	.type .epcaranges,STT_OBJECT;
+	.byte =
+		0x34,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0x04,0x00,0x00,0x00,0x00,0x00;
+	.var = .LNadi_osal_TimeTick.;
+	.var = .LN.adi_osal_TimeTick..end-.LNadi_osal_TimeTick.;
+	.var = .LNadi_osal_TickPeriodInMicroSec.;
+	.var = .LN.adi_osal_TickPeriodInMicroSec..end-.LNadi_osal_TickPeriodInMicroSec.;
+	.var = .LNadi_osal_GetCurrentTick.;
+	.var = .LN.adi_osal_GetCurrentTick..end-.LNadi_osal_GetCurrentTick.;
+	.var = .LN_adi_osal_IsCurrentLevelISR.;
+	.var = .LN._adi_osal_IsCurrentLevelISR..end-.LN_adi_osal_IsCurrentLevelISR.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00;
+.epcaranges.end:
+
+	.section/DOUBLE32 seg_dmda;
+
+
+	.extern _adi_osal_gnTickPeriod.;
+	.type _adi_osal_gnTickPeriod.,STT_OBJECT;
