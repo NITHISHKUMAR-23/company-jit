@@ -1,0 +1,13 @@
+C:\Users\JIIN18710724\AppData\Local\Programs\Python\Python313\Scripts\
+C:\Users\JIIN18710724\AppData\Local\Programs\Python\Python313\
+C:\Users\JIIN18710724\AppData\Local\Programs\Python\Launcher\
+C:\Users\JIIN18710724\AppData\Local\Programs\Python\Python313\python.exe
+C:\msys64\ucrt64\bin
+C:\Users\JIIN18710724\AppData\Local\Programs\Python\Python313
+C:\msys64\usr\bin
+
+
+%USERPROFILE%\AppData\Local\Microsoft\WindowsApps
+C:\Users\JIIN18710724\AppData\Local\Programs\Microsoft VS Code\bin
+
+C:\Users\JIIN18710724\AppData\Local\Programs\Git\cmd

@@ -1,0 +1,17 @@
+------------------------------------------------------------------------------------
+Given TTL file : TTL_Input_file		Time : 17:47:14 		 Date : 17-12-2024
+Author : JIIN18710724
+------------------------------------------------------------------------------------
+command : stop play (0x20000003)
+command : General Decoding Options (0x20000010)
+command : DDPlus Decoder Commands (0x20000030)
+command : Channel Reorder Commands (0x20000041)
+command : DAP/OARI Commands (0x20000042)
+command : Customer_PP Core2 Commands (0x20000051)
+command : MCPCM Commands (0x20000035)
+command : TrueHD MLP Decoder Commands (0x20000032)
+command : TrueHD MAT Decoder Commands (0x20000033)
+command : mute the output (0x20000004)
+command : resume ouput (0x20000005)
+command : start play (0x20000002)
+------------------------------------------------------------------------------------

@@ -1,0 +1,7 @@
+
+sendln '0x20010010'    
+sendln '0x20020020'   
+mpause 2000   
+sendln '0x20030000'   
+mpause 2000
+sendln '0x20000010'  

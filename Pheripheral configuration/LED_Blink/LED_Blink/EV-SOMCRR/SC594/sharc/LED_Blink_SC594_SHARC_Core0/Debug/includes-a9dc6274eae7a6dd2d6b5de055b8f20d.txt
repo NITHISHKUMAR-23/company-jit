@@ -1,0 +1,1 @@
+-I"D:/Praveen/SMAC_Training/Peripherals/LED_Blink/EV-SOMCRR/SC594/sharc/LED_Blink_SC594_SHARC_Core0/system"

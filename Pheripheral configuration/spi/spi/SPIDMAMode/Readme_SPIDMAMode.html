@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_SPIDMAMode</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: SPIDMAMode</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Software switch settings</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>This example demonstrates transfer of data in DMA mode between different SPI's.
+       SPI transfers in case of DMA mode are non blocking and application can register a 
+       callback through which completion of DMA transfer can be tracked. This example is supported
+	   both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+    </p>
+      <li>ADSP-21593</li>
+      <li>ADSP-SC594</li>
+	  <li>ADSP-SC598</li>
+    </p>
+
+    <h3><a name="OV">3. Overview</a></h3>
+    <p>     Example opens two SPI instances by default. SPI DMA read/write API's are called after configuring
+    the SPI Clock for communication. After completion of DMA Tx and Rx callback is invoked with a 
+    relevant event. After the Tx and Rx completion events Rx Buffer is verified to check if the data 
+    received is similar to that of Tx.
+		<br><br>
+    @Note: This example uses List descriptor DMA mode of operation so care must be taken that
+           ADI_PDMA_LISTDESCRIPTOR macro is enabled in adi_pdma_config.h(ADI_PDMA_LISTDESCRIPTOR is
+           enabled by default)
+    </p>
+
+    <h3><a name="HW">4. Hardware Setup</a></h3>
+    <p>     There are external connections which are required in case of this example wherein
+    probing adapter breakout board needs to be sandwiched between carrier and the SOM.
+    </p>
+    
+    <h3><a name="EC">5. External connections</a></h3>
+    <p>   As per the example SPI_DEVA is SPI Tx DMA and SPI_DEVB is SPI Rx DMA.
+
+    <li>By Default: SPI_DEVA = SPI 0 , SPI_DEVB = SPI 1. Connections should be made accordingly</li>
+    <br> 
+    <li>SPI0_CLK     - Pin 02(P4)</li>
+    <li>SPI0_SEL2    - Pin 06(P4)</li>
+    <li>SPI0_MOSI    - Pin 04(P4)</li>
+    <li>SPI0_MISO    - Pin 03(P4)</li>
+    <br>
+    <li>SPI1_CLK     - Pin 07(P4)</li>
+    <li>SPI1_SS      - Pin 10(P4)</li>
+    <li>SPI1_MOSI    - Pin 09(P4)</li>
+    <li>SPI1_MISO    - Pin 08(P4)</li>
+    <br>
+    <li>SPI_DEVA and SPI_DEVB can be changed to any of the available SPI's i.e. SPI 0/1/2
+    which can be changed through SPIDMAMode.h</li>
+    <br>
+       @Note: care must be taken that the jumper wires are connected according to the SPI configuration.
+    
+
+    <h3><a name="MACRO">6. User Configuration Macros</a></h3>
+    <ul>
+	  <li>Enable EV_SOMCRR_EZKIT_SUPPORT in SPIDMAMode.h file to verify the example on EV-SOMCRR-EZKIT</li>
+	  <li>Enable EV_SOMCRR_EZLITE_SUPPORT in SPIDMAMode.h file to verify the example on EV-SOMCRR-EZLITE</li>
+    </ul>
+	
+	      @Note: care must be taken that only one of the above macro should be enabled
+    
+
+    <h3><a name="REF">7. Pinmuxing</a></h3>
+    <p> Following is the pinmux configuration:</p>
+    <ul>
+      <li>SPI1 (CLK, MISO, MOSI, SS)</li>
+      <li>SPI0 (CLK, MISO, MOSI, SEL2)</li>
+	  <li>    GPIO (unavailable)
+    PA06, PA07, PA08, PA10, PA11, PA12, PA13, PA14, PA15, PB05</li>
+    </ul>
+
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual : Serial Peripheral Interface (SPI)</li>
+	  <li>EV-SC598-SOM Schematic</li>
+      <li>EV-SC594-SOM Schematic</li>
+	  <li>EV-21593-SOM Schematic</li>
+	  <li>EV-SOMCRR-EZKIT Schematic</li>
+      <li>EV-SOMCRR-EZLITE Schematic</li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

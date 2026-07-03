@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_Push_Button</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: Readme_Push_Button</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+	  <li><a href="#UC">User Configuration Macros</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Software switch settings</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>This example uses the GPIO service callback method to either Toggle LEDs/print messages when the push buttons are pressed on the ADSP-SC59x EZKIT/EZLITE.  <br>
+	This example is supported both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.<br>
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+    </p>
+      <li>ADSP-21593</li>
+      <li>ADSP-SC594</li>
+	  <li>ADSP-SC598</li>
+    </p>
+
+    <h3><a name="OV">3. Overview</a></h3>
+	This example uses the GPIO service to configure the push buttons (GPIO input)and LEDs (GPIO output) on the ADSP-SC59x EZKIT/EZLITE. An interrupt is triggered 
+	by the push buttons which executes a callback to toggle the LEDs. The example prompts the user to press both the PB1 and PB2 on the EV-SOMCRR-EZKIT/EV-SOMCRR-EZLITE board of the ADSP-SC59x EZKIT/EZLITE. 
+	When each push button is pressed on the ADSP-SC59x EZKIT, a console message is displayed which prints the pushbutton number that is pressed and the LED 7,9,10 on the EV-SOMCRR-EZKIT board of the ADSP-SC59x EZ-Kit will blink for 10 times and stop. 
+	When each push button is pressed on the ADSP-SC59x EZLITE, a console message is displayed which prints the pushbutton number that is pressed. 
+    </p>
+	
+	<h3><a name="UC">4. User Configuration Macros</a></h3>
+    <ul>
+	  <li>Enable EV_SOMCRR_EZKIT_SUPPORT in LED_Blink.h file to verify the example on EV-SOMCRR-EZKIT</li>
+	  <li>Enable EV_SOMCRR_EZLITE_SUPPORT in LED_Blink.h file to verify the example on EV-SOMCRR-EZLITE</li>
+    </ul>
+
+    <h3><a name="HW">5. Hardware Setup</a></h3>
+    <p> None.
+    </p>
+    
+      <h3><a name="EC">6. External connections</a></h3>
+    <p> None
+    </p>
+	
+	<h3><a name="EC">7. Software switch settings</a></h3>
+    <p> Default Software switch settings (for EV-SOMCRR-EZKIT board only) </p>
+
+    <p>See ConfigSoftSwitches_EV_SOMCRR_EZKIT.c for more information.</p>
+
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>ADSP-SC595/596/598 SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>EV-SC594-SOM Schematic<br>
+  </li>
+  <li>EV-21593-SOM Schematic<br>
+  </li>
+  <li>EV-SC598-SOM Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZKIT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZLITE Schematic<br>
+  </li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

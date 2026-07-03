@@ -1,0 +1,24 @@
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/system/sru/sru_config.c
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/stdint.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/yvals.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/platform.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/platform_include.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/cdef21593.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-2159x-core_cdef.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-2159x-core.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/def21593.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-21593.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/defSC59x_id_macros.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP_SC5xx_legacy.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-21593_cdef.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/internal_system_prototypes.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/processor_include.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/2159x.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/SC59x.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/platform_include.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/adi_core.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/platform.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/cache.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/stdbool.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/builtins.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/sru/sru_config.doj: C:/analog/cces/3.0.1/SHARC/include/sys/builtins_support.h

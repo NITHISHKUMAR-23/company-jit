@@ -1,0 +1,214 @@
+0x20000030:
+  name: "DDPlus Decoder Commands"
+  parameters:
+    parameter 1:
+      bitfields:
+        15-14:
+          name: "Reserved"
+        13-12:
+          name: "DDPlus_Packlength"
+          values:
+            "00": "2048"
+            "01": "3840"
+            "10": "4096"
+            "11": "6144"
+        11-8:
+          name: "High Dynamic Range Scale Factor"
+          values:
+            "0000": "0.0"
+            "0001": "0.1"
+            "0010": "0.2"
+            "0011": "0.3"
+            "0100": "0.4"
+            "0101": "0.5"
+            "0110": "0.6"
+            "0111": "0.7"
+            "1000": "0.8"
+            "1001": "0.9"
+            "1010": "1.0"
+            "default": "Default value 1.0 is enabled"
+        7-4:
+          name: "Low Dynamic Range Scale Factor"
+          values:
+          "0000": "0.0"
+          "0001": "0.1"
+          "0010": "0.2"
+          "0011": "0.3"
+          "0100": "0.4"
+          "0101": "0.5"
+          "0110": "0.6"
+          "0111": "0.7"
+          "1000": "0.8"
+          "1001": "0.9"
+          "1010": "1.0"
+          "default": "Default value 1.0 is enabled"
+        3-0: 
+          name: "Reserved"
+    parameter 2:
+      bitfields:
+        15-5: 
+          name: "Reserved"
+        4-0:
+          name : "DDPlus_Output_Channel_Configuration"
+          values:
+            "00000": "Reserved"
+            "00001": "1/0 (C)"
+            "00010": "2/0 (L,R)"
+            "00011": "3/0 (L,C,R)"
+            "00100": "2/1 (L,R,l)"
+            "00101": "3/1 (L,C,R,l)"
+            "00110": "2/2 (L,R,l,r)"
+            "00111": "3/2 (L,C,R,l,r)"
+            "01101": "2/2/2 (L,R,l,r,Lw,Rw)"
+            "01110": "2/2/2 (L,R,l,r,Lvh,Rvh)"
+            "10000": "2/2/2 (L,R,l,r,Lrs,Rrs)"
+            "10001": "3/2/2 (L,R,C,l,r,Lc,Rc)"
+            "10010": "3/2/2 (L,R,C,l,r,Lw,Rw)"
+            "10011": "3/2/2 (L,R,C,l,r,Lvh,Rvh)"
+            "10101": "3/2/2 (L,C,R,l,r,Lrs,Rrs)"
+            "10111": "Reserved for Raw Mode"
+            "11100": "3/2/2 (L,R,C,l,r,Lts,Rts)"
+            "default": "Default value 3/2 (L,C,R,l,r) is enabled"
+
+0x20000031:
+  name: "Reserved"
+
+0x20000032:
+  name: "TrueHD MLP Decoder Commands"
+  parameters:
+    parameter 1:
+      bitfields:
+        15-14: 
+          name: "Reserved"
+        13:
+          name: "Loudness Management"
+          values:
+            "0": "OFF"
+            "1": "ON"
+        12-9:
+          name: "High Dynamic Range Scale Factor"
+          values:
+            "0000": "0.0"
+            "0001": "0.1"
+            "0010": "0.2"
+            "0011": "0.3"
+            "0100": "0.4"
+            "0101": "0.5"
+            "0110": "0.6"
+            "0111": "0.7"
+            "1000": "0.8"
+            "1001": "0.9"
+            "1010": "1.0"
+            "default": "Default value 1.0 is enabled"
+        8-5:
+          name: "Low Dynamic Range Scale Factor"
+          values:
+            "0000": "0.0"
+            "0001": "0.1"
+            "0010": "0.2"
+            "0011": "0.3"
+            "0100": "0.4"
+            "0101": "0.5"
+            "0110": "0.6"
+            "0111": "0.7"
+            "1000": "0.8"
+            "1001": "0.9"
+            "1010": "1.0"
+            "default": "Default value 1.0 is enabled"
+        4-3: 
+          name: "Reserved"
+        2-0:
+          name: "Kernel DRC Enable"
+          values:
+            "000": "DRC Off"
+            "001": "DRC Automatic"
+            "010": "DRC Normal"
+            "011": "Heavy DRC Mode"
+            "default": "Default value DRC Normal is enabled"
+    parameter 2:
+      bitfields:
+        15-5: 
+          name: "Reserved"
+        4-0:
+          name: "TrueHD_Output_Channel_Configuration"
+          values:
+            "00000": "L,R"
+            "00001": "L,R,Ls,Rs,SW"
+            "00010": "L,C,R,Ls,Rs,SW"
+            "00011": "L,R,Ls,Rs,Lrs,Rrs,SW"
+            "00110": "L,C,R,Ls,Rs,Lrs,Rrs,SW"
+            "01001": "L,C,R,Ls,Rs,Lfh,Rfh,SW"
+            "01010": "L,C,R,Ls,Rs,Lc,Rc,SW"
+            "01011": "L,C,R,Ls,Rs,Lw,Rw,SW"
+            "01100": "L,C,R,SW"
+            "01101": "L,C,R,SW,Ls,Rs,Ltm,Rtm"
+            "01110": "L,R,Ls,Rs,Cs,SW"
+            "01111": "L,C,R,Ls,Rs,Cs,SW"
+            "10000": "L,R,SW,Ls,Rs,Ltm,Rtm"
+            "10001": "L,R,Ls,Rs,Lh,Rh,SW"
+            "10010": "L,R,Ls,Rs,Lw,Rw,SW"
+            "10011": "Reserved for Raw Mode"
+            "default": "Default value L,C,R,Ls,Rs,Lrs,Rrs,SW is enabled"
+
+0x20000033:
+  name: "TrueHD MAT Decoder Commands"
+  parameters:
+    parameter 1:
+      bitfields:
+        15-14:
+          name: "Reserved"
+        13:
+          name: "Loudness_Management"
+          values:
+            "0": "OFF"
+            "1": "ON"
+        12: 
+          name: "Reserved"
+        11-8:
+          name: "High Dynamic Range Scale Factor"
+          values:
+            "0000": "0.0"
+            "0001": "0.1"
+            "0010": "0.2"
+            "0011": "0.3"
+            "0100": "0.4"
+            "0101": "0.5"
+            "0110": "0.6"
+            "0111": "0.7"
+            "1000": "0.8"
+            "1001": "0.9"
+            "1010": "1.0"
+            "default": "Default value 1.0 is enabled"
+        7-4:
+          name: "Low Dynamic Range Scale Factor"
+          values:
+            "0000": "0.0"
+            "0001": "0.1"
+            "0010": "0.2"
+            "0011": "0.3"
+            "0100": "0.4"
+            "0101": "0.5"
+            "0110": "0.6"
+            "0111": "0.7"
+            "1000": "0.8"
+            "1001": "0.9"
+            "1010": "1.0"
+            "default": "Default value 1.0 is enabled"
+        3: 
+          name: "Reserved"
+        2-1:
+          name: "Allows enabling or disabling of DRC (Dynamic Range Compression)"
+          values:
+            "00": "OFF"
+            "10": "Normal DRC"
+            "11": "Heavy DRC"
+            "default": "Default value Normal DRC is enabled"
+        0: 
+          name: "Reserved"
+    parameter 2:
+      bitfields:
+        15-5: 
+          name: "Reserved"
+        4-0: 
+          name: "Reserved"
+

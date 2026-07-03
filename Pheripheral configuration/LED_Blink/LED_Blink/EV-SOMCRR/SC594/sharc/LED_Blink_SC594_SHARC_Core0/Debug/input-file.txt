@@ -1,0 +1,7 @@
+"src/LED_Blink_SC594_SHARC_Core0.o"
+"system/adi_initialize.o"
+"system/heap_stack/app_heap_stack.o"
+"system/linker/apt.o"
+"system/linker/page_table_mem.o"
+"system/pinmux/GeneratedSources/pinmux_config.o"
+"system/sru/sru_config.o"

@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_LED_Blink</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: Readme_LED_Blink</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+	  <li><a href="#UC">User Configuration Macros</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Software switch settings</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>On the ADSP-21593 and ADSP-SC594 EZKIT, this example blinks LED 7,9,10 on the EV-SOMCRR-EZKIT board and LED 2,4,5 on the EV-21593/SC594-SOM using SoftConfig/GPIO. <br><br>
+	On the ADSP-SC598 EZKIT, this example blinks LED 7,9,10 on the EV-SOMCRR-EZKIT board and DS1, DS2 and DS3 on the EV-SC598-SOM using SoftConfig/GPIO.<br><br>
+	On the ADSP-21593 and ADSP-SC594 EZLITE, this example blinks DS6, DS7 and DS8 on the EV-SOMCRR-EZLITE board and LED 2,4,5 on the EV-21593/SC594-SOM using SoftConfig/GPIO. <br><br>
+	On the ADSP-SC598 EZLITE, this example blinks DS6, DS7 and DS8 on the EV-SOMCRR-EZLITE board and DS1, DS2 and DS3 on the EV-SC598-SOM using SoftConfig/GPIO.<br><br>
+	This example is supported both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.<br>
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+    </p>
+      <li>ADSP-21593</li>
+      <li>ADSP-SC594</li>
+	  <li>ADSP-SC598</li>
+    </p>
+
+    <h3><a name="OV">3. Overview</a></h3>
+	On the ADSP-21593 and ADSP-SC594 EZ-kit, this example blinks LED 7,9,10 on the EV-SOMCRR-EZKIT board and LED 2,4,5 on the EV-21593/SC594-SOM using SoftConfig/GPIO. <br>
+	On the ADSP-SC598 EZ-kit, this example blinks LED 7,9,10 on the EV-SOMCRR-EZKIT board and DS1, DS2 and DS3 on the EV-SC598-SOM using SoftConfig/GPIO.<br>
+	On the ADSP-21593 and ADSP-SC594 EZ-Lite, this example blinks DS6, DS7 and DS8 on the EV-SOMCRR-EZLITE board and LED 2,4,5 on the EV-21593/SC594-SOM using SoftConfig/GPIO. <br>
+	On the ADSP-SC598 EZ-Lite, this example blinks DS6, DS7 and DS8 on the EV-SOMCRR-EZLITE board and DS1, DS2 and DS3 on the EV-SC598-SOM using SoftConfig/GPIO.<br>
+    </p>
+	
+	<h3><a name="UC">4. User Configuration Macros</a></h3>
+    <ul>
+	  <li>Enable EV_SOMCRR_EZKIT_SUPPORT in LED_Blink.h file to verify the example on EV-SOMCRR-EZKIT</li>
+	  <li>Enable EV_SOMCRR_EZLITE_SUPPORT in LED_Blink.h file to verify the example on EV-SOMCRR-EZLITE</li>
+    </ul>
+
+    <h3><a name="HW">5. Hardware Setup</a></h3>
+    <p> None.
+    </p>
+    
+    <h3><a name="EC">6. External connections</a></h3>
+    <p> None
+    </p>
+	
+	<h3><a name="EC">7. Software switch settings</a></h3>
+    <p> Default Software switch settings</p>
+
+    <p>See ConfigSoftSwitches_EV_21593_SOM.c or ConfigSoftSwitches_EV_SC594_SOM.c or ConfigSoftSwitches_EV_SC598_SOM.c for more information.</p>
+
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>ADSP-SC595/596/598 SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>EV-SC594-SOM Schematic<br>
+  </li>
+  <li>EV-21593-SOM Schematic<br>
+  </li>
+  <li>EV-SC598-SOM Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZKIT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZLITE Schematic<br>
+  </li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

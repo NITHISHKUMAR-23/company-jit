@@ -1,0 +1,12 @@
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/system/startup_ldf/app_startup.s
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/adi_osal.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/adi_osal_arch.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/def21593.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/interrupt.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/platform_include.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-21593.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-2159x-core.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP_SC5xx_legacy.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/anomaly_macros_rtl.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/defSC59x_id_macros.h
+D:/Pheripheral\ configuration/gpio/gpio/LED_Blink/EV-SOMCRR/21593/LED_Blink_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/fatal_error_code.h

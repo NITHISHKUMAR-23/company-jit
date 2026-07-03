@@ -1,0 +1,113 @@
+Command_0x10:
+  Command Name: "General Decoding Commands"
+  Parameter1:
+    Bits:
+      bit15-12: "Reserved"
+      bit11-8:
+        "0000": "Autodetection 1 is enabled"
+        "0001": "Autodetection 2 is enabled"
+        "0010": "Reserved"
+        "0011": "Reserved"
+        "0100": "Force PCM3 Enabled"
+        "0101": "Reserved"
+        "0110": "Reserved"
+        "0111": "Reserved"
+        "1000": "Reserved"
+        "1001": "Autodetection 3 is enabled"
+        "1010": "Reserved"
+        "1011": "Reserved"
+        "1100": "Reserved"
+        "1101": "Reserved"
+        "1110": "Reserved"
+        "1111": "Reserved"
+      bit7-6: "Reserved"
+      bit5-2:
+        "0000": "Reserved"
+        "0001": "LPCM sample delay is set as 2048"
+        "0010": "LPCM sample delay is set as 4096"
+        "0011": "LPCM sample delay is set as 12288"
+        "0100": "LPCM sample delay is set as 16384"
+        "0101": "Reserved"
+        "0110": "Reserved"
+        "0111": "Reserved"
+        "1000": "Reserved"
+        "1001": "Reserved"
+        "1010": "Reserved"
+        "1011": "Reserved"
+        "1100": "Reserved"
+        "1101": "Reserved"
+        "1110": "Reserved"
+        "1111": "Reserved"
+      bit1-0: "Reserved"
+  Parameter2:
+    Bits:
+      bit15-8: "Reserved"
+      bit7-4:
+        "0000": "Incoming Sampling Frequency - 32KHz"
+        "0001": "Incoming Sampling Frequency - 44.1KHz"
+        "0010": "Incoming Sampling Frequency - 48KHz"
+        "0011": "Reserved"
+        "0100": "Incoming Sampling Frequency - 64KHz"
+        "0101": "Incoming Sampling Frequency - 88.2KHz"
+        "0110": "Incoming Sampling Frequency - 96KHz"
+        "0111": "Reserved"
+        "1000": "Incoming Sampling Frequency - 128KHz"
+        "1001": "Incoming Sampling Frequency - 176.4KHz"
+        "1010": "Incoming Sampling Frequency - 192KHz"
+        "1011": "Reserved"
+        "1100": "Reserved"
+        "1101": "Reserved"
+        "1110": "Reserved"
+        "1111": "Reserved"
+      bit3-2: "Reserved"
+      bit1-0:
+        "00": "Post Decoder Off"
+        "01": "Post Decoder - DAP Enabled"
+        "10": "Reserved"
+        "11": "Reserved"
+  Parameter3:
+    Bits:
+      bit15-7: "Reserved"
+      bit6-5:
+        "00": "Down Sampling Mode - Straight Sampling"
+        "01": "Down Sampling Mode - Straight Sampling"
+        "10": "Down Sampling Mode - Always 48KHz"
+        "11": "Down Sampling Mode - 1/4 Downsampling"
+      bit4:
+        "0": "Input source Selection - HDMI"
+        "1": "Input source Selection - SPDIF"
+      bit3-1: "Reserved"
+      bit0:
+        "0": "Bass Disable"
+        "1": "Bass Enable"
+
+Command_0x35: 
+  Command Name: "MCPCM Commands"
+  Parameter1:
+    Bits:
+      bit15-14: "Reserved"
+      bit13: 
+        "0b": "LFE Disable"
+        "1b": "LFE Enable"
+      bit12-11: "Reserved"
+      bit10-8:
+        "000" : "Input Channel L,R enable"
+        "001" : "Input Channel C enable"
+        "010" : "Input Channel LRC enable"
+        "011" : "Input Channel LRLsRs enable"
+        "100" : "Input Channel LRCLsRs enable"
+        "101" : "Input Channel LRCLsRsCs enable"
+        "110" : "Input Channel L,C,R,Ls,Rs,Lrs,Rrs enable"
+        "111" : "Reserved"
+      bit7-0: "Reserved"
+
+Command_0x51:
+  Command Name: "Customer_PP"
+  Parameter1:
+    Bits:
+      bit15-2: "Reserved"
+      bit1-0: 
+        "00": "Gain Volume Control = 0 db"
+        "01": "Gain Volume Control = -1 db"
+        "10": "Gain Volume Control = -3 db"
+        "11": "Gain Volume Control = -6 db"

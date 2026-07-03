@@ -1,0 +1,169 @@
+Command_0x00:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x01:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x02:
+  Command_Name : "Start Play"
+  Parameter : "None"
+        
+Command_0x03:
+  Command_Name : "Stop Play"
+  Parameter : "None"
+  
+Command_0x04:
+  Command_Name : "Mute Output"
+  Parameter : "None"
+  
+Command_0x05:
+  Command_Name : "Resume Output"
+  Parameter : "None"
+  
+Command_0x06:
+  Command_Name : "SPORT Initialize"
+  Parameter : "None"
+  
+Command_0x07:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x08:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x09:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x0A:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x0B:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x0C:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x0D:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0x0E:
+  Command_Name : "Reserved"
+  Parameter : "None"
+  
+Command_0xF:
+  Command_Name : "Special Commands"
+  
+  Parameter1:
+    Bits:
+      bit15-6: "Reserved"
+      bit5-4:
+        "00": "Transmitter output mode will be I2S Mode"
+        "01": "Transmitter output mode will be TDM Mode"
+        "10": "Transmitter output mode will be ASRC Mode"
+        "11": "Transmitter output mode will be ASRC TDM Mode"
+      bit3-2:
+        "00": "ASRC output Sample rate will be FS"
+        "01": "ASRC output Sample rate will be 2 * FS"
+        "10": "ASRC output Sample rate will be 4 * FS"
+        "11": "Reserved"
+      bit1: "Reserved"
+      bit0:
+        "0": "DTS Channel Routing Variable Disable"
+        "1": "DTS Channel Routing Variable Enable"
+      
+      
+Command_0x10:
+  Command Name : "General Decoding Commands"
+  
+  Parameter1:
+    Bits:
+      bit15-12: "Reserved"
+      bit11-8:
+        "0000": "Autodetection 1 is enabled"
+        "0001": "Autodetection 2 is enabled"
+        "0010": "Reserved"
+        "0011": "Reserved"
+        "0100": "Force PCM3 Enabled"
+        "0101": "Reserved"
+        "0110": "Reserved"
+        "0111": "Reserved"
+        "1000": "Reserved"
+        "1001": "Autodetection 3 is enabled"
+        "1010": "Reserved"
+        "1011": "Reserved"
+        "1100": "Reserved"
+        "1101": "Reserved"
+        "1110": "Reserved"
+        "1111": "Reserved"
+      bit7-6: "Reserved"
+      bit5-2:
+        "0000": "Reserved"
+        "0001": "LPCM sample delay is set as 2048"
+        "0010": "LPCM sample delay is set as 4096"
+        "0011": "LPCM sample delay is set as 12288"
+        "0100": "LPCM sample delay is set as 16384"
+        "0101": "Reserved"
+        "0110": "Reserved"
+        "0111": "Reserved"
+        "1000": "Reserved"
+        "1001": "Reserved"
+        "1010": "Reserved"
+        "1011": "Reserved"
+        "1100": "Reserved"
+        "1101": "Reserved"
+        "1110": "Reserved"
+        "1111": "Reserved"
+      bit1-0: "Reserved"
+
+  Parameter2:
+    bits:
+      bit15-8: "Reserved"
+      bit7-4:
+        "0000": "Incoming Sampling Frequency - 32KHz"
+        "0001": "Incoming Sampling Frequency - 44.1KHz"
+        "0010": "Incoming Sampling Frequency - 48KHz"
+        "0011": "Reserved"
+        "0100": "Incoming Sampling Frequency - 64KHz"
+        "0101": "Incoming Sampling Frequency - 88.2KHz"
+        "0110": "Incoming Sampling Frequency - 96KHz"
+        "0111": "Reserved"
+        "1000": "Incoming Sampling Frequency - 128KHz"
+        "1001": "Incoming Sampling Frequency - 176.4KHz"
+        "1010": "Incoming Sampling Frequency - 192KHz"
+        "1011": "Reserved"
+        "1100": "Reserved"
+        "1101": "Reserved"
+        "1110": "Reserved"
+        "1111": "Reserved"
+      bit3-2: "Reserved"
+      bit1-0:
+        "00": "Post Decoder Off"
+        "01": "Post Decoder - DAP Enabled"
+        "10": "Reserved"
+        "11": "Reserved"
+        
+  Parameter3:
+    bits:
+      bit15-7: "Reserved"
+      bit6-5 : 
+        "00": "Down Sampling Mode - Straight Sampling"
+        "01": "Down Sampling Mode - Straight Sampling"
+        "10": "Down Sampling Mode - Always 48KHz"
+        "11": "Down Sampling Mode - 1/4 Downsampling"
+      bit4 :
+        "0" : "Input source Selection - HDMI"
+        "1" : "Input source Selection - SPDIF"
+      bit3-1: "Reserved"
+      bit0 :
+        "0" : "Bass Disable"
+        "1" : "Bass Enable"
+       
+      

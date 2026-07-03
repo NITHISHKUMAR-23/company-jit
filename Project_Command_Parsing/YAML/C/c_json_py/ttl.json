@@ -1,0 +1,43 @@
+{
+    "command_name": {
+        "name": "Special_Commands",
+        "parameters": {
+            "template": {
+                "bitfields": {
+                    "15-6": {
+                        "values": {
+                            "0000": "Reserved"
+                        }
+                    },
+                    "5-4": {
+                        "values": {
+                            "00": "Transmitter output mode will be I2S Mode",
+                            "01": "Transmitter output mode will be TDM Mode",
+                            "10": "Transmitter output mode will be ASRC Mode",
+                            "11": "Transmitter output mode will be ASRC TDM Mode"
+                        }
+                    },
+                    "3-2": {
+                        "values": {
+                            "00": "ASRC output Sample rate will be FS",
+                            "01": "ASRC output Sample rate will be 2 * FS",
+                            "10": "ASRC output Sample rate will be 4 * FS",
+                            "11": "Reserved"
+                        }
+                    },
+                    "1": {
+                        "values": {
+                            "0": "Reserved"
+                        }
+                    },
+                    "0": {
+                        "values": {
+                            "0": "DTS Channel Routing Variable Disable",
+                            "1": "DTS Channel Routing Variable Enable"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

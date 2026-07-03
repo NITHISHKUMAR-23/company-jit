@@ -1,0 +1,96 @@
+0x20000030:
+  name: "DDPlus Decoder Commands"
+  parameters:
+    parameter 1:
+      bitfields:
+        15-14:
+          name: "Reserved"
+          values: ""
+        13-12:
+          name: "DDPlus_Packlength"
+          values:
+            "00": "2048"
+            "01": "3840"
+            "10": "4096"
+            "11": "6144"
+        11-8:
+          name: "High Dynamic Range Scale Factor"
+          values:
+            "0000": "0.0"
+            "0001": "0.1"
+            "0010": "0.2"
+            "0011": "0.3"
+            "0100": "0.4"
+            "0101": "0.5"
+            "0110": "0.6"
+            "0111": "0.7"
+            "1000": "0.8"
+            "1001": "0.9"
+            "1010": "1.0"
+            "1011": "Reserved"
+            "1100": "Reserved"
+            "1101": "Reserved"
+            "1110": "Reserved"
+            "1111": "Reserved"
+        7-4:
+          name: "Low Dynamic Range Scale Factor"
+          values:
+          "0000": "0.0"
+          "0001": "0.1"
+          "0010": "0.2"
+          "0011": "0.3"
+          "0100": "0.4"
+          "0101": "0.5"
+          "0110": "0.6"
+          "0111": "0.7"
+          "1000": "0.8"
+          "1001": "0.9"
+          "1010": "1.0"
+          "1011": "Reserved"
+          "1100": "Reserved"
+          "1101": "Reserved"
+          "1110": "Reserved"
+          "1111": "Reserved"
+        3-0: 
+          name: "Reserved"
+          values: ""
+    parameter 2:
+      bitfields:
+        15-5: 
+          name: "Reserved"
+          values: ""
+        4-0:
+          name : "DDPlus_Output_Channel_Configuration"
+          values:
+            "00000": "Reserved"
+            "00001": "1/0 (C)"
+            "00010": "2/0 (L,R)"
+            "00011": "3/0 (L,C,R)"
+            "00100": "2/1 (L,R,l)"
+            "00101": "3/1 (L,C,R,l)"
+            "00110": "2/2 (L,R,l,r)"
+            "00111": "3/2 (L,C,R,l,r)"
+            "01000": "Reserved"
+            "01001": "Reserved"
+            "01010": "Reserved"
+            "01011": "Reserved"
+            "01100": "Reserved"
+            "01101": "2/2/2 (L,R,l,r,Lw,Rw)"
+            "01110": "2/2/2 (L,R,l,r,Lvh,Rvh)"
+            "01111": "Reserved"
+            "10000": "2/2/2 (L,R,l,r,Lrs,Rrs)"
+            "10001": "3/2/2 (L,R,C,l,r,Lc,Rc)"
+            "10010": "3/2/2 (L,R,C,l,r,Lw,Rw)"
+            "10011": "3/2/2 (L,R,C,l,r,Lvh,Rvh)"
+            "10100": "Reserved"
+            "10101": "3/2/2 (L,C,R,l,r,Lrs,Rrs)"
+            "10110": "Reserved"
+            "10111": "Reserved for Raw Mode"
+            "11000": "Reserved"
+            "11001": "Reserved"
+            "11100": "3/2/2 (L,R,C,l,r,Lts,Rts)"
+            "11101": "Reserved"
+            "11111": "Reserved"
+
+0x20000031:
+  name: "Reserved"

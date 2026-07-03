@@ -1,0 +1,180 @@
+====================================================================================================
+Given TTL file : TTL_Input_file					Time : 13:12:12 				 Date : 20-12-2024
+Author : JIIN18710724
+====================================================================================================
+                            Command : stop play
+====================================================================================================
+                            Command : General Decoding Options (0x20000010) 
+Parameter number : 1
+
+-> Autodetection Mode                        : Autodetect1 is enabled
+-> LPCM Sample Delay                         : 16384 is enabled
+ 
+Parameter number : 2
+
+-> Incoming Sampling Frequency               : 48 KHz is enabled
+-> Post Decoder                              : Post Decoder Off
+ 
+Parameter number : 3
+
+-> Downsampling Mode                         : Straight Sampling is enabled
+
+====================================================================================================
+                            Command : DDPlus Decoder Commands (0x20000030) 
+Parameter number : 1
+
+-> DDPlus Packlength                         : 2048
+-> HIDR (High Dynamic Range Scale Factor)    : 1.0
+-> LODR (Low Dynamic Range Scale Factor)     : 1.0
+ 
+Parameter number : 2
+
+-> DDPlus Output Channel Configuration       : Default - 3/2 (L, C, R, l, r) is enabled
+
+====================================================================================================
+                            Command : Channel Reorder Commands (0x20000041) 
+Parameter number : 1
+
+-> DSP Assign Line 4                         : DSP Assign Line 4 : None
+-> DSP Assign Line 3                         : DSP Assign Line 3 : Top Rear
+-> DSP Assign Line 2                         : DSP Assign Line 2 : Top Front
+-> DSP Assign Line 1                         : DSP Assign Line 1 : Surround Back/ Center Surround
+ 
+Parameter number : 2
+
+-> DSP Assign Line 5                         : DSP Assign Line 5 : None
+
+====================================================================================================
+                            Command : DAP/OARI Commands (0x20000042) 
+Parameter number : 1
+
+-> LFE_Present                               : LFE is Enabled
+-> Speaker Output Configuration - Lrh & Rrh  : Disabled
+-> Speaker Output Configuration - Ltr & Rtr  : Enabled
+-> Speaker Output Configuration - Ltm & Rtm  : Disabled
+-> Speaker Output Configuration - Ltf & Rtf  : Enabled
+-> Speaker Output Configuration - Lfh & Rfh  : Disabled
+-> Speaker Output Configuration - Lw & Rw    : Disabled
+-> Speaker Output Configuration - Cs         : Disabled
+-> Speaker Output Configuration - Lrs & Rrs  : Enabled
+-> Speaker Output Configuration - Ls & Rs    : Enabled
+-> Speaker Output Configuration - C          : Enabled
+-> Speaker Output Configuration - L & R      : Enabled
+ 
+Parameter number : 2
+
+-> Tuning Audio Profile                      : Profile Off
+-> Tuning Configuration                      : Normal mode
+-> Tuning mode                               : Tuning mode is Disabled
+-> Speaker Output Configuration              : Lrse, Rrse, Lse, Rse, Le, Re, Sh Speakers are Disabled
+-> Lrs1 and Rrs1 Speaker Configuration       : Lrs1 and Rrs1 Speakers are Disabled
+ 
+Parameter number : 3
+
+-> Legacy mode                               : Off
+-> DAP Volume Leveler Amplification          : On
+-> Height cue filter                         : Disable
+-> Cspread                                   : Disable
+-> Mode (Dolby Audio Processing Mode)        : Movie
+-> Upmixer (Surround Upmixer Enable)         : Enable
+-> Virtual Mode (Surround Virtualizer)       : Speaker
+ 
+Parameter number : 4
+
+-> Height Angle                              : 0
+-> Surrangle                                 : 0
+-> Front Angle                               : 0
+ 
+Parameter number : 5
+
+-> datmosmusicapp                            : Disable
+-> Frontgain                                 : Frontgain value is -477
+ 
+Parameter number : 6
+
+-> lfegain                                   : lfegain value is -477
+ 
+Parameter number : 7
+
+-> surrgain                                  : surrgain value is 0
+ 
+Parameter number : 8
+
+-> heightgain                                : heightgain value is 0
+ 
+Parameter number : 9
+
+-> rearsurrgain                              : rearsurrgain value is 0
+ 
+Parameter number : 10
+
+-> rearheightgain                            : rearheightgain value is 0
+ 
+Parameter number : 11
+
+-> centergain                                : centergain value is 0
+ 
+Parameter number : 12
+
+-> postgain                                  : post gain value is -2076
+ 
+Parameter number : 13
+
+-> pregain                                   : pregain is 0
+ 
+Parameter number : 14
+
+-> systemgain                                : systemgain is 0
+ 
+Parameter number : 15
+
+-> ieq-amount                                : Default:ieq-amount is 0
+-> ieq_enable                                : ieq is disable
+-> dialog-enhancer-ducking                   : dialog-enhancer-ducking is 0
+-> volume-leveler-enable                     : disable
+-> volume-leveler-amount                     : volume-leveler-amount is 0
+
+====================================================================================================
+                            Command : Customer_PP Core2 Commands (0x20000051) 
+Parameter number : 1
+
+-> Gain Volume Control                       : 0 db
+
+====================================================================================================
+                            Command : MCPCM Commands (0x20000035) 
+Parameter number : 1
+
+-> LFE_Present                               : Disable
+-> Input Channel Configuration for MCPCM     : L,R
+
+====================================================================================================
+                            Command : TrueHD MLP Decoder Commands (0x20000032) 
+Parameter number : 1
+
+-> Loudness Management                       : ON
+-> HIDR (High Dynamic Range Scale Factor)    : 0.3
+-> LODR (Low Dynamic Range Scale Factor)     : 0.3
+-> Kernel DRC Enable                         : Heavy DRC mode
+ 
+Parameter number : 2
+
+-> TrueHD Output Channel Configuration       : L, C, R, Ls, Rs, Cs, SW
+
+====================================================================================================
+                            Command : TrueHD MAT Decoder Commands (0x20000033) 
+Parameter number : 1
+
+-> Loudness Management                       : ON
+-> HIDR (High Dynamic Range Scale Factor)    : 0.3
+-> LODR (Low Dynamic Range Scale Factor)     : 0.3
+-> DRC Mode                                  : Heavy DRC
+
+====================================================================================================
+                            Command : mute the output
+====================================================================================================
+                            Command : resume output
+====================================================================================================
+                            Command : SPORT Initialization
+====================================================================================================
+                            Command : start play
+====================================================================================================
