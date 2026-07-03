@@ -1,0 +1,822 @@
+<html xmlns:graph="graph" xmlns:results="results">
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <style type="text/css">
+    BODY,P,OL,TD,pre{font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000;}
+    A:link {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #990000;text-decoration: none;}
+    A:active {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #990000;text-decoration: none;}
+    A:visited {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #999999;text-decoration: none;}
+    A:hover {font-family: Arial, Helvetica, sans-serif;font-style: normal;color: #990000;text-decoration: underline;}
+    A.gray_link:link {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_link:active {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_link:visited {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_link:hover {font-family: Arial;font-size: 12px;color: #666666;text-decoration: underline;}
+    A.red_link:link {font-family: Arial;font-size: 12px;color: #990000;text-decoration: none;}
+    A.red_link:active {font-family: Arial;font-size: 12px;color: #990000;text-decoration: none;}
+    A.red_link:visited {font-family: Arial;font-size: 12px;color: #990000;text-decoration: none;}
+    A.red_link:hover {font-family: Arial;font-size: 12px;color: #990000;text-decoration: underline;}
+    A.green_link:link {font-family: Arial;font-size: 12px;color: #008040;text-decoration: none;}
+    A.green_link:active {font-family: Arial;font-size: 12px;color: #008040;text-decoration: none;}
+    A.green_link:visited {font-family: Arial;font-size: 12px;color: #008040;text-decoration: none;}
+    A.green_link:hover {font-family: Arial;font-size: 12px;color: #008040;text-decoration: underline;}
+    A.black_link:link {font-family: Arial;font-size: 12px;color: #000000;text-decoration: none;}
+    A.black_link:active {font-family: Arial;font-size: 12px;color: #000000;text-decoration: none;}
+    A.black_link:visited {font-family: Arial;font-size: 12px;color: #000000;text-decoration: none;}
+    A.black_link:hover {font-family: Arial;font-size: 12px;color: #000000;text-decoration: underline;}
+    
+    A.blue_link:link {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: none;}
+    A.blue_link:active {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: none;}
+    A.blue_link:visited {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: none;}
+    A.blue_link:hover {font-family: Arial;font-size: 12px;color: #427fb6;text-decoration: underline;}
+    
+    A.gray_red_link:link {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_red_link:active {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_red_link:visited {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    A.gray_red_link:hover {font-family: Arial;font-size: 12px;color: #666666;text-decoration: none;}
+    DIV.suite_details{margin-left: 40px; padding: 10px; border: 2px solid #99aaaa;}
+    DIV.test_comment{color:#666666;}
+    DIV.header{font-size: 32px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #427fb6 }
+    DIV.small_header{font-size: 18px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #427fb6 }    
+    FONT.gray {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #999999;}    
+    FONT.gray2, FONT.gray_red {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #666666;}
+    FONT.white {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #FFFFFF;}
+    FONT.time {font-size: 11px;font-family: Arial, Helvetica, sans-serif;color: #000000;}
+    FONT.black {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000;}
+    FONT.red {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #990000;}
+    FONT.red2 {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #990000; text-decoration: underline;}
+    FONT.blue {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #427fb6;}
+    FONT.green {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #008040;}
+    FONT.orange {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #F69500;}
+    FONT.goldenrod {font-size: 12px;font-family: Arial, Helvetica, sans-serif;color: #DAA520;}    
+    FONT.small {font-size: 3px;font-family: Arial, Helvetica, sans-serif;color: #cccccc;}
+    IMG.screenshot{float:left; margin-right: 20px; border:1px solid black;}
+    SELECT.cs_authors {font-family: Arial, Helvetica, sans-serif;font-size: 12px;}  
+    SELECT.ju_authors {font-family: Arial, Helvetica, sans-serif;font-size: 12px;}  
+    SPAN.toggle_button{width: 16px; padding-right: 2px; display: inline-block;} 
+    TD.associations{vertical-align: top;}
+    TD.collapse_controls{text-align:right;}
+    TD.cs_authors{font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000;border: 1px; bordercolor: #d9c8ac;}
+    TD.error{background-color:#ffeeee}
+    TD.errorsingleborder{background-color:#ffeeee;border:1px solid #CBCBCB}
+    TD.singleborder{ border:1px solid #CBCBCB}
+    TABLE.header{background-color:#FFFFFF}
+    TABLE.singleborder{ border:1px solid #CBCBCB}
+    TABLE.doubleborder{ border:2px solid #CBCBCB}     
+    TABLE.singleborder_blue{ border:2px solid #427fb6}
+    TD.fixed_width{width: 150px;}
+    TD.no_error{}
+    TD.suite_details{padding:2px; }
+    UL.metrics {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left:12px;}
+    UL.root {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left:0px; margin-left:3px;}
+    UL {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left:0px; margin-left:12px;}
+    LI {font-family: Arial, Helvetica, sans-serif;font-size: 12px;font-style: normal;color: #000000; list-style-type: none; margin: 0; padding-left: 0px;}
+    #foldheader{cursor:pointer;cursor:hand ;}
+    #cs_foldheader{cursor:pointer;cursor:hand ;}
+    #metrics_foldheader{cursor:pointer;cursor:hand ;}
+    #exec_foldheader{cursor:pointer;cursor:hand ;}
+    #paramsHeader {word-break:break-all;overflow: auto; padding: 3px;}
+    </style><title>JIPARASOFT
+- Static Analysis [ 0 / 53 / 0 ]
+
+</title><script language="JavaScript">
+    var nwin;    
+    function openWin (loc_to_open) {    
+       if (!nwin || nwin.closed) {
+          nwin = window.open(loc_to_open,'');
+       } else {
+          nwin.location = loc_to_open;
+       }
+       nwin.focus();
+    }
+    function openDevReport (dev_rep_name) {
+       openWin('&id=' + dev_rep_name);
+    }
+    </script><script language="JavaScript">
+    function sortBySeverity(urgent){
+    if(urgent != null)  {
+        sev=document.getElementById("cs_sevtrue");
+        sev_link=document.getElementById("cs_link_sevtrue");
+        sev_title=document.getElementById("cs_title_sevtrue");
+    } else {
+        sev=document.getElementById("cs_sev");
+        sev_link=document.getElementById("cs_link_sev");
+        sev_title=document.getElementById("cs_title_sev");
+    }   
+    if(sev != null) sev.style.display='block';
+    if(sev_title != null) sev_title.style.display='block';
+    if(sev_link != null) {
+    sev_link.style.color="#666666";  
+    sev_link.style.textDecoration="none";
+    }
+    if(urgent != null)  {
+        cat=document.getElementById("cs_cattrue");
+        cat_link=document.getElementById("cs_link_cattrue");
+        cat_title=document.getElementById("cs_title_cattrue");
+    } else {
+        cat=document.getElementById("cs_cat");
+        cat_link=document.getElementById("cs_link_cat");
+        cat_title=document.getElementById("cs_title_cat");
+    }   
+    if(cat != null) cat.style.display='none';
+    if(cat_title != null) cat_title.style.display='none';
+    if(cat_link != null) {
+    cat_link.style.color="#990000";
+    cat_link.style.textDecoration="underline";
+    }
+    }
+    
+    function sortByCategory(urgent){
+    if(urgent != null)  {
+        sev=document.getElementById("cs_sevtrue");
+        sev_link=document.getElementById("cs_link_sevtrue");
+        sev_title=document.getElementById("cs_title_sevtrue");
+    } else {
+        sev=document.getElementById("cs_sev");
+        sev_link=document.getElementById("cs_link_sev");
+        sev_title=document.getElementById("cs_title_sev");
+    }
+    if(sev != null) sev.style.display='none';
+    if(sev_title != null) sev_title.style.display='none';
+    if(sev_link != null) { 
+    sev_link.style.color="#990000";   
+    sev_link.style.textDecoration="underline";
+    }       
+    if(urgent != null)  {
+        cat=document.getElementById("cs_cattrue");
+        cat_link=document.getElementById("cs_link_cattrue");
+        cat_title=document.getElementById("cs_title_cattrue");
+    } else {
+        cat=document.getElementById("cs_cat");
+        cat_link=document.getElementById("cs_link_cat");
+        cat_title=document.getElementById("cs_title_cat");
+    }
+    if(cat != null) cat.style.display='block';
+    if(cat_title != null) cat_title.style.display='block';
+    if(cat_link != null) { 
+    cat_link.style.color="#666666"; 
+    cat_link.style.textDecoration="none";
+    }
+    }
+    
+    function expandViolation(headerID, violationID, startIndex)
+    {
+        var violation = document.getElementById(violationID);
+        var m = document.getElementById(headerID).getElementsByTagName('td');
+
+        if (violation.style.display === '') {
+            violation.style.display = 'none';
+            for (i = startIndex; i < m.length; i++) {
+                m[i].style.backgroundColor = "#FFFFFF";
+            }
+        }
+        else{
+            violation.style.display = '';
+            for (i = startIndex; i < m.length; i++) {
+                m[i].style.backgroundColor = "#E0E0E0";
+            }
+        }
+    }
+    </script></head>
+<body bgcolor="#E7F0F5">
+<table width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table xmlns:textutil="textutil" xmlns:authors="authors" width="100%" cellpadding="0" cellspacing="0">
+<tr>
+<td bgcolor="#3965A6" background="rep_header_expander.jpg" height="80px" width="30%" align="left"><img src="rep_header_logo.png" alt="rep_header_logo.png" height="54px"></td>
+<td bgcolor="#3965A6" background="rep_header_expander.jpg" height="80px" width="40%" align="center"><img src="rep_header_3.png" alt="rep_header_3.png" height="54px"></td>
+<td bgcolor="#3965A6" background="rep_header_expander.jpg" height="80px" width="30%" align="center"></td>
+</tr>
+</table>
+<table width="100%" style="padding-left:25px;padding-right:25px;padding-bottom:25px;padding-top:0px" cellspacing="0">
+<tr>
+<td align="center">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-left:20px" align="left" width="20%"></td>
+<td style="padding:10px" align="center" width="60%">
+<table align="center" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center">User configuration:
+	    		&nbsp;<b>New Configuration</b></td>
+</tr>
+<tr>
+<td width="16%" align="center"><font class="time">2024-11-20T15:09:53+05:30</font></td>
+</tr>
+</table>
+</td>
+<td style="padding-right:20px" align="right" width="20%"></td>
+</tr>
+</table>
+<table width="100%" class="singleborder_blue" style="padding-left:25px;padding-right:25px;padding-bottom:25px;padding-top:5px" cellspacing="0" bgcolor="#FFFFFF" bordercolor="#A0CAEC">
+<tr>
+<td><a xmlns:textutil="textutil" name="cst_JIPARASOFT"></a><table xmlns:textutil="textutil" class="header" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td width="15%"></td>
+<td align="center">
+<div class="header">STATIC ANALYSIS</div>
+</td>
+<td width="15%" align="right" valign="bottom"></td>
+</tr>
+</table><br><table xmlns:textutil="textutil" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td align="left"><b>Tasks</b>:
+
+53&nbsp;<a class="black_link" href="#cs_JIPARASOFT"><b>total</b></a>,
+&nbsp;0&nbsp;<b>suppressed</b></td>
+</tr>
+</table><br xmlns:textutil="textutil"><table xmlns:textutil="textutil" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<table class="header" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td width="30%">&nbsp;</td>
+<td align="center">
+<div class="small_header" id="cs_title_cat" style="display:block;">All Tasks&nbsp;by Category</div>
+<div class="small_header" id="cs_title_sev" style="display:none;">All Tasks&nbsp;by Severity</div>
+</td>
+<td align="right" width="30%"><font class="gray2">by:</font>&nbsp;&nbsp;&nbsp;<a xmlns:authors="authors" id="cs_link_cat" class="gray_red_link" href="javascript:sortByCategory()">Category</a>&nbsp;&nbsp;&nbsp;<a xmlns:authors="authors" id="cs_link_sev" class="gray_red_link" href="javascript:sortBySeverity()">Severity</a>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="left">
+<div id="cs_cat" style="display:block;">
+<table class="doubleborder" width="100%" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td>&nbsp;
+[<b>53</b>]
+&nbsp;&nbsp;<b>MISRA C 2012 Rules</b>&nbsp;<font class="gray">(MISRA2012-RULE)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;A function shall not be declared implicitly&nbsp;<font class="gray">(MISRA2012-RULE-17_3-1)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;All exit paths from a function with non-void return type shall have an explicit return statement with an expression&nbsp;<font class="gray">(MISRA2012-RULE-17_4-1)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The first clause of a 'for' loop shall be well-formed&nbsp;<font class="gray">(MISRA2012-RULE-14_2_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The second clause of a 'for' loop shall be well-formed&nbsp;<font class="gray">(MISRA2012-RULE-14_2_c-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The third clause of a 'for' statement shall be well-formed&nbsp;<font class="gray">(MISRA2012-RULE-14_2_d-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Controlling expressions shall not be invariant&nbsp;<font class="gray">(MISRA2012-RULE-14_3_zc-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>15</b>]
+&nbsp;&nbsp;The value returned by a function having non-void return type shall be used&nbsp;<font class="gray">(MISRA2012-RULE-17_7_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Do not #define or #undef identifiers with names which start with underscore&nbsp;<font class="gray">(MISRA2012-RULE-21_1_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>14</b>]
+&nbsp;&nbsp;The Standard Library input/output functions shall not be used&nbsp;<font class="gray">(MISRA2012-RULE-21_6-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;An inline function shall be declared with the static storage class&nbsp;<font class="gray">(MISRA2012-RULE-8_10-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>6</b>]
+&nbsp;&nbsp;A function should have a single point of exit at the end&nbsp;<font class="gray">(MISRA2012-RULE-15_5-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;A pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the
+addressed object&nbsp;<font class="gray">(MISRA2012-RULE-8_13_a-4)</font>&nbsp;
+</td>
+</tr>
+</table>
+</div>
+<div id="cs_sev" style="display:none;">
+<table width="100%" class="doubleborder" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td>&nbsp;
+[<b>10</b>]
+&nbsp;&nbsp;<b>Severity&nbsp;1 - Highest</b></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>7</b>]
+&nbsp;&nbsp;A function shall not be declared implicitly&nbsp;<font class="gray">(MISRA2012-RULE-17_3-1)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>3</b>]
+&nbsp;&nbsp;All exit paths from a function with non-void return type shall have an explicit return statement with an expression&nbsp;<font class="gray">(MISRA2012-RULE-17_4-1)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+[<b>36</b>]
+&nbsp;&nbsp;<b>Severity&nbsp;2 - High</b></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The first clause of a 'for' loop shall be well-formed&nbsp;<font class="gray">(MISRA2012-RULE-14_2_b-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The second clause of a 'for' loop shall be well-formed&nbsp;<font class="gray">(MISRA2012-RULE-14_2_c-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;The third clause of a 'for' statement shall be well-formed&nbsp;<font class="gray">(MISRA2012-RULE-14_2_d-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Controlling expressions shall not be invariant&nbsp;<font class="gray">(MISRA2012-RULE-14_3_zc-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>15</b>]
+&nbsp;&nbsp;The value returned by a function having non-void return type shall be used&nbsp;<font class="gray">(MISRA2012-RULE-17_7_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;Do not #define or #undef identifiers with names which start with underscore&nbsp;<font class="gray">(MISRA2012-RULE-21_1_a-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>14</b>]
+&nbsp;&nbsp;The Standard Library input/output functions shall not be used&nbsp;<font class="gray">(MISRA2012-RULE-21_6-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>2</b>]
+&nbsp;&nbsp;An inline function shall be declared with the static storage class&nbsp;<font class="gray">(MISRA2012-RULE-8_10-2)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;
+[<b>7</b>]
+&nbsp;&nbsp;<b>Severity&nbsp;4 - Low</b></td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>6</b>]
+&nbsp;&nbsp;A function should have a single point of exit at the end&nbsp;<font class="gray">(MISRA2012-RULE-15_5-4)</font>&nbsp;
+</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+[<b>1</b>]
+&nbsp;&nbsp;A pointer parameter in a function prototype should be declared as pointer to const if the pointer is not used to modify the
+addressed object&nbsp;<font class="gray">(MISRA2012-RULE-8_13_a-4)</font>&nbsp;
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table><br xmlns:textutil="textutil"><table xmlns:textutil="textutil" width="100%" border="0" bordercolor="#CBCBCB" cellpadding="0" cellspacing="0">
+<tr>
+<td xmlns:authors="authors" style="padding-left:20px;" colspan="2" align="left" nowrap><a name="cs_dev1"></a><b>JIPARASOFT</b>&nbsp;&nbsp;Total Tasks			
+			:
+			&nbsp;53
+</td>
+<td xmlns:authors="authors" align="right"><a class="blue_link" href="#top">Back to Top </a>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+<tr>
+<td colspan="3" align="left">
+<table width="100%" bgcolor="#FFFFFF" bordercolor="#CBCBCB" class="doubleborder" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="padding-right:10px;padding-left:10px" colspan="3"><b>/Project_Final/Audio_Format_Core1.c</b></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">21:&nbsp;</font></td>
+<td>Prototype of function 'printf' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">21:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">21:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">22:&nbsp;</font></td>
+<td>In function 'main' return statement does not return any value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_4-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">22:&nbsp;</font></td>
+<td>Provide only one exit point in 'main' function</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-15_5-4</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">32:&nbsp;</font></td>
+<td>Prototype of function 'fclose' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">32:&nbsp;</font></td>
+<td>The 'fclose' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">32:&nbsp;</font></td>
+<td>Unused function's "fclose" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">36:&nbsp;</font></td>
+<td>Prototype of function 'printf' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">36:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">36:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">37:&nbsp;</font></td>
+<td>In function 'main' return statement does not return any value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_4-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">37:&nbsp;</font></td>
+<td>Provide only one exit point in 'main' function</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-15_5-4</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">43:&nbsp;</font></td>
+<td>Prototype of function 'output_channels_check' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">43:&nbsp;</font></td>
+<td>Unused function's "output_channels_check" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">45:&nbsp;</font></td>
+<td>Improper expression is used in the first clause of a 'for' statement</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-14_2_b-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">45:&nbsp;</font></td>
+<td>The second clause of a 'for' statement does not contain a loop counter</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-14_2_c-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">45:&nbsp;</font></td>
+<td>The third clause of a 'for' statement does not contain an expression which only modifies a loop counter</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-14_2_d-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">47:&nbsp;</font></td>
+<td>Prototype of function 'printf' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">47:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">47:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">49:&nbsp;</font></td>
+<td>Prototype of function 'printf' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">49:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">49:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">52:&nbsp;</font></td>
+<td>Prototype of function 'write_output_file' does not precede function call</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_3-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">52:&nbsp;</font></td>
+<td>Unused function's "write_output_file" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">54:&nbsp;</font></td>
+<td>In function 'main' return statement does not return any value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_4-1</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">54:&nbsp;</font></td>
+<td>Provide only one exit point in 'main' function</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-15_5-4</font></td>
+</tr>
+<tr>
+<td style="padding-right:10px;padding-left:10px" colspan="3"><b>/Project_Final/Audio_Format_Core1.h</b></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">6:&nbsp;</font></td>
+<td>Do not use reserved identifiers : __AUDIO_FORMAT_CORE1_H__</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_1_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">19:&nbsp;</font></td>
+<td>Inline function 'D19API' is not static</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-8_10-2</font></td>
+</tr>
+<tr>
+<td style="padding-right:10px;padding-left:10px" colspan="3"><b>/Project_Final/function.c</b></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">3:&nbsp;</font></td>
+<td>Inline function 'D19API' is not static</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-8_10-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">3:&nbsp;</font></td>
+<td>Pass parameter "array" with const specifier</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-8_13_a-4</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">8:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">8:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">41:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">41:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">74:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">74:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">107:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">107:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">140:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">140:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">141:&nbsp;</font></td>
+<td>Provide only one exit point in 'D19API' function</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-15_5-4</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">143:&nbsp;</font></td>
+<td>Provide only one exit point in 'D19API' function</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-15_5-4</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">148:&nbsp;</font></td>
+<td>Condition "16 &gt; 16" always evaluates to false, because it has a constant value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-14_3_zc-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">162:&nbsp;</font></td>
+<td>The 'fopen' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">165:&nbsp;</font></td>
+<td>The 'printf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">165:&nbsp;</font></td>
+<td>Unused function's "printf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">166:&nbsp;</font></td>
+<td>'return' statement should be at the end of the 'write_output_file' function</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-15_5-4</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">171:&nbsp;</font></td>
+<td>The 'fprintf' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">171:&nbsp;</font></td>
+<td>Unused function's "fprintf" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">173:&nbsp;</font></td>
+<td>The 'fclose' library function should not be used</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-21_6-2</font></td>
+</tr>
+<tr>
+<td width="1%" align="right" style="padding-left:10px"></td>
+<td width="2%" align="right"><font class="gray">173:&nbsp;</font></td>
+<td>Unused function's "fclose" return value</td>
+<td style="padding-right:10px;" align="right"><font class="gray">MISRA2012-RULE-17_7_a-2</font></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="3"><br></td>
+</tr>
+</table><br><script language="JavaScript">
+    if(document.getElementById("cs_link_sev") != null) {
+    document.getElementById("cs_link_sev").style.color="#990000";
+    document.getElementById("cs_link_sev").style.textDecoration="underline";
+    }
+    if(document.getElementById("cs_link_sevtrue") != null) {
+    document.getElementById("cs_link_sevtrue").style.color="#990000";
+    document.getElementById("cs_link_sevtrue").style.textDecoration="underline";
+    }
+    </script></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table width="100%" bgcolor="#1D488D" border="0" bordercolor="#999999" cellpadding="10" cellspacing="0">
+<tr>
+<td align="center"><font class="white">&copy;Parasoft Corp. -&nbsp;C++test&nbsp;2024.1.0.20240522B2484&nbsp;Reporting System&nbsp;</font></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

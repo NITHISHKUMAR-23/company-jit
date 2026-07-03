@@ -1,0 +1,46 @@
+Block format
+	Audio data is stored in separate blocks for each channel. Each block corresponds to a time frame for one channel, allowing easy access to individual channel data.
+
+Interleaved Format
+	Audio data is stored such that the samples from different channels are interspersed. For example, for 8 channels, the samples would be stored in a sequence like [ch1_sample_1, ch2_sample_1, ch3_sample_1, ..., ch8_sample_1, ch1_sample_2, ch2_sample_2, ...].
+
+
+
+#pragma vector_for usage
+
+1. Independence of Loop Iterations ----- result doesn't depends on the previous value.
+2. Uniform Loop Boundaries ----- known limit ex. N=5  - Not possible N/2 inside for - don't change dynamically based on iteration
+3. No Data Dependencies Across Iterations (or Loops) ----- While iteration data of previous shout not be used 
+4. Loop Iteration Count Must Be Known ----- Loop count must be fixed or possible but less efficient
+5. Simplicity of Loop Body ----- presence of conditional logic and function calls within the loop body
+6. Data Alignment and Cache Considerations ----- arrangement may fail to perform vectorization
+7. Non-affine Access Patterns ----- pattern like c[i*2] + a[i*8]
+8. Loop Bounds and Memory Access Overlap ----- memory using same especially when accessing global or shared arrays.
+
+
+#pragma no_alias
+
+1. No Aliasing Between Pointers ----- no two memory pointing same location
+2. Correct Usage with Function Calls -----  using restrict 
+3. No Aliasing Between Loops or Different Array References -----no similar loop/array can not be used 
+4. Complex Data Types (e.g., Structs)
+
+
+inline
+
+1. Small and Simple Functions
+2. Avoid Inlining Complex Functions ----- complex not use
+3. Functions that Are Called Frequently ----- frequently called function
+4. Inline Functions and Recursion ----- recursion not suitable 
+5. Use with Constant or Known Expressions ----- Simple, constant operation
+
+
+usage of block formt ----- better for vectorization
+	Block format stores each channel's data independently, making iterations independent and allowing easy parallel processing. Its fixed loop boundaries and simple access patterns are ideal for vectorization with `#pragma vector_for`. The absence of data dependencies and memory overlap further enhances its suitability for efficient parallel execution.
+
+
+Notes
+
+	Block format is better for independent channel processing, allowing efficient vectorization, cache optimization, and parallel execution. Interleaved format is better when simultaneous cross-channel operations are needed, as it stores all channels' data together. For performance with independent channels, block format is typically the preferred choice.
+
+
