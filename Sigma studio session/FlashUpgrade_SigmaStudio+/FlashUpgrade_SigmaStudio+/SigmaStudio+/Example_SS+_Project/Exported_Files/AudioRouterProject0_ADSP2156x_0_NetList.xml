@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- * 
+ * This software is distributed in the hope that it will be useful, 
+ * but is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
+ * CONDITIONS OF ANY KIND, without even the implied warranty of 
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * 
+ * Copyright ©2024 Analog Devices, Inc. All rights reserved.
+ * 
+-->
+<!--NetList XML file-->
+<IC name="ADSP2156x_0" partnumber="ADSP-21569">
+  <Core name="SharcXICore_0" coreid="1">
+    <Schematic name="DiffDXESchematic_0">
+      <Algorithm name="Output_0" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_28" id="Link_28" />
+      </Algorithm>
+      <Algorithm name="Output_1" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_29" id="Link_29" />
+      </Algorithm>
+      <Algorithm name="Input_0" friendlyname="Input">
+        <Link pin="Ch0_out" dir="out" link="Link_4" id="Link_4" />
+        <Link pin="Ch1_out" dir="out" link="Link_5" id="Link_5" />
+        <Link pin="Ch2_out" dir="out" link="Link_6" id="Link_6" />
+        <Link pin="Ch3_out" dir="out" link="Link_7" id="Link_7" />
+        <Link pin="Ch4_out" dir="out" link="Link_8" id="Link_8" />
+        <Link pin="Ch5_out" dir="out" link="Link_9" id="Link_9" />
+        <Link pin="Ch6_out" dir="out" link="Link_10" id="Link_10" />
+        <Link pin="Ch7_out" dir="out" link="Link_11" id="Link_11" />
+        <Link pin="Ch8_out" dir="out" link="Link_12" id="Link_12" />
+        <Link pin="Ch9_out" dir="out" link="Link_13" id="Link_13" />
+        <Link pin="Ch10_out" dir="out" link="Link_14" id="Link_14" />
+        <Link pin="Ch11_out" dir="out" link="Link_15" id="Link_15" />
+      </Algorithm>
+      <Algorithm name="SWSlewMute_0" friendlyname="Mute Signal">
+        <Link pin="Input0" dir="in" link="Link_4" id="Link_4" />
+        <Link pin="Input1" dir="in" link="Link_5" id="Link_5" />
+        <Link pin="Input2" dir="in" link="Link_6" id="Link_6" />
+        <Link pin="Input3" dir="in" link="Link_7" id="Link_7" />
+        <Link pin="Input4" dir="in" link="Link_8" id="Link_8" />
+        <Link pin="Input5" dir="in" link="Link_9" id="Link_9" />
+        <Link pin="Input6" dir="in" link="Link_10" id="Link_10" />
+        <Link pin="Input7" dir="in" link="Link_11" id="Link_11" />
+        <Link pin="Input8" dir="in" link="Link_12" id="Link_12" />
+        <Link pin="Input9" dir="in" link="Link_13" id="Link_13" />
+        <Link pin="Input10" dir="in" link="Link_14" id="Link_14" />
+        <Link pin="Input11" dir="in" link="Link_15" id="Link_15" />
+        <Link pin="Output0" dir="out" link="Link_16" id="Link_16" />
+        <Link pin="Output1" dir="out" link="Link_17" id="Link_17" />
+        <Link pin="Output2" dir="out" link="Link_18" id="Link_18" />
+        <Link pin="Output3" dir="out" link="Link_19" id="Link_19" />
+        <Link pin="Output4" dir="out" link="Link_20" id="Link_20" />
+        <Link pin="Output5" dir="out" link="Link_21" id="Link_21" />
+        <Link pin="Output6" dir="out" link="Link_22" id="Link_22" />
+        <Link pin="Output7" dir="out" link="Link_23" id="Link_23" />
+        <Link pin="Output8" dir="out" link="Link_24" id="Link_24" />
+        <Link pin="Output9" dir="out" link="Link_25" id="Link_25" />
+        <Link pin="Output10" dir="out" link="Link_26" id="Link_26" />
+        <Link pin="Output11" dir="out" link="Link_27" id="Link_27" />
+      </Algorithm>
+      <Algorithm name="SimpleRouter_1" friendlyname="Route 'N' Inputs to 'M' Outputs">
+        <Link pin="Input0" dir="in" link="Link_16" id="Link_16" />
+        <Link pin="Input1" dir="in" link="Link_17" id="Link_17" />
+        <Link pin="Input2" dir="in" link="Link_18" id="Link_18" />
+        <Link pin="Input3" dir="in" link="Link_19" id="Link_19" />
+        <Link pin="Input4" dir="in" link="Link_20" id="Link_20" />
+        <Link pin="Input5" dir="in" link="Link_21" id="Link_21" />
+        <Link pin="Input6" dir="in" link="Link_22" id="Link_22" />
+        <Link pin="Input7" dir="in" link="Link_23" id="Link_23" />
+        <Link pin="Input8" dir="in" link="Link_24" id="Link_24" />
+        <Link pin="Input9" dir="in" link="Link_25" id="Link_25" />
+        <Link pin="Input10" dir="in" link="Link_26" id="Link_26" />
+        <Link pin="Input11" dir="in" link="Link_27" id="Link_27" />
+        <Link pin="Output0" dir="out" link="Link_28" id="Link_28" />
+        <Link pin="Output1" dir="out" link="Link_29" id="Link_29" />
+        <Link pin="Output2" dir="out" link="Link_30" id="Link_30" />
+        <Link pin="Output3" dir="out" link="Link_31" id="Link_31" />
+        <Link pin="Output4" dir="out" link="Link_32" id="Link_32" />
+        <Link pin="Output5" dir="out" link="Link_33" id="Link_33" />
+        <Link pin="Output6" dir="out" link="Link_34" id="Link_34" />
+        <Link pin="Output7" dir="out" link="Link_35" id="Link_35" />
+        <Link pin="Output8" dir="out" link="Link_36" id="Link_36" />
+        <Link pin="Output9" dir="out" link="Link_37" id="Link_37" />
+        <Link pin="Output10" dir="out" link="Link_38" id="Link_38" />
+        <Link pin="Output11" dir="out" link="Link_39" id="Link_39" />
+      </Algorithm>
+      <Algorithm name="Output_2" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_30" id="Link_30" />
+      </Algorithm>
+      <Algorithm name="Output_3" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_31" id="Link_31" />
+      </Algorithm>
+      <Algorithm name="Output_4" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_32" id="Link_32" />
+      </Algorithm>
+      <Algorithm name="Output_5" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_33" id="Link_33" />
+      </Algorithm>
+      <Algorithm name="Output_6" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_34" id="Link_34" />
+      </Algorithm>
+      <Algorithm name="Output_7" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_35" id="Link_35" />
+      </Algorithm>
+      <Algorithm name="Output_8" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_36" id="Link_36" />
+      </Algorithm>
+      <Algorithm name="Output_9" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_37" id="Link_37" />
+      </Algorithm>
+      <Algorithm name="Output_10" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_38" id="Link_38" />
+      </Algorithm>
+      <Algorithm name="Output_11" friendlyname="Output">
+        <Link pin="Input" dir="in" link="Link_39" id="Link_39" />
+      </Algorithm>
+    </Schematic>
+  </Core>
+</IC>

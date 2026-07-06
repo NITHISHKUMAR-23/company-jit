@@ -1,0 +1,40 @@
+	
+		sendln '0x20000003'   	//Stop
+				mpause 4000	 				
+				
+		sendln '0x20010001'   	//Module ID
+		sendln '0x20020002'   	//Parameter Count
+		
+		sendln '0x20030000'     //Slewrate (LSB)
+		sendln '0x20043980'     //(MSB)	
+		sendln '0x20050000'		//muted
+		sendln '0x20060000'	
+		
+		sendln '0x20070000'
+		sendln '0x20080000'
+		sendln '0x20090000'
+		sendln '0x200A0000'
+		sendln '0x200B0000'
+		sendln '0x200C0000'
+		sendln '0x200D0000' 
+		sendln '0x200E0000'
+		sendln '0x200F0000'
+		sendln '0x20100000'
+		sendln '0x20110000' 
+		sendln '0x20120000'
+		sendln '0x20130000' 
+		sendln '0x20140000'	
+		sendln '0x20150000' 
+		sendln '0x20160000'
+		sendln '0x20170000'
+		sendln '0x20180000'
+		sendln '0x20190000' 
+		sendln '0x201A0000'
+		sendln '0x201B0000' 
+		sendln '0x201C0000'
+		sendln '0x201D0000'
+		sendln '0x201E0000'
+		sendln '0x20000048'     //SigmaStudioPlus 
+				mpause 4000			
+		sendln '0x20000002'   	//Play
+		 

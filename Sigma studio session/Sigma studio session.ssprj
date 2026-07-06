@@ -1,0 +1,1891 @@
+{
+  "Name": "Sigma studio session",
+  "ProjectVersion": "1.0.0.0",
+  "Versions": {},
+  "EnableVersionControl": false,
+  "Presets": {
+    "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+    "$values": []
+  },
+  "Diagram": {
+    "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.SystemShapeModel, TypeDefinitions",
+    "Uid": "Diagram_0",
+    "WritableProperties": {},
+    "WritableCommChannels": [
+      {
+        "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.CommChannelModel, TypeDefinitions",
+        "WritableProperties": {},
+        "Uid": "USB_0",
+        "Name": "USB",
+        "PluginName": "AnalogDevices.Plugins.CommunicationChannels.USBChannel_v1.0.0.0",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICommChannel",
+        "LinkReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "Link_3"
+          ]
+        },
+        "ChannelReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "SPI_0"
+          ]
+        },
+        "ShapeReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": []
+        }
+      },
+      {
+        "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.CommChannelModel, TypeDefinitions",
+        "WritableProperties": {},
+        "Uid": "SPI_0",
+        "Name": "SPI",
+        "PluginName": "AnalogDevices.Plugins.Channels.ControlChannel_v1.0.0.0",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICommChannel",
+        "LinkReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "Link_4"
+          ]
+        },
+        "ChannelReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": []
+        },
+        "ShapeReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "EV21569SOM_0"
+          ]
+        }
+      }
+    ],
+    "WritableNetworks": [],
+    "WritableSdks": [],
+    "CanvasSize": {
+      "Height": 1920.0,
+      "Width": 1080.0
+    },
+    "WritableChannels": [],
+    "WritableShapes": [
+      {
+        "PluginName": "AnalogDevices.Plugins.Controllers.PC_v1.0.0.0",
+        "Name": "PC",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IController",
+        "Uid": "PC_0",
+        "WritableProperties": {
+          "IsRemovable": false,
+          "RestrictShape": false,
+          "BoardKey": "",
+          "IsLocked": false,
+          "EncryptedString": ""
+        },
+        "Angle": 0.0,
+        "Position": {
+          "X": 50.58823529411768,
+          "Y": 304.70588235294127
+        },
+        "Size": {
+          "Height": 113.0,
+          "Width": 116.0
+        },
+        "Label": "PC_0",
+        "WritableChannels": [],
+        "WritableShapes": [],
+        "WriteableLinks": [],
+        "AltShapes": [],
+        "PropertyPresets": {}
+      },
+      {
+        "PluginName": "AnalogDevices.Plugins.Communication.USBi_v1.0.0.0",
+        "Name": "USBi",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICommunication",
+        "Uid": "USBi_0",
+        "WritableProperties": {
+          "IsRemovable": true,
+          "RestrictShape": false,
+          "BoardKey": "",
+          "IsLocked": false,
+          "EncryptedString": "",
+          "FirmwareVersion": "v1.5"
+        },
+        "Angle": 0.0,
+        "Position": {
+          "X": 274.11764705882354,
+          "Y": 304.70588235294127
+        },
+        "Size": {
+          "Height": 113.0,
+          "Width": 116.0
+        },
+        "Label": "USBi_0",
+        "WritableChannels": [],
+        "WritableShapes": [],
+        "WriteableLinks": [],
+        "AltShapes": [],
+        "PropertyPresets": {}
+      },
+      {
+        "PluginName": "AnalogDevices.Plugins.Platforms.EV21569SOM_v1.0.0.0",
+        "Name": "EV-21569-SOM",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IPlatform",
+        "Uid": "EV21569SOM_0",
+        "WritableProperties": {
+          "IsRemovable": true,
+          "RestrictShape": false,
+          "BoardKey": "",
+          "IsLocked": false,
+          "EncryptedString": "",
+          "LockFramework": false
+        },
+        "Angle": 0.0,
+        "Position": {
+          "X": 543.52941176470586,
+          "Y": 304.70588235294127
+        },
+        "Size": {
+          "Height": 133.0,
+          "Width": 116.0
+        },
+        "Label": "EV21569SOM_0",
+        "WritableChannels": [],
+        "WritableShapes": [
+          {
+            "PluginName": "AnalogDevices.Plugins.Processors.ADSP2156x_v1.0.0.0",
+            "Name": "ADSP-215xx/SC5xx (1x SH+)",
+            "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IProcessor",
+            "Uid": "ADSP2156x_0",
+            "WritableProperties": {
+              "IsRemovable": true,
+              "RestrictShape": false,
+              "BoardKey": "",
+              "IsLocked": false,
+              "EncryptedString": "",
+              "SPISlavePinLocation": "Left",
+              "SPORTRxPinLocation": "Right",
+              "SPORTTxPinLocation": "Right",
+              "ADSPSC5XX_PROCESSOR_NAME": "ADSP-21569",
+              "ENABLE_PROCESSOR_SELECTION": false,
+              "ADSPSC5XX_PROCESSOR_BUILDMODE": "Release",
+              "ADSPSC5XX_PROCESSOR_ENABLEIPA": true,
+              "ADSPSC5XX_PROCESSOR_CUSTOMFW": false,
+              "ADSPSC5XX_PROCESSOR_SCHEMATICMODE": "Single Core",
+              "ADSPSC5XX_PROCESSOR_FWAPIVER": "3.11.0",
+              "ADSPSC5XX_PROCESSOR_NUMIPBUFFERS": 3,
+              "ADSPSC5XX_PROCESSOR_NUMOPBUFFERS": 3,
+              "ADSPSC5XX_PROCESSOR_TOOLCHAIN": "CrossCore® Embedded Studio v3.0.1",
+              "LockFramework": false,
+              "SPORTCFG_PROCESSOR": "ADSP-21569",
+              "SPORTCFG_NUMSOURCES": 2,
+              "SPORTCFG_NUMSINKS": 1,
+              "SPORTCFG_SELSOURCE_SOURCE0": "SPORT4A",
+              "SPORTCFG_SELSOURCE_SOURCE1": "SPORT0A",
+              "SPORTCFG_SELSOURCE_SOURCE2": "",
+              "SPORTCFG_SELSOURCE_SOURCE3": "",
+              "SPORTCFG_SELSOURCE_SOURCE4": "",
+              "SPORTCFG_SELSOURCE_SOURCE5": "",
+              "SPORTCFG_SELSOURCE_SOURCE6": "",
+              "SPORTCFG_SELSOURCE_SOURCE7": "",
+              "SPORTCFG_SELSINK_SINK0": "SPORT5A",
+              "SPORTCFG_SELSINK_SINK1": "",
+              "SPORTCFG_SELSINK_SINK2": "",
+              "SPORTCFG_SELSINK_SINK3": "",
+              "SPORTCFG_SELSINK_SINK4": "",
+              "SPORTCFG_SELSINK_SINK5": "",
+              "SPORTCFG_SELSINK_SINK6": "",
+              "SPORTCFG_SELSINK_SINK7": "",
+              "SPORTCFG_SPORT0A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT0B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT1A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT1B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT2A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT2B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT3A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT3B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT4A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT4B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT5A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT5B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT6A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT6B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT7A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT7B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT0A_DAIPIN": "5",
+              "SPORTCFG_SPORT1A_DAIPIN": "1",
+              "SPORTCFG_SPORT2A_DAIPIN": "1",
+              "SPORTCFG_SPORT3A_DAIPIN": "1",
+              "SPORTCFG_SPORT4A_DAIPIN": "6",
+              "SPORTCFG_SPORT5A_DAIPIN": "1",
+              "SPORTCFG_SPORT6A_DAIPIN": "1",
+              "SPORTCFG_SPORT7A_DAIPIN": "1",
+              "SPORTCFG_SPORT0B_DAIPIN": "1",
+              "SPORTCFG_SPORT1B_DAIPIN": "1",
+              "SPORTCFG_SPORT2B_DAIPIN": "1",
+              "SPORTCFG_SPORT3B_DAIPIN": "1",
+              "SPORTCFG_SPORT4B_DAIPIN": "1",
+              "SPORTCFG_SPORT5B_DAIPIN": "1",
+              "SPORTCFG_SPORT6B_DAIPIN": "1",
+              "SPORTCFG_SPORT7B_DAIPIN": "1",
+              "SPORTCFG_SPORT0A_BCLKPOL": 1,
+              "SPORTCFG_SPORT0B_BCLKPOL": 1,
+              "SPORTCFG_SPORT1A_BCLKPOL": 1,
+              "SPORTCFG_SPORT1B_BCLKPOL": 1,
+              "SPORTCFG_SPORT2A_BCLKPOL": 1,
+              "SPORTCFG_SPORT2B_BCLKPOL": 1,
+              "SPORTCFG_SPORT3A_BCLKPOL": 1,
+              "SPORTCFG_SPORT3B_BCLKPOL": 1,
+              "SPORTCFG_SPORT4A_BCLKPOL": 1,
+              "SPORTCFG_SPORT4B_BCLKPOL": 1,
+              "SPORTCFG_SPORT5A_BCLKPOL": 1,
+              "SPORTCFG_SPORT5B_BCLKPOL": 1,
+              "SPORTCFG_SPORT6A_BCLKPOL": 1,
+              "SPORTCFG_SPORT6B_BCLKPOL": 1,
+              "SPORTCFG_SPORT7A_BCLKPOL": 1,
+              "SPORTCFG_SPORT7B_BCLKPOL": 1,
+              "SPORTCFG_SPORT0A_FSPOL": 0,
+              "SPORTCFG_SPORT0B_FSPOL": 0,
+              "SPORTCFG_SPORT1A_FSPOL": 0,
+              "SPORTCFG_SPORT1B_FSPOL": 0,
+              "SPORTCFG_SPORT2A_FSPOL": 0,
+              "SPORTCFG_SPORT2B_FSPOL": 0,
+              "SPORTCFG_SPORT3A_FSPOL": 0,
+              "SPORTCFG_SPORT3B_FSPOL": 0,
+              "SPORTCFG_SPORT4A_FSPOL": 0,
+              "SPORTCFG_SPORT4B_FSPOL": 0,
+              "SPORTCFG_SPORT5A_FSPOL": 0,
+              "SPORTCFG_SPORT5B_FSPOL": 0,
+              "SPORTCFG_SPORT6A_FSPOL": 0,
+              "SPORTCFG_SPORT6B_FSPOL": 0,
+              "SPORTCFG_SPORT7A_FSPOL": 0,
+              "SPORTCFG_SPORT7B_FSPOL": 0,
+              "SPORTCFG_SPORT0A_OPMODE": "I2S",
+              "SPORTCFG_SPORT1A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT2A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT3A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT4A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT5A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT6A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT7A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT0B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT1B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT2B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT3B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT4B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT5B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT6B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT7B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT0A_NUMCHANNELS": 2,
+              "SPORTCFG_SPORT1A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT2A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT3A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT4A_NUMCHANNELS": 6,
+              "SPORTCFG_SPORT5A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT6A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT7A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT0B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT1B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT2B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT3B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT4B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT5B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT6B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT7B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT0A_SERWRDLEN": 24,
+              "SPORTCFG_SPORT1A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT2A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT3A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT4A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT5A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT6A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT7A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT0B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT1B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT2B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT3B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT4B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT5B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT6B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT7B_SERWRDLEN": 32
+            },
+            "Angle": 0.0,
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Size": {
+              "Height": 1.0,
+              "Width": 1.0
+            },
+            "Label": "ADSP2156x_0",
+            "WritableChannels": [],
+            "WritableShapes": [
+              {
+                "PluginName": "AnalogDevices.Plugins.Cores.SharcXICore_v1.0.0.0",
+                "Name": "SharcXICore",
+                "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICore",
+                "Uid": "SharcXICore_0",
+                "WritableProperties": {
+                  "IsRemovable": true,
+                  "RestrictShape": false,
+                  "BoardKey": "",
+                  "IsLocked": false,
+                  "EncryptedString": "",
+                  "SHARCXI_CORE_ENABLE": true,
+                  "SHARCXI_CORE_ID": 1,
+                  "SHARCXI_PROCESS_MODE": "Single",
+                  "SHARCXI_NUMINSTANCE": 1,
+                  "SHARCXI_CORE_DXE": "D:\\Sigma studio session\\21569SDK07.dxe",
+                  "SHARCXI_CORE_DXE_SH1": "",
+                  "ADSPSC5XX_PROCESSOR_NAME": "ADSP-21569",
+                  "ADSPSC5XX_PROCESSOR_BUILDMODE": "Release",
+                  "ADSPSC5XX_PROCESSOR_ENABLEIPA": true,
+                  "ADSPSC5XX_PROCESSOR_CUSTOMFW": false,
+                  "ADSPSC5XX_PROCESSOR_SCHEMATICMODE": "Single Core",
+                  "ADSPSC5XX_PROCESSOR_FWAPIVER": "3.11.0",
+                  "ADSPSC5XX_PROCESSOR_NUMIPBUFFERS": 3,
+                  "ADSPSC5XX_PROCESSOR_NUMOPBUFFERS": 3,
+                  "ADSPSC5XX_PROCESSOR_TOOLCHAIN": "",
+                  "LockFramework": false
+                },
+                "Angle": 0.0,
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Size": {
+                  "Height": 1.0,
+                  "Width": 1.0
+                },
+                "Label": "SharcXICore_0",
+                "WritableChannels": [],
+                "WritableShapes": [
+                  {
+                    "PluginName": "AnalogDevices.Plugins.Schematics.DiffDXESchematic_v1.0.0.0",
+                    "Name": "DiffDXESchematic",
+                    "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ISchematic",
+                    "Uid": "DiffDXESchematic_0",
+                    "WritableProperties": {
+                      "IsRemovable": true,
+                      "RestrictShape": false,
+                      "BoardKey": "",
+                      "IsLocked": false,
+                      "EncryptedString": "",
+                      "CanvasSize": {
+                        "$type": "AnalogDevices.TypeDefinitions.Size, TypeDefinitions",
+                        "Height": 1920.0,
+                        "Width": 1080.0
+                      },
+                      "DIFFDXE_SCHEMATIC_IPCHANNELS": 8,
+                      "DIFFDXE_SCHEMATIC_OPCHANNELS": 2,
+                      "DIFFDXE_SCHEMATIC_INSTANCEID": 0,
+                      "DIFFDXE_SCHEMATIC_BLOCKSIZE": 256,
+                      "DIFFDXE_SCHEMATIC_FIXEDADDRESSENABLE": false,
+                      "DIFFDXE_SCHEMATIC_FIXEDADDRESSMAP": "{}",
+                      "OutputCh0": true,
+                      "OutputCh1": true,
+                      "DIFFDXE_SCHEMATIC_USED_IPCHANNELS": 8,
+                      "DIFFDXE_SCHEMATIC_NUMSOURCES": 2,
+                      "DIFFDXE_SCHEMATIC_NUMSINKS": 1,
+                      "DIFFDXE_SCHEMATIC_SPORTCONFIG_SRC": "[{\"SportNumber\":4,\"SportHalf\":0,\"FrameSyncPolarity\":0,\"BitClockSyncPolarity\":1,\"OpMode\":2,\"SerialWordLength\":32,\"DAISelectionForData\":1,\"DAIPinSelectionForData\":6,\"DAISelectionForDataSec\":0,\"DAIPinSelectionForDataSec\":1,\"EnableSec\":0,\"NumSportChannels\":6},{\"SportNumber\":0,\"SportHalf\":0,\"FrameSyncPolarity\":0,\"BitClockSyncPolarity\":1,\"OpMode\":0,\"SerialWordLength\":24,\"DAISelectionForData\":0,\"DAIPinSelectionForData\":5,\"DAISelectionForDataSec\":0,\"DAIPinSelectionForDataSec\":1,\"EnableSec\":0,\"NumSportChannels\":2}]",
+                      "DIFFDXE_SCHEMATIC_SPORTCONFIG_SINK": "[{\"SportNumber\":5,\"SportHalf\":0,\"FrameSyncPolarity\":0,\"BitClockSyncPolarity\":1,\"OpMode\":2,\"SerialWordLength\":32,\"DAISelectionForData\":1,\"DAIPinSelectionForData\":1,\"DAISelectionForDataSec\":0,\"DAIPinSelectionForDataSec\":1,\"EnableSec\":0,\"NumSportChannels\":8}]",
+                      "ADSPSC5XX_PROCESSOR_NAME": "ADSP-21569",
+                      "ADSPSC5XX_PROCESSOR_BUILDMODE": "Release",
+                      "ADSPSC5XX_PROCESSOR_ENABLEIPA": true,
+                      "ADSPSC5XX_PROCESSOR_CUSTOMFW": false,
+                      "ADSPSC5XX_PROCESSOR_SCHEMATICMODE": "Single Core",
+                      "ADSPSC5XX_PROCESSOR_FWAPIVER": "3.11.0",
+                      "ADSPSC5XX_PROCESSOR_NUMIPBUFFERS": 3,
+                      "ADSPSC5XX_PROCESSOR_NUMOPBUFFERS": 3,
+                      "ADSPSC5XX_PROCESSOR_TOOLCHAIN": "",
+                      "SHARCXI_PROCESS_MODE": "Single",
+                      "SHARCXI_CORE_ID": 1,
+                      "SHARCXI_CORE_DXE": "D:\\Sigma studio session\\21569SDK07.dxe",
+                      "SHARCXI_CORE_DXE_SH1": "",
+                      "SECTION_STATE_seg_dmda1": "State A",
+                      "SECTION_STATE_seg_dmda2": "State A",
+                      "SECTION_STATE_seg_dmda3": "State A"
+                    },
+                    "Angle": 0.0,
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Size": {
+                      "Height": 1.0,
+                      "Width": 1.0
+                    },
+                    "Label": "DiffDXESchematic_0",
+                    "WritableChannels": [
+                      {
+                        "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.ChannelModel, TypeDefinitions",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": ""
+                        },
+                        "Uid": "BlockAnalog_0",
+                        "Name": "BlockAnalog",
+                        "PluginName": "AnalogDevices.Plugins.Channels.AudioChannel_v1.0.0.0",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IChannel",
+                        "LinkReference": {
+                          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+                          "$values": [
+                            "Link_5",
+                            "Link_6",
+                            "Link_7",
+                            "Link_8",
+                            "Link_9",
+                            "Link_10",
+                            "Link_11",
+                            "Link_12",
+                            "Link_13",
+                            "Link_14",
+                            "Link_15",
+                            "Link_16",
+                            "Link_17",
+                            "Link_18",
+                            "Link_19",
+                            "Link_20",
+                            "Link_21",
+                            "Link_22",
+                            "Link_23",
+                            "Link_24",
+                            "Link_25",
+                            "Link_26",
+                            "Link_27",
+                            "Link_28",
+                            "Link_29",
+                            "Link_30",
+                            "Link_31",
+                            "Link_32",
+                            "Link_33",
+                            "Link_34"
+                          ]
+                        }
+                      }
+                    ],
+                    "WritableShapes": [
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Input_v1.0.0.0",
+                        "Name": "Input",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Input_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 2,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "Ch0": true,
+                          "InUseCh0": true,
+                          "Type0": "Linear",
+                          "Ch1": true,
+                          "InUseCh1": true,
+                          "Type1": "Linear",
+                          "Ch2": true,
+                          "InUseCh2": true,
+                          "Type2": "Linear",
+                          "Ch3": true,
+                          "InUseCh3": true,
+                          "Type3": "Linear",
+                          "Ch4": true,
+                          "InUseCh4": true,
+                          "Type4": "Linear",
+                          "Ch5": true,
+                          "InUseCh5": true,
+                          "Type5": "Linear",
+                          "Ch6": true,
+                          "InUseCh6": true,
+                          "Type6": "Linear",
+                          "Ch7": true,
+                          "InUseCh7": true,
+                          "Type7": "Linear"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": -347.17783162178864,
+                          "Y": 389.55273869126677
+                        },
+                        "Size": {
+                          "Height": 343.62825678384638,
+                          "Width": 278.65911504424821
+                        },
+                        "Label": "Input_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_1",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch0"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 2222.3542297532372,
+                          "Y": 406.34090909090918
+                        },
+                        "Size": {
+                          "Height": 107.3181818181817,
+                          "Width": 124.12705366922228
+                        },
+                        "Label": "Output_1",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_2",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch1"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 2222.3542297532367,
+                          "Y": 615.22686137392031
+                        },
+                        "Size": {
+                          "Height": 107.31818181818188,
+                          "Width": 124.12705366922228
+                        },
+                        "Label": "Output_2",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 99.352941176470551
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_1",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 211.58823529411768
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_1",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Filters.Sharc.Block.ParametricEqNoSlew_v1.0.0.0",
+                        "Name": "Parametric EQ",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "ParametricEqNoSlew_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumStages": 8,
+                          "NumChannels": 8,
+                          "Stage0_Boost": 0,
+                          "Stage0_Boost_Min": -10,
+                          "Stage0_Boost_Max": 10,
+                          "Stage0_Boost_Resolution": 1,
+                          "Stage0_Frequency": 200.0,
+                          "Stage0_Frequency_Min": 0,
+                          "Stage0_Frequency_Max": 96000,
+                          "Stage0_Q": 1.41,
+                          "Stage0_Q_Min": 0,
+                          "Stage0_Q_Max": 16,
+                          "Stage0_Slope": 1,
+                          "Stage0_Slope_Min": 0,
+                          "Stage0_Slope_Max": 2,
+                          "Stage0_Gain": 0,
+                          "Stage0_Gain_Min": -15,
+                          "Stage0_Gain_Max": 15,
+                          "Stage0_FilterType": 0,
+                          "Stage0_EnabledOrBypassed": true,
+                          "Stage0_Phase": false,
+                          "Stage0_LockFrequency": false,
+                          "PrecisionType": "SinglePrecision",
+                          "SetTunable": false,
+                          "FixedAddress": false,
+                          "Stage1_Boost": 0,
+                          "Stage1_Boost_Min": -10,
+                          "Stage1_Boost_Max": 10,
+                          "Stage1_Boost_Resolution": 1,
+                          "Stage1_Frequency": 2000.0,
+                          "Stage1_Frequency_Min": 0,
+                          "Stage1_Frequency_Max": 96000,
+                          "Stage1_Q": 1.41,
+                          "Stage1_Q_Min": 0,
+                          "Stage1_Q_Max": 16,
+                          "Stage1_Slope": 1,
+                          "Stage1_Slope_Min": 0,
+                          "Stage1_Slope_Max": 2,
+                          "Stage1_Gain": 0,
+                          "Stage1_Gain_Min": -15,
+                          "Stage1_Gain_Max": 15,
+                          "Stage1_FilterType": 0,
+                          "Stage1_EnabledOrBypassed": true,
+                          "Stage1_Phase": false,
+                          "Stage1_LockFrequency": false,
+                          "Stage2_Boost": 0,
+                          "Stage2_Boost_Min": -10,
+                          "Stage2_Boost_Max": 10,
+                          "Stage2_Boost_Resolution": 1,
+                          "Stage2_Frequency": 5000.0,
+                          "Stage2_Frequency_Min": 0,
+                          "Stage2_Frequency_Max": 96000,
+                          "Stage2_Q": 1.41,
+                          "Stage2_Q_Min": 0,
+                          "Stage2_Q_Max": 16,
+                          "Stage2_Slope": 1,
+                          "Stage2_Slope_Min": 0,
+                          "Stage2_Slope_Max": 2,
+                          "Stage2_Gain": 0,
+                          "Stage2_Gain_Min": -15,
+                          "Stage2_Gain_Max": 15,
+                          "Stage2_FilterType": 0,
+                          "Stage2_EnabledOrBypassed": true,
+                          "Stage2_Phase": false,
+                          "Stage2_LockFrequency": false,
+                          "Stage3_Boost": 0,
+                          "Stage3_Boost_Min": -10,
+                          "Stage3_Boost_Max": 10,
+                          "Stage3_Boost_Resolution": 1,
+                          "Stage3_Frequency": 8000.0,
+                          "Stage3_Frequency_Min": 0,
+                          "Stage3_Frequency_Max": 96000,
+                          "Stage3_Q": 1.41,
+                          "Stage3_Q_Min": 0,
+                          "Stage3_Q_Max": 16,
+                          "Stage3_Slope": 1,
+                          "Stage3_Slope_Min": 0,
+                          "Stage3_Slope_Max": 2,
+                          "Stage3_Gain": 0,
+                          "Stage3_Gain_Min": -15,
+                          "Stage3_Gain_Max": 15,
+                          "Stage3_FilterType": 0,
+                          "Stage3_EnabledOrBypassed": true,
+                          "Stage3_Phase": false,
+                          "Stage3_LockFrequency": false,
+                          "Stage4_Boost": 0,
+                          "Stage4_Boost_Min": -10,
+                          "Stage4_Boost_Max": 10,
+                          "Stage4_Boost_Resolution": 1,
+                          "Stage4_Frequency": 10000.0,
+                          "Stage4_Frequency_Min": 0,
+                          "Stage4_Frequency_Max": 96000,
+                          "Stage4_Q": 1.41,
+                          "Stage4_Q_Min": 0,
+                          "Stage4_Q_Max": 16,
+                          "Stage4_Slope": 1,
+                          "Stage4_Slope_Min": 0,
+                          "Stage4_Slope_Max": 2,
+                          "Stage4_Gain": 0,
+                          "Stage4_Gain_Min": -15,
+                          "Stage4_Gain_Max": 15,
+                          "Stage4_FilterType": 0,
+                          "Stage4_EnabledOrBypassed": true,
+                          "Stage4_Phase": false,
+                          "Stage4_LockFrequency": false,
+                          "Stage5_Boost": 0,
+                          "Stage5_Boost_Min": -10,
+                          "Stage5_Boost_Max": 10,
+                          "Stage5_Boost_Resolution": 1,
+                          "Stage5_Frequency": 12000.0,
+                          "Stage5_Frequency_Min": 0,
+                          "Stage5_Frequency_Max": 96000,
+                          "Stage5_Q": 1.41,
+                          "Stage5_Q_Min": 0,
+                          "Stage5_Q_Max": 16,
+                          "Stage5_Slope": 1,
+                          "Stage5_Slope_Min": 0,
+                          "Stage5_Slope_Max": 2,
+                          "Stage5_Gain": 0,
+                          "Stage5_Gain_Min": -15,
+                          "Stage5_Gain_Max": 15,
+                          "Stage5_FilterType": 0,
+                          "Stage5_EnabledOrBypassed": true,
+                          "Stage5_Phase": false,
+                          "Stage5_LockFrequency": false,
+                          "Stage6_Boost": 0,
+                          "Stage6_Boost_Min": -10,
+                          "Stage6_Boost_Max": 10,
+                          "Stage6_Boost_Resolution": 1,
+                          "Stage6_Frequency": 14000.0,
+                          "Stage6_Frequency_Min": 0,
+                          "Stage6_Frequency_Max": 96000,
+                          "Stage6_Q": 1.41,
+                          "Stage6_Q_Min": 0,
+                          "Stage6_Q_Max": 16,
+                          "Stage6_Slope": 1,
+                          "Stage6_Slope_Min": 0,
+                          "Stage6_Slope_Max": 2,
+                          "Stage6_Gain": 0,
+                          "Stage6_Gain_Min": -15,
+                          "Stage6_Gain_Max": 15,
+                          "Stage6_FilterType": 0,
+                          "Stage6_EnabledOrBypassed": true,
+                          "Stage6_Phase": false,
+                          "Stage6_LockFrequency": false,
+                          "Stage7_Boost": 0,
+                          "Stage7_Boost_Min": -10,
+                          "Stage7_Boost_Max": 10,
+                          "Stage7_Boost_Resolution": 1,
+                          "Stage7_Frequency": 16000.0,
+                          "Stage7_Frequency_Min": 0,
+                          "Stage7_Frequency_Max": 96000,
+                          "Stage7_Q": 1.41,
+                          "Stage7_Q_Min": 0,
+                          "Stage7_Q_Max": 16,
+                          "Stage7_Slope": 1,
+                          "Stage7_Slope_Min": 0,
+                          "Stage7_Slope_Max": 2,
+                          "Stage7_Gain": 0,
+                          "Stage7_Gain_Min": -15,
+                          "Stage7_Gain_Max": 15,
+                          "Stage7_FilterType": 0,
+                          "Stage7_EnabledOrBypassed": true,
+                          "Stage7_Phase": false,
+                          "Stage7_LockFrequency": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 470.660633484163,
+                          "Y": 400.18099547511309
+                        },
+                        "Size": {
+                          "Height": 333.0,
+                          "Width": 856.0
+                        },
+                        "Label": "ParametricEqNoSlew_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_2",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 336.29411764705878
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_2",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_3",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 463.88235294117652
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_3",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_4",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 580.88235294117658
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_4",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_5",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 700.88235294117635
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_5",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_6",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 835.64705882352939
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_6",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.Mute_v1.0.0.0",
+                        "Name": "Mute (No Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Mute_7",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 1,
+                          "Mute": false,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 202.88235294117658,
+                          "Y": 994.70588235294133
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 76.0
+                        },
+                        "Label": "Mute_7",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.MixersAndSplitters.Sharc.Block.NxMMixer_v1.0.0.0",
+                        "Name": "NxM Mixer",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "NxMMixer_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumInputs": 8,
+                          "NumOutputs": 2,
+                          "GainDB_Output0_Input0": 0,
+                          "Max_Output0_Input0": 6,
+                          "Min_Output0_Input0": -30,
+                          "Resolution_Output0_Input0": 1,
+                          "IsDB_Output0_Input0": true,
+                          "GainDB_Output0_Input1": 0,
+                          "Max_Output0_Input1": 6,
+                          "Min_Output0_Input1": -30,
+                          "Resolution_Output0_Input1": 1,
+                          "IsDB_Output0_Input1": true,
+                          "SlewType": "NoSlew",
+                          "SetTunable": false,
+                          "FixedAddress": false,
+                          "GainDB_Output0_Input2": 0,
+                          "Max_Output0_Input2": 6,
+                          "Min_Output0_Input2": -30,
+                          "Resolution_Output0_Input2": 1,
+                          "IsDB_Output0_Input2": true,
+                          "GainDB_Output0_Input3": 0,
+                          "Max_Output0_Input3": 6,
+                          "Min_Output0_Input3": -30,
+                          "Resolution_Output0_Input3": 1,
+                          "IsDB_Output0_Input3": true,
+                          "GainDB_Output0_Input4": 0,
+                          "Max_Output0_Input4": 6,
+                          "Min_Output0_Input4": -30,
+                          "Resolution_Output0_Input4": 1,
+                          "IsDB_Output0_Input4": true,
+                          "GainDB_Output0_Input5": 0,
+                          "Max_Output0_Input5": 6,
+                          "Min_Output0_Input5": -30,
+                          "Resolution_Output0_Input5": 1,
+                          "IsDB_Output0_Input5": true,
+                          "GainDB_Output0_Input6": 0,
+                          "Max_Output0_Input6": 6,
+                          "Min_Output0_Input6": -30,
+                          "Resolution_Output0_Input6": 1,
+                          "IsDB_Output0_Input6": true,
+                          "GainDB_Output0_Input7": 0,
+                          "Max_Output0_Input7": 6,
+                          "Min_Output0_Input7": -30,
+                          "Resolution_Output0_Input7": 1,
+                          "IsDB_Output0_Input7": true,
+                          "GainDB_Output1_Input0": 0,
+                          "Max_Output1_Input0": 6,
+                          "Min_Output1_Input0": -30,
+                          "Resolution_Output1_Input0": 1,
+                          "IsDB_Output1_Input0": true,
+                          "GainDB_Output1_Input1": 0,
+                          "Max_Output1_Input1": 6,
+                          "Min_Output1_Input1": -30,
+                          "Resolution_Output1_Input1": 1,
+                          "IsDB_Output1_Input1": true,
+                          "GainDB_Output1_Input2": 0,
+                          "Max_Output1_Input2": 6,
+                          "Min_Output1_Input2": -30,
+                          "Resolution_Output1_Input2": 1,
+                          "IsDB_Output1_Input2": true,
+                          "GainDB_Output1_Input3": 0,
+                          "Max_Output1_Input3": 6,
+                          "Min_Output1_Input3": -30,
+                          "Resolution_Output1_Input3": 1,
+                          "IsDB_Output1_Input3": true,
+                          "GainDB_Output1_Input4": 0,
+                          "Max_Output1_Input4": 6,
+                          "Min_Output1_Input4": -30,
+                          "Resolution_Output1_Input4": 1,
+                          "IsDB_Output1_Input4": true,
+                          "GainDB_Output1_Input5": 0,
+                          "Max_Output1_Input5": 6,
+                          "Min_Output1_Input5": -30,
+                          "Resolution_Output1_Input5": 1,
+                          "IsDB_Output1_Input5": true,
+                          "GainDB_Output1_Input6": 0,
+                          "Max_Output1_Input6": 6,
+                          "Min_Output1_Input6": -30,
+                          "Resolution_Output1_Input6": 1,
+                          "IsDB_Output1_Input6": true,
+                          "GainDB_Output1_Input7": 0,
+                          "Max_Output1_Input7": 6,
+                          "Min_Output1_Input7": -30,
+                          "Resolution_Output1_Input7": 1,
+                          "IsDB_Output1_Input7": true
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 1484.1538461538464,
+                          "Y": 400.18099547511315
+                        },
+                        "Size": {
+                          "Height": 333.0,
+                          "Width": 278.65911504424821
+                        },
+                        "Label": "NxMMixer_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Sources.Sharc.Block.WhiteNoise_v1.0.0.0",
+                        "Name": "White Noise",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "WhiteNoise_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "WhiteNoise_Enabled": true,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 1561.2903936583664,
+                          "Y": 203.50290510540128
+                        },
+                        "Size": {
+                          "Height": 126.96233553630998,
+                          "Width": 133.81172755375437
+                        },
+                        "Label": "WhiteNoise_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.MuxesAndDemuxes.Sharc.Block.MonoSwitchNx1_v1.0.0.0",
+                        "Name": "Nx1 Switch",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "MonoSwitchNx1_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 2,
+                          "StepSize": 10,
+                          "SelectedVal": 0,
+                          "SlewType": "No Slew",
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 1956.1818181818176,
+                          "Y": 394.18181818181836
+                        },
+                        "Size": {
+                          "Height": 131.6363636363634,
+                          "Width": 136.98170459616202
+                        },
+                        "Label": "MonoSwitchNx1_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.MuxesAndDemuxes.Sharc.Block.MonoSwitchNx1_v1.0.0.0",
+                        "Name": "Nx1 Switch",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "MonoSwitchNx1_1",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 2,
+                          "StepSize": 10,
+                          "SelectedVal": 0,
+                          "SlewType": "No Slew",
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 1959.3517952242255,
+                          "Y": 604.59090909090912
+                        },
+                        "Size": {
+                          "Height": 128.59008638420403,
+                          "Width": 133.81172755375408
+                        },
+                        "Label": "MonoSwitchNx1_1",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Sources.Sharc.Block.WhiteNoise_v1.0.0.0",
+                        "Name": "White Noise",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "WhiteNoise_1",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "WhiteNoise_Enabled": true,
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 1561.2903936583664,
+                          "Y": 835.64705882352928
+                        },
+                        "Size": {
+                          "Height": 126.96233553630998,
+                          "Width": 133.81172755375437
+                        },
+                        "Label": "WhiteNoise_1",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      }
+                    ],
+                    "WriteableLinks": [
+                      {
+                        "Uid": "Link_5",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch0_out",
+                        "TargetUid": "Mute_0",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 23.529411764705912,
+                            "Y": 458.27839004803604
+                          },
+                          {
+                            "X": 23.529411764705912,
+                            "Y": 140.85294117647055
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_6",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch1_out",
+                        "TargetUid": "Mute_1",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 50.58823529411768,
+                            "Y": 492.64121572642068
+                          },
+                          {
+                            "X": 50.58823529411768,
+                            "Y": 253.08823529411768
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_7",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch2_out",
+                        "TargetUid": "Mute_2",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 76.470588235294088,
+                            "Y": 527.00404140480532
+                          },
+                          {
+                            "X": 76.470588235294088,
+                            "Y": 377.79411764705878
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_8",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch3_out",
+                        "TargetUid": "Mute_3",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 111.76470588235293,
+                            "Y": 561.36686708319
+                          },
+                          {
+                            "X": 111.76470588235293,
+                            "Y": 505.38235294117658
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_9",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch4_out",
+                        "TargetUid": "Mute_4",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 111.764705882353,
+                            "Y": 595.7296927615746
+                          },
+                          {
+                            "X": 111.764705882353,
+                            "Y": 622.38235294117658
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_10",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch5_out",
+                        "TargetUid": "Mute_5",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 76.470588235294159,
+                            "Y": 630.09251843995924
+                          },
+                          {
+                            "X": 76.470588235294159,
+                            "Y": 742.38235294117635
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_11",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch6_out",
+                        "TargetUid": "Mute_6",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 50.588235294117652,
+                            "Y": 664.45534411834387
+                          },
+                          {
+                            "X": 50.588235294117652,
+                            "Y": 877.14705882352939
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_12",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch7_out",
+                        "TargetUid": "Mute_7",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 18.823529411764696,
+                            "Y": 698.81816979672863
+                          },
+                          {
+                            "X": 18.823529411764696,
+                            "Y": 1036.2058823529414
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_13",
+                        "SourceUid": "Mute_0",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 457.0,
+                            "Y": 140.85294117647055
+                          },
+                          {
+                            "X": 457.0,
+                            "Y": 437.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_14",
+                        "SourceUid": "Mute_1",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input1",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 410.76923076923072,
+                            "Y": 253.08823529411768
+                          },
+                          {
+                            "X": 410.76923076923072,
+                            "Y": 474.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_15",
+                        "SourceUid": "Mute_2",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input2",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 384.61538461538458,
+                            "Y": 377.79411764705878
+                          },
+                          {
+                            "X": 384.61538461538458,
+                            "Y": 511.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_16",
+                        "SourceUid": "Mute_3",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input3",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 361.53846153846149,
+                            "Y": 505.38235294117658
+                          },
+                          {
+                            "X": 361.53846153846149,
+                            "Y": 548.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_17",
+                        "SourceUid": "Mute_4",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input4",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 359.99999999999994,
+                            "Y": 622.38235294117658
+                          },
+                          {
+                            "X": 359.99999999999994,
+                            "Y": 585.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_18",
+                        "SourceUid": "Mute_5",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input5",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 390.76923076923072,
+                            "Y": 742.38235294117635
+                          },
+                          {
+                            "X": 390.76923076923072,
+                            "Y": 622.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_19",
+                        "SourceUid": "Mute_6",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input6",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 410.76923076923072,
+                            "Y": 877.14705882352939
+                          },
+                          {
+                            "X": 410.76923076923072,
+                            "Y": 659.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_20",
+                        "SourceUid": "Mute_7",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "ParametricEqNoSlew_0",
+                        "TargetPinName": "Input7",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 447.0,
+                            "Y": 1036.2058823529414
+                          },
+                          {
+                            "X": 447.0,
+                            "Y": 696.18099547511315
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_21",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_22",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output1",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input1",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_23",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output2",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input2",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_24",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output3",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input3",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_25",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output4",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input4",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_26",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output5",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input5",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_27",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output6",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input6",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_28",
+                        "SourceUid": "ParametricEqNoSlew_0",
+                        "SourcePinName": "Output7",
+                        "TargetUid": "NxMMixer_0",
+                        "TargetPinName": "Input7",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_29",
+                        "SourceUid": "WhiteNoise_0",
+                        "SourcePinName": "WhiteNoise",
+                        "TargetUid": "MonoSwitchNx1_0",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 1935.0,
+                            "Y": 266.98407287355627
+                          },
+                          {
+                            "X": 1935.0,
+                            "Y": 438.06060606060618
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_30",
+                        "SourceUid": "NxMMixer_0",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "MonoSwitchNx1_0",
+                        "TargetPinName": "Input1",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 1935.0,
+                            "Y": 511.18099547511315
+                          },
+                          {
+                            "X": 1935.0,
+                            "Y": 481.93939393939394
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_31",
+                        "SourceUid": "WhiteNoise_1",
+                        "SourcePinName": "WhiteNoise",
+                        "TargetUid": "MonoSwitchNx1_1",
+                        "TargetPinName": "Input1",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 1935.0,
+                            "Y": 899.12822659168444
+                          },
+                          {
+                            "X": 1935.0,
+                            "Y": 690.31763334704522
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_32",
+                        "SourceUid": "NxMMixer_0",
+                        "SourcePinName": "Output1",
+                        "TargetUid": "MonoSwitchNx1_1",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 1935.0,
+                            "Y": 622.18099547511315
+                          },
+                          {
+                            "X": 1935.0,
+                            "Y": 647.45427121897728
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_33",
+                        "SourceUid": "MonoSwitchNx1_0",
+                        "SourcePinName": "Output",
+                        "TargetUid": "Output_1",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_34",
+                        "SourceUid": "MonoSwitchNx1_1",
+                        "SourcePinName": "Output",
+                        "TargetUid": "Output_2",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      }
+                    ],
+                    "AltShapes": [],
+                    "PropertyPresets": {}
+                  }
+                ],
+                "WriteableLinks": [],
+                "AltShapes": [],
+                "PropertyPresets": {}
+              }
+            ],
+            "WriteableLinks": [],
+            "AltShapes": [],
+            "PropertyPresets": {}
+          }
+        ],
+        "WriteableLinks": [],
+        "AltShapes": [],
+        "PropertyPresets": {}
+      }
+    ],
+    "WriteableLinks": [
+      {
+        "Uid": "Link_3",
+        "SourceUid": "PC_0",
+        "SourcePinName": "USB",
+        "TargetUid": "USBi_0",
+        "TargetPinName": "USB",
+        "LinkType": "USB",
+        "Points": []
+      },
+      {
+        "Uid": "Link_4",
+        "SourceUid": "USBi_0",
+        "SourcePinName": "SPI",
+        "TargetUid": "EV21569SOM_0",
+        "TargetPinName": "SPI",
+        "LinkType": "SPI",
+        "Points": [
+          {
+            "X": 520.0,
+            "Y": 320.84873949579844
+          },
+          {
+            "X": 520.0,
+            "Y": 371.20588235294127
+          }
+        ]
+      }
+    ],
+    "AltShapes": [],
+    "PropertyPresets": {}
+  }
+}

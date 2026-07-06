@@ -1,0 +1,50 @@
+		sendln '0x20000003'   	//Stop
+				mpause 4000	 				
+				
+		sendln '0x20010001'   	//Module ID
+		sendln '0x20020002'   	//Parameter Count
+		
+		sendln '0x2003BB34'     //Seed (LSB)
+		sendln '0x20040000'     //(MSB)	
+		sendln '0x20050000'	//WhiteNoise_Enabled (LSB)
+		sendln '0x20063F80'	//(MSB)
+
+
+		sendln '0x20010002'   	//Module ID
+		sendln '0x20020002'   	//Parameter Count
+
+		sendln '0x2007BB34'	//Seed (LSB)
+		sendln '0x20080000'	//(MSB)	
+		sendln '0x20090000'	//WhiteNoise_Enabled (LSB)
+		sendln '0x200A3F80'	//(MSB)
+
+
+		sendln '0x20010003'   	//Module ID
+		sendln '0x20020001'   	//Parameter Count
+
+		sendln '0x200B0000'	//Mute (LSB)
+		sendln '0x200C3F80'	//(MSB)
+
+
+		sendln '0x200D0000' 
+		sendln '0x200E0000'
+		sendln '0x200F0000'
+		sendln '0x20100000'
+		sendln '0x20110000' 
+		sendln '0x20120000'
+		sendln '0x20130000' 
+		sendln '0x20140000'	
+		sendln '0x20150000' 
+		sendln '0x20160000'
+		sendln '0x20170000'
+		sendln '0x20180000'
+		sendln '0x20190000' 
+		sendln '0x201A0000'
+		sendln '0x201B0000' 
+		sendln '0x201C0000'
+		sendln '0x201D0000'
+		sendln '0x201E0000'
+		sendln '0x20000048'     //SigmaStudioPlus 
+				mpause 4000			
+		sendln '0x20000002'   	//Play
+		 

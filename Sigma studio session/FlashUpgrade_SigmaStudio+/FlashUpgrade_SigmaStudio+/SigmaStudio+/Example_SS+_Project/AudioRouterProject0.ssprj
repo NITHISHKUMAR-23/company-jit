@@ -1,0 +1,1696 @@
+{
+  "Name": "AudioRouterProject0",
+  "ProjectVersion": "1.0.0.0",
+  "Versions": {},
+  "EnableVersionControl": false,
+  "Presets": {
+    "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+    "$values": []
+  },
+  "Diagram": {
+    "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.SystemShapeModel, TypeDefinitions",
+    "Uid": "Diagram_0",
+    "WritableProperties": {},
+    "WritableCommChannels": [
+      {
+        "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.CommChannelModel, TypeDefinitions",
+        "WritableProperties": {},
+        "Uid": "USB_0",
+        "Name": "USB",
+        "PluginName": "AnalogDevices.Plugins.CommunicationChannels.USBChannel_v1.0.0.0",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICommChannel",
+        "LinkReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "Link_2"
+          ]
+        },
+        "ChannelReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "SPI_0"
+          ]
+        },
+        "ShapeReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": []
+        }
+      },
+      {
+        "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.CommChannelModel, TypeDefinitions",
+        "WritableProperties": {},
+        "Uid": "SPI_0",
+        "Name": "SPI",
+        "PluginName": "AnalogDevices.Plugins.Channels.ControlChannel_v1.0.0.0",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICommChannel",
+        "LinkReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "Link_3"
+          ]
+        },
+        "ChannelReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": []
+        },
+        "ShapeReference": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+          "$values": [
+            "EV21569SOM_0"
+          ]
+        }
+      }
+    ],
+    "WritableNetworks": [],
+    "WritableSdks": [],
+    "CanvasSize": {
+      "Height": 1920.0,
+      "Width": 1080.0
+    },
+    "WritableChannels": [],
+    "WritableShapes": [
+      {
+        "PluginName": "AnalogDevices.Plugins.Controllers.PC_v1.0.0.0",
+        "Name": "PC",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IController",
+        "Uid": "PC_0",
+        "WritableProperties": {
+          "IsRemovable": false,
+          "RestrictShape": false,
+          "BoardKey": "",
+          "IsLocked": false,
+          "EncryptedString": ""
+        },
+        "Angle": 0.0,
+        "Position": {
+          "X": 149.41176470588232,
+          "Y": 251.0
+        },
+        "Size": {
+          "Height": 113.0,
+          "Width": 116.0
+        },
+        "Label": "PC_0",
+        "WritableChannels": [],
+        "WritableShapes": [],
+        "WriteableLinks": [],
+        "AltShapes": [],
+        "PropertyPresets": {}
+      },
+      {
+        "PluginName": "AnalogDevices.Plugins.Communication.USBi_v1.0.0.0",
+        "Name": "USBi",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICommunication",
+        "Uid": "USBi_0",
+        "WritableProperties": {
+          "IsRemovable": true,
+          "RestrictShape": false,
+          "BoardKey": "",
+          "IsLocked": false,
+          "EncryptedString": "",
+          "FirmwareVersion": "v1.5"
+        },
+        "Angle": 0.0,
+        "Position": {
+          "X": 424.05882352941171,
+          "Y": 251.0
+        },
+        "Size": {
+          "Height": 113.0,
+          "Width": 116.0
+        },
+        "Label": "USBi_0",
+        "WritableChannels": [],
+        "WritableShapes": [],
+        "WriteableLinks": [],
+        "AltShapes": [],
+        "PropertyPresets": {}
+      },
+      {
+        "PluginName": "AnalogDevices.Plugins.Platforms.EV21569SOM_v1.0.0.0",
+        "Name": "EV-21569-SOM",
+        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IPlatform",
+        "Uid": "EV21569SOM_0",
+        "WritableProperties": {
+          "IsRemovable": true,
+          "RestrictShape": false,
+          "BoardKey": "",
+          "IsLocked": false,
+          "EncryptedString": "",
+          "LockFramework": false
+        },
+        "Angle": 0.0,
+        "Position": {
+          "X": 734.76470588235293,
+          "Y": 241.0
+        },
+        "Size": {
+          "Height": 133.0,
+          "Width": 116.0
+        },
+        "Label": "EV21569SOM_0",
+        "WritableChannels": [],
+        "WritableShapes": [
+          {
+            "PluginName": "AnalogDevices.Plugins.Processors.ADSP2156x_v1.0.0.0",
+            "Name": "ADSP-215xx/SC5xx (1x SH+)",
+            "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IProcessor",
+            "Uid": "ADSP2156x_0",
+            "WritableProperties": {
+              "IsRemovable": true,
+              "RestrictShape": false,
+              "BoardKey": "",
+              "IsLocked": false,
+              "EncryptedString": "",
+              "SPISlavePinLocation": "Left",
+              "SPORTRxPinLocation": "Right",
+              "SPORTTxPinLocation": "Right",
+              "ADSPSC5XX_PROCESSOR_NAME": "ADSP-21569",
+              "ENABLE_PROCESSOR_SELECTION": false,
+              "ADSPSC5XX_PROCESSOR_BUILDMODE": "Debug",
+              "ADSPSC5XX_PROCESSOR_ENABLEIPA": true,
+              "ADSPSC5XX_PROCESSOR_CUSTOMFW": false,
+              "ADSPSC5XX_PROCESSOR_SCHEMATICMODE": "Single Core",
+              "ADSPSC5XX_PROCESSOR_FWAPIVER": "3.11.0",
+              "ADSPSC5XX_PROCESSOR_NUMIPBUFFERS": 3,
+              "ADSPSC5XX_PROCESSOR_NUMOPBUFFERS": 3,
+              "ADSPSC5XX_PROCESSOR_TOOLCHAIN": "CrossCore® Embedded Studio v2.9.1",
+              "LockFramework": false,
+              "SPORTCFG_PROCESSOR": "ADSP-21569",
+              "SPORTCFG_NUMSOURCES": 2,
+              "SPORTCFG_NUMSINKS": 1,
+              "SPORTCFG_SELSOURCE_SOURCE0": "SPORT4A",
+              "SPORTCFG_SELSOURCE_SOURCE1": "SPORT0A",
+              "SPORTCFG_SELSOURCE_SOURCE2": "",
+              "SPORTCFG_SELSOURCE_SOURCE3": "",
+              "SPORTCFG_SELSOURCE_SOURCE4": "",
+              "SPORTCFG_SELSOURCE_SOURCE5": "",
+              "SPORTCFG_SELSOURCE_SOURCE6": "",
+              "SPORTCFG_SELSOURCE_SOURCE7": "",
+              "SPORTCFG_SELSINK_SINK0": "SPORT5A",
+              "SPORTCFG_SELSINK_SINK1": "",
+              "SPORTCFG_SELSINK_SINK2": "",
+              "SPORTCFG_SELSINK_SINK3": "",
+              "SPORTCFG_SELSINK_SINK4": "",
+              "SPORTCFG_SELSINK_SINK5": "",
+              "SPORTCFG_SELSINK_SINK6": "",
+              "SPORTCFG_SELSINK_SINK7": "",
+              "SPORTCFG_SPORT0A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT0B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT1A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT1B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT2A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT2B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT3A_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT3B_DAIPORT": "DAI0",
+              "SPORTCFG_SPORT4A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT4B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT5A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT5B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT6A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT6B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT7A_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT7B_DAIPORT": "DAI1",
+              "SPORTCFG_SPORT0A_DAIPIN": "5",
+              "SPORTCFG_SPORT1A_DAIPIN": "1",
+              "SPORTCFG_SPORT2A_DAIPIN": "1",
+              "SPORTCFG_SPORT3A_DAIPIN": "1",
+              "SPORTCFG_SPORT4A_DAIPIN": "6",
+              "SPORTCFG_SPORT5A_DAIPIN": "1",
+              "SPORTCFG_SPORT6A_DAIPIN": "1",
+              "SPORTCFG_SPORT7A_DAIPIN": "1",
+              "SPORTCFG_SPORT0B_DAIPIN": "1",
+              "SPORTCFG_SPORT1B_DAIPIN": "1",
+              "SPORTCFG_SPORT2B_DAIPIN": "1",
+              "SPORTCFG_SPORT3B_DAIPIN": "1",
+              "SPORTCFG_SPORT4B_DAIPIN": "1",
+              "SPORTCFG_SPORT5B_DAIPIN": "1",
+              "SPORTCFG_SPORT6B_DAIPIN": "1",
+              "SPORTCFG_SPORT7B_DAIPIN": "1",
+              "SPORTCFG_SPORT0A_BCLKPOL": 1,
+              "SPORTCFG_SPORT0B_BCLKPOL": 1,
+              "SPORTCFG_SPORT1A_BCLKPOL": 1,
+              "SPORTCFG_SPORT1B_BCLKPOL": 1,
+              "SPORTCFG_SPORT2A_BCLKPOL": 1,
+              "SPORTCFG_SPORT2B_BCLKPOL": 1,
+              "SPORTCFG_SPORT3A_BCLKPOL": 1,
+              "SPORTCFG_SPORT3B_BCLKPOL": 1,
+              "SPORTCFG_SPORT4A_BCLKPOL": 1,
+              "SPORTCFG_SPORT4B_BCLKPOL": 1,
+              "SPORTCFG_SPORT5A_BCLKPOL": 1,
+              "SPORTCFG_SPORT5B_BCLKPOL": 1,
+              "SPORTCFG_SPORT6A_BCLKPOL": 1,
+              "SPORTCFG_SPORT6B_BCLKPOL": 1,
+              "SPORTCFG_SPORT7A_BCLKPOL": 1,
+              "SPORTCFG_SPORT7B_BCLKPOL": 1,
+              "SPORTCFG_SPORT0A_FSPOL": 0,
+              "SPORTCFG_SPORT0B_FSPOL": 0,
+              "SPORTCFG_SPORT1A_FSPOL": 0,
+              "SPORTCFG_SPORT1B_FSPOL": 0,
+              "SPORTCFG_SPORT2A_FSPOL": 0,
+              "SPORTCFG_SPORT2B_FSPOL": 0,
+              "SPORTCFG_SPORT3A_FSPOL": 0,
+              "SPORTCFG_SPORT3B_FSPOL": 0,
+              "SPORTCFG_SPORT4A_FSPOL": 0,
+              "SPORTCFG_SPORT4B_FSPOL": 0,
+              "SPORTCFG_SPORT5A_FSPOL": 0,
+              "SPORTCFG_SPORT5B_FSPOL": 0,
+              "SPORTCFG_SPORT6A_FSPOL": 0,
+              "SPORTCFG_SPORT6B_FSPOL": 0,
+              "SPORTCFG_SPORT7A_FSPOL": 0,
+              "SPORTCFG_SPORT7B_FSPOL": 0,
+              "SPORTCFG_SPORT0A_OPMODE": "I2S",
+              "SPORTCFG_SPORT1A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT2A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT3A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT4A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT5A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT6A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT7A_OPMODE": "TDM8",
+              "SPORTCFG_SPORT0B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT1B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT2B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT3B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT4B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT5B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT6B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT7B_OPMODE": "TDM8",
+              "SPORTCFG_SPORT0A_NUMCHANNELS": 2,
+              "SPORTCFG_SPORT1A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT2A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT3A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT4A_NUMCHANNELS": 6,
+              "SPORTCFG_SPORT5A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT6A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT7A_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT0B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT1B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT2B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT3B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT4B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT5B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT6B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT7B_NUMCHANNELS": 8,
+              "SPORTCFG_SPORT0A_SERWRDLEN": 24,
+              "SPORTCFG_SPORT1A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT2A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT3A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT4A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT5A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT6A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT7A_SERWRDLEN": 32,
+              "SPORTCFG_SPORT0B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT1B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT2B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT3B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT4B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT5B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT6B_SERWRDLEN": 32,
+              "SPORTCFG_SPORT7B_SERWRDLEN": 32
+            },
+            "Angle": 0.0,
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Size": {
+              "Height": 1.0,
+              "Width": 1.0
+            },
+            "Label": "ADSP2156x_0",
+            "WritableChannels": [],
+            "WritableShapes": [
+              {
+                "PluginName": "AnalogDevices.Plugins.Cores.SharcXICore_v1.0.0.0",
+                "Name": "SharcXICore",
+                "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ICore",
+                "Uid": "SharcXICore_0",
+                "WritableProperties": {
+                  "IsRemovable": true,
+                  "RestrictShape": false,
+                  "BoardKey": "",
+                  "IsLocked": false,
+                  "EncryptedString": "",
+                  "SHARCXI_CORE_ENABLE": true,
+                  "SHARCXI_CORE_ID": 1,
+                  "SHARCXI_PROCESS_MODE": "Single",
+                  "SHARCXI_NUMINSTANCE": 1,
+                  "SHARCXI_CORE_DXE": "D:\\Query\\Hansong_SSP\\SS+_test_for_query10\\21569SDK07_03\\21569SDK07_03\\21569SDK07\\Debug\\21569SDK07.dxe",
+                  "SHARCXI_CORE_DXE_SH1": "",
+                  "ADSPSC5XX_PROCESSOR_NAME": "ADSP-21569",
+                  "ADSPSC5XX_PROCESSOR_BUILDMODE": "Debug",
+                  "ADSPSC5XX_PROCESSOR_ENABLEIPA": true,
+                  "ADSPSC5XX_PROCESSOR_CUSTOMFW": false,
+                  "ADSPSC5XX_PROCESSOR_SCHEMATICMODE": "Single Core",
+                  "ADSPSC5XX_PROCESSOR_FWAPIVER": "3.11.0",
+                  "ADSPSC5XX_PROCESSOR_NUMIPBUFFERS": 3,
+                  "ADSPSC5XX_PROCESSOR_NUMOPBUFFERS": 3,
+                  "ADSPSC5XX_PROCESSOR_TOOLCHAIN": "CrossCore® Embedded Studio v2.9.1",
+                  "LockFramework": false
+                },
+                "Angle": 0.0,
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Size": {
+                  "Height": 1.0,
+                  "Width": 1.0
+                },
+                "Label": "SharcXICore_0",
+                "WritableChannels": [],
+                "WritableShapes": [
+                  {
+                    "PluginName": "AnalogDevices.Plugins.Schematics.DiffDXESchematic_v1.0.0.0",
+                    "Name": "DiffDXESchematic",
+                    "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.ISchematic",
+                    "Uid": "DiffDXESchematic_0",
+                    "WritableProperties": {
+                      "IsRemovable": true,
+                      "RestrictShape": false,
+                      "BoardKey": "",
+                      "IsLocked": false,
+                      "EncryptedString": "",
+                      "CanvasSize": {
+                        "$type": "AnalogDevices.TypeDefinitions.Size, TypeDefinitions",
+                        "Height": 1920.0,
+                        "Width": 1080.0
+                      },
+                      "DIFFDXE_SCHEMATIC_IPCHANNELS": 12,
+                      "DIFFDXE_SCHEMATIC_OPCHANNELS": 12,
+                      "DIFFDXE_SCHEMATIC_INSTANCEID": 0,
+                      "DIFFDXE_SCHEMATIC_BLOCKSIZE": 256,
+                      "DIFFDXE_SCHEMATIC_FIXEDADDRESSENABLE": false,
+                      "DIFFDXE_SCHEMATIC_FIXEDADDRESSMAP": "{}",
+                      "OutputCh0": true,
+                      "OutputCh1": true,
+                      "OutputCh2": true,
+                      "OutputCh3": true,
+                      "OutputCh4": true,
+                      "OutputCh5": true,
+                      "OutputCh6": true,
+                      "OutputCh7": true,
+                      "DIFFDXE_SCHEMATIC_USED_IPCHANNELS": 12,
+                      "DIFFDXE_SCHEMATIC_NUMSOURCES": 2,
+                      "DIFFDXE_SCHEMATIC_NUMSINKS": 1,
+                      "DIFFDXE_SCHEMATIC_SPORTCONFIG_SRC": "[{\"SportNumber\":4,\"SportHalf\":0,\"FrameSyncPolarity\":0,\"BitClockSyncPolarity\":1,\"OpMode\":2,\"SerialWordLength\":32,\"DAISelectionForData\":1,\"DAIPinSelectionForData\":6,\"DAISelectionForDataSec\":0,\"DAIPinSelectionForDataSec\":1,\"EnableSec\":0,\"NumSportChannels\":6},{\"SportNumber\":0,\"SportHalf\":0,\"FrameSyncPolarity\":0,\"BitClockSyncPolarity\":1,\"OpMode\":0,\"SerialWordLength\":24,\"DAISelectionForData\":0,\"DAIPinSelectionForData\":5,\"DAISelectionForDataSec\":0,\"DAIPinSelectionForDataSec\":1,\"EnableSec\":0,\"NumSportChannels\":2}]",
+                      "DIFFDXE_SCHEMATIC_SPORTCONFIG_SINK": "[{\"SportNumber\":5,\"SportHalf\":0,\"FrameSyncPolarity\":0,\"BitClockSyncPolarity\":1,\"OpMode\":2,\"SerialWordLength\":32,\"DAISelectionForData\":1,\"DAIPinSelectionForData\":1,\"DAISelectionForDataSec\":0,\"DAIPinSelectionForDataSec\":1,\"EnableSec\":0,\"NumSportChannels\":8}]",
+                      "ADSPSC5XX_PROCESSOR_NAME": "ADSP-21569",
+                      "ADSPSC5XX_PROCESSOR_BUILDMODE": "Debug",
+                      "ADSPSC5XX_PROCESSOR_ENABLEIPA": true,
+                      "ADSPSC5XX_PROCESSOR_CUSTOMFW": false,
+                      "ADSPSC5XX_PROCESSOR_SCHEMATICMODE": "Single Core",
+                      "ADSPSC5XX_PROCESSOR_FWAPIVER": "3.11.0",
+                      "ADSPSC5XX_PROCESSOR_NUMIPBUFFERS": 3,
+                      "ADSPSC5XX_PROCESSOR_NUMOPBUFFERS": 3,
+                      "ADSPSC5XX_PROCESSOR_TOOLCHAIN": "CrossCore® Embedded Studio v2.9.1",
+                      "SHARCXI_PROCESS_MODE": "Single",
+                      "SHARCXI_CORE_ID": 1,
+                      "SHARCXI_CORE_DXE": "D:\\Query\\Hansong_SSP\\SS+_test_for_query10\\21569SDK07_03\\21569SDK07_03\\21569SDK07\\Debug\\21569SDK07.dxe",
+                      "SHARCXI_CORE_DXE_SH1": "",
+                      "OutputCh8": true,
+                      "OutputCh9": true,
+                      "OutputCh10": true,
+                      "OutputCh11": true,
+                      "SECTION_CODE_seg_swco": "Code",
+                      "SECTION_STATE_seg_dmda1": "State A",
+                      "SECTION_STATE_seg_dmda2": "State A",
+                      "SECTION_STATE_seg_dmda3": "State A",
+                      "SECTION_PARAM_seg_pmda": "Param"
+                    },
+                    "Angle": 0.0,
+                    "Position": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Size": {
+                      "Height": 1.0,
+                      "Width": 1.0
+                    },
+                    "Label": "DiffDXESchematic_0",
+                    "WritableChannels": [
+                      {
+                        "$type": "AnalogDevices.TypeDefinitions.Dom.SsprjDom.Internals.ChannelModel, TypeDefinitions",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": ""
+                        },
+                        "Uid": "BlockAnalog_0",
+                        "Name": "BlockAnalog",
+                        "PluginName": "AnalogDevices.Plugins.Channels.AudioChannel_v1.0.0.0",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IChannel",
+                        "LinkReference": {
+                          "$type": "System.Collections.ObjectModel.Collection`1[[System.String, mscorlib]], mscorlib",
+                          "$values": [
+                            "Link_4",
+                            "Link_5",
+                            "Link_6",
+                            "Link_7",
+                            "Link_8",
+                            "Link_9",
+                            "Link_10",
+                            "Link_11",
+                            "Link_12",
+                            "Link_13",
+                            "Link_14",
+                            "Link_15",
+                            "Link_16",
+                            "Link_17",
+                            "Link_18",
+                            "Link_19",
+                            "Link_20",
+                            "Link_21",
+                            "Link_22",
+                            "Link_23",
+                            "Link_24",
+                            "Link_25",
+                            "Link_26",
+                            "Link_27",
+                            "Link_28",
+                            "Link_29",
+                            "Link_30",
+                            "Link_31",
+                            "Link_32",
+                            "Link_33",
+                            "Link_34",
+                            "Link_35",
+                            "Link_36",
+                            "Link_37",
+                            "Link_38",
+                            "Link_39"
+                          ]
+                        }
+                      }
+                    ],
+                    "WritableShapes": [
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch0"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 840.0,
+                          "Y": 154.41176470588235
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_1",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch1"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 954.11764705882342,
+                          "Y": 207.05882352941183
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_1",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Input_v1.0.0.0",
+                        "Name": "Input",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Input_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 2,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "Ch0": true,
+                          "InUseCh0": true,
+                          "Type0": "Linear",
+                          "Ch1": true,
+                          "InUseCh1": true,
+                          "Type1": "Linear",
+                          "Ch2": true,
+                          "InUseCh2": true,
+                          "Type2": "Linear",
+                          "Ch3": true,
+                          "InUseCh3": true,
+                          "Type3": "Linear",
+                          "Ch4": true,
+                          "InUseCh4": true,
+                          "Type4": "Linear",
+                          "Ch5": true,
+                          "InUseCh5": true,
+                          "Type5": "Linear",
+                          "Ch6": true,
+                          "InUseCh6": true,
+                          "Type6": "Linear",
+                          "Ch7": true,
+                          "InUseCh7": true,
+                          "Type7": "Linear",
+                          "Ch8": true,
+                          "InUseCh8": true,
+                          "Type8": "Linear",
+                          "Ch9": true,
+                          "InUseCh9": true,
+                          "Type9": "Linear",
+                          "Ch10": true,
+                          "InUseCh10": true,
+                          "Type10": "Linear",
+                          "Ch11": true,
+                          "InUseCh11": true,
+                          "Type11": "Linear"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": -118.470588235294,
+                          "Y": 332.05882352941177
+                        },
+                        "Size": {
+                          "Height": 305.80000000000007,
+                          "Width": 181.0
+                        },
+                        "Label": "Input_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.Gain.Sharc.Block.SWSlewMute_v1.0.0.0",
+                        "Name": "Mute (SW Slew)",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "SWSlewMute_0",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "NumChannels": 12,
+                          "Mute": false,
+                          "SlewRate": 12,
+                          "SlewMax": 23,
+                          "SlewMin": 1,
+                          "SlewResolution": 1,
+                          "SlewType": "RC",
+                          "SetTunable": false,
+                          "FixedAddress": false
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 175.29411764705887,
+                          "Y": 409.9588235294118
+                        },
+                        "Size": {
+                          "Height": 150.0,
+                          "Width": 92.229729729729726
+                        },
+                        "Label": "SWSlewMute_0",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.MixersAndSplitters.Sharc.Block.SimpleRouter_v1.0.0.0",
+                        "Name": "Simple Router",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "SimpleRouter_1",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "IncludeBypassOption": false,
+                          "SlewType": "No Slew",
+                          "NumInputs": 12,
+                          "NumOutputs": 12,
+                          "TabCount": 1,
+                          "TabIndex": 0,
+                          "SelectedInput_Tab0_Output0": 0,
+                          "Mute_Tab0_Output0": false,
+                          "Gain_Tab0_Output0": 0,
+                          "SetTunable": false,
+                          "FixedAddress": false,
+                          "SlewStep": 12,
+                          "SelectedInput_Tab0_Output1": 1,
+                          "Mute_Tab0_Output1": false,
+                          "Gain_Tab0_Output1": 0,
+                          "SelectedInput_Tab0_Output2": 2,
+                          "Mute_Tab0_Output2": false,
+                          "Gain_Tab0_Output2": 0,
+                          "SelectedInput_Tab0_Output3": 3,
+                          "Mute_Tab0_Output3": false,
+                          "Gain_Tab0_Output3": 0,
+                          "SelectedInput_Tab0_Output4": 4,
+                          "Mute_Tab0_Output4": false,
+                          "Gain_Tab0_Output4": 0,
+                          "SelectedInput_Tab0_Output5": 5,
+                          "Mute_Tab0_Output5": false,
+                          "Gain_Tab0_Output5": 0,
+                          "SelectedInput_Tab0_Output6": 6,
+                          "Mute_Tab0_Output6": false,
+                          "Gain_Tab0_Output6": 0,
+                          "SelectedInput_Tab0_Output7": 7,
+                          "Mute_Tab0_Output7": false,
+                          "Gain_Tab0_Output7": 0,
+                          "SelectedInput_Tab0_Output8": 8,
+                          "Mute_Tab0_Output8": false,
+                          "Gain_Tab0_Output8": 0,
+                          "SelectedInput_Tab0_Output9": 9,
+                          "Mute_Tab0_Output9": false,
+                          "Gain_Tab0_Output9": 0,
+                          "SelectedInput_Tab0_Output10": 10,
+                          "Mute_Tab0_Output10": false,
+                          "Gain_Tab0_Output10": 0,
+                          "SelectedInput_Tab0_Output11": 11,
+                          "Mute_Tab0_Output11": false,
+                          "Gain_Tab0_Output11": 0
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 310.11764705882331,
+                          "Y": 409.9588235294118
+                        },
+                        "Size": {
+                          "Height": 150.0,
+                          "Width": 92.6829268292683
+                        },
+                        "Label": "SimpleRouter_1",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_2",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch2"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 840.0,
+                          "Y": 265.70588235294122
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_2",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_3",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch3"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 954.11764705882342,
+                          "Y": 316.23529411764707
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_3",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_4",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch4"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 840.0,
+                          "Y": 373.76470588235293
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_4",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_5",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch5"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 954.11764705882342,
+                          "Y": 425.19411764705887
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_5",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_6",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch6"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 840.0,
+                          "Y": 488.97647058823543
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_6",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_7",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch7"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 954.11764705882342,
+                          "Y": 540.47058823529437
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_7",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_8",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch8"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 840.0,
+                          "Y": 598.11764705882342
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_8",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_9",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch9"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 954.11764705882342,
+                          "Y": 656.94117647058818
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_9",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_10",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch10"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 840.0,
+                          "Y": 728.70588235294088
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_10",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      },
+                      {
+                        "PluginName": "AnalogDevices.Plugins.Algorithms.IO.Sharc.Block.Output_v1.0.0.0",
+                        "Name": "Output",
+                        "InterfaceType": "AnalogDevices.TypeDefinitions.Plugins.IAlgorithm",
+                        "Uid": "Output_11",
+                        "WritableProperties": {
+                          "IsRemovable": true,
+                          "RestrictShape": false,
+                          "BoardKey": "",
+                          "IsLocked": false,
+                          "EncryptedString": "",
+                          "RepCount": 1,
+                          "FS": 48000,
+                          "FSOut": 48000,
+                          "BlockSize": 256,
+                          "BlockSizeOut": 256,
+                          "ExcludeExport": false,
+                          "SelectedOPChannel": "Ch11"
+                        },
+                        "Angle": 0.0,
+                        "Position": {
+                          "X": 954.11764705882342,
+                          "Y": 783.99999999999966
+                        },
+                        "Size": {
+                          "Height": 83.0,
+                          "Width": 96.0
+                        },
+                        "Label": "Output_11",
+                        "WritableChannels": [],
+                        "WritableShapes": [],
+                        "WriteableLinks": [],
+                        "AltShapes": [],
+                        "PropertyPresets": {}
+                      }
+                    ],
+                    "WriteableLinks": [
+                      {
+                        "Uid": "Link_4",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch0_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 375.744537815126
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 421.49728506787335
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_5",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch1_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input1",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 397.58739495798318
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 433.0357466063349
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_6",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch2_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input2",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 419.43025210084033
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 444.57420814479644
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_7",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch3_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input3",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 441.27310924369749
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 456.11266968325793
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_8",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch4_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input4",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 463.11596638655465
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 467.65113122171948
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_9",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch5_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input5",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 484.9588235294118
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 479.18959276018103
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_10",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch6_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input6",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 506.80168067226896
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 490.72805429864258
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_11",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch7_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input7",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 528.64453781512611
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 502.26651583710412
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_12",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch8_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input8",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 550.48739495798327
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 513.80497737556561
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_13",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch9_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input9",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 572.33025210084031
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 525.34343891402716
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_14",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch10_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input10",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 594.17310924369747
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 536.88190045248871
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_15",
+                        "SourceUid": "Input_0",
+                        "SourcePinName": "Ch11_out",
+                        "TargetUid": "SWSlewMute_0",
+                        "TargetPinName": "Input11",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 161.0,
+                            "Y": 616.01596638655474
+                          },
+                          {
+                            "X": 161.0,
+                            "Y": 548.42036199095025
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_16",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input0",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_17",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output1",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input1",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_18",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output2",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input2",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_19",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output3",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input3",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_20",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output4",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input4",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_21",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output5",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input5",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_22",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output6",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input6",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_23",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output7",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input7",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_24",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output8",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input8",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_25",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output9",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input9",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_26",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output10",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input10",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_27",
+                        "SourceUid": "SWSlewMute_0",
+                        "SourcePinName": "Output11",
+                        "TargetUid": "SimpleRouter_1",
+                        "TargetPinName": "Input11",
+                        "LinkType": "BlockAnalog",
+                        "Points": []
+                      },
+                      {
+                        "Uid": "Link_28",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output0",
+                        "TargetUid": "Output_0",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 421.49728506787335
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 195.91176470588235
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_29",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output1",
+                        "TargetUid": "Output_1",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 433.0357466063349
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 248.55882352941183
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_30",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output2",
+                        "TargetUid": "Output_2",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 444.57420814479644
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 307.20588235294122
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_31",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output3",
+                        "TargetUid": "Output_3",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 456.11266968325793
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 357.73529411764707
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_32",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output4",
+                        "TargetUid": "Output_4",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 467.65113122171948
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 415.26470588235293
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_33",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output5",
+                        "TargetUid": "Output_5",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 930.0,
+                            "Y": 479.18959276018103
+                          },
+                          {
+                            "X": 930.0,
+                            "Y": 466.69411764705887
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_34",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output6",
+                        "TargetUid": "Output_6",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 490.72805429864258
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 530.47647058823543
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_35",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output7",
+                        "TargetUid": "Output_7",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 502.26651583710412
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 581.97058823529437
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_36",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output8",
+                        "TargetUid": "Output_8",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 513.80497737556561
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 639.61764705882342
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_37",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output9",
+                        "TargetUid": "Output_9",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 525.34343891402716
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 698.44117647058818
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_38",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output10",
+                        "TargetUid": "Output_10",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 536.88190045248871
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 770.20588235294088
+                          }
+                        ]
+                      },
+                      {
+                        "Uid": "Link_39",
+                        "SourceUid": "SimpleRouter_1",
+                        "SourcePinName": "Output11",
+                        "TargetUid": "Output_11",
+                        "TargetPinName": "Input",
+                        "LinkType": "BlockAnalog",
+                        "Points": [
+                          {
+                            "X": 816.0,
+                            "Y": 548.42036199095025
+                          },
+                          {
+                            "X": 816.0,
+                            "Y": 825.49999999999966
+                          }
+                        ]
+                      }
+                    ],
+                    "AltShapes": [],
+                    "PropertyPresets": {}
+                  }
+                ],
+                "WriteableLinks": [],
+                "AltShapes": [],
+                "PropertyPresets": {}
+              }
+            ],
+            "WriteableLinks": [],
+            "AltShapes": [],
+            "PropertyPresets": {}
+          }
+        ],
+        "WriteableLinks": [],
+        "AltShapes": [],
+        "PropertyPresets": {}
+      }
+    ],
+    "WriteableLinks": [
+      {
+        "Uid": "Link_2",
+        "SourceUid": "PC_0",
+        "SourcePinName": "USB",
+        "TargetUid": "USBi_0",
+        "TargetPinName": "USB",
+        "LinkType": "USB",
+        "Points": []
+      },
+      {
+        "Uid": "Link_3",
+        "SourceUid": "USBi_0",
+        "SourcePinName": "SPI",
+        "TargetUid": "EV21569SOM_0",
+        "TargetPinName": "SPI",
+        "LinkType": "SPI",
+        "Points": [
+          {
+            "X": 711.0,
+            "Y": 267.14285714285711
+          },
+          {
+            "X": 711.0,
+            "Y": 307.5
+          }
+        ]
+      }
+    ],
+    "AltShapes": [],
+    "PropertyPresets": {}
+  }
+}

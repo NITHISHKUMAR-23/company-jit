@@ -1,0 +1,6 @@
+setecho 1
+	mpause 2000
+		sendln '0x20010008'
+		mpause 2000
+		sendln '0x2000000A'
+		mpause 2000

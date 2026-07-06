@@ -1,0 +1,565 @@
+Module Name			= Mute_0
+Parameter Name		= Mute
+Parameter Address	= 12
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_1
+Parameter Name		= Mute
+Parameter Address	= 11
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage0_B0
+Parameter Address	= 15
+Parameter Offset	= 2
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage0_B1
+Parameter Address	= 14
+Parameter Offset	= 1
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage0_B2
+Parameter Address	= 13
+Parameter Offset	= 0
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage0_A1
+Parameter Address	= 17
+Parameter Offset	= 4
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage0_A2
+Parameter Address	= 16
+Parameter Offset	= 3
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage1_B0
+Parameter Address	= 20
+Parameter Offset	= 7
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage1_B1
+Parameter Address	= 19
+Parameter Offset	= 6
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage1_B2
+Parameter Address	= 18
+Parameter Offset	= 5
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage1_A1
+Parameter Address	= 22
+Parameter Offset	= 9
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage1_A2
+Parameter Address	= 21
+Parameter Offset	= 8
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage2_B0
+Parameter Address	= 25
+Parameter Offset	= 12
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage2_B1
+Parameter Address	= 24
+Parameter Offset	= 11
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage2_B2
+Parameter Address	= 23
+Parameter Offset	= 10
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage2_A1
+Parameter Address	= 27
+Parameter Offset	= 14
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage2_A2
+Parameter Address	= 26
+Parameter Offset	= 13
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage3_B0
+Parameter Address	= 30
+Parameter Offset	= 17
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage3_B1
+Parameter Address	= 29
+Parameter Offset	= 16
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage3_B2
+Parameter Address	= 28
+Parameter Offset	= 15
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage3_A1
+Parameter Address	= 32
+Parameter Offset	= 19
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage3_A2
+Parameter Address	= 31
+Parameter Offset	= 18
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage4_B0
+Parameter Address	= 35
+Parameter Offset	= 22
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage4_B1
+Parameter Address	= 34
+Parameter Offset	= 21
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage4_B2
+Parameter Address	= 33
+Parameter Offset	= 20
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage4_A1
+Parameter Address	= 37
+Parameter Offset	= 24
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage4_A2
+Parameter Address	= 36
+Parameter Offset	= 23
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage5_B0
+Parameter Address	= 40
+Parameter Offset	= 27
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage5_B1
+Parameter Address	= 39
+Parameter Offset	= 26
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage5_B2
+Parameter Address	= 38
+Parameter Offset	= 25
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage5_A1
+Parameter Address	= 42
+Parameter Offset	= 29
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage5_A2
+Parameter Address	= 41
+Parameter Offset	= 28
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage6_B0
+Parameter Address	= 45
+Parameter Offset	= 32
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage6_B1
+Parameter Address	= 44
+Parameter Offset	= 31
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage6_B2
+Parameter Address	= 43
+Parameter Offset	= 30
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage6_A1
+Parameter Address	= 47
+Parameter Offset	= 34
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage6_A2
+Parameter Address	= 46
+Parameter Offset	= 33
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage7_B0
+Parameter Address	= 50
+Parameter Offset	= 37
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage7_B1
+Parameter Address	= 49
+Parameter Offset	= 36
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage7_B2
+Parameter Address	= 48
+Parameter Offset	= 35
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage7_A1
+Parameter Address	= 52
+Parameter Offset	= 39
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= ParametricEqNoSlew_0
+Parameter Name		= Stage7_A2
+Parameter Address	= 51
+Parameter Offset	= 38
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_2
+Parameter Name		= Mute
+Parameter Address	= 10
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_3
+Parameter Name		= Mute
+Parameter Address	= 9
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_4
+Parameter Name		= Mute
+Parameter Address	= 8
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_5
+Parameter Name		= Mute
+Parameter Address	= 7
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_6
+Parameter Name		= Mute
+Parameter Address	= 6
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= Mute_7
+Parameter Name		= Mute
+Parameter Address	= 5
+Parameter Offset	= 0
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= NxMMixer_0
+Parameter Name		= GainArray
+Parameter Address	= 53
+Parameter Offset	= 0
+Parameter Value		= 0
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= WhiteNoise_0
+Parameter Name		= WhiteNoise_Enabled
+Parameter Address	= 4
+Parameter Offset	= 1
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= WhiteNoise_0
+Parameter Name		= Seed
+Parameter Address	= 3
+Parameter Offset	= 0
+Parameter Value		= 63345
+Parameter Data :
+0x00, 0x00, 0xF7, 0x71, 
+
+
+
+Module Name			= MonoSwitchNx1_0
+Parameter Name		= Index
+Parameter Address	= 70
+Parameter Offset	= 0
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= MonoSwitchNx1_1
+Parameter Name		= Index
+Parameter Address	= 69
+Parameter Offset	= 0
+Parameter Value		= 0
+Parameter Data :
+0x00, 0x00, 0x00, 0x00, 
+
+
+
+Module Name			= WhiteNoise_1
+Parameter Name		= WhiteNoise_Enabled
+Parameter Address	= 2
+Parameter Offset	= 1
+Parameter Value		= 1
+Parameter Data :
+0x3F, 0x80, 0x00, 0x00, 
+
+
+
+Module Name			= WhiteNoise_1
+Parameter Name		= Seed
+Parameter Address	= 1
+Parameter Offset	= 0
+Parameter Value		= 63345
+Parameter Data :
+0x00, 0x00, 0xF7, 0x71, 
+
+
+
