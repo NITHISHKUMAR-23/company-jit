@@ -1,0 +1,75 @@
+stages:
+  - build_cces_filter
+  - run_cces_filter
+  - build_cces_sub
+  - run_cces_sub
+
+
+build_project_audio_TDM:
+  stage: build_cces_filter
+  script:
+    - set "PATH=C:\analog\cces\3.0.1\Eclipse\ccesc.exe;%PATH%"
+    - C:\analog\cces\3.0.1\Eclipse\ccesc.exe -nosplash -application com.analog.crosscore.headlesstools -data Source_Code_Folders\Working\GITLAB -cleanBuild all -project $CI_PROJECT_DIR\Source_Code_Folders\Working\GITLAB\Audio_Talkthrough_TDM\EV-SOMCRR-EZKIT\21593\AD_Talkthrough_TDM_21593_Core1
+    # Debug step to check the build output
+    - dir Source_Code_Folders\Working\GITLAB\Audio_Talkthrough_TDM\EV-SOMCRR-EZKIT\21593\AD_Talkthrough_TDM_21593_Core1\Debug
+  artifacts:
+    paths:
+      - Source_Code_Folders/Working/GITLAB/Audio_Talkthrough_TDM/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_TDM_21593_Core1/Debug
+    expire_in: 1 hour  # The artifact will be kept for 1 hour
+
+run_project_audio_TDM:
+  stage: run_cces_filter
+  script:
+    - set "PATH=C:\analog\cces\3.0.1\CCES_runner.exe;%PATH%"
+    # Adding a short delay to ensure the file is available
+    - sleep 5
+    - C:\analog\cces\3.0.1\CCES_runner.exe --target "ChipFactory Simulator" --platform "ADSP-21593 Functional-Sim" --processor ADSP-21593 --core "1,$CI_PROJECT_DIR\Source_Code_Folders\Working\GITLAB\Audio_Talkthrough_TDM\EV-SOMCRR-EZKIT\21593\AD_Talkthrough_TDM_21593_Core1\Debug\AD_Talkthrough_TDM_21593_Core1.dxe"
+    - dir Source_Code_Folders\Working\GITLAB\Audio_Talkthrough_TDM\EV-SOMCRR-EZKIT\21593\AD_Talkthrough_TDM_21593_Core1\Debug
+
+
+
+
+build_project_filter:
+  stage: build_cces_filter
+  script:
+    - set "PATH=C:\analog\cces\3.0.1\Eclipse\ccesc.exe;%PATH%"
+    - C:\analog\cces\3.0.1\Eclipse\ccesc.exe -nosplash -application com.analog.crosscore.headlesstools -data Source_Code_Folders\Working\GITLAB -cleanBuild all -project $CI_PROJECT_DIR\Source_Code_Folders\Working\GITLAB\Sharc_Handson_Filter_Core1
+    # Debug step to check the build output
+    - dir Source_Code_Folders\Working\GITLAB\Sharc_Handson_Filter_Core1\Debug
+  artifacts:
+    paths:
+      - Source_Code_Folders/Working/GITLAB/Sharc_Handson_Filter_Core1/Debug
+    expire_in: 1 hour  # The artifact will be kept for 1 hour
+
+run_project_filter:
+  stage: run_cces_filter
+  script:
+    - set "PATH=C:\analog\cces\3.0.1\CCES_runner.exe;%PATH%"
+    # Adding a short delay to ensure the file is available
+    - sleep 5
+    - C:\analog\cces\3.0.1\CCES_runner.exe --target "ChipFactory Simulator" --platform "ADSP-21593 Functional-Sim" --processor ADSP-21593 --core "1,$CI_PROJECT_DIR\Source_Code_Folders\Working\GITLAB\Sharc_Handson_Filter_Core1\Debug\Sharc_Handson_Filter_Core1.dxe"
+    - dir Source_Code_Folders\Working\GITLAB\Sharc_Handson_Filter_Core1\Debug
+ 
+
+
+
+
+build_project:
+  stage: build_cces_sub
+  script:
+    - set "PATH=C:\analog\cces\3.0.1\Eclipse\ccesc.exe;%PATH%"
+    - C:\analog\cces\3.0.1\Eclipse\ccesc.exe -nosplash -application com.analog.crosscore.headlesstools -data Source_Code_Folders\Working\GITLAB -cleanBuild all -project $CI_PROJECT_DIR\Source_Code_Folders\Working\GITLAB\subtraction_Core1
+    # Debug step to check the build output
+    - dir Source_Code_Folders\Working\GITLAB\subtraction_Core1\Debug
+  artifacts:
+    paths:
+      - Source_Code_Folders/Working/GITLAB/subtraction_Core1/Debug
+    expire_in: 1 hour  # The artifact will be kept for 1 hour
+
+run_project:
+  stage: run_cces_sub
+  script:
+    - set "PATH=C:\analog\cces\3.0.1\CCES_runner.exe;%PATH%"
+    # Adding a short delay to ensure the file is available
+    - sleep 5
+    - C:\analog\cces\3.0.1\CCES_runner.exe --target "ChipFactory Simulator" --platform "ADSP-21593 Functional-Sim" --processor ADSP-21593 --core "1,$CI_PROJECT_DIR\Source_Code_Folders\Working\GITLAB\subtraction_Core1\Debug\subtraction_Core1.dxe"

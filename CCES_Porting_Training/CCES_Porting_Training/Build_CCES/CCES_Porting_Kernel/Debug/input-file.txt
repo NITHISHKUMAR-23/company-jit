@@ -1,7 +1,0 @@
-"src/CCES_Porting_Kernel.doj"
-"system/adi_initialize.doj"
-"system/pinmux/GeneratedSources/pinmux_config.doj"
-"system/sru/sru_config.doj"
-"system/startup_ldf/app_IVT.doj"
-"system/startup_ldf/app_heaptab.doj"
-"system/startup_ldf/app_startup.doj"
