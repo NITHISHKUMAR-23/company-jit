@@ -1,0 +1,51 @@
+	mpause 1000
+	
+	sendln '0x00010000'		
+	mpause 1000
+	
+	sendln '0x00020000'	
+	mpause 1000	
+	
+	sendln '0x00030000'	
+	mpause 1000
+	
+	sendln '0x00040000'	
+	mpause 1000	
+	
+	sendln '0x00050000'	
+	mpause 1000	
+	
+	sendln '0x00060000'	
+	mpause 1000	
+	
+	sendln '0x00070000'	
+	mpause 1000	
+	
+	sendln '0x00080000'	
+	mpause 1000
+	
+	sendln '0x00090000'	
+	mpause 1000	
+	
+	sendln '0x000A0000'	
+	mpause 1000	
+	
+	sendln '0x000B0000'	
+	mpause 1000	
+	
+	sendln '0x000C0000'	
+	mpause 1000	
+	
+	sendln '0x000D0000'		
+	mpause 1000	
+	
+	sendln '0x000E0000'	
+	mpause 1000	
+	
+	sendln '0x000F0000'	
+	mpause 1000	
+	
+	sendln '0x00100000'	
+	mpause 1000	
+
+	

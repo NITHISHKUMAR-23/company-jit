@@ -1,0 +1,8 @@
+ 
+	mpause 1000
+	sendln '0x20010005'	      // blink 5 seconds
+	mpause 1000
+	sendln '0x20020001'      //left and right channel alternate for 3 seconds by giving data 1(bit 1)
+	mpause 1000
+	sendln '0x20000052'		
+	mpause 100

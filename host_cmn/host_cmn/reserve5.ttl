@@ -1,0 +1,5 @@
+    mpause 1000
+	sendln '0x20010002'	  //gain -1db
+	mpause 1000
+	sendln '0x20000050'		
+	mpause 1000

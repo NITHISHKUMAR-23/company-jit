@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+
+variables:
+  CCES_PATH: "C:/analog/cces/3.0.1"  # Use forward slashes or double backslashes
+  PROJECT_PATH: "c:/c_program/subtraction_Core1/src/subtraction_Core1.c"  # Use forward slashes or double backslashes
+
+# Build the project using CCES
+build:
+  script:
+    - echo "Building project with CCES..."
+    - "$CCES_PATH/Eclipse/cces.exe -build $PROJECT_PATH"  # Fixed command with proper quoting
+
+# Run tests (if applicable)
+test:
+  script:
+    - echo "Building project with CCES..."
+    - echo "Running tests with CCES..."
+    - "$CCES_PATH/bin/cces.exe -test $PROJECT_PATH"  # Fixed command with proper quoting

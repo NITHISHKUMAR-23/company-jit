@@ -1,0 +1,57 @@
+stages:
+  - build
+  - test
+
+# This job compiles the C code
+build_code:
+  stage: build
+  image: gcc:latest  # Use a Docker image with GCC pre-installed
+  script:
+    - echo "Compiling the C file located in src/main.c"
+    - gcc /smac_training_2024/Source_Code_Folders/Working/GITLAB/Project2_Add_Sub/add_sub.c -o output_program  # Compile the C file (change path if necessary)
+  artifacts:
+    paths:
+      - output_program  # Keep the compiled program for later stages
+
+# This job runs the compiled C program
+test_1:
+  stage: test
+  script:
+    - echo "Running the compiled C program"
+    - echo -e "5\n3" | ./output_program > result.txt  # Provide input and capture output to a file
+    - cat result.txt  # Display the result to verify the output
+    - |
+      if grep -q "8" result.txt; then
+        echo "Test passed: Correct sum."
+      else
+        echo "Test failed: Incorrect sum."
+        exit 1
+      fi
+
+test_2:
+  stage: test
+  script:
+    - echo "Running the compiled C program"
+    - echo -e "4 13" | ./output_program > result.txt  # Provide input and capture output to a file
+    - cat result.txt  # Display the result to verify the output
+    - |
+      if grep -q "17" result.txt; then
+        echo "Test passed: Correct sum."
+      else
+        echo "Test failed: Incorrect sum."
+        exit 1
+      fi
+
+test_3:
+  stage: test
+  script:
+    - echo "Running the compiled C program"
+    - echo -e "1 6" | ./output_program > result.txt  # Provide input and capture output to a file
+    - cat result.txt  # Display the result to verify the output
+    - |
+      if grep -q "2" result.txt; then
+        echo "Test passed: Correct sum."
+      else
+        echo "Test failed: Incorrect sum."
+        exit 1
+      fi
