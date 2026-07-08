@@ -1,0 +1,2 @@
+-I"D:/AudioFramework/AudioFramework/21569SDK01_Source/21569SDK01/system"
+-I"C:/Analog Devices/CrossCore Embedded Studio 2.9.1//SHARC/lib/src/drivers/Source"

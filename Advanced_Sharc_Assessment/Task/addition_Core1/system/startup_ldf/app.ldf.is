@@ -1,0 +1,1667 @@
+#line 1 "D:\Advanced_Sharc_Assessment\Task\addition_Core1\system\startup_ldf\app.ldf"
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ARCHITECTURE(ADSP-21593)
+
+
+
+
+ 
+$LIBRARIES = 
+
+ 
+ 
+ 
+
+    libcc.dlb
+   ,libc.dlb
+   ,libio.dlb
+   ,libcpp.dlb
+   ,libosal_noos.dlb
+   ,libprofile.dlb
+   ,libssl.dlb
+   ,libdrv.dlb
+   ,libdsp.dlb
+   ,libldr.dlb
+
+ 
+ 
+ 
+
+   ;
+
+
+
+ 
+$OBJECTS = 
+
+ 
+ 
+ 
+
+    "app_startup.doj"
+   ,$COMMAND_LINE_OBJECTS
+
+ 
+ 
+ 
+
+   ;
+
+
+
+ 
+$OBJS_LIBS = $OBJECTS, $LIBRARIES;
+
+
+
+
+ 
+$OBJS_LIBS_INTERNAL = 
+
+ 
+ 
+ 
+
+    $OBJS_LIBS{prefersMem("internal")}
+
+ 
+ 
+ 
+
+   ;
+
+
+
+
+ 
+$OBJS_LIBS_NOT_EXTERNAL = 
+
+ 
+ 
+ 
+
+    $OBJS_LIBS{!prefersMem("external")}
+
+ 
+ 
+ 
+
+   ;
+
+
+ 
+ 
+ 
+
+
+MEMORY
+{
+    
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+   mem_iv_code             { TYPE(PM RAM) START(0x00090000) END(0x000900a7) WIDTH(48) }
+   mem_block0_bw           { TYPE(BW RAM) START(0x002403f0) END(0x0026ffff) WIDTH(8) }
+
+    
+    
+    
+    
+    
+   mem_block1_bw           { TYPE(BW RAM) START(0x002c0000) END(0x002ebfff) WIDTH(8) }
+
+    
+    
+    
+    
+    
+   mem_block2_bw           { TYPE(BW RAM) START(0x00300000) END(0x0031bfff) WIDTH(8) }
+
+    
+    
+    
+   mem_block3_bw           { TYPE(BW RAM) START(0x00380000) END(0x0039bfff) WIDTH(8) }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   mem_L2B1P1_bw           { TYPE(BW RAM) START(0x20000000) END(0x20000fff) WIDTH(8) }
+   mem_L2B1P2_bw           { TYPE(BW RAM) START(0x20001000) END(0x2000ffff) WIDTH(8) }
+   mem_L2B1P3_bw           { TYPE(BW RAM) START(0x20010000) END(0x2001ffff) WIDTH(8) }
+   mem_L2B1toB5_bw         { TYPE(BW RAM) START(0x20020000) END(0x2013ffff) WIDTH(8) }
+   mem_L2B6toB8_bw         { TYPE(BW RAM) START(0x20140000) END(0x201fdfff) WIDTH(8) }
+   mem_L2BC_bw             { TYPE(BW RAM) START(0x201fe000) END(0x201fffff) WIDTH(8) }
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   mem_DMC0_SDRAM_A1       { TYPE(BW RAM) START(0x80000000) END(0x802fffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A2       { TYPE(BW RAM) START(0x80300000) END(0x805fffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A3       { TYPE(BW RAM) START(0x80600000) END(0x809fffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A4       { TYPE(BW RAM) START(0x80a00000) END(0x80cfffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A5       { TYPE(BW RAM) START(0x80d00000) END(0x80ffffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A6       { TYPE(BW RAM) START(0x81000000) END(0x8fffffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A7       { TYPE(BW RAM) START(0x90000000) END(0x9fffffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A8       { TYPE(BW RAM) START(0xa0000000) END(0xafffffff) WIDTH(8) }
+   mem_DMC0_SDRAM_A9       { TYPE(BW RAM) START(0xb0000000) END(0xbfffffff) WIDTH(8) }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    
+    
+    
+   
+}  
+
+PROCESSOR 21593_CORE_1
+{
+   LINK_AGAINST( $COMMAND_LINE_LINK_AGAINST )
+   OUTPUT($COMMAND_LINE_OUTPUT_FILE)
+   KEEP(___ctor_NULL_marker)
+   KEEP(__ctor_NULL_marker.)
+   ENTRY(start)
+   
+    
+    
+    
+   
+   SECTIONS
+   {
+      
+       
+       
+       
+      
+
+     
+     
+     
+     
+     
+      
+       
+       
+       
+      
+
+
+      dxe_iv_code PM
+      {
+         
+          
+          
+          
+         
+          
+         INPUT_SECTIONS( $OBJECTS(iv_code) )
+         
+          
+          
+          
+         
+      } > mem_iv_code
+      
+      
+       
+       
+       
+      
+       
+      dxe_block0_stack_and_heap_reserve NO_INIT BW
+      {
+         RESERVE(heaps_and_system_stack_in_L1, heaps_and_system_stack_in_L1_length = 4096, 8)
+      } > mem_block0_bw
+      
+       
+      dxe_block0_data_prio0_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0 seg_int_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_data_prio0  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0 seg_int_data ) )
+      } > mem_block0_bw
+      
+      dxe_block0_sw_code_prio0 SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         
+          
+          
+          
+         
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0) )
+         
+          
+          
+          
+         
+      } > mem_block0_bw
+      
+      dxe_block0_nw_code_prio0 PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0) )
+         
+          
+          
+          
+         
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio0 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0_noinit_data seg_int_noinit_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio0_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0_noinit_data seg_int_noinit_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio0 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0_bsz_data seg_int_bsz_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio0_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block0_bsz_data seg_int_bsz_data) )
+      } > mem_block0_bw
+      
+       
+      dxe_block0_data_prio1  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_dmda_nw seg_dmda seg_vtbl) )
+      } > mem_block0_bw
+      
+      dxe_block0_data_prio1_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_dmda_bw seg_dmda seg_vtbl) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio1 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_bsz_data .bss32 .bss bsz) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio1_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_bsz_data .bss8 .bss) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio1 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_noinit_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio1_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_noinit_data) )
+      } > mem_block0_bw
+      
+       
+      dxe_block0_data_prio2  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_dmda_nw seg_dmda seg_vtbl) )
+      } > mem_block0_bw
+      
+      dxe_block0_data_prio2_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_dmda_bw seg_dmda seg_vtbl) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio2 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_bsz_data .bss32 .bss bsz) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio2_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_bsz_data .bss8 .bss) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio2 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_noinit_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio2_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_noinit_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_data_prio3  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_block0_bw
+      
+      dxe_block0_data_prio3_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio3 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_bsz_data .bss32 .bss) )
+      } > mem_block0_bw
+      
+      dxe_block0_bsz_prio3_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_bsz_data .bss8 .bss) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio3 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_noinit_data) )
+      } > mem_block0_bw
+      
+      dxe_block0_noinit_prio3_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_noinit_data) )
+      } > mem_block0_bw
+      
+
+     
+     
+
+     
+     
+     
+
+      ___ldf_dmcachesize = 0;  
+      
+       
+       
+       
+      
+      dxe_block1_data_prio0_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1 seg_int_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio0  DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1 seg_int_data) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_sw_code_prio0 SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1) )
+      } > mem_block1_bw
+      
+      dxe_block1_nw_code_prio0 PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio0 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1_noinit_data seg_int_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio0_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1_noinit_data seg_int_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio0 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1_bsz_data seg_int_bsz_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio0_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block1_bsz_data seg_int_bsz_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio1  DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_dmda_nw seg_dmda seg_vtbl) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio1_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_dmda_bw seg_dmda seg_vtbl) )
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio1 ZERO_INIT DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_bsz_data .bss32 .bss bsz) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio1_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_bsz_data .bss8 .bss) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio1 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio1_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio2  DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_dmda_nw seg_dmda seg_vtbl) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio2_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_dmda_bw seg_dmda seg_vtbl) )
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio2 ZERO_INIT DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_bsz_data .bss32 .bss bsz) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio2_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_bsz_data .bss8 .bss) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio2 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio2_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio3  DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_data_prio3_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio3 ZERO_INIT DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_bsz_data .bss32 .bss) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_bsz_prio3_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_bsz_data .bss8 .bss) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio3 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_noinit_data) )
+      } > mem_block1_bw
+      
+      dxe_block1_noinit_prio3_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_noinit_data) )
+      } > mem_block1_bw
+      
+
+     
+     
+
+     
+     
+     
+
+      
+       
+       
+       
+      
+      ___ldf_pmcachesize = 0;  
+      dxe_block2_data_prio0_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2) )
+      } > mem_block2_bw
+      
+      dxe_block2_data_prio0  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2) )
+      } > mem_block2_bw
+      
+      dxe_block2_sw_code_prio0 SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2) )
+      } > mem_block2_bw
+      
+      dxe_block2_nw_code_prio0 PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2) )
+      } > mem_block2_bw
+      
+      dxe_block2_noinit_prio0 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2_noinit_data) )
+      } > mem_block2_bw
+      
+      dxe_block2_noinit_prio0_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2_noinit_data) )
+      } > mem_block2_bw
+      
+      dxe_block2_bsz_prio0 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2_bsz_data) )
+      } > mem_block2_bw
+      
+      dxe_block2_bsz_prio0_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block2_bsz_data) )
+      } > mem_block2_bw
+      
+      dxe_block2_pm_data_prio1  PM 32
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_pmda_nw seg_pmda) )
+         
+          
+          
+          
+         
+      } > mem_block2_bw
+      
+      dxe_block2_pm_data_prio1_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_pmda_bw seg_pmda) )
+      } > mem_block2_bw
+      
+      dxe_block2_pm_data_prio2  PM 32
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_pmda_nw seg_pmda) )
+      } > mem_block2_bw
+      
+      dxe_block2_pm_data_prio2_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_pmda_bw seg_pmda) )
+      } > mem_block2_bw
+      
+      dxe_block2_pm_data_prio3  PM 32
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_nw seg_pmda) )
+      } > mem_block2_bw
+      
+      dxe_block2_pm_data_prio3_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda) )
+      } > mem_block2_bw
+      
+
+     
+     
+
+     
+     
+     
+
+      ___ldf_icachesize = 0;  
+      
+       
+       
+       
+      
+      dxe_block3_data_prio0  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3) )
+      } > mem_block3_bw
+      
+      dxe_block3_data_prio0_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3) )
+      } > mem_block3_bw
+      
+      dxe_block3_noinit_prio0 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3_noinit_data) )
+      } > mem_block3_bw
+      
+      dxe_block3_noinit_prio0_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3_noinit_data) )
+      } > mem_block3_bw
+      
+      dxe_block3_bsz_prio0 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3_bsz_data) )
+      } > mem_block3_bw
+      
+      dxe_block3_bsz_prio0_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3_bsz_data) )
+      } > mem_block3_bw
+      
+       
+       
+      dxe_block3_sw_code_prio0 SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3 seg_int_code_sw seg_int_code) )
+      } > mem_block3_bw
+      
+      dxe_block3_nw_code_prio0 PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l1_block3) )
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_init) )
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_code) )
+      } > mem_block3_bw
+      
+       
+       
+      dxe_block3_sw_code_prio1 SW
+      {
+         FILL(0x1)   
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_swco seg_pmco) )
+      } > mem_block3_bw
+      
+      dxe_block3_nw_code_prio1 PM
+      {
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS_INTERNAL(seg_pmco) )
+      } > mem_block3_bw
+      
+      dxe_block3_sw_code_prio2 SW
+      {
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_swco seg_pmco) )
+      } > mem_block3_bw
+      
+      dxe_block3_nw_code_prio2 PM
+      {
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS_NOT_EXTERNAL(seg_pmco) )
+      } > mem_block3_bw
+      
+
+      dxe_block3_sw_code_prio3 SW
+      {
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_swco seg_pmco) )
+      } > mem_block3_bw
+      
+
+      dxe_block3_nw_code_prio3 PM
+      {
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmco) )
+      } > mem_block3_bw
+      
+
+     
+     
+     
+     
+
+      
+       
+       
+       
+      
+       
+      dxe_block0_sw_code SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_code_sw seg_int_code seg_swco seg_pmco) )
+      } > mem_block0_bw
+      
+      dxe_block0_nw_code PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_code) )
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_init) )
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmco) )
+      } > mem_block0_bw
+      
+
+     
+
+      dxe_block2_data  DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_data seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+         
+          
+          
+          
+         
+      } > mem_block2_bw
+      
+      dxe_block2_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_data seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_block2_bw
+      
+      dxe_block2_bsz ZERO_INIT DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_bsz_data seg_bsz_data .bss32 .bss) )
+         
+          
+          
+          
+         
+      } > mem_block2_bw
+      
+      dxe_block2_bsz_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_bsz_data seg_bsz_data .bss8 .bss) )
+      } > mem_block2_bw
+      
+      dxe_block2_noinit NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_noinit_data seg_noinit_data) )
+      } > mem_block2_bw
+      
+      dxe_block2_noinit_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_noinit_data seg_noinit_data) )
+      } > mem_block2_bw
+      
+       
+      dxe_block0_pm_data  PM 32
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_nw seg_pmda) )
+      } > mem_block0_bw
+      
+      dxe_block0_pm_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_bw seg_pmda) )
+      } > mem_block0_bw
+      
+      dxe_block1_pm_data  PM 32
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_nw seg_pmda) )
+         
+          
+          
+          
+         
+      } > mem_block1_bw
+      
+      dxe_block1_pm_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_bw seg_pmda) )
+      } > mem_block1_bw
+      
+       
+      dxe_block3_data  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_data seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_block3_bw
+      
+      dxe_block3_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_data seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_block3_bw
+      
+      dxe_block3_pm_data  PM 32
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_nw seg_pmda) )
+      } > mem_block3_bw
+      
+      dxe_block3_pm_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_bw seg_pmda) )
+      } > mem_block3_bw
+      
+      dxe_block3_bsz ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_bsz_data seg_bsz_data .bss32 .bss) )
+      } > mem_block3_bw
+      
+      dxe_block3_bsz_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_bsz_data seg_bsz_data .bss8 .bss) )
+      } > mem_block3_bw
+      
+      dxe_block3_noinit NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_noinit_data seg_noinit_data) )
+      } > mem_block3_bw
+      
+      dxe_block3_noinit_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_noinit_data seg_noinit_data) )
+      } > mem_block3_bw
+      
+
+     
+     
+
+      
+       
+       
+       
+      
+       
+      dxe_l2bootcode_noinit NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_noinit_data seg_noinit_data) )
+      } > mem_L2BC_bw
+      
+      dxe_l2bootcode_noinit_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_noinit_data seg_noinit_data) )
+      } > mem_L2BC_bw
+      
+
+      dxe_l2_user_tables_nw  DM
+      {
+         FORCE_CONTIGUITY
+         
+          
+          
+          
+         
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_user_tables_bw  BW
+      {
+         FORCE_CONTIGUITY
+         INPUT_SECTION_ALIGN(4)
+         
+          
+          
+          
+         
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_stack_and_heap_reserve NO_INIT BW
+      {
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_sw_code SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2 seg_l2_swco seg_swco seg_pmco) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_nw_code PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2 seg_l2_pmco seg_pmco) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_data  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2 seg_l2_dmda seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2 seg_l2_dmda_bw seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_bsz ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_bsz_data seg_bsz_data .bss32 .bss) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_bsz_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_bsz_data seg_bsz_data .bss8 .bss) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_noinit NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_noinit_data seg_noinit_data) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_noinit_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_noinit_data seg_noinit_data) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_pm_data  PM 32
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda_nw seg_pmda) )
+      } > mem_L2B1toB5_bw
+      
+      dxe_l2_pm_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pmda) )
+      } > mem_L2B1toB5_bw
+      
+
+
+
+
+     
+     
+
+       
+       
+       
+
+      ___MCAPI_common_start = MEMORY_START(mem_L2B1P1_bw);
+      ___MCAPI_common_end   = MEMORY_END  (mem_L2B1P1_bw);
+      ___MCAPI_arm_start    = 0;
+      ___MCAPI_arm_end      = 0;
+      ___MCAPI_sharc0_start = MEMORY_START(mem_L2B1P3_bw);
+      ___MCAPI_sharc0_end   = MEMORY_END  (mem_L2B1P3_bw);
+      ___MCAPI_sharc1_start = MEMORY_START(mem_L2B1P2_bw);
+      ___MCAPI_sharc1_end   = MEMORY_END  (mem_L2B1P2_bw);
+      ___l2_start           = MEMORY_START(mem_L2B1P1_bw);
+      ___l2_end             = MEMORY_END  (mem_L2BC_bw);
+      ___l2_uncached_start  = MEMORY_START(mem_L2B1P1_bw);
+      ___l2_uncached_end    = MEMORY_END  (mem_L2B1P3_bw);
+      ___l2_cached_start    = MEMORY_START(mem_L2B1toB5_bw);
+      ___l2_cached_end      = MEMORY_END  (mem_L2BC_bw);
+
+
+      dxe_l2_uncached_bw  BW
+      {
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_uncached seg_uncached) )
+      } > mem_L2B1P3_bw
+      
+      dxe_l2_uncached  DM
+      {
+         INPUT_SECTIONS( $OBJS_LIBS(seg_l2_uncached seg_uncached) )
+      } > mem_L2B1P3_bw
+      
+
+
+
+
+     
+     
+
+      
+       
+       
+       
+      
+
+       
+       
+      ___sdram_start        = MEMORY_START(mem_DMC0_SDRAM_A1);
+      ___sdram_end          = MEMORY_END  (mem_DMC0_SDRAM_A9);
+      
+       
+       
+       
+      
+
+      dxe_sdram_sw_code SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram seg_ext_code seg_swco seg_pmco) )
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A4
+      
+
+      dxe_sdram_nw_code PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram seg_ext_code seg_pmco) )
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A1
+      
+      
+       
+       
+       
+      
+      dxe_sdram_user_tables_nw  DM
+      {
+         FORCE_CONTIGUITY
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_cpp_ctors_nw  DM
+      {
+          
+         FORCE_CONTIGUITY
+         __ctors = .;     
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdm) )
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdml) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_cpp_eh_gdt_nw  DM
+      {
+          
+         FORCE_CONTIGUITY
+         INPUT_SECTIONS( $OBJS_LIBS(.gdt32 .gdt) )
+         INPUT_SECTIONS( $OBJS_LIBS(.gdtl32 .gdtl) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_cpp_eh_gdt_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         FORCE_CONTIGUITY
+         INPUT_SECTIONS( $OBJS_LIBS(.gdt) )
+         INPUT_SECTIONS( $OBJS_LIBS(.gdtl) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_cpp_ctors_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         FORCE_CONTIGUITY
+         _ctors. = .;     
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdm) )
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdml seg_ctdml_bw) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_user_tables_bw  BW
+      {
+         FORCE_CONTIGUITY
+         INPUT_SECTION_ALIGN(4)
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_stack_and_heap_reserve NO_INIT BW
+      {
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_data  DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram seg_ext_data seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram seg_ext_data seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_bsz ZERO_INIT DM
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_bsz_data seg_bsz_data .bss32 .bss) )
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_bsz_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_bsz_data seg_bsz_data .bss8 .bss) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_noinit NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_noinit_data seg_noinit_data) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_noinit_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_noinit_data seg_noinit_data) )
+      } > mem_DMC0_SDRAM_A3
+      
+      
+       
+       
+       
+      
+      dxe_sdram_pm_data  PM 32
+      {
+          
+         
+          
+          
+          
+         
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ext_pmda seg_pmda_nw seg_pmda) )
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_pm_data_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ext_pmda seg_pmda) )
+      } > mem_DMC0_SDRAM_A3
+      
+      dxe_sdram_data2  DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram seg_ext_data seg_dmda_nw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_data2_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram seg_ext_data seg_dmda_bw seg_dmda seg_vtbl .rtti .cht .edt) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_bsz2 ZERO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_bsz_data seg_bsz_data .bss32 .bss) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_bsz2_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_bsz_data seg_bsz_data .bss8 .bss) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_noinit2 NO_INIT DM
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_noinit_data seg_noinit_data) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_noinit2_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_noinit_data seg_noinit_data) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_pm_data2  PM 32
+      {
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ext_pmda seg_pmda_nw seg_pmda) )
+      } > mem_DMC0_SDRAM_A6
+      
+      dxe_sdram_pm_data2_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ext_pmda seg_pmda) )
+      } > mem_DMC0_SDRAM_A6
+      
+       
+      dxe_sdram_data3_bw  BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_bwonly) )
+      } > mem_DMC0_SDRAM_A8
+      
+      dxe_sdram_bsz3_bw ZERO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_bsz_data_bwonly) )
+      } > mem_DMC0_SDRAM_A8
+      
+      dxe_sdram_noinit3_bw NO_INIT BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_noinit_data_bwonly) )
+      } > mem_DMC0_SDRAM_A8
+      
+
+     
+     
+
+      
+       
+       
+       
+      
+      dxe_block0_stack_and_heap_expand NO_INIT BW
+      {
+         INPUT_SECTION_ALIGN(4)
+         RESERVE_EXPAND(heaps_and_system_stack_in_L1, heaps_and_system_stack_in_L1_length, 0, 8)
+         ldf_stack_space = heaps_and_system_stack_in_L1;
+         ldf_stack_end = (ldf_stack_space + (((heaps_and_system_stack_in_L1_length * 2048) / 4096) - 8));
+         ldf_stack_length = ldf_stack_end - ldf_stack_space;
+         ldf_heap_space = ldf_stack_end + 8;
+         ldf_heap_end = (ldf_heap_space + (((heaps_and_system_stack_in_L1_length * 2048) / 4096) - 8));
+         ldf_heap_length = ldf_heap_end - ldf_heap_space;
+      } > mem_block0_bw
+      
+      dxe_l2_stack_and_heap_expand NO_INIT BW
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+          
+          
+          
+         
+      } > mem_L2B1toB5_bw
+      
+      dxe_sdram_stack_and_heap_expand NO_INIT BW
+      {
+         
+          
+          
+          
+         
+      } > mem_DMC0_SDRAM_A6
+      
+
+     
+
+      
+       
+       
+       
+      
+   }  
+}  
+

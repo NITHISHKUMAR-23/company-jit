@@ -1,0 +1,32 @@
+/*****************************************************************************
+ * addition_Core1.c
+ *****************************************************************************/
+
+#include <sys/platform.h>
+#include <sys/adi_core.h>
+#include "adi_initialize.h"
+#include "addition_Core1.h"
+
+#define M 10
+
+float add(float a, float b);
+
+float sub(float a)
+{
+	a = a-19;
+	//printf("sub_result= %f\n",a);
+	return a;
+}
+
+
+int main(int argc, char *argv[])
+{
+	float a = M;
+	float b = 10;
+	float c;
+	c = add(a,b);
+	printf("%f\n",c);
+	printf("sub_result= %f\n",a);
+	return 0;
+}
+

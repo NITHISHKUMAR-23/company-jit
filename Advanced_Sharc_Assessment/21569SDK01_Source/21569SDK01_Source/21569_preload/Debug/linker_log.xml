@@ -1,0 +1,598 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.9.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Thu Mar 13 10:50:56 2025
+'>
+<MSG id='048F5118' mid='li3201' type='Informational' suppressed=''>
+<TEXT><![CDATA[Successfully eliminated 13806 bytes in processor '2156x_CORE0_SHARC0'
+]]></TEXT>
+<EXTENDED_INFO><![CDATA[Eliminated object (adi_ospi_clock_rate., .adi_ospi_clock_rate..end) of size 150 bytes from 'src\adi_clockrates_2156x_config.doj(seg_swco)'
+Eliminated object (adi_spi_clock_rate., .adi_spi_clock_rate..end) of size 76 bytes from 'src\adi_clockrates_2156x_config.doj(seg_swco)'
+Eliminated object (adi_uart_baud_read., .adi_uart_baud_read..end) of size 206 bytes from 'src\adi_clockrates_2156x_config.doj(seg_swco)'
+Eliminated object (adi_uart_baud_init., .adi_uart_baud_init..end) of size 206 bytes from 'src\adi_clockrates_2156x_config.doj(seg_swco)'
+Eliminated object (adi_dmc_self_refresh., .adi_dmc_self_refresh..end) of size 222 bytes from 'src\adi_dmc.doj(seg_swco)'
+Eliminated object (adi_pwr_SetPWRReg., .adi_pwr_SetPWRReg..end) of size 40 bytes from 'system\services\pwr\adi_pwr.doj(seg_int_code)'
+Eliminated object (adi_pwr_SetPowerMode., .adi_pwr_SetPowerMode..end) of size 504 bytes from 'system\services\pwr\adi_pwr.doj(seg_int_code)'
+Eliminated object (adi_pwr_SetClkOutSelectRegister., .adi_pwr_SetClkOutSelectRegister..end) of size 110 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampVal1Reg., .adi_pwr_GetTStampVal1Reg..end) of size 72 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampVal0Reg., .adi_pwr_GetTStampVal0Reg..end) of size 72 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampCnt1Reg., .adi_pwr_GetTStampCnt1Reg..end) of size 72 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetTStampCnt0Reg., .adi_pwr_GetTStampCnt0Reg..end) of size 72 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCGUStatReg., .adi_pwr_GetCGUStatReg..end) of size 480 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetDPM0StatReg., .adi_pwr_GetDPM0StatReg..end) of size 162 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCDU0StatReg., .adi_pwr_GetCDU0StatReg..end) of size 178 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetSCLKBufDisableStatusReg., .adi_pwr_GetSCLKBufDisableStatusReg..end) of size 204 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCCLKBufDisableStatusReg., .adi_pwr_GetCCLKBufDisableStatusReg..end) of size 92 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_IsPeripheralDisabled., .adi_pwr_IsPeripheralDisabled..end) of size 148 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_DisablePeripheral., .adi_pwr_DisablePeripheral..end) of size 200 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetPowerMode., .adi_pwr_GetPowerMode..end) of size 266 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_DPM0LockRegisters., .adi_pwr_DPM0LockRegisters..end) of size 78 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_CGU1LockRegisters., .adi_pwr_CGU1LockRegisters..end) of size 78 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_CGU0LockRegisters., .adi_pwr_CGU0LockRegisters..end) of size 78 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_CDULockRegisters., .adi_pwr_CDULockRegisters..end) of size 78 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_ConfigCGUTSCtlReg., .adi_pwr_ConfigCGUTSCtlReg..end) of size 194 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetPLLClkFreq., .adi_pwr_GetPLLClkFreq..end) of size 272 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetCoreClkFreq., .adi_pwr_GetCoreClkFreq..end) of size 360 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetOutClkFreq., .adi_pwr_GetOutClkFreq..end) of size 368 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetSystemFreq., .adi_pwr_GetSystemFreq..end) of size 736 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetDDRClkFreq., .adi_pwr_GetDDRClkFreq..end) of size 368 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (adi_pwr_GetFreq., .adi_pwr_GetFreq..end) of size 248 bytes from 'system\services\pwr\adi_pwr.doj(seg_swco)'
+Eliminated object (.SWITCH.3, .SWITCH.3.end) of size 16 bytes from 'system\services\smpu\adi_smpu.doj(seg_dmda)'
+Eliminated object (.SWITCH.4, .SWITCH.4.end) of size 16 bytes from 'system\services\smpu\adi_smpu.doj(seg_dmda)'
+Eliminated object (adi_smpu_SetSecureBusErrorReturnType., .adi_smpu_SetSecureBusErrorReturnType..end) of size 100 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureInterruptEnable., .adi_smpu_SetSecureInterruptEnable..end) of size 100 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionBypassMask., .adi_smpu_SetRegionBypassMask..end) of size 198 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionBypassCode., .adi_smpu_SetRegionBypassCode..end) of size 198 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionReadProtectInvert., .adi_smpu_SetRegionReadProtectInvert..end) of size 136 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionReadProtectEnable., .adi_smpu_SetRegionReadProtectEnable..end) of size 136 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionWriteProtectInvert., .adi_smpu_SetRegionWriteProtectInvert..end) of size 136 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionWriteProtectEnable., .adi_smpu_SetRegionWriteProtectEnable..end) of size 136 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionEnable., .adi_smpu_SetRegionEnable..end) of size 136 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalBusErrorReturnType., .adi_smpu_SetRegionalBusErrorReturnType..end) of size 88 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalBusErrorDisable., .adi_smpu_SetRegionalBusErrorDisable..end) of size 88 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalInterruptEnable., .adi_smpu_SetRegionalInterruptEnable..end) of size 88 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureRegionalLock., .adi_smpu_SetSecureRegionalLock..end) of size 100 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureGlobalLock., .adi_smpu_SetSecureGlobalLock..end) of size 98 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionalLock., .adi_smpu_SetRegionalLock..end) of size 88 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetMasterLock., .adi_smpu_SetMasterLock..end) of size 86 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetBusErrorDetails., .adi_smpu_GetBusErrorDetails..end) of size 226 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetInterruptDetails., .adi_smpu_GetInterruptDetails..end) of size 226 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetStatus., .adi_smpu_GetStatus..end) of size 56 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_GetRevision., .adi_smpu_GetRevision..end) of size 104 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_UnInit., .adi_smpu_UnInit..end) of size 164 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetRegionRange., .adi_smpu_SetRegionRange..end) of size 200 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (adi_smpu_SetSecureRegionPermissions., .adi_smpu_SetSecureRegionPermissions..end) of size 388 bytes from 'system\services\smpu\adi_smpu.doj(seg_swco)'
+Eliminated object (_adi_osal_gnSchedulerLockCnt., _adi_osal_gnSchedulerLockCnt.+0x4) of size 4 bytes from 'libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)'
+Eliminated object (___divrem_u32, .___divrem_u32.end) of size 148 bytes from 'libcc.dlb[divrem_u32.doj](seg_pmco)'
+Eliminated object (adi_sec_SetCOPPeriod., .adi_sec_SetCOPPeriod..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetSysResetDelay., .adi_sec_SetSysResetDelay..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetFaultDelay., .adi_sec_SetFaultDelay..end) of size 22 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SelectTriggerEvent., .adi_sec_SelectTriggerEvent..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearFault., .adi_sec_ClearFault..end) of size 28 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetFaultID., .adi_sec_GetFaultID..end) of size 40 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableCOPMode., .adi_sec_EnableCOPMode..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableFaultInput., .adi_sec_EnableFaultInput..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableSystemReset., .adi_sec_EnableSystemReset..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableTriggerOutput., .adi_sec_EnableTriggerOutput..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableFaultOutput., .adi_sec_EnableFaultOutput..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableSFI., .adi_sec_EnableSFI..end) of size 58 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetPriorityLevels., .adi_sec_SetPriorityLevels..end) of size 54 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetUnGroupedMask., .adi_sec_SetUnGroupedMask..end) of size 70 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetGroupMask., .adi_sec_SetGroupMask..end) of size 54 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetPriorityMask., .adi_sec_SetPriorityMask..end) of size 76 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearWFIStatus., .adi_sec_ClearWFIStatus..end) of size 48 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetWFIStatus., .adi_sec_GetWFIStatus..end) of size 52 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_WaitForIdle., .adi_sec_WaitForIdle..end) of size 48 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_ClearPendStatus., .adi_sec_ClearPendStatus..end) of size 56 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetSIDChannelID., .adi_sec_GetSIDChannelID..end) of size 94 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetSIDGrouping., .adi_sec_SetSIDGrouping..end) of size 94 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_SetPriority., .adi_sec_SetPriority..end) of size 96 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableError., .adi_sec_EnableError..end) of size 80 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableEdgeSense., .adi_sec_EnableEdgeSense..end) of size 80 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_EnableFault., .adi_sec_EnableFault..end) of size 80 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_Raise., .adi_sec_Raise..end) of size 64 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetAddrError., .adi_sec_GetAddrError..end) of size 118 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_GetLockWriteError., .adi_sec_GetLockWriteError..end) of size 118 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_sec_RegisterErrorHandler., .adi_sec_RegisterErrorHandler..end) of size 120 bytes from 'libssl.dlb[adi_sec.doj](seg_swco)'
+Eliminated object (adi_int_UninstallHandler., .adi_int_UninstallHandler..end) of size 190 bytes from 'libssl.dlb[adi_int.doj](seg_swco)'
+Eliminated object (adi_int_EnableInt., .adi_int_EnableInt..end) of size 150 bytes from 'libssl.dlb[adi_int.doj](seg_swco)'
+Eliminated object (adi_int_ClearPending., .adi_int_ClearPending..end) of size 84 bytes from 'libssl.dlb[adi_int.doj](seg_swco)'
+Eliminated object (_adi_osal_InitInterrupts., ._adi_osal_InitInterrupts..end) of size 16 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (_adi_osal_MemAlloc., ._adi_osal_MemAlloc..end) of size 108 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (_adi_osal_MemFree., ._adi_osal_MemFree..end) of size 46 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (adi_osal_DeactivateHandler., .adi_osal_DeactivateHandler..end) of size 66 bytes from 'libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'
+Eliminated object (adi_in_noncacheable_range., .adi_in_noncacheable_range..end) of size 196 bytes from 'libc.dlb[cache_set_range_ba.doj](seg_int_code)'
+Eliminated object (rr_may_be_noncacheable.0., rr_may_be_noncacheable.0.+0x8) of size 8 bytes from 'libc.dlb[cache_set_range_ba.doj](seg_int_data)'
+Eliminated object (__adi_wa_cces16305., .__adi_wa_cces16305..end) of size 12 bytes from 'libc.dlb[cache_set_range_ba.doj](seg_swco)'
+Eliminated object (_heap_malloc., ._heap_malloc..end) of size 214 bytes from 'libc.dlb[heap_malloc_ba.doj](seg_swco)'
+Eliminated object (_heap_free., ._heap_free..end) of size 30 bytes from 'libc.dlb[heap_free_ba.doj](seg_swco)'
+Eliminated object (_adi_osal_gHandlerTableSize., _adi_osal_gHandlerTableSize.+0x4) of size 4 bytes from 'libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)'
+Eliminated object (adi_rtl_deactivate_dispatched_handler., .adi_rtl_deactivate_dispatched_handler..end) of size 104 bytes from 'libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)'
+Eliminated object (.__clear_imask, .__clear_imask.end) of size 320 bytes from 'libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)'
+Eliminated object (free., .free..end) of size 170 bytes from 'libc.dlb[free_ba.doj](seg_swco)'
+Eliminated object (__find_block_to_free., .__find_block_to_free..end) of size 296 bytes from 'libc.dlb[heap_find_block_ba.doj](seg_swco)'
+]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F53B8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio0']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[cache_set_range_ba.doj](seg_int_data)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5658' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio1']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F6538' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio1_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F4AF8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio2']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F6378' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio2_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5738' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio3']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[argstring_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[exit_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[lib_set_cache_ba.doj](seg_dmda)
+    libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libc.dlb[xatexit_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F4BD8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data_prio3_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[exit_value.doj](seg_dmda)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)
+    libc.dlb[xexit.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F58F8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio0']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[cache_set_range_ba.doj](seg_int_data)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5818' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio1']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5F18' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio1_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F51F8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio2']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F4CB8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio2_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F6458' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio3']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[argstring_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[exit_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[lib_set_cache_ba.doj](seg_dmda)
+    libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libc.dlb[xatexit_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F4F58' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_data_prio3_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[exit_value.doj](seg_dmda)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)
+    libc.dlb[xexit.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5038' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block3_nw_code_prio0']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_int_code)
+    system\services\pwr\adi_pwr.doj(seg_int_code)
+    libc.dlb[cache_set_range_ba.doj](seg_int_code)
+    libc.dlb[lib_set_cache_ba.doj](seg_int_code)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F59D8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block3_nw_code_prio1']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5498' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block3_nw_code_prio2']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5AB8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block3_nw_code_prio3']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_bad_reset_detected.doj](seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[adi_ilop_detected.doj](seg_pmco)
+    libc.dlb[adi_parity_error_detected.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5C78' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_int_code)
+    system\services\pwr\adi_pwr.doj(seg_int_code)
+    libc.dlb[cache_set_range_ba.doj](seg_int_code)
+    libc.dlb[lib_set_cache_ba.doj](seg_int_code)
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_bad_reset_detected.doj](seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[adi_ilop_detected.doj](seg_pmco)
+    libc.dlb[adi_parity_error_detected.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5D58' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block1_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_int_code)
+    system\services\pwr\adi_pwr.doj(seg_int_code)
+    libc.dlb[cache_set_range_ba.doj](seg_int_code)
+    libc.dlb[lib_set_cache_ba.doj](seg_int_code)
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_bad_reset_detected.doj](seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[adi_ilop_detected.doj](seg_pmco)
+    libc.dlb[adi_parity_error_detected.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5578' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block2_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_int_code)
+    system\services\pwr\adi_pwr.doj(seg_int_code)
+    libc.dlb[cache_set_range_ba.doj](seg_int_code)
+    libc.dlb[lib_set_cache_ba.doj](seg_int_code)
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_bad_reset_detected.doj](seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[adi_ilop_detected.doj](seg_pmco)
+    libc.dlb[adi_parity_error_detected.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5E38' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block2_data']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[argstring_ba.doj](seg_dmda)
+    libc.dlb[cache_set_range_ba.doj](seg_int_data)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[exit_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[lib_set_cache_ba.doj](seg_dmda)
+    libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libc.dlb[xatexit_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F5FF8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block2_data_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[exit_value.doj](seg_dmda)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)
+    libc.dlb[xexit.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F60D8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block3_data']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[argstring_ba.doj](seg_dmda)
+    libc.dlb[cache_set_range_ba.doj](seg_int_data)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[exit_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[lib_set_cache_ba.doj](seg_dmda)
+    libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libc.dlb[xatexit_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F61B8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block3_data_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[exit_value.doj](seg_dmda)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)
+    libc.dlb[xexit.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F68B8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_bad_reset_detected.doj](seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[adi_ilop_detected.doj](seg_pmco)
+    libc.dlb[adi_parity_error_detected.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F6618' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2_data']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[argstring_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[exit_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[lib_set_cache_ba.doj](seg_dmda)
+    libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libc.dlb[xatexit_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F66F8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2_data_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[exit_value.doj](seg_dmda)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)
+    libc.dlb[xexit.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='048F67D8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2uc_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    21569_hdr.doj(seg_pmco)
+    libc.dlb[adi_bad_reset_detected.doj](seg_pmco)
+    libc.dlb[adi_fatal_error.doj](seg_pmco)
+    libc.dlb[adi_ilop_detected.doj](seg_pmco)
+    libc.dlb[adi_parity_error_detected.doj](seg_pmco)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libc.dlb[set_c.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='05848AA0' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2uc_data']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[argstring_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[exit_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[getargv_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heap_setup_ba.doj](seg_dmda)
+    libc.dlb[heap_table_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[lib_set_cache_ba.doj](seg_dmda)
+    libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libc.dlb[xatexit_ba.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='05847A00' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_l2uc_data_bw']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    libc.dlb[exit_value.doj](seg_dmda)
+    libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)
+    libc.dlb[xexit.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+</DOCUMENT>

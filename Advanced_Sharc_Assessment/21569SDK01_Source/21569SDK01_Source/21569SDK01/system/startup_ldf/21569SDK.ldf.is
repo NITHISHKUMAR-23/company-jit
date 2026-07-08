@@ -1,0 +1,810 @@
+#line 1 "D:\AudioFramework\AudioFramework\21569SDK01_Source\21569SDK01\system\startup_ldf\21569SDK.ldf"
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ARCHITECTURE(ADSP-21569)
+
+
+
+
+ 
+$LIBRARIES = 
+
+ 
+ 
+ 
+
+    libcc.dlb
+   ,libc.dlb
+   ,libio.dlb
+   ,libcpp.dlb
+   ,libosal_noos.dlb
+   ,libprofile.dlb
+   ,libssl.dlb
+   ,libdrv.dlb
+   ,libdsp.dlb
+   ,libldr.dlb
+
+ 
+ 
+ 
+
+   ;
+
+
+
+ 
+$OBJECTS = 
+
+ 
+ 
+ 
+
+    "app_startup.doj"
+   ,$COMMAND_LINE_OBJECTS
+
+ 
+ 
+ 
+
+   ;
+
+
+
+ 
+$OBJS_LIBS = $OBJECTS, $LIBRARIES;
+
+
+
+
+ 
+$OBJS_LIBS_INTERNAL = 
+
+ 
+ 
+ 
+
+    $OBJS_LIBS{prefersMem("internal")}
+
+ 
+ 
+ 
+
+   ;
+
+
+
+
+ 
+$OBJS_LIBS_NOT_EXTERNAL = 
+
+ 
+ 
+ 
+
+    $OBJS_LIBS{!prefersMem("external")}
+
+ 
+ 
+ 
+
+   ;
+
+
+ 
+ 
+ 
+
+
+MEMORY
+{
+    
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+   mem_iv_code             { TYPE(PM RAM) START(0x00090000) END(0x000900a7) WIDTH(48) }
+   mem_block0_kernal_code  { TYPE(BW RAM) START(0x002403f0) END(0x0024afff) WIDTH(8) }  
+   mem_block0_library_data { TYPE(BW RAM) START(0x0024b000) END(0x0025afff) WIDTH(8) }  
+   mem_block0_kernal_data  { TYPE(BW RAM) START(0x0025b000) END(0x00269fff) WIDTH(8) }  
+   mem_block0_bw           { TYPE(BW RAM) START(0x0026A000) END(0x0026feff) WIDTH(8) }
+   mem_block0_seg		   { TYPE(BW RAM) START(0x0026ff00) END(0x0026ffff) WIDTH(8) }
+    
+    
+    
+    
+    
+   mem_block1_Kernal_code 	 { TYPE(BW RAM) START(0x002c0000) END(0x002cffff) WIDTH(8) }
+ 
+    
+    
+    
+    
+    
+   mem_block2_bw           { TYPE(BW RAM) START(0x00300000) END(0x0030ffff) WIDTH(8) }
+
+    
+    
+    
+   mem_block3_bw           { TYPE(BW RAM) START(0x00380000) END(0x00397fff) WIDTH(8) }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   mem_L2_bw               { TYPE(BW RAM) START(0x20000000) END(0x200D9eff) WIDTH(8) }
+   mem_pack_dma_list_bw	   { TYPE(BW RAM) START(0x200D9f00) END(0x200f9eff) WIDTH(8) }
+   mem_l2_mem_bw		   { TYPE(BW RAM) START(0x200f9f00) END(0x200f9fff) WIDTH(8) }
+   mem_L2UC_bw             { TYPE(BW RAM) START(0x200fa000) END(0x200fdfff) WIDTH(8) }
+   mem_L2BC_bw             { TYPE(BW RAM) START(0x200fe000) END(0x200fffff) WIDTH(8) }
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+  
+  
+
+   SYSTEM_MEM_SDRAM_A1      					{ TYPE(BW RAM) START(0x80000000) END(0x800fffff) WIDTH(8) }
+   MEM_KERNEL_DATA_A1      						{ TYPE(BW RAM) START(0x80100000) END(0x802fffff) WIDTH(8) }
+   RERSERVED_PP_CODE_A2       					{ TYPE(BW RAM) START(0x80300000) END(0x805fffff) WIDTH(8) }
+   
+   MEM_DMC0_PREDAC_BW_A3      		  			{ TYPE(BW RAM) START(0x80600000) END(0x806fffff) WIDTH(8) } 
+   MEM_DMC0_CODE_VERSION_A3   		  			{ TYPE(BW RAM) START(0x80700000) END(0x807000FF) WIDTH(8) }
+   MEM_DMC0_SDRAM_TRUEHD_DATA_A3       			{ TYPE(BW RAM) START(0x80700100) END(0x80757Dff) WIDTH(8) }    
+   MEM_DMC0_SDRAM_MAT_DATA_A3          			{ TYPE(BW RAM) START(0x80757e00) END(0x80998fff) WIDTH(8) }   
+   RESERVED_DATA             		    		{ TYPE(BW RAM) START(0x80999000) END(0x809fffff) WIDTH(8) }   
+   
+   MEM_DMC0_SDRAM_TRUEHD_CODE_A4            	{ TYPE(BW RAM) START(0x80a00000) END(0x80A2Bfff) WIDTH(8) } 
+   MEM_DMC0_SDRAM_MAT_CODE_A4               	{ TYPE(BW RAM) START(0x80A2c000) END(0x80A60fff) WIDTH(8) }
+   MEM_DMC0_SDRAM_DDPLUS_CODE_A4       			{ TYPE(BW RAM) START(0x80A61000) END(0x80AEEfff) WIDTH(8) } 
+   MEM_DMC0_SDRAM_COMMON_INTRINSIC_CODE_A4  	{ TYPE(BW RAM) START(0x80AEf000) END(0x80b0ffff) WIDTH(8) } 
+   MEM_DMC0_SDRAM_COMMON_LIB_C_CODE_A4      	{ TYPE(BW RAM) START(0x80b10000) END(0x80b3ffff) WIDTH(8) }  
+   MEM_DMC0_SDRAM_AAC_CODE_A4                   { TYPE(BW RAM) START(0x80b40000) END(0x80b61fff) WIDTH(8) }
+   MEM_DMC0_SDRAM_DSD2PCM_CODE_A4               { TYPE(BW RAM) START(0x80b62000) END(0x80b66fff) WIDTH(8) } 
+   SDRAM_SPDIF_CODE_A4							{ TYPE(BW RAM) START(0x80b67000) END(0x80b67fff) WIDTH(8) }
+   LIBC_DATA_SDRAM_A4	   			            { TYPE(BW RAM) START(0x80b68000) END(0x80b7ffff) WIDTH(8) }  
+   DTSX_LIB_CODE_SDRAM_A4		          		{ TYPE(BW RAM) START(0x80b80000) END(0x80c7ffff) WIDTH(8) }
+   DTSX_KERNEL_CODE_SDRAM_A4	           		{ TYPE(BW RAM) START(0x80c80000) END(0x80ccffff) WIDTH(8) }
+   LIBRARIES_CODE_SDRAM_A4		                { TYPE(BW RAM) START(0x80cd0000) END(0x80ceffff) WIDTH(8) }
+    
+    
+      
+   
+   KERNEL_CODE_SDRAM_A4			                { TYPE(BW RAM) START(0x80cf0000) END(0x80EFDC5F) WIDTH(8) } 
+   MEM_DMC0_SDRAM_CUSTPP_CODE_A4		        { TYPE(BW RAM) START(0x80EFDC60) END(0x80FF7C5F) WIDTH(8) }			 
+   RESERVED_PP_CODE_A5   	 					{ TYPE(BW RAM) START(0x80FFDC60) END(0x80ffffff) WIDTH(8) }
+ 
+ 
+   MEM_DMC0_SDRAM_DDPLAS_OAR_MD_DATA_A6     	{ TYPE(BW RAM) START(0x81000000) END(0x8107ffff) WIDTH(8) } 
+   MEM_DMC0_SDRAM_INTERDSP_DATA_A6				{ TYPE(BW RAM) START(0x81080000) END(0x8109ffff) WIDTH(8) }   
+   MEM_DMC0_SDRAM_COMMON_INTRINSIC_DATA_A6  	{ TYPE(BW RAM) START(0x810a0000) END(0x810bffff) WIDTH(8) }    
+   MEM_DMC0_SDRAM_DDPLUS_DATA_A6       			{ TYPE(BW RAM) START(0x810c0000) END(0x82efffff) WIDTH(8) }  
+   DTSX_LIB_DATA_SDRAM_A6						{ TYPE(BW RAM) START(0x82f00000) END(0x831FFFFF) WIDTH(8) }
+   DTSX_KERNEL_DATA_SDRAM_A6					{ TYPE(BW RAM) START(0x83200000) END(0x833FFDFF) WIDTH(8) }
+   KERNEL_DATA_SDRAM_A6_SPDIF					{ TYPE(BW RAM) START(0x833FFE00) END(0x833FFFFF) WIDTH(8) }
+   LIBRARIES_DATA_SDRAM_A6						{ TYPE(BW RAM) START(0x83400000) END(0x835FFFFF) WIDTH(8) }
+   KERNEL_DATA_SDRAM_A6							{ TYPE(BW RAM) START(0x83600000) END(0x837F3FFF) WIDTH(8) }
+    
+   RESERVED_DEC_DATA_A6_DTX		                { TYPE(BW RAM) START(0x837F4000) END(0x84DF3FFF) WIDTH(8) }
+   DTSX_VERSIONINFO_SDRAM_A6			   		{ TYPE(BW RAM) START(0x84DF4000) END(0x84DF408F) WIDTH(8) }
+    
+   MEM_DMC0_SDRAM_AAC_DATA_A6                   { TYPE(BW RAM) START(0x84DF4090) END(0x85CDEFAF) WIDTH(8) }
+   MEM_DMC0_SDRAM_CUSTPP_DATA_A6				{ TYPE(BW RAM) START(0x85CDEFB0) END(0x870DEFAF) WIDTH(8) }		  
+   RESERVED_PP_DATA_A7      			    	{ TYPE(BW RAM) START(0x870DEFB0) END(0x87ffffff) WIDTH(8) }
+ 
+    
+
+
+  
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+   
+
+
+ 
+    
+    
+    
+   
+}  
+
+PROCESSOR 21569_CORE0_SHARC0
+{
+   LINK_AGAINST( $COMMAND_LINE_LINK_AGAINST )
+   OUTPUT($COMMAND_LINE_OUTPUT_FILE)
+   KEEP(___ctor_NULL_marker)
+   KEEP(__ctor_NULL_marker.)
+   ENTRY(start)
+   
+    
+    
+    
+   
+   SECTIONS
+   {
+      
+       
+       
+       
+      
+
+     
+     
+     
+     
+     
+      
+       
+       
+       
+      
+
+      dxe_iv_code PM
+      {
+         
+          
+          
+          
+         
+          
+         INPUT_SECTIONS( $OBJECTS(iv_code) )
+         
+          
+          
+          
+         
+      } > mem_iv_code
+      
+      
+       
+       
+       
+      
+       
+      dxe_block0_stack_and_heap_reserve NO_INIT BW
+      {
+         RESERVE(heaps_and_system_stack_in_L1, heaps_and_system_stack_in_L1_length = 4096, 8)
+      } > mem_block0_bw
+      
+      
+       
+      
+       Kernal_data BW
+      {
+       
+       INPUT_SECTION_ALIGN(4)  
+	   INPUT_SECTIONS( $OBJS_LIBS(seg_Internal_Predac) )
+		
+      } > mem_block0_kernal_data
+      
+      
+      library_data BW
+      {
+       
+       INPUT_SECTION_ALIGN(4)  
+	   INPUT_SECTIONS( $OBJS_LIBS(seg_Internal_Lib) )
+		
+      } > mem_block0_library_data
+      
+      
+      Kernal_data_bw BW
+      {
+          
+        INPUT_SECTION_ALIGN(4)
+        INPUT_SECTIONS( Decoder.doj(seg_dmda ) )  
+		INPUT_SECTIONS( Main.doj (seg_dmda) )  
+		INPUT_SECTIONS( System_Init.doj (seg_dmda) )  
+		INPUT_SECTIONS( Tx_Rx_Handler.doj (seg_dmda) )
+        INPUT_SECTIONS( $OBJS_LIBS(seg_gpio_data))
+		 
+        INPUT_SECTIONS( $OBJS_LIBS(seg_kernal_data seg_tx_dma_bw seg_inauto_bw seg_rx_dma_bw seg_list_bw) )
+ 		INPUT_SECTIONS( $OBJS_LIBS(seg_kernal_data_int_DTSX))
+      } > mem_block0_kernal_data
+     
+      
+      Kernal_code_sw SW
+      {
+         
+        INPUT_SECTION_ALIGN(2)
+        FILL(0x1)   
+          
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_SPI_Interrupt_Code Seg_SPI_Func_Code Seg_SPI_ISR_Code ) )   
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_Autdet_Code) )
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_Decoder_Code) )
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_Main_Code) )
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_Init_Struct_Code) )
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_System_Init_Code seg_TX_RX_Handler_code ) )
+        INPUT_SECTIONS( $OBJS_LIBS( Seg_Txmitter_Code Seg_Receiver_ISR_Code) )
+        INPUT_SECTIONS( $OBJS_LIBS( seg_kernal_code_truhd seg_downsampling_code) )
+
+        INPUT_SECTIONS( $OBJS_LIBS(seg_kernal_code_int_DTSX))
+        
+        INPUT_SECTIONS($OBJECTS(seg_DownMix_TrueHD_Cust))
+        INPUT_SECTIONS($OBJECTS(seg_DownMix_DDplus_Cust))
+        INPUT_SECTIONS( $OBJS_LIBS( seg_kernal_code ) ) 
+        INPUT_SECTIONS( $OBJS_LIBS( seg_gpio_code  ) )  
+        INPUT_SECTIONS(app_startup.doj(seg_pmco)) 
+
+      } > mem_block0_kernal_code
+      
+      internal_seg BW
+      {
+       
+       INPUT_SECTION_ALIGN(4)  
+	   INPUT_SECTIONS( $OBJS_LIBS(seg_int_str) )
+		
+      } > mem_block0_seg
+
+     
+     
+
+     
+     
+     
+
+      ___ldf_dmcachesize = 3;  
+      
+       
+       
+       
+
+
+     
+     
+
+     
+     
+     
+
+      ___ldf_pmcachesize = 2;  
+      
+       
+       
+       
+
+     
+     
+
+     
+     
+     
+
+      ___ldf_icachesize = 1;  
+      
+       
+       
+       
+
+
+     
+     
+     
+     
+
+      
+       
+       
+       
+      
+       
+
+      dxe_block0_sw_code SW
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         FILL(0x1)   
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_code_sw seg_int_code  ) )
+      } > mem_block0_bw
+      
+      dxe_block0_nw_code PM
+      {
+          
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_code) )
+          
+         INPUT_SECTIONS( $OBJS_LIBS(seg_init) )
+          
+      } > mem_block0_bw
+          
+
+     
+
+      dxe_block2_data_bw BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_int_data  ) )
+      } > mem_block2_bw
+
+
+       driver_code_block1 SW
+      {
+        INPUT_SECTION_ALIGN(2)
+        INPUT_SECTIONS(  adi_dma.doj(seg_swco) ) 
+        INPUT_SECTIONS(  adi_pcg.doj(seg_swco) ) 
+        INPUT_SECTIONS(  adi_pdma_2156x.doj(seg_swco) ) 
+        INPUT_SECTIONS(  adi_spu.doj(seg_swco) ) 		
+        INPUT_SECTIONS(  adi_spi.doj(seg_swco) ) 
+        INPUT_SECTIONS(  adi_sport.doj(seg_swco) )
+        INPUT_SECTIONS( libosal_noos.dlb  (seg_swco) )
+        INPUT_SECTIONS( libosal_noos.dlb  (seg_pmco) )
+      } > mem_block1_Kernal_code
+      
+      driver_data_block1 BW
+      {
+        INPUT_SECTION_ALIGN(4)
+        INPUT_SECTIONS(  adi_dma.doj(seg_dmda) ) 
+        INPUT_SECTIONS(  adi_pcg.doj(seg_dmda) ) 
+        INPUT_SECTIONS(  adi_pdma_2156x.doj(seg_dmda) ) 
+        INPUT_SECTIONS(  adi_spu.doj(seg_dmda) ) 		
+        INPUT_SECTIONS(  adi_spi.doj(seg_dmda) ) 
+        INPUT_SECTIONS(  adi_sport.doj(seg_dmda) )
+      } > mem_block2_bw
+     
+     
+
+      
+       
+       
+       
+      
+       
+
+
+
+      dxe_l2_data DM
+      {
+          
+          
+         INPUT_SECTIONS( Decoder.doj(seg_dmda_nw ) )  
+         INPUT_SECTIONS( Main.doj(seg_dmda_nw ) ) 
+         INPUT_SECTIONS( System_Init.doj(seg_dmda_nw ) )
+      } > mem_L2_bw
+
+
+
+
+
+     
+     
+
+
+     
+    ___l2_uncached_start  = MEMORY_START(mem_L2UC_bw);
+    ___l2_uncached_end    = MEMORY_END  (mem_L2UC_bw);
+      
+
+
+
+
+
+
+     pack_dma_list_bw BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_pack_bw seg_rx_dma_bw seg_list_bw seg_predac_bw_l2) )
+      } > mem_pack_dma_list_bw
+ 
+ 
+      external_store_bw BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ext_str_bw) )
+      } > mem_l2_mem_bw
+
+
+     
+     
+      CUSTPP_DATA_A6_bw BW 
+      {
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_CustomerPP_dmda) )             
+      }>MEM_DMC0_SDRAM_CUSTPP_DATA_A6 
+    
+      CUSTPP_DATA_A6_dm DM 
+      {
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_sdram_ext) )      
+      }>MEM_DMC0_SDRAM_CUSTPP_DATA_A6 
+      
+      CUSTPP_CODE_A4 SW 
+      {
+         INPUT_SECTION_ALIGN(2)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_Customer_code) )
+      }>MEM_DMC0_SDRAM_CUSTPP_CODE_A4
+       
+
+
+
+
+
+       
+    
+      predac_buff_bw BW
+      {        
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_predac_bw seg_ADDpredac_bw) )           
+      } > MEM_DMC0_PREDAC_BW_A3
+      
+      release_info BW
+      {       
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_version seg_sdk_release_info) )           
+      } > MEM_DMC0_CODE_VERSION_A3
+
+
+      Kernel_Data_SDRAM_BW_A6_SPDIF BW
+      {
+      	 INPUT_SECTION_ALIGN(4)
+	 	 INPUT_SECTIONS( $OBJS_LIBS ( seg_asrc_data ) )
+	     INPUT_SECTIONS( $OBJS_LIBS ( seg_spdif_data ) )
+      } > KERNEL_DATA_SDRAM_A6_SPDIF
+            
+      LIBC_segment_code SW
+      {       
+         INPUT_SECTION_ALIGN(2)  
+         
+         INPUT_SECTIONS( libcc.dlb  (seg_swco) )
+         INPUT_SECTIONS( libcc.dlb  (seg_pmco) )
+         INPUT_SECTIONS( libc.dlb  (seg_swco) )         
+         INPUT_SECTIONS( libc.dlb  (seg_pmco) )
+         INPUT_SECTIONS( libio.dlb  (seg_swco) )
+         INPUT_SECTIONS( libio.dlb  (seg_pmco) )
+         INPUT_SECTIONS( libosal_noos.dlb  (seg_swco) )
+         INPUT_SECTIONS( libosal_noos.dlb  (seg_pmco) )
+         INPUT_SECTIONS( libssl.dlb  (seg_swco) )
+         INPUT_SECTIONS( libssl.dlb  (seg_pmco) )
+         INPUT_SECTIONS( libdrv.dlb  (seg_swco) )
+         INPUT_SECTIONS( libdrv.dlb  (seg_pmco) )
+         INPUT_SECTIONS( $OBJS_LIBS(  seg_swco seg_pmco) )
+                
+      } > MEM_DMC0_SDRAM_COMMON_LIB_C_CODE_A4 
+      
+      
+      LIBC_segment_data BW
+      {
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( libc.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libc.dlb  (seg_ctdml_bw) )
+         INPUT_SECTIONS( libio.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libosal_noos.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libssl.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libdrv.dlb  (seg_dmda) )
+          
+         		 
+      } > LIBC_DATA_SDRAM_A4
+      
+      LIBC_segment_data_dm DM
+      {
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( libc.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libc.dlb  (seg_ctdml) )
+         INPUT_SECTIONS( libio.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libosal_noos.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libssl.dlb  (seg_dmda) )
+         INPUT_SECTIONS( libdrv.dlb  (seg_dmda) )
+          
+         		 
+      } > LIBC_DATA_SDRAM_A4
+       
+        Memory_code_sw SW
+       {
+        INPUT_SECTION_ALIGN(2)
+        INPUT_SECTIONS( $OBJS_LIBS(seg_kernal_code seg_kernal_code_l3 ) )
+         
+         
+         
+         
+        INPUT_SECTIONS( $OBJS_LIBS(Seg_SPI_ISR_Code Seg_SPIRead_Code) )
+        INPUT_SECTIONS( $OBJS_LIBS(Seg_SPIRead_Code) )
+         
+         
+        INPUT_SECTIONS( $OBJS_LIBS(seg_int_code_sw ) ) 
+         
+	     
+	    INPUT_SECTIONS( $OBJS_LIBS(seg_optical_code))	
+	    INPUT_SECTIONS( $OBJS_LIBS(seg_spdif_code))         
+      } > KERNEL_CODE_SDRAM_A4 
+       
+      KERNEL_DATA_L3 BW
+      {
+         INPUT_SECTION_ALIGN(4)
+	     INPUT_SECTIONS( $OBJS_LIBS(seg_ex_ds_bw seg_truhd_kernal_ext) )
+		 INPUT_SECTIONS( $OBJS_LIBS(seg_ds_coeff_data) ) 
+		 INPUT_SECTIONS( System_Init.doj (seg_dmda) ) 
+		 INPUT_SECTIONS( $OBJS_LIBS(seg_optical_data seg_kernal_code_sdram) )
+		 INPUT_SECTIONS( $OBJS_LIBS(seg_dmda) )
+      } > MEM_KERNEL_DATA_A1
+      
+      KERNEL_DATA_L3_DM DM
+      {
+         INPUT_SECTION_ALIGN(4)
+	     INPUT_SECTIONS( $OBJS_LIBS(seg_ex_ds_bw seg_truhd_kernal_ext) )
+		 INPUT_SECTIONS( $OBJS_LIBS(seg_ds_coeff_data) ) 
+		 INPUT_SECTIONS( System_Init.doj (seg_dmda) ) 
+		 INPUT_SECTIONS( $OBJS_LIBS(seg_optical_data seg_kernal_code_sdram) )
+		 INPUT_SECTIONS( $OBJS_LIBS(seg_dmda) )
+      } > MEM_KERNEL_DATA_A1
+       
+     
+     
+
+      
+       
+       
+       
+      
+      
+      dxe_sdram_cpp_ctors_nw DM
+      {
+          
+         
+          
+          
+          
+         
+         FORCE_CONTIGUITY
+         __ctors = .;     
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdm) )
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdml) )
+         INPUT_SECTIONS( $OBJS_LIBS(.gdt .gdt32) )
+         
+          
+          
+          
+         
+         INPUT_SECTION_ALIGN(4)
+         INPUT_SECTIONS( $OBJS_LIBS(seg_dmda) )
+      } > SYSTEM_MEM_SDRAM_A1
+      
+      dxe_sdram_cpp_ctors_bw BW
+      {
+          
+         INPUT_SECTION_ALIGN(4)
+         FORCE_CONTIGUITY
+         _ctors. = .;     
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdm) )
+         INPUT_SECTIONS( $OBJS_LIBS(seg_ctdml seg_ctdml_bw) )
+      } > SYSTEM_MEM_SDRAM_A1
+      
+      
+      dxe_block0_stack_and_heap_expand NO_INIT BW
+      {
+         INPUT_SECTION_ALIGN(4)
+         RESERVE_EXPAND(heaps_and_system_stack_in_L1, heaps_and_system_stack_in_L1_length, 0, 8)
+         ldf_stack_space = heaps_and_system_stack_in_L1;
+         ldf_stack_end = (ldf_stack_space + (((heaps_and_system_stack_in_L1_length * 2048) / 4096) - 8));
+         ldf_stack_length = ldf_stack_end - ldf_stack_space;
+         ldf_heap_space = ldf_stack_end + 8;
+         ldf_heap_end = (ldf_heap_space + (((heaps_and_system_stack_in_L1_length * 2048) / 4096) - 8));
+         ldf_heap_length = ldf_heap_end - ldf_heap_space;
+      } > mem_block0_bw
+      
+      dxe_l2_stack_and_heap_expand NO_INIT BW
+      {
+         INPUT_SECTION_ALIGN(4)
+         
+          
+          
+          
+         
+      } > mem_L2_bw
+      
+
+
+
+
+
+
+
+
+
+
+
+      dxe_sdram_stack_and_heap_expand NO_INIT BW
+      {
+         
+          
+          
+          
+         
+      } > SYSTEM_MEM_SDRAM_A1
+      
+
+      
+      
+       
+       
+       
+      
+   }  
+}  
+

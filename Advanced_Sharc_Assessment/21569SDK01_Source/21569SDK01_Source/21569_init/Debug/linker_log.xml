@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/Analog Devices/CrossCore Embedded Studio 2.9.1/System/linker_log.xsl"?>
+<DOCUMENT gen_time='Thu Mar 13 10:50:43 2025
+'>
+<MSG id='0436E6D8' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_nw_code']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    system\services\pwr\adi_pwr.doj(seg_int_code)
+    libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)
+    libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)
+    libc.dlb[fatal_error_ba.doj](seg_pmco)
+    libc.dlb[no_dispatched_handler.doj](seg_pmco)
+    libcc.dlb[divrem_u32.doj](seg_pmco)
+    libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)]]></EXTENDED_INFO>
+</MSG>
+<MSG id='0436E278' mid='li3050' type='Informational' suppressed=''>
+<TEXT><![CDATA[Input section(s) were excluded from output section 'dxe_block0_data']]></TEXT>
+<EXTENDED_INFO><![CDATA[The following input section(s) were excluded
+    src\2156x_InitPreload_code.doj(seg_dmda)
+    src\adi_dmc_2156x_config.doj(seg_dmda)
+    system\services\pwr\adi_pwr.doj(seg_dmda)
+    system\services\smpu\adi_smpu.doj(seg_dmda)
+    libc.dlb[adi_fatal_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)
+    libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)
+    libc.dlb[free_ba.doj](seg_dmda)
+    libc.dlb[heap_find_block_ba.doj](seg_dmda)
+    libc.dlb[heap_install_ba.doj](seg_dmda)
+    libc.dlb[heap_lookup_ba.doj](seg_dmda)
+    libc.dlb[heap_malloc_ba.doj](seg_dmda)
+    libc.dlb[heap_num_ba.doj](seg_dmda)
+    libc.dlb[heaps_ba.doj](seg_dmda)
+    libc.dlb[rtl_disable_interrupts_ba.doj](seg_dmda)
+    libssl.dlb[adi_sec.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)
+    libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)]]></EXTENDED_INFO>
+</MSG>
+</DOCUMENT>

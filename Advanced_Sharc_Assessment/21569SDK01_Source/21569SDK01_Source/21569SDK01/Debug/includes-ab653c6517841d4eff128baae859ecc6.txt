@@ -1,0 +1,3 @@
+-I"D:/AudioFramework/AudioFramework/21569SDK01_Source/21569SDK01/system"
+-I"../../DRIVERS/lib/src"
+-I"../../DRIVERS/include"
