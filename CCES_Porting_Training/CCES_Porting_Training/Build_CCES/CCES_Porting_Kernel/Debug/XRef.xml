@@ -1,0 +1,2598 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/analog/cces/3.0.2/System/xref.xsl"?>
+<!DOCTYPE DOCUMENT SYSTEM "file:///C:/analog/cces/3.0.2/System/xref.dtd">
+<DOCUMENT>
+<LINKPROJECT name="processor '21569_CORE0_SHARC0'" id='00F79F70' importer_id='00F79F70'>
+<OBJECT id='04BA5810' name='(___ctor_NULL_marker, ___ctor_NULL_marker+0x1)' section='libc.dlb[set_c.doj](seg_ctdml)'>
+<SYMBOL id='04B61E70' name='___ctor_NULL_marker'/>
+</OBJECT>
+<OBJECT id='04BA5050' name='(__ctor_NULL_marker, __ctor_NULL_marker+0x1)' section='app_startup.doj(seg_ctdml)'>
+<SYMBOL id='04B641C0' name='__ctor_NULL_marker'/>
+</OBJECT>
+<SECTION id='04C43610' name='app_startup.doj(seg_int_code)'>
+<SYMBOL id='04B63FE0' name='.disable_caches'/>
+<REFERENCE symbol_id='04B63AE0' symbol='.caches_disabled'/>
+</SECTION>
+<OBJECT id='04BA4D90' name='(start, .start.end)' section='app_startup.doj(seg_pmco)'>
+<SYMBOL id='04B64CB0' name='start'/>
+<SYMBOL id='04B63AE0' name='.caches_disabled'/>
+<SYMBOL id='04B63BD0' name='.BTB_init_loop'/>
+<SYMBOL id='04B63F40' name='.icache_tag_loop'/>
+<SYMBOL id='04B64260' name='.dcache_tag_loop'/>
+<SYMBOL id='04B64120' name='.dmcache_dirty_loop'/>
+<SYMBOL id='04B643A0' name='.pmcache_dirty_loop'/>
+<SYMBOL id='04B63C70' name='.icache_dirty_loop'/>
+<SYMBOL id='04B643F0' name='.pop_loop_stack'/>
+<SYMBOL id='04B64170' name='.loop_stack_empty'/>
+<SYMBOL id='04B63A90' name='.pop_status_stack'/>
+<SYMBOL id='04B63A40' name='.pop_pc_stack'/>
+<SYMBOL id='04B63DB0' name='.status_stack_empty'/>
+<SYMBOL id='04B64080' name='.pc_stack_empty'/>
+<SYMBOL id='04B63B30' name='.end_of_user_code_very_beginning'/>
+<SYMBOL id='04B63D60' name='.start_of_user_code_very_beginning'/>
+<SYMBOL id='04B64350' name='.end_of_user_code_after_setup'/>
+<SYMBOL id='04B63D10' name='.start_of_user_code_after_setup'/>
+<SYMBOL id='04B63E00' name='___ADI_AGL_CRT_SW_BRANCHRETURN_29173'/>
+<SYMBOL id='04B63E50' name='___ADI_AGL_CRT_SW_BRANCHRETURN_29185'/>
+<SYMBOL id='04B64530' name='___ADI_AGL_CRT_SW_BRANCHRETURN_29194'/>
+<SYMBOL id='04B63C20' name='.call_ctors_start'/>
+<SYMBOL id='04B640D0' name='.call_ctors'/>
+<SYMBOL id='04B647B0' name='___ADI_AGL_CRT_SW_BRANCHRETURN_29221'/>
+<SYMBOL id='04B63EF0' name='.call_ctors_next'/>
+<SYMBOL id='04B63EA0' name='.call_ctors_exit'/>
+<SYMBOL id='04B64300' name='.end_of_start_of_user_code1'/>
+<SYMBOL id='04B63CC0' name='.start_of_user_code1'/>
+<REFERENCE symbol_id='04B63FE0' symbol='.disable_caches'/>
+<REFERENCE symbol_id='04B63BD0' symbol='.BTB_init_loop'/>
+<REFERENCE symbol_id='04B63F40' symbol='.icache_tag_loop'/>
+<REFERENCE symbol_id='04B64260' symbol='.dcache_tag_loop'/>
+<REFERENCE symbol_id='04B64120' symbol='.dmcache_dirty_loop'/>
+<REFERENCE symbol_id='04B643A0' symbol='.pmcache_dirty_loop'/>
+<REFERENCE symbol_id='04B63C70' symbol='.icache_dirty_loop'/>
+<REFERENCE symbol_id='04B64170' symbol='.loop_stack_empty'/>
+<REFERENCE symbol_id='04B643F0' symbol='.pop_loop_stack'/>
+<REFERENCE symbol_id='04B63DB0' symbol='.status_stack_empty'/>
+<REFERENCE symbol_id='04B63A90' symbol='.pop_status_stack'/>
+<REFERENCE symbol_id='04B64080' symbol='.pc_stack_empty'/>
+<REFERENCE symbol_id='04B63A40' symbol='.pop_pc_stack'/>
+<REFERENCE symbol_id='04B64CB0' symbol='start'/>
+<REFERENCE symbol_id='04F44B20' symbol='___lib_setup_c'/>
+<REFERENCE symbol_id='04F44440' symbol='adi_rtl_activate_dispatched_handler.'/>
+<REFERENCE symbol_id='04B63E00' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_29173'/>
+<REFERENCE symbol_id='04F44440' symbol='adi_rtl_activate_dispatched_handler.'/>
+<REFERENCE symbol_id='04B63E50' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_29185'/>
+<REFERENCE symbol_id='04F44DF0' symbol='adi_osal_Init.'/>
+<REFERENCE symbol_id='04B64530' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_29194'/>
+<REFERENCE symbol_id='04B63F90' symbol='.osal_Init_failed'/>
+<REFERENCE symbol_id='01D3F6D8' symbol='_ctors.'/>
+<REFERENCE symbol_id='04B63EF0' symbol='.call_ctors_next'/>
+<REFERENCE symbol_id='04B647B0' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_29221'/>
+<REFERENCE symbol_id='04B640D0' symbol='.call_ctors'/>
+<REFERENCE symbol_id='04B63EA0' symbol='.call_ctors_exit'/>
+<REFERENCE symbol_id='01D3F7B0' symbol='__ctors'/>
+<REFERENCE symbol_id='04B63C20' symbol='.call_ctors_start'/>
+<REFERENCE symbol_id='04B65110' symbol='main.'/>
+<REFERENCE symbol_id='04B64440' symbol='___lib_prog_term'/>
+</OBJECT>
+<OBJECT id='04BA58D0' name='(___lib_setup_c, .___lib_setup_c.end)' section='libc.dlb[set_c.doj](seg_pmco)'>
+<SYMBOL id='04F44B20' name='___lib_setup_c'/>
+<SYMBOL id='04F439A0' name='regs_setup'/>
+<SYMBOL id='04F43E00' name='.loop'/>
+<SYMBOL id='04F43D10' name='___ADI_AGL_CRT_SW_BRANCHRETURN_30301'/>
+<SYMBOL id='04F43D60' name='___ADI_AGL_CRT_SW_BRANCHRETURN_30307'/>
+<REFERENCE symbol_id='04F439A0' symbol='regs_setup'/>
+<REFERENCE symbol_id='01D3F720' symbol='ldf_stack_space'/>
+<REFERENCE symbol_id='01D3F720' symbol='ldf_stack_space'/>
+<REFERENCE symbol_id='01D40380' symbol='ldf_stack_length'/>
+<REFERENCE symbol_id='01D3F720' symbol='ldf_stack_space'/>
+<REFERENCE symbol_id='01D40380' symbol='ldf_stack_length'/>
+<REFERENCE symbol_id='01D40380' symbol='ldf_stack_length'/>
+<REFERENCE symbol_id='01D3F720' symbol='ldf_stack_space'/>
+<REFERENCE symbol_id='01D40380' symbol='ldf_stack_length'/>
+<REFERENCE symbol_id='04F441C0' symbol='___lib_setup_memory'/>
+<REFERENCE symbol_id='04F52CF0' symbol='_dispatcher_table.'/>
+<REFERENCE symbol_id='04A54448' symbol='adi_no_dispatched_handler.'/>
+<REFERENCE symbol_id='04F43E00' symbol='.loop'/>
+<REFERENCE symbol_id='04F52D90' symbol='__setup_heaps.'/>
+<REFERENCE symbol_id='04F43D10' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_30301'/>
+<REFERENCE symbol_id='04F7D040' symbol='__lib_set_cache.'/>
+<REFERENCE symbol_id='04F43D60' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_30307'/>
+</OBJECT>
+<OBJECT id='04BA5530' name='(___lib_setup_memory, .___lib_setup_memory.end)' section='libc.dlb[set_c.doj](seg_pmco)'>
+<SYMBOL id='04F441C0' name='___lib_setup_memory'/>
+<SYMBOL id='04F43A90' name='zero_dm'/>
+<SYMBOL id='04F43A40' name='zero_blk_dm'/>
+<SYMBOL id='04F43C70' name='zero_inits_dm'/>
+<SYMBOL id='04F43F90' name='zero_dm_done'/>
+<SYMBOL id='04F44260' name='zero_pm'/>
+<SYMBOL id='04F440D0' name='zero_blk_pm'/>
+<SYMBOL id='04F44760' name='zero_inits_pm'/>
+<SYMBOL id='04F44AD0' name='zero_pm_done'/>
+<SYMBOL id='04F439F0' name='init_dm'/>
+<SYMBOL id='04F438B0' name='init_blk_dm'/>
+<SYMBOL id='04F44210' name='blk_inits_dm'/>
+<SYMBOL id='04F43EA0' name='init_dm_done'/>
+<SYMBOL id='04F43AE0' name='init_pm'/>
+<SYMBOL id='04F43FE0' name='init_blk_pm'/>
+<SYMBOL id='04F44030' name='blk_inits_pm'/>
+<SYMBOL id='04F43950' name='init_pm_done'/>
+<SYMBOL id='04F43B30' name='zero_bw'/>
+<SYMBOL id='04F43DB0' name='zero_blk_bw'/>
+<SYMBOL id='04F43B80' name='zero_inits_bw'/>
+<SYMBOL id='04F44170' name='init_bw'/>
+<SYMBOL id='04F43EF0' name='zero_bw_done'/>
+<SYMBOL id='04F44120' name='init_bw_bytes_1to3'/>
+<SYMBOL id='04F43CC0' name='init_bw_bytes_5to6'/>
+<SYMBOL id='04F43900' name='init_bw_bytes_done'/>
+<SYMBOL id='04F43860' name='init_blk_bw'/>
+<SYMBOL id='04F43E50' name='blk_inits_bw'/>
+<SYMBOL id='04F43C20' name='init_bw_done'/>
+<REFERENCE symbol_id='04F7D270' symbol='___inits'/>
+<REFERENCE symbol_id='04F43F90' symbol='zero_dm_done'/>
+<REFERENCE symbol_id='04F43C70' symbol='zero_inits_dm'/>
+<REFERENCE symbol_id='04F43A40' symbol='zero_blk_dm'/>
+<REFERENCE symbol_id='04F44AD0' symbol='zero_pm_done'/>
+<REFERENCE symbol_id='04F44760' symbol='zero_inits_pm'/>
+<REFERENCE symbol_id='04F440D0' symbol='zero_blk_pm'/>
+<REFERENCE symbol_id='04F43EA0' symbol='init_dm_done'/>
+<REFERENCE symbol_id='04F44210' symbol='blk_inits_dm'/>
+<REFERENCE symbol_id='04F438B0' symbol='init_blk_dm'/>
+<REFERENCE symbol_id='04F43950' symbol='init_pm_done'/>
+<REFERENCE symbol_id='04F44030' symbol='blk_inits_pm'/>
+<REFERENCE symbol_id='04F43FE0' symbol='init_blk_pm'/>
+<REFERENCE symbol_id='04F43EF0' symbol='zero_bw_done'/>
+<REFERENCE symbol_id='04F43B80' symbol='zero_inits_bw'/>
+<REFERENCE symbol_id='04F43DB0' symbol='zero_blk_bw'/>
+<REFERENCE symbol_id='04F43C20' symbol='init_bw_done'/>
+<REFERENCE symbol_id='04F43E50' symbol='blk_inits_bw'/>
+<REFERENCE symbol_id='04F43860' symbol='init_blk_bw'/>
+<REFERENCE symbol_id='04F44120' symbol='init_bw_bytes_1to3'/>
+<REFERENCE symbol_id='04F43900' symbol='init_bw_bytes_done'/>
+<REFERENCE symbol_id='04F43CC0' symbol='init_bw_bytes_5to6'/>
+<REFERENCE symbol_id='04F43900' symbol='init_bw_bytes_done'/>
+<REFERENCE symbol_id='04F43900' symbol='init_bw_bytes_done'/>
+<REFERENCE symbol_id='04F43900' symbol='init_bw_bytes_done'/>
+<REFERENCE symbol_id='04F43900' symbol='init_bw_bytes_done'/>
+</OBJECT>
+<OBJECT id='04BA6950' name='(___inits, .___inits.end)' section='libc.dlb[inits.doj](seg_init)'>
+<SYMBOL id='04F7D270' name='___inits'/>
+</OBJECT>
+<OBJECT id='04BA6810' name='(_dispatcher_table., _dispatcher_table.+0x6c0)' section='libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)'>
+<SYMBOL id='04F52CF0' name='_dispatcher_table.'/>
+</OBJECT>
+<OBJECT id='04BA6890' name='(_adi_no_dispatched_handler, ._adi_no_dispatched_handler.end)' section='libc.dlb[no_dispatched_handler.doj](seg_pmco)'>
+<SYMBOL id='04F529D0' name='_adi_no_dispatched_handler'/>
+<REFERENCE symbol_id='04F806A0' symbol='_adi_fatal_error_value'/>
+<REFERENCE symbol_id='04F80970' symbol='_adi_fatal_error_pc'/>
+<REFERENCE symbol_id='04F80150' symbol='_adi_fatal_error_general_code'/>
+<REFERENCE symbol_id='04F80510' symbol='_adi_fatal_error_specific_code'/>
+<REFERENCE symbol_id='04F80880' symbol='__fatal_error'/>
+</OBJECT>
+<OBJECT id='04BA6AB0' name='(_adi_fatal_error_data, _adi_fatal_error_data.end)' section='libc.dlb[adi_fatal_data_ba.doj](seg_dmda)'>
+<SYMBOL id='04F80650' name='_adi_fatal_error_data'/>
+<SYMBOL id='04F80150' name='_adi_fatal_error_general_code'/>
+<SYMBOL id='04F80380' name='adi_fatal_error_general_code'/>
+<SYMBOL id='04F80510' name='_adi_fatal_error_specific_code'/>
+<SYMBOL id='04F801A0' name='adi_fatal_error_specific_code'/>
+<SYMBOL id='04F806A0' name='_adi_fatal_error_value'/>
+<SYMBOL id='04F80560' name='adi_fatal_error_value'/>
+<SYMBOL id='04F80970' name='_adi_fatal_error_pc'/>
+<SYMBOL id='04F80420' name='adi_fatal_error_pc'/>
+<SYMBOL id='04F80740' name='_adi_fatal_error_data.end'/>
+</OBJECT>
+<OBJECT id='04BA6CF0' name='(__fatal_error, .__fatal_error.end)' section='libc.dlb[fatal_error_ba.doj](seg_pmco)'>
+<SYMBOL id='04F80880' name='__fatal_error'/>
+<SYMBOL id='04F800B0' name='.fatal_error_loop'/>
+<REFERENCE symbol_id='04F800B0' symbol='.fatal_error_loop'/>
+</OBJECT>
+<OBJECT id='04BA6690' name='(__setup_heaps., .__setup_heaps..end)' section='libc.dlb[heap_setup_ba.doj](seg_swco)'>
+<SYMBOL id='04F52D90' name='__setup_heaps.'/>
+<SYMBOL id='04F52F20' name='.P36L3'/>
+<SYMBOL id='04F52A70' name='.P36L4'/>
+<SYMBOL id='04F52C50' name='.P36L6'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04F52F20' symbol='.P36L3'/>
+<REFERENCE symbol_id='04F52930' symbol='heaps_have_been_reset.0.'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04B62410' symbol='heap_table.'/>
+<REFERENCE symbol_id='04F52C50' symbol='.P36L6'/>
+<REFERENCE symbol_id='04F9EC58' symbol='_heap_install.'/>
+<REFERENCE symbol_id='04F52A70' symbol='.P36L4'/>
+<REFERENCE symbol_id='04F44E40' symbol='adi_fatal_error.'/>
+</OBJECT>
+<OBJECT id='04BA7610' name='(__installed_heap_num., __installed_heap_num.+0x4)' section='libc.dlb[heap_num_ba.doj](seg_dmda)'>
+<SYMBOL id='04F9EE88' name='__installed_heap_num.'/>
+</OBJECT>
+<OBJECT id='04BA6630' name='(heaps_have_been_reset.0., heaps_have_been_reset.0.+0x4)' section='libc.dlb[heap_setup_ba.doj](seg_dmda)'>
+<SYMBOL id='04F52930' name='heaps_have_been_reset.0.'/>
+</OBJECT>
+<OBJECT id='04BA5370' name='(heap_table., .heap_table..end)' section='system\startup_ldf\app_heaptab.doj(seg_dmda)'>
+<SYMBOL id='04B62410' name='heap_table.'/>
+<REFERENCE symbol_id='01D40218' symbol='ldf_heap_space'/>
+<REFERENCE symbol_id='01D401D0' symbol='ldf_heap_length'/>
+</OBJECT>
+<OBJECT id='04BA75B0' name='(_heap_install., ._heap_install..end)' section='libc.dlb[heap_install_ba.doj](seg_swco)'>
+<SYMBOL id='04F9EC58' name='_heap_install.'/>
+<SYMBOL id='04F9EED8' name='.P36L1'/>
+<SYMBOL id='04F9E8E8' name='.P36L5'/>
+<SYMBOL id='04F9E898' name='.P36L4'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04FCB038' symbol='__max_heap_num.'/>
+<REFERENCE symbol_id='04F9E898' symbol='.P36L4'/>
+<REFERENCE symbol_id='04FCB088' symbol='_heap_lookup.'/>
+<REFERENCE symbol_id='04F9EED8' symbol='.P36L1'/>
+<REFERENCE symbol_id='04F9E8E8' symbol='.P36L5'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04FCB308' symbol='__heaps.'/>
+<REFERENCE symbol_id='04F9E8E8' symbol='.P36L5'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+</OBJECT>
+<OBJECT id='04BA8BD0' name='(__max_heap_num., __max_heap_num.+0x4)' section='libc.dlb[heaps_ba.doj](seg_dmda)'>
+<SYMBOL id='04FCB038' name='__max_heap_num.'/>
+</OBJECT>
+<OBJECT id='04BA8A30' name='(_heap_lookup., ._heap_lookup..end)' section='libc.dlb[heap_lookup_ba.doj](seg_swco)'>
+<SYMBOL id='04FCB088' name='_heap_lookup.'/>
+<SYMBOL id='04FCB3F8' name='.P35L1'/>
+<SYMBOL id='04FCB178' name='.P35L7'/>
+<SYMBOL id='04FCAF98' name='.P35L3'/>
+<REFERENCE symbol_id='04FCB308' symbol='__heaps.'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04FCAF98' symbol='.P35L3'/>
+<REFERENCE symbol_id='04FCB3F8' symbol='.P35L1'/>
+<REFERENCE symbol_id='04FCB178' symbol='.P35L7'/>
+</OBJECT>
+<OBJECT id='04BA8CF0' name='(__heaps., __heaps.+0x20)' section='libc.dlb[heaps_ba.doj](seg_dmda)'>
+<SYMBOL id='04FCB308' name='__heaps.'/>
+</OBJECT>
+<OBJECT id='04BA5CF0' name='(adi_fatal_error., adi_fatal_error..end)' section='libc.dlb[adi_fatal_error_ba.doj](seg_pmco)'>
+<SYMBOL id='04F44E40' name='adi_fatal_error.'/>
+<SYMBOL id='04F44C60' name='adi_fatal_error..end'/>
+<REFERENCE symbol_id='04F80150' symbol='_adi_fatal_error_general_code'/>
+<REFERENCE symbol_id='04F80510' symbol='_adi_fatal_error_specific_code'/>
+<REFERENCE symbol_id='04F80880' symbol='__fatal_error'/>
+<REFERENCE symbol_id='04F806A0' symbol='_adi_fatal_error_value'/>
+<REFERENCE symbol_id='04F80970' symbol='_adi_fatal_error_pc'/>
+</OBJECT>
+<OBJECT id='04BA6770' name='(__lib_set_cache., .__lib_set_cache..end)' section='libc.dlb[lib_set_cache_ba.doj](seg_swco)'>
+<SYMBOL id='04F7D040' name='__lib_set_cache.'/>
+<SYMBOL id='04F7D630' name='.P41L12'/>
+<SYMBOL id='04F7CF50' name='.P41L13'/>
+<SYMBOL id='04F7D180' name='.P41L15'/>
+<SYMBOL id='04F7D5E0' name='.P41L19'/>
+<REFERENCE symbol_id='01D3FB10' symbol='___ldf_dmcachesize'/>
+<REFERENCE symbol_id='01D3F408' symbol='___ldf_pmcachesize'/>
+<REFERENCE symbol_id='01D3F498' symbol='___ldf_icachesize'/>
+<REFERENCE symbol_id='04F7D1D0' symbol='write_cfg_reg.'/>
+<REFERENCE symbol_id='04F7D630' symbol='.P41L12'/>
+<REFERENCE symbol_id='01D3F690' symbol='___l2_uncached_end'/>
+<REFERENCE symbol_id='01D3F4E0' symbol='___l2_uncached_start'/>
+<REFERENCE symbol_id='04F9F798' symbol='adi_cache_set_range.'/>
+<REFERENCE symbol_id='04F9F798' symbol='adi_cache_set_range.'/>
+<REFERENCE symbol_id='04F7D1D0' symbol='write_cfg_reg.'/>
+<REFERENCE symbol_id='04F9FB58' symbol='__prefetch_ctrl.'/>
+<REFERENCE symbol_id='04F7CF50' symbol='.P41L13'/>
+<REFERENCE symbol_id='04F7D180' symbol='.P41L15'/>
+<REFERENCE symbol_id='04F7D5E0' symbol='.P41L19'/>
+<REFERENCE symbol_id='04F7D1D0' symbol='write_cfg_reg.'/>
+</OBJECT>
+<OBJECT id='04BA66D0' name='(write_cfg_reg., .write_cfg_reg..end)' section='libc.dlb[lib_set_cache_ba.doj](seg_int_code)'>
+<SYMBOL id='04F7D1D0' name='write_cfg_reg.'/>
+</OBJECT>
+<OBJECT id='04BA76B0' name='(adi_cache_set_range., .adi_cache_set_range..end)' section='libc.dlb[cache_set_range_ba.doj](seg_int_code)'>
+<SYMBOL id='04F9F798' name='adi_cache_set_range.'/>
+<SYMBOL id='04F9F6A8' name='.P40L3'/>
+<SYMBOL id='04F9EFC8' name='.P40L4'/>
+<SYMBOL id='04F9F0B8' name='.P40L12'/>
+<SYMBOL id='04F9F608' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04F9F108' name='.P40L11'/>
+<SYMBOL id='04F9F518' name='.P40L17'/>
+<SYMBOL id='04F9F068' name='.P40L23'/>
+<SYMBOL id='04F9F4C8' name='.P40L1'/>
+<REFERENCE symbol_id='04F9F4C8' symbol='.P40L1'/>
+<REFERENCE symbol_id='04F9EFC8' symbol='.P40L4'/>
+<REFERENCE symbol_id='04F9F158' symbol='adi_cache_set_disable_range.'/>
+<REFERENCE symbol_id='04F9F6A8' symbol='.P40L3'/>
+<REFERENCE symbol_id='04F9F108' symbol='.P40L11'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+<REFERENCE symbol_id='04F9F6A8' symbol='.P40L3'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+<REFERENCE symbol_id='04F9F608' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04F9F6A8' symbol='.P40L3'/>
+<REFERENCE symbol_id='04F9F6A8' symbol='.P40L3'/>
+<REFERENCE symbol_id='04F9F518' symbol='.P40L17'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F068' symbol='.P40L23'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+<REFERENCE symbol_id='04F9F0B8' symbol='.P40L12'/>
+<REFERENCE symbol_id='04F9F158' symbol='adi_cache_set_disable_range.'/>
+<REFERENCE symbol_id='04F9F6A8' symbol='.P40L3'/>
+</OBJECT>
+<OBJECT id='04BA7770' name='(adi_cache_set_disable_range., .adi_cache_set_disable_range..end)' section='libc.dlb[cache_set_range_ba.doj](seg_int_code)'>
+<SYMBOL id='04F9F158' name='adi_cache_set_disable_range.'/>
+<SYMBOL id='04F9F1F8' name='.P39L3'/>
+<REFERENCE symbol_id='04F9F1F8' symbol='.P39L3'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+</OBJECT>
+<OBJECT id='04BA78B0' name='(range_regs., range_regs.+0x60)' section='libc.dlb[cache_set_range_ba.doj](seg_int_data)'>
+<SYMBOL id='04F9F018' name='range_regs.'/>
+</OBJECT>
+<OBJECT id='04BA79D0' name='(__prefetch_ctrl., __prefetch_ctrl.+0x4)' section='libc.dlb[prefetch_ctrl_ba.doj](seg_dmda)'>
+<SYMBOL id='04F9FB58' name='__prefetch_ctrl.'/>
+</OBJECT>
+<OBJECT id='04BA5650' name='(adi_rtl_activate_dispatched_handler., .adi_rtl_activate_dispatched_handler..end)' section='libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)'>
+<SYMBOL id='04F44440' name='adi_rtl_activate_dispatched_handler.'/>
+<SYMBOL id='04F44C10' name='.restore_state'/>
+<SYMBOL id='04F44990' name='.return'/>
+<REFERENCE symbol_id='04F44300' symbol='.set_sec'/>
+<REFERENCE symbol_id='04F44990' symbol='.return'/>
+<REFERENCE symbol_id='04F44940' symbol='.__set_imask'/>
+<REFERENCE symbol_id='04F442B0' symbol='.__set_imask1'/>
+<REFERENCE symbol_id='04F443A0' symbol='.__set_imask0'/>
+<REFERENCE symbol_id='04F44C10' symbol='.restore_state'/>
+</OBJECT>
+<OBJECT id='04BA56D0' name='(.set_sec, .set_sec.end)' section='libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)'>
+<SYMBOL id='04F44300' name='.set_sec'/>
+<REFERENCE symbol_id='04F44990' symbol='.return'/>
+<REFERENCE symbol_id='04F7D0E0' symbol='__sys_int_mapping_table.'/>
+<REFERENCE symbol_id='04F44990' symbol='.return'/>
+<REFERENCE symbol_id='04F528E0' symbol='adi_dispatched_int_vector_table_size.'/>
+<REFERENCE symbol_id='04F44990' symbol='.return'/>
+<REFERENCE symbol_id='04F44990' symbol='.return'/>
+</OBJECT>
+<OBJECT id='04BA6BB0' name='(__sys_int_mapping_table., __sys_int_mapping_table.+0x182)' section='libc.dlb[dispatched_handler_data_ba.doj](seg_dmda)'>
+<SYMBOL id='04F7D0E0' name='__sys_int_mapping_table.'/>
+</OBJECT>
+<OBJECT id='04BA6590' name='(adi_dispatched_int_vector_table_size., adi_dispatched_int_vector_table_size.+0x4)' section='libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)'>
+<SYMBOL id='04F528E0' name='adi_dispatched_int_vector_table_size.'/>
+</OBJECT>
+<OBJECT id='04BA5570' name='(.__set_imask, .__set_imask.end)' section='libc.dlb[dispatched_handler_activate_ba.doj](seg_pmco)'>
+<SYMBOL id='04F44940' name='.__set_imask'/>
+<SYMBOL id='04F443A0' name='.__set_imask0'/>
+<SYMBOL id='04F442B0' name='.__set_imask1'/>
+</OBJECT>
+<OBJECT id='04BA5670' name='(adi_osal_Init., .adi_osal_Init..end)' section='libosal_noos.dlb[adi_osal_noos_init.doj](seg_swco)'>
+<SYMBOL id='04F44DF0' name='adi_osal_Init.'/>
+<SYMBOL id='04F446C0' name='.P35L2'/>
+<SYMBOL id='04F45610' name='.P35L7'/>
+<SYMBOL id='04F45390' name='.P35L4'/>
+<REFERENCE symbol_id='04F44350' symbol='snOsalInitializationState.0.'/>
+<REFERENCE symbol_id='04F446C0' symbol='.P35L2'/>
+<REFERENCE symbol_id='04F45390' symbol='.P35L4'/>
+<REFERENCE symbol_id='04F7FFC0' symbol='_adi_osal_HeapInstall.'/>
+<REFERENCE symbol_id='04F45610' symbol='.P35L7'/>
+<REFERENCE symbol_id='04F45390' symbol='.P35L4'/>
+<REFERENCE symbol_id='04F44350' symbol='snOsalInitializationState.0.'/>
+</OBJECT>
+<OBJECT id='04BA5610' name='(snOsalInitializationState.0., snOsalInitializationState.0.+0x4)' section='libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)'>
+<SYMBOL id='04F44350' name='snOsalInitializationState.0.'/>
+</OBJECT>
+<OBJECT id='04BA6B50' name='(_adi_osal_HeapInstall., ._adi_osal_HeapInstall..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FFC0' name='_adi_osal_HeapInstall.'/>
+<SYMBOL id='04F7F160' name='.P36L2'/>
+<SYMBOL id='04F7F5C0' name='.P36L14'/>
+<SYMBOL id='04F7EC60' name='.P36L6'/>
+<SYMBOL id='04F7ECB0' name='.P36L7'/>
+<SYMBOL id='04F7F1B0' name='.P36L10'/>
+<SYMBOL id='04F7F200' name='.P36L4'/>
+<REFERENCE symbol_id='04F7F160' symbol='.P36L2'/>
+<REFERENCE symbol_id='04F7D4A0' symbol='osal_snHeapIndex.'/>
+<REFERENCE symbol_id='04F7F200' symbol='.P36L4'/>
+<REFERENCE symbol_id='04F7EC60' symbol='.P36L6'/>
+<REFERENCE symbol_id='04F9EC58' symbol='_heap_install.'/>
+<REFERENCE symbol_id='04F7D4A0' symbol='osal_snHeapIndex.'/>
+<REFERENCE symbol_id='04F7ECB0' symbol='.P36L7'/>
+<REFERENCE symbol_id='04F7F5C0' symbol='.P36L14'/>
+<REFERENCE symbol_id='04F7D4A0' symbol='osal_snHeapIndex.'/>
+<REFERENCE symbol_id='04F7F1B0' symbol='.P36L10'/>
+<REFERENCE symbol_id='04F7F200' symbol='.P36L4'/>
+</OBJECT>
+<OBJECT id='04BA6B30' name='(osal_snHeapIndex., osal_snHeapIndex.+0x4)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_dmda)'>
+<SYMBOL id='04F7D4A0' name='osal_snHeapIndex.'/>
+</OBJECT>
+<OBJECT id='04BA4D70' name='(.osal_Init_failed, .osal_Init_failed.end)' section='app_startup.doj(seg_pmco)'>
+<SYMBOL id='04B63F90' name='.osal_Init_failed'/>
+<REFERENCE symbol_id='04F44E40' symbol='adi_fatal_error.'/>
+</OBJECT>
+<OBJECT id='04BA5230' name='(main., .main..end)' section='src\CCES_Porting_Kernel.doj(seg_swco)'>
+<SYMBOL id='04B65110' name='main.'/>
+<REFERENCE symbol_id='04B644E0' symbol='.static0'/>
+<REFERENCE symbol_id='04F45DE0' symbol='calculateMean.'/>
+<REFERENCE symbol_id='04B64D00' symbol='.sMeanf.0'/>
+<REFERENCE symbol_id='04F461A0' symbol='_printf32.'/>
+<REFERENCE symbol_id='04F46560' symbol='calculateRMS.'/>
+<REFERENCE symbol_id='04B64BC0' symbol='.sRMSf.1'/>
+<REFERENCE symbol_id='04F461A0' symbol='_printf32.'/>
+<REFERENCE symbol_id='04F46A10' symbol='calculateVariance.'/>
+<REFERENCE symbol_id='04B64800' symbol='.sVarian.2'/>
+<REFERENCE symbol_id='04F461A0' symbol='_printf32.'/>
+<REFERENCE symbol_id='04F46100' symbol='calculateStandardDeviation.'/>
+<REFERENCE symbol_id='04B64620' symbol='.sStanda.3'/>
+<REFERENCE symbol_id='04F461A0' symbol='_printf32.'/>
+<REFERENCE symbol_id='04F46740' symbol='exit.'/>
+</OBJECT>
+<OBJECT id='04BA5430' name='(.static0, .static0+0x14)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+<SYMBOL id='04B644E0' name='.static0'/>
+</OBJECT>
+<OBJECT id='04BA5BF0' name='(calculateMean., .calculateMean..end)' section='D:\CCES_Porting_Training\Build_CCES\CCES_Porting_Library\Debug\CCES_Porting_Library.dlb[CCES_Porting_Library.doj](seg_lib_code_l3)'>
+<SYMBOL id='04F45DE0' name='calculateMean.'/>
+<SYMBOL id='04F45D90' name='.P34L30'/>
+<SYMBOL id='04F45BB0' name='.P34L30_end'/>
+<SYMBOL id='04F456B0' name='.P34L28'/>
+<SYMBOL id='04F45CA0' name='.P34L20'/>
+<SYMBOL id='04F45ED0' name='.P34L17'/>
+<SYMBOL id='04F45930' name='.P34L9'/>
+<SYMBOL id='04F45FC0' name='.P34L7'/>
+<SYMBOL id='04F45750' name='.P34L3'/>
+<REFERENCE symbol_id='04F45750' symbol='.P34L3'/>
+<REFERENCE symbol_id='04F45930' symbol='.P34L9'/>
+<REFERENCE symbol_id='04F45CA0' symbol='.P34L20'/>
+<REFERENCE symbol_id='04F456B0' symbol='.P34L28'/>
+<REFERENCE symbol_id='04F45BB0' symbol='.P34L30_end'/>
+<REFERENCE symbol_id='04F45ED0' symbol='.P34L17'/>
+<REFERENCE symbol_id='04F45FC0' symbol='.P34L7'/>
+<REFERENCE symbol_id='04F805B0' symbol='__lib_fdiv.'/>
+</OBJECT>
+<OBJECT id='04BA6E50' name='(___lib_fdiv, .___lib_fdiv.end)' section='libcc.dlb[lib_fdiv.doj](seg_swco)'>
+<SYMBOL id='04F801F0' name='___lib_fdiv'/>
+<SYMBOL id='04F805B0' name='__lib_fdiv.'/>
+<SYMBOL id='04F80060' name='.bypass_scaling'/>
+<SYMBOL id='04F80330' name='.rnd_40bit_return'/>
+<REFERENCE symbol_id='04F80060' symbol='.bypass_scaling'/>
+<REFERENCE symbol_id='04F80330' symbol='.rnd_40bit_return'/>
+</OBJECT>
+<OBJECT id='04BA5390' name='(.sMeanf.0, .sMeanf.0+0xa)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+<SYMBOL id='04B64D00' name='.sMeanf.0'/>
+</OBJECT>
+<OBJECT id='04BA5C70' name='(_printf32., ._printf32..end)' section='libio.dlb[printf_c08_d32.doj](seg_swco)'>
+<SYMBOL id='04F461A0' name='_printf32.'/>
+<SYMBOL id='04F46150' name='.P34L9'/>
+<SYMBOL id='04F466F0' name='.P34L3'/>
+<REFERENCE symbol_id='04F466F0' symbol='.P34L3'/>
+<REFERENCE symbol_id='04F804C0' symbol='_Files.'/>
+<REFERENCE symbol_id='04F46150' symbol='.P34L9'/>
+<REFERENCE symbol_id='04F81370' symbol='_convert_FILE_table.'/>
+<REFERENCE symbol_id='04F80B50' symbol='_fputc.'/>
+<REFERENCE symbol_id='04F82180' symbol='_doprnt_32.'/>
+<REFERENCE symbol_id='04F82B80' symbol='_fflush.'/>
+</OBJECT>
+<OBJECT id='04BA7090' name='(_Files., ._Files..end)' section='libio.dlb[xfiles_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F804C0' name='_Files.'/>
+<REFERENCE symbol_id='04F80600' symbol='_Stdin.'/>
+<REFERENCE symbol_id='04F80290' symbol='_Stdout.'/>
+<REFERENCE symbol_id='04F806F0' symbol='_Stderr.'/>
+</OBJECT>
+<OBJECT id='04BA6E30' name='(_Stdin., _Stdin.+0x34)' section='libio.dlb[xfiles_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F80600' name='_Stdin.'/>
+</OBJECT>
+<OBJECT id='04BA6F50' name='(_Stdout., _Stdout.+0x34)' section='libio.dlb[xfiles_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F80290' name='_Stdout.'/>
+</OBJECT>
+<OBJECT id='04BA6FD0' name='(_Stderr., _Stderr.+0x34)' section='libio.dlb[xfiles_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F806F0' name='_Stderr.'/>
+</OBJECT>
+<OBJECT id='04BA6EB0' name='(_convert_FILE_table., ._convert_FILE_table..end)' section='libio.dlb[convert_FILE_table_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F81370' name='_convert_FILE_table.'/>
+</OBJECT>
+<OBJECT id='04BA6DB0' name='(_fputc., ._fputc..end)' section='libio.dlb[fputc_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F80B50' name='_fputc.'/>
+<SYMBOL id='04F80F60' name='.P33L3'/>
+<SYMBOL id='04F80BA0' name='.P33L11'/>
+<SYMBOL id='04F80EC0' name='.P33L7'/>
+<SYMBOL id='04F81410' name='.P33L12'/>
+<SYMBOL id='04F80C40' name='.P33L1'/>
+<REFERENCE symbol_id='04F80C40' symbol='.P33L1'/>
+<REFERENCE symbol_id='04F80BA0' symbol='.P33L11'/>
+<REFERENCE symbol_id='04F81410' symbol='.P33L12'/>
+<REFERENCE symbol_id='04F81410' symbol='.P33L12'/>
+<REFERENCE symbol_id='04F82B80' symbol='_fflush.'/>
+<REFERENCE symbol_id='04F80EC0' symbol='.P33L7'/>
+<REFERENCE symbol_id='04F80BA0' symbol='.P33L11'/>
+<REFERENCE symbol_id='04FA1638' symbol='_flushwritebuf.'/>
+<REFERENCE symbol_id='04F80EC0' symbol='.P33L7'/>
+<REFERENCE symbol_id='04F80F60' symbol='.P33L3'/>
+</OBJECT>
+<OBJECT id='04BA7230' name='(_fflush., ._fflush..end)' section='libio.dlb[fflush_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F82B80' name='_fflush.'/>
+<SYMBOL id='04F81FA0' name='.P36L16'/>
+<SYMBOL id='04F82130' name='.P36L19'/>
+<SYMBOL id='04F82630' name='.P36L4'/>
+<SYMBOL id='04F820E0' name='.P36L18'/>
+<REFERENCE symbol_id='04F82630' symbol='.P36L4'/>
+<REFERENCE symbol_id='04F820E0' symbol='.P36L18'/>
+<REFERENCE symbol_id='04FCB498' symbol='_dev_write.'/>
+<REFERENCE symbol_id='04F82130' symbol='.P36L19'/>
+<REFERENCE symbol_id='04F81FA0' symbol='.P36L16'/>
+<REFERENCE symbol_id='04F82630' symbol='.P36L4'/>
+</OBJECT>
+<OBJECT id='04BA8730' name='(_dev_write., ._dev_write..end)' section='libio.dlb[dev_write_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCB498' name='_dev_write.'/>
+<SYMBOL id='04FCADB8' name='.P36L18'/>
+<SYMBOL id='04FCAE08' name='.P36L23'/>
+<SYMBOL id='04FCAE58' name='.P36L5'/>
+<SYMBOL id='04FCAD68' name='.P36L12'/>
+<REFERENCE symbol_id='04FCAE58' symbol='.P36L5'/>
+<REFERENCE symbol_id='04FCAE58' symbol='.P36L5'/>
+<REFERENCE symbol_id='04FCD658' symbol='__devtabs_initialized.'/>
+<REFERENCE symbol_id='04FCADB8' symbol='.P36L18'/>
+<REFERENCE symbol_id='04FCD978' symbol='__init_devtabs.'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCAE58' symbol='.P36L5'/>
+<REFERENCE symbol_id='04FCDBA8' symbol='DevDrvTable.'/>
+<REFERENCE symbol_id='04FCAE08' symbol='.P36L23'/>
+<REFERENCE symbol_id='04FCAD68' symbol='.P36L12'/>
+<REFERENCE symbol_id='04FCAE58' symbol='.P36L5'/>
+</OBJECT>
+<OBJECT id='04BA9430' name='(__devtabs_initialized., __devtabs_initialized.+0x4)' section='libio.dlb[dev_init_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCD658' name='__devtabs_initialized.'/>
+</OBJECT>
+<OBJECT id='04BA91B0' name='(__init_devtabs., .__init_devtabs..end)' section='libio.dlb[dev_init_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCD978' name='__init_devtabs.'/>
+<SYMBOL id='04FCD9C8' name='.P37L7'/>
+<SYMBOL id='04FCDDD8' name='.P37L7_end'/>
+<SYMBOL id='04FCDF18' name='.P37L18'/>
+<SYMBOL id='04FCDEC8' name='.P37L9'/>
+<SYMBOL id='04FCD748' name='.P37L11'/>
+<SYMBOL id='04FCD7E8' name='.P37L4'/>
+<REFERENCE symbol_id='04FCD658' symbol='__devtabs_initialized.'/>
+<REFERENCE symbol_id='04FCD7E8' symbol='.P37L4'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCDDD8' symbol='.P37L7_end'/>
+<REFERENCE symbol_id='04FCDBA8' symbol='DevDrvTable.'/>
+<REFERENCE symbol_id='04FCD748' symbol='.P37L11'/>
+<REFERENCE symbol_id='04FCD748' symbol='.P37L11'/>
+<REFERENCE symbol_id='04FCD928' symbol='__init_devdrv.'/>
+<REFERENCE symbol_id='04FCDEC8' symbol='.P37L9'/>
+<REFERENCE symbol_id='04FCD658' symbol='__devtabs_initialized.'/>
+</OBJECT>
+<OBJECT id='04BA9210' name='(DeviceIOtable., DeviceIOtable.+0xc8)' section='libio.dlb[devIOtab_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCDA18' name='DeviceIOtable.'/>
+</OBJECT>
+<OBJECT id='04BA92D0' name='(DevDrvTable., .DevDrvTable..end)' section='libio.dlb[devtab_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCDBA8' name='DevDrvTable.'/>
+<REFERENCE symbol_id='04FCE648' symbol='primio_deventry.'/>
+</OBJECT>
+<OBJECT id='04BA9610' name='(primio_deventry., .primio_deventry..end)' section='libio.dlb[primiolibtab_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCE648' name='primio_deventry.'/>
+<REFERENCE symbol_id='04FCF138' symbol='_primio_init.'/>
+<REFERENCE symbol_id='04FCED28' symbol='PRIMITIVE_OPEN.'/>
+<REFERENCE symbol_id='04FCF638' symbol='PRIMITIVE_CLOSE.'/>
+<REFERENCE symbol_id='04FCFBD8' symbol='PRIMITIVE_WRITE2.'/>
+<REFERENCE symbol_id='04FCFC28' symbol='PRIMITIVE_READ.'/>
+<REFERENCE symbol_id='04FD0218' symbol='PRIMITIVE_SEEK.'/>
+<REFERENCE symbol_id='04FD0268' symbol='PRIMITIVE_REMOVE.'/>
+<REFERENCE symbol_id='04FD0718' symbol='PRIMITIVE_RENAME.'/>
+<REFERENCE symbol_id='04FCF3B8' symbol='_primio_ioctl.'/>
+<REFERENCE symbol_id='04FCEB98' symbol='primio_deventry_extension.'/>
+</OBJECT>
+<OBJECT id='04BA99D0' name='(_primio_init., ._primio_init..end)' section='libio.dlb[primiolib_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCF138' name='_primio_init.'/>
+</OBJECT>
+<OBJECT id='04BA9C30' name='(PRIMITIVE_OPEN., .PRIMITIVE_OPEN..end)' section='libio.dlb[xprim_open_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCED28' name='PRIMITIVE_OPEN.'/>
+<SYMBOL id='04FCEDC8' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FCF368' name='.P34L20'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCEDC8' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCF368' symbol='.P34L20'/>
+</OBJECT>
+<OBJECT id='04BA9D70' name='(PrimIOCB., PrimIOCB.+0x1c)' section='libio.dlb[xprim_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FD1258' name='PrimIOCB.'/>
+</OBJECT>
+<OBJECT id='04BA8630' name='(strlen., .strlen..end)' section='libcc.dlb[strlen_char8_ba.doj](seg_pmco)'>
+<SYMBOL id='04FCA778' name='strlen.'/>
+<SYMBOL id='04FCA688' name='.find_pm_end'/>
+<REFERENCE symbol_id='04FCA688' symbol='.find_pm_end'/>
+</OBJECT>
+<OBJECT id='04BA9F90' name='(__primIO, .__primIO.end)' section='libio.dlb[xprim_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FD09E8' name='__primIO'/>
+</OBJECT>
+<OBJECT id='04BA9B50' name='(PRIMITIVE_CLOSE., .PRIMITIVE_CLOSE..end)' section='libio.dlb[xprim_close_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCF638' name='PRIMITIVE_CLOSE.'/>
+<SYMBOL id='04FCFE58' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FCF548' name='.P34L18'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCFE58' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FCF548' symbol='.P34L18'/>
+</OBJECT>
+<OBJECT id='04BA9CB0' name='(PRIMITIVE_WRITE2., .PRIMITIVE_WRITE2..end)' section='libio.dlb[xprim_write2_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCFBD8' name='PRIMITIVE_WRITE2.'/>
+<SYMBOL id='04FCF9F8' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FCFB38' name='.P34L18'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCF9F8' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FCFB38' symbol='.P34L18'/>
+</OBJECT>
+<OBJECT id='04BA9B30' name='(PRIMITIVE_READ., .PRIMITIVE_READ..end)' section='libio.dlb[xprim_read_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCFC28' name='PRIMITIVE_READ.'/>
+<SYMBOL id='04FCF7C8' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FCFA98' name='.P34L18'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCF7C8' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCFA98' symbol='.P34L18'/>
+</OBJECT>
+<OBJECT id='04BA9D90' name='(PRIMITIVE_SEEK., .PRIMITIVE_SEEK..end)' section='libio.dlb[xprim_seek_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FD0218' name='PRIMITIVE_SEEK.'/>
+<SYMBOL id='04FCFE08' name='.P34L6'/>
+<SYMBOL id='04FD0858' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FD08A8' name='.P34L7'/>
+<SYMBOL id='04FCFDB8' name='.P34L4'/>
+<SYMBOL id='04FCFD68' name='.P34L27'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCFD68' symbol='.P34L27'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCFDB8' symbol='.P34L4'/>
+<REFERENCE symbol_id='04FD08A8' symbol='.P34L7'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD0858' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD08A8' symbol='.P34L7'/>
+<REFERENCE symbol_id='04FCFE08' symbol='.P34L6'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCFE08' symbol='.P34L6'/>
+</OBJECT>
+<OBJECT id='04BA9DD0' name='(PRIMITIVE_REMOVE., .PRIMITIVE_REMOVE..end)' section='libio.dlb[xprim_remove_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FD0268' name='PRIMITIVE_REMOVE.'/>
+<SYMBOL id='04FD07B8' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FD08F8' name='.P34L20'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD07B8' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD08F8' symbol='.P34L20'/>
+</OBJECT>
+<OBJECT id='04BA9E10' name='(PRIMITIVE_RENAME., .PRIMITIVE_RENAME..end)' section='libio.dlb[xprim_rename_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FD0718' name='PRIMITIVE_RENAME.'/>
+<SYMBOL id='04FD06C8' name='.atomic_clr_mode1_bit_1'/>
+<SYMBOL id='04FD0178' name='.P34L22'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD06C8' symbol='.atomic_clr_mode1_bit_1'/>
+<REFERENCE symbol_id='04FD09E8' symbol='__primIO'/>
+<REFERENCE symbol_id='04FD1258' symbol='PrimIOCB.'/>
+<REFERENCE symbol_id='04FD0178' symbol='.P34L22'/>
+</OBJECT>
+<OBJECT id='04BA9930' name='(_primio_ioctl., ._primio_ioctl..end)' section='libio.dlb[primiolib_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCF3B8' name='_primio_ioctl.'/>
+</OBJECT>
+<OBJECT id='04BA9630' name='(primio_deventry_extension., primio_deventry_extension.+0xc)' section='libio.dlb[primiolibtab_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCEB98' name='primio_deventry_extension.'/>
+</OBJECT>
+<OBJECT id='04BA9450' name='(__init_devdrv., .__init_devdrv..end)' section='libio.dlb[dev_init_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCD928' name='__init_devdrv.'/>
+<SYMBOL id='04FCE0A8' name='.P36L5'/>
+<SYMBOL id='04FCD798' name='.P36L4'/>
+<SYMBOL id='04FCCFC8' name='.P36L2'/>
+<SYMBOL id='04FCD838' name='.P36L38'/>
+<SYMBOL id='04FCD6F8' name='.P36L13'/>
+<SYMBOL id='04FCD158' name='.P36L27'/>
+<SYMBOL id='04FCDE78' name='.P36L30'/>
+<SYMBOL id='04FCD8D8' name='.P36L9'/>
+<SYMBOL id='04FCCE88' name='.P36L12'/>
+<REFERENCE symbol_id='04FCE0A8' symbol='.P36L5'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCD8D8' symbol='.P36L9'/>
+<REFERENCE symbol_id='04FCD798' symbol='.P36L4'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCD8D8' symbol='.P36L9'/>
+<REFERENCE symbol_id='04FCCFC8' symbol='.P36L2'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCD8D8' symbol='.P36L9'/>
+<REFERENCE symbol_id='04FCD838' symbol='.P36L38'/>
+<REFERENCE symbol_id='04FCCE88' symbol='.P36L12'/>
+<REFERENCE symbol_id='04FCD8D8' symbol='.P36L9'/>
+<REFERENCE symbol_id='04FCD158' symbol='.P36L27'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCDE78' symbol='.P36L30'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCD8D8' symbol='.P36L9'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCDA18' symbol='DeviceIOtable.'/>
+<REFERENCE symbol_id='04FCD6F8' symbol='.P36L13'/>
+</OBJECT>
+<OBJECT id='04BA7D70' name='(_flushwritebuf., ._flushwritebuf..end)' section='libio.dlb[xflushwritebuf_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FA1638' name='_flushwritebuf.'/>
+<SYMBOL id='04FA1548' name='.P33L4'/>
+<SYMBOL id='04FA1188' name='.P33L6'/>
+<SYMBOL id='04FA12C8' name='.P33L8'/>
+<SYMBOL id='04FA11D8' name='.P33L19'/>
+<SYMBOL id='04FA15E8' name='.P33L17'/>
+<SYMBOL id='04FA1778' name='.P33L20'/>
+<SYMBOL id='04FA0E18' name='.P33L22'/>
+<SYMBOL id='04FA0F58' name='.P33L23'/>
+<REFERENCE symbol_id='04FA1548' symbol='.P33L4'/>
+<REFERENCE symbol_id='04FA1188' symbol='.P33L6'/>
+<REFERENCE symbol_id='04FA12C8' symbol='.P33L8'/>
+<REFERENCE symbol_id='04F82B80' symbol='_fflush.'/>
+<REFERENCE symbol_id='04FA1548' symbol='.P33L4'/>
+<REFERENCE symbol_id='04FA15E8' symbol='.P33L17'/>
+<REFERENCE symbol_id='04FA1548' symbol='.P33L4'/>
+<REFERENCE symbol_id='04FA0F58' symbol='.P33L23'/>
+<REFERENCE symbol_id='04FA11D8' symbol='.P33L19'/>
+<REFERENCE symbol_id='04FCBA88' symbol='malloc.'/>
+<REFERENCE symbol_id='04FA1778' symbol='.P33L20'/>
+<REFERENCE symbol_id='04FA0E18' symbol='.P33L22'/>
+</OBJECT>
+<OBJECT id='04BA8B90' name='(malloc., .malloc..end)' section='libc.dlb[malloc_ba.doj](seg_swco)'>
+<SYMBOL id='04FCBA88' name='malloc.'/>
+<REFERENCE symbol_id='04FCE4B8' symbol='__default_heap.'/>
+<REFERENCE symbol_id='04F9FBF8' symbol='_heap_malloc.'/>
+</OBJECT>
+<OBJECT id='04BA9790' name='(__default_heap., __default_heap.+0x4)' section='libc.dlb[default_heap_ba.doj](seg_dmda)'>
+<SYMBOL id='04FCE4B8' name='__default_heap.'/>
+</OBJECT>
+<OBJECT id='04BA7C30' name='(_heap_malloc., ._heap_malloc..end)' section='libc.dlb[heap_malloc_ba.doj](seg_swco)'>
+<SYMBOL id='04F9FBF8' name='_heap_malloc.'/>
+<SYMBOL id='04F9FA18' name='.P35L34'/>
+<SYMBOL id='04FA0378' name='.P35L15'/>
+<SYMBOL id='04F9FE28' name='.P35L40'/>
+<SYMBOL id='04F9F9C8' name='.P35L21'/>
+<SYMBOL id='04F9FC48' name='.P35L26'/>
+<SYMBOL id='04F9FA68' name='.P35L4'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04F9FA68' symbol='.P35L4'/>
+<REFERENCE symbol_id='04F9FA68' symbol='.P35L4'/>
+<REFERENCE symbol_id='04F9FA68' symbol='.P35L4'/>
+<REFERENCE symbol_id='04FCB308' symbol='__heaps.'/>
+<REFERENCE symbol_id='04FA0378' symbol='.P35L15'/>
+<REFERENCE symbol_id='04FA0378' symbol='.P35L15'/>
+<REFERENCE symbol_id='04F9FA18' symbol='.P35L34'/>
+<REFERENCE symbol_id='04F9FA68' symbol='.P35L4'/>
+<REFERENCE symbol_id='04F9F9C8' symbol='.P35L21'/>
+<REFERENCE symbol_id='04F9FE28' symbol='.P35L40'/>
+<REFERENCE symbol_id='04F9FC48' symbol='.P35L26'/>
+</OBJECT>
+<OBJECT id='04BA7270' name='(_doprnt_32., ._doprnt_32..end)' section='libio.dlb[xprnt_c08_d32.doj](seg_swco)'>
+<SYMBOL id='04F82180' name='_doprnt_32.'/>
+<SYMBOL id='04F81E10' name='.P37L115'/>
+<SYMBOL id='04F81460' name='.P37L115_end'/>
+<SYMBOL id='04F817D0' name='.P37L116'/>
+<SYMBOL id='04F81730' name='.P37L3'/>
+<SYMBOL id='04F81EB0' name='.P37L52'/>
+<SYMBOL id='04F81A50' name='.P37L2'/>
+<SYMBOL id='04F82040' name='.P37L5'/>
+<SYMBOL id='04F824A0' name='.P37L8'/>
+<SYMBOL id='04F82680' name='.P37L9'/>
+<SYMBOL id='04F81D20' name='.P37L16'/>
+<SYMBOL id='04F81870' name='.P37L12'/>
+<SYMBOL id='04F81A00' name='.P37L14'/>
+<SYMBOL id='04F81500' name='.P37L29'/>
+<SYMBOL id='04F81CD0' name='.P37L17'/>
+<SYMBOL id='04F81B40' name='.P37L32'/>
+<SYMBOL id='04F81D70' name='.P37L22'/>
+<SYMBOL id='04F81AA0' name='.P37L23'/>
+<SYMBOL id='04F81B90' name='.P37L35'/>
+<SYMBOL id='04F81550' name='.P37L38'/>
+<SYMBOL id='04F815F0' name='.P37L24'/>
+<SYMBOL id='04F814B0' name='.P37L27'/>
+<SYMBOL id='04F815A0' name='.P37L47'/>
+<REFERENCE symbol_id='04F80CE0' symbol='.static0'/>
+<REFERENCE symbol_id='04F81460' symbol='.P37L115_end'/>
+<REFERENCE symbol_id='04F81A50' symbol='.P37L2'/>
+<REFERENCE symbol_id='04F81050' symbol='.snull.1'/>
+<REFERENCE symbol_id='04F82040' symbol='.P37L5'/>
+<REFERENCE symbol_id='04F81730' symbol='.P37L3'/>
+<REFERENCE symbol_id='04FA1E08' symbol='_parse_format.'/>
+<REFERENCE symbol_id='04F82680' symbol='.P37L9'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F80C90' symbol='.SWITCH.5'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04FA2A88' symbol='_print_a_float_32.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04FA4478' symbol='_print_float_32.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F9DB78' symbol='_print_fixed.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F9DB78' symbol='_print_fixed.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F81B40' symbol='.P37L32'/>
+<REFERENCE symbol_id='04FCA598' symbol='_do_output.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F9DB78' symbol='_print_fixed.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F81B90' symbol='.P37L35'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F81550' symbol='.P37L38'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F9DB78' symbol='_print_fixed.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04F815A0' symbol='.P37L47'/>
+<REFERENCE symbol_id='04F815A0' symbol='.P37L47'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FCAC28' symbol='_put_string.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+<REFERENCE symbol_id='04FCA598' symbol='_do_output.'/>
+<REFERENCE symbol_id='04F81EB0' symbol='.P37L52'/>
+</OBJECT>
+<OBJECT id='04BA7510' name='(.static0, .static0.end)' section='libio.dlb[xprnt_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04F80CE0' name='.static0'/>
+<REFERENCE symbol_id='04F81230' symbol='.s.0'/>
+<REFERENCE symbol_id='04F81230' symbol='.s.0'/>
+<REFERENCE symbol_id='04F81230' symbol='.s.0'/>
+</OBJECT>
+<OBJECT id='04BA71B0' name='(.s.0, .s.0+0x1)' section='libio.dlb[xprnt_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04F81230' name='.s.0'/>
+</OBJECT>
+<OBJECT id='04BA73F0' name='(.snull.1, .snull.1+0x7)' section='libio.dlb[xprnt_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04F81050' name='.snull.1'/>
+</OBJECT>
+<OBJECT id='04BA7EF0' name='(_parse_format., ._parse_format..end)' section='libio.dlb[xparse_format_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FA1E08' name='_parse_format.'/>
+<SYMBOL id='04FA19A8' name='.P35L3'/>
+<SYMBOL id='04FA1CC8' name='.P35L39'/>
+<SYMBOL id='04FA1688' name='.P35L14'/>
+<SYMBOL id='04FA0F08' name='.P35L17'/>
+<SYMBOL id='04FA20D8' name='.P35L25'/>
+<SYMBOL id='04FA1C28' name='.P35L28'/>
+<SYMBOL id='04FA1F48' name='.P35L37'/>
+<SYMBOL id='04FA1F98' name='.P35L21'/>
+<SYMBOL id='04FA1E58' name='.P35L23'/>
+<SYMBOL id='04FA1958' name='.P35L20'/>
+<SYMBOL id='04FA2038' name='.P35L47'/>
+<SYMBOL id='04FA0EB8' name='.P35L15'/>
+<SYMBOL id='04FA1B38' name='.P35L9'/>
+<SYMBOL id='04FA1DB8' name='.P35L8'/>
+<SYMBOL id='04FA17C8' name='.P35L40'/>
+<SYMBOL id='04FA2088' name='.P35L6'/>
+<REFERENCE symbol_id='04FA13B8' symbol='.s.0'/>
+<REFERENCE symbol_id='04FA17C8' symbol='.P35L40'/>
+<REFERENCE symbol_id='04FA1DB8' symbol='.P35L8'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA1B38' symbol='.P35L9'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA19A8' symbol='.P35L3'/>
+<REFERENCE symbol_id='04FCBFD8' symbol='_parse_field.'/>
+<REFERENCE symbol_id='04FA1688' symbol='.P35L14'/>
+<REFERENCE symbol_id='04FA0EB8' symbol='.P35L15'/>
+<REFERENCE symbol_id='04FA2038' symbol='.P35L47'/>
+<REFERENCE symbol_id='04FA1958' symbol='.P35L20'/>
+<REFERENCE symbol_id='04FA1F98' symbol='.P35L21'/>
+<REFERENCE symbol_id='04FA1C28' symbol='.P35L28'/>
+<REFERENCE symbol_id='04FA1F48' symbol='.P35L37'/>
+<REFERENCE symbol_id='04FA1408' symbol='.sdiouxX.1'/>
+<REFERENCE symbol_id='04FCC208' symbol='strchr.'/>
+<REFERENCE symbol_id='04FA1E58' symbol='.P35L23'/>
+<REFERENCE symbol_id='04FA20D8' symbol='.P35L25'/>
+<REFERENCE symbol_id='04FA20D8' symbol='.P35L25'/>
+<REFERENCE symbol_id='04FA20D8' symbol='.P35L25'/>
+<REFERENCE symbol_id='04FA20D8' symbol='.P35L25'/>
+<REFERENCE symbol_id='04FA20D8' symbol='.P35L25'/>
+<REFERENCE symbol_id='04FCBFD8' symbol='_parse_field.'/>
+<REFERENCE symbol_id='04FA0F08' symbol='.P35L17'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA2088' symbol='.P35L6'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+<REFERENCE symbol_id='04FA1CC8' symbol='.P35L39'/>
+</OBJECT>
+<OBJECT id='04BA7E50' name='(.s.0, .s.0+0x1)' section='libio.dlb[xparse_format_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FA13B8' name='.s.0'/>
+</OBJECT>
+<OBJECT id='04BA8DD0' name='(_parse_field., ._parse_field..end)' section='libio.dlb[xparse_field_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCBFD8' name='_parse_field.'/>
+<SYMBOL id='04FCBCB8' name='.P33L4'/>
+<SYMBOL id='04FCBE48' name='.P33L9'/>
+<SYMBOL id='04FCBE98' name='.P33L3'/>
+<SYMBOL id='04FCC118' name='.P33L10'/>
+<SYMBOL id='04FCBD08' name='.P33L1'/>
+<REFERENCE symbol_id='04FCBD08' symbol='.P33L1'/>
+<REFERENCE symbol_id='04FCC118' symbol='.P33L10'/>
+<REFERENCE symbol_id='04FCBE48' symbol='.P33L9'/>
+<REFERENCE symbol_id='04FCBCB8' symbol='.P33L4'/>
+<REFERENCE symbol_id='04FCBE98' symbol='.P33L3'/>
+<REFERENCE symbol_id='04FCBE98' symbol='.P33L3'/>
+</OBJECT>
+<OBJECT id='04BA7F30' name='(.sdiouxX.1, .sdiouxX.1+0x7)' section='libio.dlb[xparse_format_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FA1408' name='.sdiouxX.1'/>
+</OBJECT>
+<OBJECT id='04BA9090' name='(strchr., .strchr..end)' section='libc.dlb[strchr_ba.doj](seg_swco)'>
+<SYMBOL id='04FCC208' name='strchr.'/>
+<SYMBOL id='04FCBF38' name='.P33L1'/>
+<SYMBOL id='04FCBEE8' name='.P33L7'/>
+<SYMBOL id='04FCBDF8' name='.P33L11'/>
+<SYMBOL id='04FCB998' name='.P33L14'/>
+<REFERENCE symbol_id='04FCB998' symbol='.P33L14'/>
+<REFERENCE symbol_id='04FCBF38' symbol='.P33L1'/>
+<REFERENCE symbol_id='04FCBDF8' symbol='.P33L11'/>
+<REFERENCE symbol_id='04FCBEE8' symbol='.P33L7'/>
+</OBJECT>
+<OBJECT id='04BA6E10' name='(.SWITCH.5, .SWITCH.5.end)' section='libio.dlb[xprnt_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04F80C90' name='.SWITCH.5'/>
+<REFERENCE symbol_id='04F81D20' symbol='.P37L16'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81870' symbol='.P37L12'/>
+<REFERENCE symbol_id='04F81870' symbol='.P37L12'/>
+<REFERENCE symbol_id='04F81870' symbol='.P37L12'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81A00' symbol='.P37L14'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81500' symbol='.P37L29'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81D20' symbol='.P37L16'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81CD0' symbol='.P37L17'/>
+<REFERENCE symbol_id='04F81D70' symbol='.P37L22'/>
+<REFERENCE symbol_id='04F81870' symbol='.P37L12'/>
+<REFERENCE symbol_id='04F81870' symbol='.P37L12'/>
+<REFERENCE symbol_id='04F81870' symbol='.P37L12'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81D70' symbol='.P37L22'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81AA0' symbol='.P37L23'/>
+<REFERENCE symbol_id='04F815F0' symbol='.P37L24'/>
+<REFERENCE symbol_id='04F81500' symbol='.P37L29'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81A00' symbol='.P37L14'/>
+<REFERENCE symbol_id='04F814B0' symbol='.P37L27'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81D70' symbol='.P37L22'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F824A0' symbol='.P37L8'/>
+<REFERENCE symbol_id='04F81500' symbol='.P37L29'/>
+</OBJECT>
+<OBJECT id='04BA84D0' name='(_print_a_float_32., ._print_a_float_32..end)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_swco)'>
+<SYMBOL id='04FA2A88' name='_print_a_float_32.'/>
+<SYMBOL id='04FA25D8' name='.P41L69'/>
+<SYMBOL id='04FA23F8' name='.P41L20'/>
+<SYMBOL id='04FA28A8' name='.P41L25'/>
+<SYMBOL id='04FA22B8' name='.P41L26'/>
+<SYMBOL id='04FA24E8' name='.P41L31'/>
+<SYMBOL id='04FA2678' name='.P41L32'/>
+<SYMBOL id='04FA2858' name='.P41L42'/>
+<SYMBOL id='04FA2A38' name='.P41L46'/>
+<SYMBOL id='04FA21C8' name='.P41L46_end'/>
+<SYMBOL id='04FA2308' name='.P41L97'/>
+<SYMBOL id='04FA26C8' name='.P41L50'/>
+<SYMBOL id='04FA2268' name='.P41L52'/>
+<SYMBOL id='04FA2808' name='.P41L44'/>
+<SYMBOL id='04FA2538' name='.P41L55'/>
+<SYMBOL id='04FA2628' name='.P41L4'/>
+<SYMBOL id='04FA2718' name='.P41L79'/>
+<SYMBOL id='04FA29E8' name='.P41L45'/>
+<SYMBOL id='04FA2998' name='.P41L72'/>
+<SYMBOL id='04FA2AD8' name='.P41L70'/>
+<SYMBOL id='04FA28F8' name='.P41L62'/>
+<SYMBOL id='04FA2218' name='.P41L64'/>
+<SYMBOL id='04FA2498' name='.P41L1'/>
+<REFERENCE symbol_id='04FA2498' symbol='.P41L1'/>
+<REFERENCE symbol_id='04FA28F8' symbol='.P41L62'/>
+<REFERENCE symbol_id='04FA2128' symbol='.s.0'/>
+<REFERENCE symbol_id='04A54CE8' symbol='isnanf.'/>
+<REFERENCE symbol_id='04FA2AD8' symbol='.P41L70'/>
+<REFERENCE symbol_id='04A54508' symbol='isinff.'/>
+<REFERENCE symbol_id='04FA2998' symbol='.P41L72'/>
+<REFERENCE symbol_id='04FA23F8' symbol='.P41L20'/>
+<REFERENCE symbol_id='04FA28A8' symbol='.P41L25'/>
+<REFERENCE symbol_id='04FA22B8' symbol='.P41L26'/>
+<REFERENCE symbol_id='04FA24E8' symbol='.P41L31'/>
+<REFERENCE symbol_id='04FA2678' symbol='.P41L32'/>
+<REFERENCE symbol_id='04FA2678' symbol='.P41L32'/>
+<REFERENCE symbol_id='04FA2678' symbol='.P41L32'/>
+<REFERENCE symbol_id='04FA2678' symbol='.P41L32'/>
+<REFERENCE symbol_id='04FA2948' symbol='_mantissa_to_hex.'/>
+<REFERENCE symbol_id='04FA29E8' symbol='.P41L45'/>
+<REFERENCE symbol_id='04FA2308' symbol='.P41L97'/>
+<REFERENCE symbol_id='04FA21C8' symbol='.P41L46_end'/>
+<REFERENCE symbol_id='04FA2718' symbol='.P41L79'/>
+<REFERENCE symbol_id='04FA2808' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA2268' symbol='.P41L52'/>
+<REFERENCE symbol_id='04FA2538' symbol='.P41L55'/>
+<REFERENCE symbol_id='04FCC668' symbol='_long_to_string.'/>
+<REFERENCE symbol_id='04FA2628' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FCA598' symbol='_do_output.'/>
+<REFERENCE symbol_id='04FA26C8' symbol='.P41L50'/>
+<REFERENCE symbol_id='04FA2858' symbol='.P41L42'/>
+<REFERENCE symbol_id='04FA2808' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA2628' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FA19F8' symbol='.sInf.34'/>
+<REFERENCE symbol_id='04FA2628' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FA2178' symbol='.sNaN.33'/>
+<REFERENCE symbol_id='04FA2218' symbol='.P41L64'/>
+<REFERENCE symbol_id='04FA25D8' symbol='.P41L69'/>
+<REFERENCE symbol_id='04FA1A48' symbol='.s.1'/>
+<REFERENCE symbol_id='04FA25D8' symbol='.P41L69'/>
+<REFERENCE symbol_id='04FA25D8' symbol='.P41L69'/>
+<REFERENCE symbol_id='04FA1FE8' symbol='.s.2'/>
+<REFERENCE symbol_id='04FA2628' symbol='.P41L4'/>
+</OBJECT>
+<OBJECT id='04BA80D0' name='(.s.0, .s.0+0x2)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2128' name='.s.0'/>
+</OBJECT>
+<OBJECT id='04BA8E70' name='(_isnanf, ._isnanf.end)' section='libc.dlb[isnanf.doj](seg_swco)'>
+<SYMBOL id='04FCC2F8' name='_isnanf'/>
+</OBJECT>
+<OBJECT id='04BA9050' name='(_isinff, ._isinff.end)' section='libc.dlb[isinff.doj](seg_pmco)'>
+<SYMBOL id='04FCC5C8' name='_isinff'/>
+</OBJECT>
+<OBJECT id='04BA82B0' name='(_mantissa_to_hex., ._mantissa_to_hex..end)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_swco)'>
+<SYMBOL id='04FA2948' name='_mantissa_to_hex.'/>
+<SYMBOL id='04FA1B88' name='.P35L5'/>
+<SYMBOL id='04FA2588' name='.P35L5_end'/>
+<SYMBOL id='04FA2448' name='.P35L6'/>
+<REFERENCE symbol_id='04FCC2A8' symbol='__hex_digits_upper.'/>
+<REFERENCE symbol_id='04FCC258' symbol='__hex_digits_lower.'/>
+<REFERENCE symbol_id='04FA2448' symbol='.P35L6'/>
+<REFERENCE symbol_id='04FA2588' symbol='.P35L5_end'/>
+</OBJECT>
+<OBJECT id='04BA9110' name='(__hex_digits_upper., __hex_digits_upper.+0x11)' section='libio.dlb[xhexdigits_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCC2A8' name='__hex_digits_upper.'/>
+</OBJECT>
+<OBJECT id='04BA8DB0' name='(__hex_digits_lower., __hex_digits_lower.+0x11)' section='libio.dlb[xhexdigits_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FCC258' name='__hex_digits_lower.'/>
+</OBJECT>
+<OBJECT id='04BA8ED0' name='(_long_to_string., ._long_to_string..end)' section='libio.dlb[xlong_to_string_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCC668' name='_long_to_string.'/>
+<SYMBOL id='04FCCB18' name='.P35L9'/>
+<SYMBOL id='04FCC708' name='.P35L3'/>
+<SYMBOL id='04FCCB68' name='.P35L1'/>
+<REFERENCE symbol_id='04FCCB68' symbol='.P35L1'/>
+<REFERENCE symbol_id='04FCC2A8' symbol='__hex_digits_upper.'/>
+<REFERENCE symbol_id='04FCC258' symbol='__hex_digits_lower.'/>
+<REFERENCE symbol_id='04FCE8C8' symbol='__divrem_s32.'/>
+<REFERENCE symbol_id='04FCCB18' symbol='.P35L9'/>
+<REFERENCE symbol_id='04FCC708' symbol='.P35L3'/>
+</OBJECT>
+<OBJECT id='04BA9570' name='(___divrem_s32, .___divrem_s32.end)' section='libcc.dlb[divrem_s32.doj](seg_pmco)'>
+<SYMBOL id='04FCE5A8' name='___divrem_s32'/>
+<SYMBOL id='04FCE148' name='___divsi3'/>
+<SYMBOL id='04FCE918' name='___sdiv'/>
+<SYMBOL id='04FCE1E8' name='___sldiv'/>
+<SYMBOL id='04FCE288' name='__div'/>
+<SYMBOL id='04FCE8C8' name='__divrem_s32.'/>
+<SYMBOL id='04FCEA58' name='__ldiv'/>
+<SYMBOL id='04FCEA08' name='_div.'/>
+<SYMBOL id='04FCE828' name='_ldiv.'/>
+</OBJECT>
+<OBJECT id='04BA8910' name='(_do_output., ._do_output..end)' section='libio.dlb[xdo_output_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCA598' name='_do_output.'/>
+<SYMBOL id='04F9D998' name='.P33L3'/>
+<SYMBOL id='04F9D7B8' name='.P33L24'/>
+<SYMBOL id='04F9D808' name='.P33L28'/>
+<SYMBOL id='04F9D9E8' name='.P33L32'/>
+<SYMBOL id='04F9DA38' name='.P33L35'/>
+<SYMBOL id='04F9DA88' name='.P33L38'/>
+<SYMBOL id='04FCA9A8' name='.P33L41'/>
+<SYMBOL id='04FCAEF8' name='.P33L44'/>
+<SYMBOL id='04FCAA48' name='.P33L47'/>
+<SYMBOL id='04FCA5E8' name='.P33L50'/>
+<SYMBOL id='04FCABD8' name='.P33L56'/>
+<SYMBOL id='04FCA548' name='.P33L9'/>
+<SYMBOL id='04F9D358' name='.P33L12'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FCABD8' symbol='.P33L56'/>
+<REFERENCE symbol_id='04F9D7B8' symbol='.P33L24'/>
+<REFERENCE symbol_id='04F9D7B8' symbol='.P33L24'/>
+<REFERENCE symbol_id='04F9D808' symbol='.P33L28'/>
+<REFERENCE symbol_id='04F9D808' symbol='.P33L28'/>
+<REFERENCE symbol_id='04FCD1A8' symbol='_pad.'/>
+<REFERENCE symbol_id='04F9D9E8' symbol='.P33L32'/>
+<REFERENCE symbol_id='04FCAC28' symbol='_put_string.'/>
+<REFERENCE symbol_id='04F9DA38' symbol='.P33L35'/>
+<REFERENCE symbol_id='04FCD1A8' symbol='_pad.'/>
+<REFERENCE symbol_id='04F9DA88' symbol='.P33L38'/>
+<REFERENCE symbol_id='04FCD1A8' symbol='_pad.'/>
+<REFERENCE symbol_id='04FCAC28' symbol='_put_string.'/>
+<REFERENCE symbol_id='04FCA9A8' symbol='.P33L41'/>
+<REFERENCE symbol_id='04FCD1A8' symbol='_pad.'/>
+<REFERENCE symbol_id='04FCAEF8' symbol='.P33L44'/>
+<REFERENCE symbol_id='04FCD1A8' symbol='_pad.'/>
+<REFERENCE symbol_id='04FCAA48' symbol='.P33L47'/>
+<REFERENCE symbol_id='04FCAC28' symbol='_put_string.'/>
+<REFERENCE symbol_id='04FCA5E8' symbol='.P33L50'/>
+<REFERENCE symbol_id='04FCA5E8' symbol='.P33L50'/>
+<REFERENCE symbol_id='04FCD1A8' symbol='_pad.'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04FCA548' symbol='.P33L9'/>
+<REFERENCE symbol_id='04F9D358' symbol='.P33L12'/>
+<REFERENCE symbol_id='04F9D998' symbol='.P33L3'/>
+<REFERENCE symbol_id='04F9D998' symbol='.P33L3'/>
+</OBJECT>
+<OBJECT id='04BA92F0' name='(_pad., ._pad..end)' section='libio.dlb[xpad_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCD1A8' name='_pad.'/>
+<SYMBOL id='04FCCE38' name='.P33L2'/>
+<SYMBOL id='04FCD5B8' name='.P33L3'/>
+<REFERENCE symbol_id='04FCD5B8' symbol='.P33L3'/>
+<REFERENCE symbol_id='04FCCE38' symbol='.P33L2'/>
+</OBJECT>
+<OBJECT id='04BA8670' name='(_put_string., ._put_string..end)' section='libio.dlb[xput_string_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCAC28' name='_put_string.'/>
+<SYMBOL id='04FCA728' name='.P33L1'/>
+<SYMBOL id='04FCA7C8' name='.P33L3'/>
+<REFERENCE symbol_id='04FCA7C8' symbol='.P33L3'/>
+<REFERENCE symbol_id='04FCA7C8' symbol='.P33L3'/>
+<REFERENCE symbol_id='04FCA728' symbol='.P33L1'/>
+</OBJECT>
+<OBJECT id='04BA80B0' name='(.sInf.34, .sInf.34+0x4)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA19F8' name='.sInf.34'/>
+</OBJECT>
+<OBJECT id='04BA8170' name='(.sNaN.33, .sNaN.33+0x4)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2178' name='.sNaN.33'/>
+</OBJECT>
+<OBJECT id='04BA8010' name='(.s.1, .s.1+0x2)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA1A48' name='.s.1'/>
+</OBJECT>
+<OBJECT id='04BA8050' name='(.s.2, .s.2+0x2)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA1FE8' name='.s.2'/>
+</OBJECT>
+<OBJECT id='04BA8250' name='(_print_float_32., ._print_float_32..end)' section='libio.dlb[xprint_float_c08_d32.doj](seg_swco)'>
+<SYMBOL id='04FA4478' name='_print_float_32.'/>
+<SYMBOL id='04FA3168' name='.P41L153'/>
+<SYMBOL id='04FA4608' name='.P41L8'/>
+<SYMBOL id='04FA3DE8' name='.P41L165'/>
+<SYMBOL id='04FA3E38' name='.P41L165_end'/>
+<SYMBOL id='04FA3A78' name='.P41L272'/>
+<SYMBOL id='04FA35C8' name='.P41L171'/>
+<SYMBOL id='04FA3898' name='.P41L172'/>
+<SYMBOL id='04FA3848' name='.P41L175'/>
+<SYMBOL id='04FA37F8' name='.P41L175_end'/>
+<SYMBOL id='04FA3AC8' name='.P41L273'/>
+<SYMBOL id='04FA3E88' name='.P41L181'/>
+<SYMBOL id='04FA38E8' name='.P41L184'/>
+<SYMBOL id='04FA3938' name='.P41L193'/>
+<SYMBOL id='04FA3B18' name='.P41L194'/>
+<SYMBOL id='04FA3C58' name='.P41L44'/>
+<SYMBOL id='04FA3F28' name='.P41L195'/>
+<SYMBOL id='04FA3668' name='.P41L47'/>
+<SYMBOL id='04FA3758' name='.P41L53'/>
+<SYMBOL id='04FA37A8' name='.P41L62'/>
+<SYMBOL id='04FA3D48' name='.P41L59'/>
+<SYMBOL id='04FA45B8' name='.P41L68'/>
+<SYMBOL id='04FA46F8' name='.P41L68_end'/>
+<SYMBOL id='04FA3988' name='.P41L202'/>
+<SYMBOL id='04FA3CA8' name='.P41L52'/>
+<SYMBOL id='04FA4108' name='.P41L76'/>
+<SYMBOL id='04FA3FC8' name='.P41L78'/>
+<SYMBOL id='04FA41A8' name='.P41L80'/>
+<SYMBOL id='04FA40B8' name='.P41L82'/>
+<SYMBOL id='04FA39D8' name='.P41L203'/>
+<SYMBOL id='04FA4018' name='.P41L79'/>
+<SYMBOL id='04FA43D8' name='.P41L71'/>
+<SYMBOL id='04FA4158' name='.P41L87'/>
+<SYMBOL id='04FA41F8' name='.P41L87_end'/>
+<SYMBOL id='04FA42E8' name='.P41L88'/>
+<SYMBOL id='04FA4338' name='.P41L94'/>
+<SYMBOL id='04FA4298' name='.P41L86'/>
+<SYMBOL id='04FA3078' name='.P41L111'/>
+<SYMBOL id='04FA2D08' name='.P41L108'/>
+<SYMBOL id='04FA4248' name='.P41L99'/>
+<SYMBOL id='04FA3348' name='.P41L118'/>
+<SYMBOL id='04FA3208' name='.P41L116'/>
+<SYMBOL id='04FA3398' name='.P41L132'/>
+<SYMBOL id='04FA3488' name='.P41L132_end'/>
+<SYMBOL id='04FA3D98' name='.P41L291'/>
+<SYMBOL id='04FA3618' name='.P41L290'/>
+<SYMBOL id='04FA2DF8' name='.P41L130'/>
+<SYMBOL id='04FA2F88' name='.P41L142'/>
+<SYMBOL id='04FA3C08' name='.P41L4'/>
+<SYMBOL id='04FA2DA8' name='.P41L129'/>
+<SYMBOL id='04FA2EE8' name='.P41L139'/>
+<SYMBOL id='04FA3438' name='.P41L135'/>
+<SYMBOL id='04FA30C8' name='.P41L120'/>
+<SYMBOL id='04FA2D58' name='.P41L115'/>
+<SYMBOL id='04FA2E98' name='.P41L122'/>
+<SYMBOL id='04FA3258' name='.P41L126'/>
+<SYMBOL id='04FA33E8' name='.P41L119'/>
+<SYMBOL id='04FA3528' name='.P41L106'/>
+<SYMBOL id='04FA4428' name='.P41L91'/>
+<SYMBOL id='04FA3CF8' name='.P41L58'/>
+<SYMBOL id='04FA3708' name='.P41L208'/>
+<SYMBOL id='04FA3F78' name='.P41L27'/>
+<SYMBOL id='04FA3B68' name='.P41L34'/>
+<SYMBOL id='04FA36B8' name='.P41L35'/>
+<SYMBOL id='04FA3BB8' name='.P41L36'/>
+<SYMBOL id='04FA3A28' name='.P41L205'/>
+<SYMBOL id='04FA3ED8' name='.P41L189'/>
+<SYMBOL id='04FA31B8' name='.P41L156'/>
+<SYMBOL id='04FA4068' name='.P41L7'/>
+<SYMBOL id='04FA34D8' name='.P41L146'/>
+<SYMBOL id='04FA3118' name='.P41L148'/>
+<SYMBOL id='04FA32F8' name='.P41L1'/>
+<REFERENCE symbol_id='04FA32F8' symbol='.P41L1'/>
+<REFERENCE symbol_id='04FA34D8' symbol='.P41L146'/>
+<REFERENCE symbol_id='04FA2B28' symbol='.s.0'/>
+<REFERENCE symbol_id='04FA4068' symbol='.P41L7'/>
+<REFERENCE symbol_id='04FA2C18' symbol='.sNaN.37'/>
+<REFERENCE symbol_id='04FA3C08' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FA31B8' symbol='.P41L156'/>
+<REFERENCE symbol_id='04FA2C68' symbol='_pvLookupTable.'/>
+<REFERENCE symbol_id='04FA2C68' symbol='_pvLookupTable.'/>
+<REFERENCE symbol_id='04FA3E38' symbol='.P41L165_end'/>
+<REFERENCE symbol_id='04FA35C8' symbol='.P41L171'/>
+<REFERENCE symbol_id='04FA3898' symbol='.P41L172'/>
+<REFERENCE symbol_id='04F805B0' symbol='__lib_fdiv.'/>
+<REFERENCE symbol_id='04FA38E8' symbol='.P41L184'/>
+<REFERENCE symbol_id='04FA37F8' symbol='.P41L175_end'/>
+<REFERENCE symbol_id='04FA3E88' symbol='.P41L181'/>
+<REFERENCE symbol_id='04FA38E8' symbol='.P41L184'/>
+<REFERENCE symbol_id='04F805B0' symbol='__lib_fdiv.'/>
+<REFERENCE symbol_id='04FA3ED8' symbol='.P41L189'/>
+<REFERENCE symbol_id='04FA3A28' symbol='.P41L205'/>
+<REFERENCE symbol_id='04FA3F78' symbol='.P41L27'/>
+<REFERENCE symbol_id='04FA3708' symbol='.P41L208'/>
+<REFERENCE symbol_id='04FA3C58' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA3F78' symbol='.P41L27'/>
+<REFERENCE symbol_id='04FA3F28' symbol='.P41L195'/>
+<REFERENCE symbol_id='04FA3668' symbol='.P41L47'/>
+<REFERENCE symbol_id='04FA3CA8' symbol='.P41L52'/>
+<REFERENCE symbol_id='04FA3028' symbol='_pwr10.'/>
+<REFERENCE symbol_id='04FA3CF8' symbol='.P41L58'/>
+<REFERENCE symbol_id='04FA37A8' symbol='.P41L62'/>
+<REFERENCE symbol_id='04FCC618' symbol='___divsf3'/>
+<REFERENCE symbol_id='04FA3988' symbol='.P41L202'/>
+<REFERENCE symbol_id='04FA46F8' symbol='.P41L68_end'/>
+<REFERENCE symbol_id='04FA3758' symbol='.P41L53'/>
+<REFERENCE symbol_id='04FA43D8' symbol='.P41L71'/>
+<REFERENCE symbol_id='04FA3FC8' symbol='.P41L78'/>
+<REFERENCE symbol_id='04FA4108' symbol='.P41L76'/>
+<REFERENCE symbol_id='04FA3FC8' symbol='.P41L78'/>
+<REFERENCE symbol_id='04FA4018' symbol='.P41L79'/>
+<REFERENCE symbol_id='04FA40B8' symbol='.P41L82'/>
+<REFERENCE symbol_id='04FA39D8' symbol='.P41L203'/>
+<REFERENCE symbol_id='04FA41A8' symbol='.P41L80'/>
+<REFERENCE symbol_id='04FA4298' symbol='.P41L86'/>
+<REFERENCE symbol_id='04FA42E8' symbol='.P41L88'/>
+<REFERENCE symbol_id='04FA41F8' symbol='.P41L87_end'/>
+<REFERENCE symbol_id='04FA42E8' symbol='.P41L88'/>
+<REFERENCE symbol_id='04FA4338' symbol='.P41L94'/>
+<REFERENCE symbol_id='04FA4428' symbol='.P41L91'/>
+<REFERENCE symbol_id='04FA4428' symbol='.P41L91'/>
+<REFERENCE symbol_id='04FA4248' symbol='.P41L99'/>
+<REFERENCE symbol_id='04FA3528' symbol='.P41L106'/>
+<REFERENCE symbol_id='04FA2D08' symbol='.P41L108'/>
+<REFERENCE symbol_id='04FA3078' symbol='.P41L111'/>
+<REFERENCE symbol_id='04FA33E8' symbol='.P41L119'/>
+<REFERENCE symbol_id='04FA30C8' symbol='.P41L120'/>
+<REFERENCE symbol_id='04FA2DA8' symbol='.P41L129'/>
+<REFERENCE symbol_id='04FA2DA8' symbol='.P41L129'/>
+<REFERENCE symbol_id='04FA3618' symbol='.P41L290'/>
+<REFERENCE symbol_id='04FA3488' symbol='.P41L132_end'/>
+<REFERENCE symbol_id='04FA2F88' symbol='.P41L142'/>
+<REFERENCE symbol_id='04FCA598' symbol='_do_output.'/>
+<REFERENCE symbol_id='04FA3438' symbol='.P41L135'/>
+<REFERENCE symbol_id='04FA2EE8' symbol='.P41L139'/>
+<REFERENCE symbol_id='04FA2DF8' symbol='.P41L130'/>
+<REFERENCE symbol_id='04FA2DF8' symbol='.P41L130'/>
+<REFERENCE symbol_id='04FA3208' symbol='.P41L116'/>
+<REFERENCE symbol_id='04FA2E98' symbol='.P41L122'/>
+<REFERENCE symbol_id='04FA3C08' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FA2BC8' symbol='.s0.39'/>
+<REFERENCE symbol_id='04FA3258' symbol='.P41L126'/>
+<REFERENCE symbol_id='04FA3C08' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FA3348' symbol='.P41L118'/>
+<REFERENCE symbol_id='04FA2D58' symbol='.P41L115'/>
+<REFERENCE symbol_id='04FA2D08' symbol='.P41L108'/>
+<REFERENCE symbol_id='04FA3C08' symbol='.P41L4'/>
+<REFERENCE symbol_id='04FA2BC8' symbol='.s0.39'/>
+<REFERENCE symbol_id='04FA3D48' symbol='.P41L59'/>
+<REFERENCE symbol_id='04FA3C58' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA3B68' symbol='.P41L34'/>
+<REFERENCE symbol_id='04FA36B8' symbol='.P41L35'/>
+<REFERENCE symbol_id='04FA3BB8' symbol='.P41L36'/>
+<REFERENCE symbol_id='04FA3C58' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA3C58' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA3C58' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA3C58' symbol='.P41L44'/>
+<REFERENCE symbol_id='04FA3938' symbol='.P41L193'/>
+<REFERENCE symbol_id='04FA3938' symbol='.P41L193'/>
+<REFERENCE symbol_id='04FA3B18' symbol='.P41L194'/>
+<REFERENCE symbol_id='04FA4608' symbol='.P41L8'/>
+<REFERENCE symbol_id='04FA2E48' symbol='.sInf.38'/>
+<REFERENCE symbol_id='04FA4608' symbol='.P41L8'/>
+<REFERENCE symbol_id='04FA3118' symbol='.P41L148'/>
+<REFERENCE symbol_id='04FA3168' symbol='.P41L153'/>
+<REFERENCE symbol_id='04FA2B78' symbol='.s.1'/>
+<REFERENCE symbol_id='04FA3168' symbol='.P41L153'/>
+<REFERENCE symbol_id='04FA3168' symbol='.P41L153'/>
+<REFERENCE symbol_id='04FA3578' symbol='.s.2'/>
+<REFERENCE symbol_id='04FA3C08' symbol='.P41L4'/>
+</OBJECT>
+<OBJECT id='04BA81B0' name='(.s.0, .s.0+0x2)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2B28' name='.s.0'/>
+</OBJECT>
+<OBJECT id='04BA8470' name='(.sNaN.37, .sNaN.37+0x4)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2C18' name='.sNaN.37'/>
+</OBJECT>
+<OBJECT id='04BA82F0' name='(_pvLookupTable., _pvLookupTable.+0x18)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2C68' name='_pvLookupTable.'/>
+</OBJECT>
+<OBJECT id='04BA8210' name='(_pwr10., _pwr10.+0x28)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA3028' name='_pwr10.'/>
+</OBJECT>
+<OBJECT id='04BA8FD0' name='(___divsf3, .___divsf3.end)' section='libcc.dlb[flt_sprt.doj](seg_pmco)'>
+<SYMBOL id='04FCC618' name='___divsf3'/>
+<SYMBOL id='04FCC348' name='___fdiv'/>
+<SYMBOL id='04FCCCA8' name='restore_state'/>
+<REFERENCE symbol_id='04FCE5F8' symbol='___float_divide'/>
+</OBJECT>
+<OBJECT id='04BA9690' name='(___float_divide, .___float_divide.end)' section='libcc.dlb[float_divide.doj](seg_pmco)'>
+<SYMBOL id='04FCE5F8' name='___float_divide'/>
+</OBJECT>
+<OBJECT id='04BA8230' name='(.s0.39, .s0.39+0x2)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2BC8' name='.s0.39'/>
+</OBJECT>
+<OBJECT id='04BA83F0' name='(.sInf.38, .sInf.38+0x4)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2E48' name='.sInf.38'/>
+</OBJECT>
+<OBJECT id='04BA84B0' name='(.s.1, .s.1+0x2)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA2B78' name='.s.1'/>
+</OBJECT>
+<OBJECT id='04BA8450' name='(.s.2, .s.2+0x2)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+<SYMBOL id='04FA3578' name='.s.2'/>
+</OBJECT>
+<OBJECT id='04BA8690' name='(_print_fixed., ._print_fixed..end)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F9DB78' name='_print_fixed.'/>
+<SYMBOL id='04F9CCC8' name='.P39L4'/>
+<SYMBOL id='04F9C9F8' name='.P39L5'/>
+<SYMBOL id='04F9CBD8' name='.P39L7'/>
+<SYMBOL id='04F9CE08' name='.P39L27'/>
+<SYMBOL id='04F9D128' name='.P39L106'/>
+<SYMBOL id='04F9D178' name='.P39L36'/>
+<SYMBOL id='04F9CB38' name='.P39L50'/>
+<SYMBOL id='04F9CD18' name='.P39L66'/>
+<SYMBOL id='04F9D038' name='.P39L76'/>
+<SYMBOL id='04F9D6C8' name='.P39L82'/>
+<SYMBOL id='04F9D448' name='.P39L88'/>
+<SYMBOL id='04F9D0D8' name='.P39L81'/>
+<SYMBOL id='04F9D3F8' name='.P39L84'/>
+<SYMBOL id='04F9D8A8' name='.P39L85'/>
+<SYMBOL id='04F9CAE8' name='.P39L69'/>
+<SYMBOL id='04F9C9A8' name='.P39L49'/>
+<SYMBOL id='04F9CA48' name='.P39L52'/>
+<SYMBOL id='04F9CF48' name='.P39L53'/>
+<SYMBOL id='04F9CA98' name='.P39L56'/>
+<SYMBOL id='04F9D1C8' name='.P39L99'/>
+<SYMBOL id='04F9C958' name='.P39L101'/>
+<SYMBOL id='04F9CD68' name='.P39L107'/>
+<SYMBOL id='04F9CEF8' name='.P39L117'/>
+<SYMBOL id='04F9CDB8' name='.P39L110'/>
+<SYMBOL id='04F9CC28' name='.P39L112'/>
+<SYMBOL id='04F9CEA8' name='.P39L26'/>
+<SYMBOL id='04F9CC78' name='.P39L29'/>
+<SYMBOL id='04F9D088' name='.P39L8'/>
+<REFERENCE symbol_id='04F9CCC8' symbol='.P39L4'/>
+<REFERENCE symbol_id='04F9D088' symbol='.P39L8'/>
+<REFERENCE symbol_id='04F9CBD8' symbol='.P39L7'/>
+<REFERENCE symbol_id='04F9CBD8' symbol='.P39L7'/>
+<REFERENCE symbol_id='04F9CEA8' symbol='.P39L26'/>
+<REFERENCE symbol_id='04F9D178' symbol='.P39L36'/>
+<REFERENCE symbol_id='04F9CD68' symbol='.P39L107'/>
+<REFERENCE symbol_id='04F9D1C8' symbol='.P39L99'/>
+<REFERENCE symbol_id='04FA46A8' symbol='.s.0'/>
+<REFERENCE symbol_id='04F9D178' symbol='.P39L36'/>
+<REFERENCE symbol_id='04F9D178' symbol='.P39L36'/>
+<REFERENCE symbol_id='04F9C9A8' symbol='.P39L49'/>
+<REFERENCE symbol_id='04F9CD18' symbol='.P39L66'/>
+<REFERENCE symbol_id='04F9CD18' symbol='.P39L66'/>
+<REFERENCE symbol_id='04F9CAE8' symbol='.P39L69'/>
+<REFERENCE symbol_id='04F9CB88' symbol='.s0x.3'/>
+<REFERENCE symbol_id='04F9D038' symbol='.P39L76'/>
+<REFERENCE symbol_id='04FCA778' symbol='strlen.'/>
+<REFERENCE symbol_id='04F9D0D8' symbol='.P39L81'/>
+<REFERENCE symbol_id='04F9C908' symbol='.s.5'/>
+<REFERENCE symbol_id='04F9D448' symbol='.P39L88'/>
+<REFERENCE symbol_id='04F9D448' symbol='.P39L88'/>
+<REFERENCE symbol_id='04F9D448' symbol='.P39L88'/>
+<REFERENCE symbol_id='04F9D448' symbol='.P39L88'/>
+<REFERENCE symbol_id='04FCA598' symbol='_do_output.'/>
+<REFERENCE symbol_id='04F9D3F8' symbol='.P39L84'/>
+<REFERENCE symbol_id='04FCCED8' symbol='_long_long_to_string.'/>
+<REFERENCE symbol_id='04F9D8A8' symbol='.P39L85'/>
+<REFERENCE symbol_id='04FCC668' symbol='_long_to_string.'/>
+<REFERENCE symbol_id='04F9D6C8' symbol='.P39L82'/>
+<REFERENCE symbol_id='04F9CD18' symbol='.P39L66'/>
+<REFERENCE symbol_id='04F9CD18' symbol='.P39L66'/>
+<REFERENCE symbol_id='04F9CFE8' symbol='.s0X.4'/>
+<REFERENCE symbol_id='04F9CA48' symbol='.P39L52'/>
+<REFERENCE symbol_id='04F9CF48' symbol='.P39L53'/>
+<REFERENCE symbol_id='04F9CA98' symbol='.P39L56'/>
+<REFERENCE symbol_id='04F9CA98' symbol='.P39L56'/>
+<REFERENCE symbol_id='04F9CA98' symbol='.P39L56'/>
+<REFERENCE symbol_id='04F9CB38' symbol='.P39L50'/>
+<REFERENCE symbol_id='04F9CB38' symbol='.P39L50'/>
+<REFERENCE symbol_id='04F9C958' symbol='.P39L101'/>
+<REFERENCE symbol_id='04F9D128' symbol='.P39L106'/>
+<REFERENCE symbol_id='04FA4518' symbol='.s.1'/>
+<REFERENCE symbol_id='04F9D128' symbol='.P39L106'/>
+<REFERENCE symbol_id='04F9D128' symbol='.P39L106'/>
+<REFERENCE symbol_id='04FA4568' symbol='.s.2'/>
+<REFERENCE symbol_id='04F9CDB8' symbol='.P39L110'/>
+<REFERENCE symbol_id='04FA46A8' symbol='.s.0'/>
+<REFERENCE symbol_id='04F9D178' symbol='.P39L36'/>
+<REFERENCE symbol_id='04F9D178' symbol='.P39L36'/>
+<REFERENCE symbol_id='04F9CC28' symbol='.P39L112'/>
+<REFERENCE symbol_id='04F9CEF8' symbol='.P39L117'/>
+<REFERENCE symbol_id='04FA4518' symbol='.s.1'/>
+<REFERENCE symbol_id='04F9CEF8' symbol='.P39L117'/>
+<REFERENCE symbol_id='04F9CEF8' symbol='.P39L117'/>
+<REFERENCE symbol_id='04FA4568' symbol='.s.2'/>
+<REFERENCE symbol_id='04F9CC78' symbol='.P39L29'/>
+<REFERENCE symbol_id='04F9CE08' symbol='.P39L27'/>
+<REFERENCE symbol_id='04F9CE08' symbol='.P39L27'/>
+<REFERENCE symbol_id='04F9CBD8' symbol='.P39L7'/>
+<REFERENCE symbol_id='04F9C9F8' symbol='.P39L5'/>
+</OBJECT>
+<OBJECT id='04BA8490' name='(.s.0, .s.0+0x2)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FA46A8' name='.s.0'/>
+</OBJECT>
+<OBJECT id='04BA86F0' name='(.s0x.3, .s0x.3+0x3)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F9CB88' name='.s0x.3'/>
+</OBJECT>
+<OBJECT id='04BA8770' name='(.s.5, .s.5+0x1)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F9C908' name='.s.5'/>
+</OBJECT>
+<OBJECT id='04BA9270' name='(_long_long_to_string., ._long_long_to_string..end)' section='libio.dlb[xlonglong_to_string_c08_any.doj](seg_swco)'>
+<SYMBOL id='04FCCED8' name='_long_long_to_string.'/>
+<SYMBOL id='04FCD068' name='.P35L9'/>
+<SYMBOL id='04FCCDE8' name='.P35L3'/>
+<SYMBOL id='04FCCD98' name='.P35L1'/>
+<REFERENCE symbol_id='04FCCD98' symbol='.P35L1'/>
+<REFERENCE symbol_id='04FCC2A8' symbol='__hex_digits_upper.'/>
+<REFERENCE symbol_id='04FCC258' symbol='__hex_digits_lower.'/>
+<REFERENCE symbol_id='04FCE418' symbol='__divrem_s64.'/>
+<REFERENCE symbol_id='04FCD068' symbol='.P35L9'/>
+<REFERENCE symbol_id='04FCCDE8' symbol='.P35L3'/>
+</OBJECT>
+<OBJECT id='04BA9750' name='(__divrem_s64., .__divrem_s64..end)' section='libcc.dlb[divrem_s64_char8_ba.doj](seg_pmco)'>
+<SYMBOL id='04FCE418' name='__divrem_s64.'/>
+<SYMBOL id='04FCE3C8' name='___ADI_AGL_CRT_SW_BRANCHRETURN_1047'/>
+<REFERENCE symbol_id='04FCF1D8' symbol='__divrem_u64.'/>
+<REFERENCE symbol_id='04FCE3C8' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_1047'/>
+</OBJECT>
+<OBJECT id='04BA9A90' name='(__divrem_u64., .__divrem_u64..end)' section='libcc.dlb[divrem_u64_char8_ba.doj](seg_pmco)'>
+<SYMBOL id='04FCF1D8' name='__divrem_u64.'/>
+<SYMBOL id='04FCF318' name='.div_64_31'/>
+<SYMBOL id='04FCF098' name='.div_64_31_loop'/>
+<SYMBOL id='04FCEE68' name='.div_64_64'/>
+<SYMBOL id='04FCEEB8' name='.div_64_63'/>
+<SYMBOL id='04FCF408' name='.div_64_63_loop'/>
+<SYMBOL id='04FCEBE8' name='.quo_1'/>
+<SYMBOL id='04FCEF08' name='.div_32_32'/>
+<SYMBOL id='04FCF4A8' name='___ADI_AGL_CRT_SW_BRANCHRETURN_1225'/>
+<REFERENCE symbol_id='04FCEE68' symbol='.div_64_64'/>
+<REFERENCE symbol_id='04FCEF08' symbol='.div_32_32'/>
+<REFERENCE symbol_id='04FCF098' symbol='.div_64_31_loop'/>
+<REFERENCE symbol_id='04FCEBE8' symbol='.quo_1'/>
+<REFERENCE symbol_id='04FCF408' symbol='.div_64_63_loop'/>
+<REFERENCE symbol_id='04FD0CB8' symbol='__divrem_u32.'/>
+<REFERENCE symbol_id='04FCF4A8' symbol='___ADI_AGL_CRT_SW_BRANCHRETURN_1225'/>
+</OBJECT>
+<OBJECT id='04BA9E70' name='(___divrem_u32, .___divrem_u32.end)' section='libcc.dlb[divrem_u32.doj](seg_pmco)'>
+<SYMBOL id='04FD0F88' name='___divrem_u32'/>
+<SYMBOL id='04FD0AD8' name='___udiv'/>
+<SYMBOL id='04FD0D08' name='___udivsi3'/>
+<SYMBOL id='04FD12A8' name='___uldiv'/>
+<SYMBOL id='04FD0CB8' name='__divrem_u32.'/>
+</OBJECT>
+<OBJECT id='04BA8590' name='(.s0X.4, .s0X.4+0x3)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04F9CFE8' name='.s0X.4'/>
+</OBJECT>
+<OBJECT id='04BA8390' name='(.s.1, .s.1+0x2)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FA4518' name='.s.1'/>
+</OBJECT>
+<OBJECT id='04BA83D0' name='(.s.2, .s.2+0x2)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+<SYMBOL id='04FA4568' name='.s.2'/>
+</OBJECT>
+<OBJECT id='04BA59D0' name='(calculateRMS., .calculateRMS..end)' section='D:\CCES_Porting_Training\Build_CCES\CCES_Porting_Library\Debug\CCES_Porting_Library.dlb[CCES_Porting_Library.doj](seg_lib_code_l3)'>
+<SYMBOL id='04F46560' name='calculateRMS.'/>
+<SYMBOL id='04F45980' name='.P36L25'/>
+<SYMBOL id='04F459D0' name='.P36L25_end'/>
+<SYMBOL id='04F45F70' name='.P36L23'/>
+<SYMBOL id='04F45C00' name='.P36L21'/>
+<SYMBOL id='04F45890' name='.P36L9'/>
+<SYMBOL id='04F46010' name='.P36L7'/>
+<SYMBOL id='04F45F20' name='.P36L3'/>
+<REFERENCE symbol_id='04F45F20' symbol='.P36L3'/>
+<REFERENCE symbol_id='04F45890' symbol='.P36L9'/>
+<REFERENCE symbol_id='04F45C00' symbol='.P36L21'/>
+<REFERENCE symbol_id='04F45F70' symbol='.P36L23'/>
+<REFERENCE symbol_id='04F459D0' symbol='.P36L25_end'/>
+<REFERENCE symbol_id='04F46010' symbol='.P36L7'/>
+<REFERENCE symbol_id='04F805B0' symbol='__lib_fdiv.'/>
+<REFERENCE symbol_id='04F802E0' symbol='sqrtf.'/>
+</OBJECT>
+<OBJECT id='04BA6FF0' name='(sqrtf., .sqrtf..end)' section='libc.dlb[sqrtf_ba.doj](seg_pmco)'>
+<SYMBOL id='04F802E0' name='sqrtf.'/>
+<SYMBOL id='04F80240' name='.sqrtf_special'/>
+<REFERENCE symbol_id='04F80240' symbol='.sqrtf_special'/>
+<REFERENCE symbol_id='04F80240' symbol='.sqrtf_special'/>
+</OBJECT>
+<OBJECT id='04BA5410' name='(.sRMSf.1, .sRMSf.1+0x9)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+<SYMBOL id='04B64BC0' name='.sRMSf.1'/>
+</OBJECT>
+<OBJECT id='04BA5C30' name='(calculateVariance., .calculateVariance..end)' section='D:\CCES_Porting_Training\Build_CCES\CCES_Porting_Library\Debug\CCES_Porting_Library.dlb[CCES_Porting_Library.doj](seg_lib_code_l3)'>
+<SYMBOL id='04F46A10' name='calculateVariance.'/>
+<SYMBOL id='04F45660' name='.P38L23'/>
+<SYMBOL id='04F45CF0' name='.P38L23_end'/>
+<SYMBOL id='04F45B60' name='.P38L21'/>
+<SYMBOL id='04F457A0' name='.P38L9'/>
+<SYMBOL id='04F45A20' name='.P38L7'/>
+<SYMBOL id='04F45E30' name='.P38L3'/>
+<REFERENCE symbol_id='04F45DE0' symbol='calculateMean.'/>
+<REFERENCE symbol_id='04F45E30' symbol='.P38L3'/>
+<REFERENCE symbol_id='04F457A0' symbol='.P38L9'/>
+<REFERENCE symbol_id='04F45B60' symbol='.P38L21'/>
+<REFERENCE symbol_id='04F45CF0' symbol='.P38L23_end'/>
+<REFERENCE symbol_id='04F45A20' symbol='.P38L7'/>
+<REFERENCE symbol_id='04F805B0' symbol='__lib_fdiv.'/>
+</OBJECT>
+<OBJECT id='04BA5210' name='(.sVarian.2, .sVarian.2+0xe)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+<SYMBOL id='04B64800' name='.sVarian.2'/>
+</OBJECT>
+<OBJECT id='04BA5990' name='(calculateStandardDeviation., .calculateStandardDeviation..end)' section='D:\CCES_Porting_Training\Build_CCES\CCES_Porting_Library\Debug\CCES_Porting_Library.dlb[CCES_Porting_Library.doj](seg_lib_code_l3)'>
+<SYMBOL id='04F46100' name='calculateStandardDeviation.'/>
+<REFERENCE symbol_id='04F46A10' symbol='calculateVariance.'/>
+<REFERENCE symbol_id='04F802E0' symbol='sqrtf.'/>
+</OBJECT>
+<OBJECT id='04BA52F0' name='(.sStanda.3, .sStanda.3+0x18)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+<SYMBOL id='04B64620' name='.sStanda.3'/>
+</OBJECT>
+<OBJECT id='04BA59F0' name='(exit., .exit..end)' section='libc.dlb[exit_ba.doj](seg_swco)'>
+<SYMBOL id='04F46740' name='exit.'/>
+<SYMBOL id='04F465B0' name='.P34L2'/>
+<SYMBOL id='04F46920' name='.P34L6'/>
+<REFERENCE symbol_id='04F82CC0' symbol='__sys_atexit_funcs.'/>
+<REFERENCE symbol_id='04F46920' symbol='.P34L6'/>
+<REFERENCE symbol_id='04F465B0' symbol='.P34L2'/>
+<REFERENCE symbol_id='04F829A0' symbol='__Exit'/>
+</OBJECT>
+<OBJECT id='04BA7390' name='(__sys_atexit_funcs., __sys_atexit_funcs.+0x14)' section='libc.dlb[xatexit_ba.doj](seg_dmda)'>
+<SYMBOL id='04F82CC0' name='__sys_atexit_funcs.'/>
+</OBJECT>
+<OBJECT id='04BA74D0' name='(__Exit, .__Exit.end)' section='libc.dlb[xexit.doj](seg_swco)'>
+<SYMBOL id='04F829A0' name='__Exit'/>
+<REFERENCE symbol_id='04FCB7B8' symbol='__exit_value'/>
+<REFERENCE symbol_id='04B64440' symbol='___lib_prog_term'/>
+</OBJECT>
+<OBJECT id='04BA88B0' name='(__exit_value, __exit_value+0x1)' section='libc.dlb[exit_value.doj](seg_dmda)'>
+<SYMBOL id='04FCB7B8' name='__exit_value'/>
+</OBJECT>
+<OBJECT id='04BA4DB0' name='(___lib_prog_term, .___lib_prog_term.end)' section='app_startup.doj(seg_pmco)'>
+<SYMBOL id='04B64440' name='___lib_prog_term'/>
+<SYMBOL id='04B64030' name='.lib_prog_term_loop'/>
+<REFERENCE symbol_id='04B64030' symbol='.lib_prog_term_loop'/>
+</OBJECT>
+<OBJECT id='04BA5350' name='(___interrupt_table, .___interrupt_table.end)' section='system\startup_ldf\app_IVT.doj(iv_code)'>
+<SYMBOL id='04B61CE0' name='___int_EMUI'/>
+<SYMBOL id='04B61D80' name='___interrupt_table'/>
+<SYMBOL id='04B62140' name='___int_jump_RSTI'/>
+<SYMBOL id='04B622D0' name='___int_jump_PARI'/>
+<SYMBOL id='04B62190' name='___int_jump_ILOPI'/>
+<SYMBOL id='04B62550' name='___int_CB7I'/>
+<SYMBOL id='04B62500' name='___int_IICDI'/>
+<SYMBOL id='04B620A0' name='___int_SOVFI'/>
+<SYMBOL id='04B61D30' name='___int_ILADI'/>
+<SYMBOL id='04B62370' name='___int_TMZHI'/>
+<SYMBOL id='04B61650' name='___int_BKPI'/>
+<SYMBOL id='04B625A0' name='___int_FIRI'/>
+<SYMBOL id='04B61EC0' name='___int_IIRI'/>
+<SYMBOL id='04B62320' name='___int_SEC'/>
+<SYMBOL id='04B61C40' name='___int_RINSEQI'/>
+<SYMBOL id='04B625F0' name='___int_CB15I'/>
+<SYMBOL id='04B623C0' name='___int_TMZLI'/>
+<SYMBOL id='04B624B0' name='___int_FIXI'/>
+<SYMBOL id='04B620F0' name='___int_FLTOI'/>
+<SYMBOL id='04B62230' name='___int_FLTUI'/>
+<SYMBOL id='04B61F60' name='___int_FLTII'/>
+<SYMBOL id='04B61FB0' name='___int_EMULI'/>
+<SYMBOL id='04B61F10' name='___int_SFT0I'/>
+<SYMBOL id='04B62280' name='___int_SFT1I'/>
+<SYMBOL id='04B62000' name='___int_SFT2I'/>
+<SYMBOL id='04B61C90' name='___int_SFT3I'/>
+<REFERENCE symbol_id='04F52020' symbol='_adi_bad_reset_detected'/>
+<REFERENCE symbol_id='04B64CB0' symbol='start'/>
+<REFERENCE symbol_id='04F525C0' symbol='_adi_parity_error_detected'/>
+<REFERENCE symbol_id='04F52750' symbol='_adi_ilop_detected'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F52C00' symbol='__dispatcher_SEC'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+<REFERENCE symbol_id='04F531A0' symbol='__dispatcher'/>
+</OBJECT>
+<OBJECT id='04BA6250' name='(_adi_bad_reset_detected, ._adi_bad_reset_detected.end)' section='libc.dlb[adi_bad_reset_detected.doj](seg_pmco)'>
+<SYMBOL id='04F52020' name='_adi_bad_reset_detected'/>
+<REFERENCE symbol_id='04F80150' symbol='_adi_fatal_error_general_code'/>
+<REFERENCE symbol_id='04F80510' symbol='_adi_fatal_error_specific_code'/>
+<REFERENCE symbol_id='04F806A0' symbol='_adi_fatal_error_value'/>
+<REFERENCE symbol_id='04F80970' symbol='_adi_fatal_error_pc'/>
+<REFERENCE symbol_id='04F80880' symbol='__fatal_error'/>
+</OBJECT>
+<OBJECT id='04BA61D0' name='(_adi_parity_error_detected, ._adi_parity_error_detected.end)' section='libc.dlb[adi_parity_error_detected.doj](seg_pmco)'>
+<SYMBOL id='04F525C0' name='_adi_parity_error_detected'/>
+<REFERENCE symbol_id='04F80150' symbol='_adi_fatal_error_general_code'/>
+<REFERENCE symbol_id='04F80510' symbol='_adi_fatal_error_specific_code'/>
+<REFERENCE symbol_id='04F806A0' symbol='_adi_fatal_error_value'/>
+<REFERENCE symbol_id='04F80970' symbol='_adi_fatal_error_pc'/>
+<REFERENCE symbol_id='04F80880' symbol='__fatal_error'/>
+</OBJECT>
+<OBJECT id='04BA63D0' name='(_adi_ilop_detected, ._adi_ilop_detected.end)' section='libc.dlb[adi_ilop_detected.doj](seg_pmco)'>
+<SYMBOL id='04F52750' name='_adi_ilop_detected'/>
+<REFERENCE symbol_id='04F80150' symbol='_adi_fatal_error_general_code'/>
+<REFERENCE symbol_id='04F80510' symbol='_adi_fatal_error_specific_code'/>
+<REFERENCE symbol_id='04F806A0' symbol='_adi_fatal_error_value'/>
+<REFERENCE symbol_id='04F80970' symbol='_adi_fatal_error_pc'/>
+<REFERENCE symbol_id='04F80880' symbol='__fatal_error'/>
+</OBJECT>
+<OBJECT id='04BA6370' name='(__dispatcher, .__dispatcher.end)' section='libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)'>
+<SYMBOL id='04F531A0' name='__dispatcher'/>
+<REFERENCE symbol_id='04F527A0' symbol='__DispatcherSaveI7'/>
+<REFERENCE symbol_id='04F52AC0' symbol='__DispatcherSavePX'/>
+<REFERENCE symbol_id='04F53100' symbol='__DispatcherSaveIID'/>
+<REFERENCE symbol_id='04F526B0' symbol='__DispatcherSaveB7'/>
+<REFERENCE symbol_id='04F53100' symbol='__DispatcherSaveIID'/>
+<REFERENCE symbol_id='04F52AC0' symbol='__DispatcherSavePX'/>
+<REFERENCE symbol_id='04F52890' symbol='__dispatcher_rtn'/>
+<REFERENCE symbol_id='04F52CF0' symbol='_dispatcher_table.'/>
+<REFERENCE symbol_id='04F526B0' symbol='__DispatcherSaveB7'/>
+</OBJECT>
+<OBJECT id='04BA6910' name='(__DispatcherSaves, .__DispatcherSaves.end)' section='libc.dlb[int_dispatcher_215XX_ba.doj](seg_dmda)'>
+<SYMBOL id='04F52AC0' name='__DispatcherSavePX'/>
+<SYMBOL id='04F52980' name='__DispatcherSaves'/>
+<SYMBOL id='04F526B0' name='__DispatcherSaveB7'/>
+<SYMBOL id='04F527A0' name='__DispatcherSaveI7'/>
+<SYMBOL id='04F53100' name='__DispatcherSaveIID'/>
+</OBJECT>
+<OBJECT id='04BA6390' name='(__dispatcher_SEC_rtn, .__dispatcher_SEC_rtn.end)' section='libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)'>
+<SYMBOL id='04F52ED0' name='__dispatcher_SEC_rtn'/>
+<SYMBOL id='04F52890' name='__dispatcher_rtn'/>
+</OBJECT>
+<OBJECT id='04BA6130' name='(__dispatcher_SEC, .__dispatcher_SEC.end)' section='libc.dlb[int_dispatcher_215XX_ba.doj](seg_pmco)'>
+<SYMBOL id='04F52C00' name='__dispatcher_SEC'/>
+<REFERENCE symbol_id='04F527A0' symbol='__DispatcherSaveI7'/>
+<REFERENCE symbol_id='04F52AC0' symbol='__DispatcherSavePX'/>
+<REFERENCE symbol_id='04F526B0' symbol='__DispatcherSaveB7'/>
+<REFERENCE symbol_id='04F52AC0' symbol='__DispatcherSavePX'/>
+<REFERENCE symbol_id='04F7D0E0' symbol='__sys_int_mapping_table.'/>
+<REFERENCE symbol_id='04F52ED0' symbol='__dispatcher_SEC_rtn'/>
+<REFERENCE symbol_id='04F52CF0' symbol='_dispatcher_table.'/>
+<REFERENCE symbol_id='04F526B0' symbol='__DispatcherSaveB7'/>
+</OBJECT>
+<SECTION id='04C236C0' name='system\startup_ldf\app_heaptab.doj(seg_swco)'>
+</SECTION>
+<SECTION id='04C23EE8' name='libc.dlb[set_c.doj](seg_ctdml_bw)'>
+<SYMBOL id='04F43F40' name='__ctor_NULL_marker.'/>
+</SECTION>
+<SECTION id='04C24AB8' name='D:\CCES_Porting_Training\Build_CCES\CCES_Porting_Library\Debug\CCES_Porting_Library.dlb[CCES_Porting_Library.doj](seg_swco)'>
+</SECTION>
+<SECTION id='04C243F8' name='libio.dlb[printf_c08_d32.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04C246C8' name='libc.dlb[exit_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04C24D40' name='libc.dlb[lib_set_cache_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04C25A30' name='libio.dlb[fflush_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04C25F88' name='libc.dlb[xexit.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04C266D8' name='libc.dlb[heap_install_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04C26570' name='libc.dlb[heap_malloc_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA6DD0' name='libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_swco)'>
+</SECTION>
+<SECTION id='04FA7208' name='libio.dlb[dev_write_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA7AC0' name='libc.dlb[heap_lookup_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA7B08' name='libc.dlb[free_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA7B50' name='libc.dlb[malloc_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA8180' name='libio.dlb[xlong_to_string_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA8768' name='libio.dlb[xlonglong_to_string_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA8918' name='libc.dlb[heap_find_block_ba.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA90B0' name='libio.dlb[primiolibtab_c08_any.doj](seg_swco)'>
+</SECTION>
+<SECTION id='04FA8F90' name='libio.dlb[xprim_open_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA8FD8' name='libio.dlb[xprim_close_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA9410' name='libio.dlb[xprim_write2_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA9608' name='libio.dlb[xprim_read_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA9E30' name='libio.dlb[xprim_seek_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA99F8' name='libio.dlb[xprim_remove_c08_any.doj](seg_dmda)'>
+</SECTION>
+<SECTION id='04FA95C0' name='libio.dlb[xprim_rename_c08_any.doj](seg_dmda)'>
+</SECTION>
+</LINKPROJECT>
+<LINKPROJECT_UNNEEDED_OBJECTS project_id='00F79F70' importer_id='00F79F70'>
+<OBJECT id='04BA5010' name='(__eh_gdt., __eh_gdt.+0x4)' section='app_startup.doj(.gdt)'>
+<SYMBOL id='04B63400' name='__eh_gdt.'/>
+</OBJECT>
+<OBJECT id='04BA5030' name='(___eh_gdt, ___eh_gdt+0x1)' section='app_startup.doj(.gdt32)'>
+<SYMBOL id='04B63450' name='___eh_gdt'/>
+</OBJECT>
+<OBJECT id='04BA5290' name='(0x14,0x18)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA51B0' name='(0x22,0x28)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA5490' name='(0x31,0x38)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA51F0' name='(0x46,0x48)' section='src\CCES_Porting_Kernel.doj(seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA5250' name='(adi_initComponents., .adi_initComponents..end)' section='system\adi_initialize.doj(seg_swco)'>
+<SYMBOL id='04B613D0' name='adi_initComponents.'/>
+<SYMBOL id='04B619C0' name='.P33L3'/>
+<SYMBOL id='04B61790' name='.P33L4'/>
+<SYMBOL id='04B61970' name='.P33L1'/>
+<REFERENCE symbol_id='04F52160' symbol='adi_sec_Init.'/>
+<REFERENCE symbol_id='04B61970' symbol='.P33L1'/>
+<REFERENCE symbol_id='04B61790' symbol='.P33L4'/>
+<REFERENCE symbol_id='04B612E0' symbol='adi_SRU_Init.'/>
+<REFERENCE symbol_id='04B61A10' symbol='adi_initpinmux.'/>
+<REFERENCE symbol_id='04B619C0' symbol='.P33L3'/>
+</OBJECT>
+<OBJECT id='04BA54D0' name='(adi_initpinmux., .adi_initpinmux..end)' section='system\pinmux\GeneratedSources\pinmux_config.doj(seg_swco)'>
+<SYMBOL id='04B61A10' name='adi_initpinmux.'/>
+</OBJECT>
+<OBJECT id='04BA5310' name='(adi_SRU_Init., .adi_SRU_Init..end)' section='system\sru\sru_config.doj(seg_swco)'>
+<SYMBOL id='04B612E0' name='adi_SRU_Init.'/>
+</OBJECT>
+<OBJECT id='04BA55F0' name='(_adi_osal_gnSchedulerLockCnt., _adi_osal_gnSchedulerLockCnt.+0x4)' section='libosal_noos.dlb[adi_osal_noos_init.doj](seg_dmda)'>
+<SYMBOL id='04F44490' name='_adi_osal_gnSchedulerLockCnt.'/>
+</OBJECT>
+<OBJECT id='04BA5A10' name='(gSECData., gSECData.+0xc)' section='libssl.dlb[adi_sec.doj](seg_dmda)'>
+<SYMBOL id='04F46470' name='gSECData.'/>
+</OBJECT>
+<OBJECT id='04BA5B50' name='(DefaultErrorHandler., .DefaultErrorHandler..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59730' name='DefaultErrorHandler.'/>
+</OBJECT>
+<OBJECT id='04BA6070' name='(adi_sec_SetCOPPeriod., .adi_sec_SetCOPPeriod..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F523E0' name='adi_sec_SetCOPPeriod.'/>
+</OBJECT>
+<OBJECT id='04BA6310' name='(adi_sec_SetSysResetDelay., .adi_sec_SetSysResetDelay..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F51FD0' name='adi_sec_SetSysResetDelay.'/>
+</OBJECT>
+<OBJECT id='04BA6050' name='(adi_sec_SetFaultDelay., .adi_sec_SetFaultDelay..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F524D0' name='adi_sec_SetFaultDelay.'/>
+</OBJECT>
+<OBJECT id='04BA5FB0' name='(adi_sec_SelectTriggerEvent., .adi_sec_SelectTriggerEvent..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F51EE0' name='adi_sec_SelectTriggerEvent.'/>
+<SYMBOL id='04F56CB0' name='.P38L2'/>
+<SYMBOL id='04F56B70' name='.P38L3'/>
+<REFERENCE symbol_id='04F56CB0' symbol='.P38L2'/>
+<REFERENCE symbol_id='04F56B70' symbol='.P38L3'/>
+</OBJECT>
+<OBJECT id='04BA5CD0' name='(adi_sec_ClearFault., .adi_sec_ClearFault..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59820' name='adi_sec_ClearFault.'/>
+</OBJECT>
+<OBJECT id='04BA6010' name='(adi_sec_GetFaultID., .adi_sec_GetFaultID..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52250' name='adi_sec_GetFaultID.'/>
+<SYMBOL id='04F56760' name='.P40L4'/>
+<REFERENCE symbol_id='04F56760' symbol='.P40L4'/>
+</OBJECT>
+<OBJECT id='04BA5DD0' name='(adi_sec_EnableCOPMode., .adi_sec_EnableCOPMode..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59B90' name='adi_sec_EnableCOPMode.'/>
+<SYMBOL id='04F56BC0' name='.P41L2'/>
+<SYMBOL id='04F567B0' name='.P41L3'/>
+<REFERENCE symbol_id='04F56BC0' symbol='.P41L2'/>
+<REFERENCE symbol_id='04F567B0' symbol='.P41L3'/>
+</OBJECT>
+<OBJECT id='04BA6090' name='(adi_sec_EnableFaultInput., .adi_sec_EnableFaultInput..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59640' name='adi_sec_EnableFaultInput.'/>
+<SYMBOL id='04F57480' name='.P42L2'/>
+<SYMBOL id='04F57700' name='.P42L3'/>
+<REFERENCE symbol_id='04F57480' symbol='.P42L2'/>
+<REFERENCE symbol_id='04F57700' symbol='.P42L3'/>
+</OBJECT>
+<OBJECT id='04BA5DF0' name='(adi_sec_EnableSystemReset., .adi_sec_EnableSystemReset..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59780' name='adi_sec_EnableSystemReset.'/>
+<SYMBOL id='04F57250' name='.P43L2'/>
+<SYMBOL id='04F56F80' name='.P43L3'/>
+<REFERENCE symbol_id='04F57250' symbol='.P43L2'/>
+<REFERENCE symbol_id='04F56F80' symbol='.P43L3'/>
+</OBJECT>
+<OBJECT id='04BA5E10' name='(adi_sec_EnableTriggerOutput., .adi_sec_EnableTriggerOutput..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59870' name='adi_sec_EnableTriggerOutput.'/>
+<SYMBOL id='04F56DF0' name='.P44L2'/>
+<SYMBOL id='04F572A0' name='.P44L3'/>
+<REFERENCE symbol_id='04F56DF0' symbol='.P44L2'/>
+<REFERENCE symbol_id='04F572A0' symbol='.P44L3'/>
+</OBJECT>
+<OBJECT id='04BA60B0' name='(adi_sec_EnableFaultOutput., .adi_sec_EnableFaultOutput..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59B40' name='adi_sec_EnableFaultOutput.'/>
+<SYMBOL id='04F56E40' name='.P45L2'/>
+<SYMBOL id='04F56E90' name='.P45L3'/>
+<REFERENCE symbol_id='04F56E40' symbol='.P45L2'/>
+<REFERENCE symbol_id='04F56E90' symbol='.P45L3'/>
+</OBJECT>
+<OBJECT id='04BA6110' name='(adi_sec_EnableSFI., .adi_sec_EnableSFI..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59D20' name='adi_sec_EnableSFI.'/>
+<SYMBOL id='04F56EE0' name='.P46L2'/>
+<SYMBOL id='04F57020' name='.P46L3'/>
+<REFERENCE symbol_id='04F56EE0' symbol='.P46L2'/>
+<REFERENCE symbol_id='04F57020' symbol='.P46L3'/>
+</OBJECT>
+<OBJECT id='04BA5F70' name='(adi_sec_ResetSFI., .adi_sec_ResetSFI..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F51E40' name='adi_sec_ResetSFI.'/>
+</OBJECT>
+<OBJECT id='04BA64B0' name='(adi_sec_SetPriorityLevels., .adi_sec_SetPriorityLevels..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52390' name='adi_sec_SetPriorityLevels.'/>
+<SYMBOL id='04F57520' name='.P48L4'/>
+<REFERENCE symbol_id='04F57520' symbol='.P48L4'/>
+</OBJECT>
+<OBJECT id='04BA6410' name='(adi_sec_SetUnGroupedMask., .adi_sec_SetUnGroupedMask..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52610' name='adi_sec_SetUnGroupedMask.'/>
+<SYMBOL id='04F574D0' name='.P49L7'/>
+<SYMBOL id='04F576B0' name='.P49L8'/>
+<SYMBOL id='04F56F30' name='.P49L4'/>
+<REFERENCE symbol_id='04F56F30' symbol='.P49L4'/>
+<REFERENCE symbol_id='04F574D0' symbol='.P49L7'/>
+<REFERENCE symbol_id='04F576B0' symbol='.P49L8'/>
+</OBJECT>
+<OBJECT id='04BA6150' name='(adi_sec_SetGroupMask., .adi_sec_SetGroupMask..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52340' name='adi_sec_SetGroupMask.'/>
+<SYMBOL id='04F57660' name='.P50L4'/>
+<REFERENCE symbol_id='04F57660' symbol='.P50L4'/>
+</OBJECT>
+<OBJECT id='04BA63F0' name='(adi_sec_SetPriorityMask., .adi_sec_SetPriorityMask..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F51F80' name='adi_sec_SetPriorityMask.'/>
+<SYMBOL id='04F57570' name='.P51L4'/>
+<REFERENCE symbol_id='04F57570' symbol='.P51L4'/>
+<REFERENCE symbol_id='04F57570' symbol='.P51L4'/>
+</OBJECT>
+<OBJECT id='04BA60F0' name='(adi_sec_ClearNMIStatus., .adi_sec_ClearNMIStatus..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59AF0' name='adi_sec_ClearNMIStatus.'/>
+<SYMBOL id='04F57750' name='.P52L4'/>
+<REFERENCE symbol_id='04F57750' symbol='.P52L4'/>
+</OBJECT>
+<OBJECT id='04BA60D0' name='(adi_sec_ClearWFIStatus., .adi_sec_ClearWFIStatus..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59AA0' name='adi_sec_ClearWFIStatus.'/>
+<SYMBOL id='04F56FD0' name='.P53L4'/>
+<REFERENCE symbol_id='04F56FD0' symbol='.P53L4'/>
+</OBJECT>
+<OBJECT id='04BA5EB0' name='(adi_sec_GetWFIStatus., .adi_sec_GetWFIStatus..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F520C0' name='adi_sec_GetWFIStatus.'/>
+<SYMBOL id='04F57070' name='.P54L4'/>
+<REFERENCE symbol_id='04F57070' symbol='.P54L4'/>
+</OBJECT>
+<OBJECT id='04BA5D90' name='(adi_sec_EnableNMI., .adi_sec_EnableNMI..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59C80' name='adi_sec_EnableNMI.'/>
+<SYMBOL id='04F57340' name='.P55L7'/>
+<SYMBOL id='04F577A0' name='.P55L8'/>
+<SYMBOL id='04F57110' name='.P55L4'/>
+<REFERENCE symbol_id='04F57110' symbol='.P55L4'/>
+<REFERENCE symbol_id='04F57340' symbol='.P55L7'/>
+<REFERENCE symbol_id='04F577A0' symbol='.P55L8'/>
+</OBJECT>
+<OBJECT id='04BA62F0' name='(adi_sec_WaitForIdle., .adi_sec_WaitForIdle..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52110' name='adi_sec_WaitForIdle.'/>
+<SYMBOL id='04F570C0' name='.P56L4'/>
+<REFERENCE symbol_id='04F570C0' symbol='.P56L4'/>
+</OBJECT>
+<OBJECT id='04BA5F50' name='(adi_sec_ResetSCI., .adi_sec_ResetSCI..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52520' name='adi_sec_ResetSCI.'/>
+<SYMBOL id='04F57160' name='.P57L4'/>
+<REFERENCE symbol_id='04F57160' symbol='.P57L4'/>
+</OBJECT>
+<OBJECT id='04BA5F90' name='(adi_sec_EnableSCI., .adi_sec_EnableSCI..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59CD0' name='adi_sec_EnableSCI.'/>
+<SYMBOL id='04F57200' name='.P58L7'/>
+<SYMBOL id='04F572F0' name='.P58L8'/>
+<SYMBOL id='04F571B0' name='.P58L4'/>
+<REFERENCE symbol_id='04F571B0' symbol='.P58L4'/>
+<REFERENCE symbol_id='04F57200' symbol='.P58L7'/>
+<REFERENCE symbol_id='04F572F0' symbol='.P58L8'/>
+</OBJECT>
+<OBJECT id='04BA5FF0' name='(adi_sec_ClearPendStatus., .adi_sec_ClearPendStatus..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59960' name='adi_sec_ClearPendStatus.'/>
+<SYMBOL id='04F57390' name='.P59L4'/>
+<REFERENCE symbol_id='04F57390' symbol='.P59L4'/>
+</OBJECT>
+<OBJECT id='04BA5E70' name='(adi_sec_GetSIDChannelID., .adi_sec_GetSIDChannelID..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F51E90' name='adi_sec_GetSIDChannelID.'/>
+<SYMBOL id='04F573E0' name='.P60L4'/>
+<REFERENCE symbol_id='04F573E0' symbol='.P60L4'/>
+<REFERENCE symbol_id='04F573E0' symbol='.P60L4'/>
+</OBJECT>
+<OBJECT id='04BA5FD0' name='(adi_sec_SetCoreID., .adi_sec_SetCoreID..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F522F0' name='adi_sec_SetCoreID.'/>
+<SYMBOL id='04F57430' name='.P61L4'/>
+<REFERENCE symbol_id='04F57430' symbol='.P61L4'/>
+<REFERENCE symbol_id='04F57430' symbol='.P61L4'/>
+</OBJECT>
+<OBJECT id='04BA6230' name='(adi_sec_SetSIDGrouping., .adi_sec_SetSIDGrouping..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52570' name='adi_sec_SetSIDGrouping.'/>
+<SYMBOL id='04F575C0' name='.P62L4'/>
+<REFERENCE symbol_id='04F575C0' symbol='.P62L4'/>
+<REFERENCE symbol_id='04F575C0' symbol='.P62L4'/>
+</OBJECT>
+<OBJECT id='04BA6450' name='(adi_sec_SetPriority., .adi_sec_SetPriority..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F51F30' name='adi_sec_SetPriority.'/>
+<SYMBOL id='04F57610' name='.P63L4'/>
+<REFERENCE symbol_id='04F57610' symbol='.P63L4'/>
+<REFERENCE symbol_id='04F57610' symbol='.P63L4'/>
+</OBJECT>
+<OBJECT id='04BA5F10' name='(adi_sec_EnableError., .adi_sec_EnableError..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59910' name='adi_sec_EnableError.'/>
+<SYMBOL id='04F57AC0' name='.P64L7'/>
+<SYMBOL id='04F57CA0' name='.P64L8'/>
+<SYMBOL id='04F578E0' name='.P64L4'/>
+<REFERENCE symbol_id='04F578E0' symbol='.P64L4'/>
+<REFERENCE symbol_id='04F57AC0' symbol='.P64L7'/>
+<REFERENCE symbol_id='04F57CA0' symbol='.P64L8'/>
+</OBJECT>
+<OBJECT id='04BA5D30' name='(adi_sec_EnableEdgeSense., .adi_sec_EnableEdgeSense..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F599B0' name='adi_sec_EnableEdgeSense.'/>
+<SYMBOL id='04F57CF0' name='.P65L7'/>
+<SYMBOL id='04F577F0' name='.P65L8'/>
+<SYMBOL id='04F57840' name='.P65L4'/>
+<REFERENCE symbol_id='04F57840' symbol='.P65L4'/>
+<REFERENCE symbol_id='04F57CF0' symbol='.P65L7'/>
+<REFERENCE symbol_id='04F577F0' symbol='.P65L8'/>
+</OBJECT>
+<OBJECT id='04BA5D50' name='(adi_sec_EnableFault., .adi_sec_EnableFault..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59A50' name='adi_sec_EnableFault.'/>
+<SYMBOL id='04F57D40' name='.P66L7'/>
+<SYMBOL id='04F57ED0' name='.P66L8'/>
+<SYMBOL id='04F58150' name='.P66L4'/>
+<REFERENCE symbol_id='04F58150' symbol='.P66L4'/>
+<REFERENCE symbol_id='04F57D40' symbol='.P66L7'/>
+<REFERENCE symbol_id='04F57ED0' symbol='.P66L8'/>
+</OBJECT>
+<OBJECT id='04BA5E90' name='(adi_sec_EnableSource., .adi_sec_EnableSource..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F598C0' name='adi_sec_EnableSource.'/>
+<SYMBOL id='04F57FC0' name='.P67L7'/>
+<SYMBOL id='04F57890' name='.P67L8'/>
+<SYMBOL id='04F581A0' name='.P67L4'/>
+<REFERENCE symbol_id='04F581A0' symbol='.P67L4'/>
+<REFERENCE symbol_id='04F57FC0' symbol='.P67L7'/>
+<REFERENCE symbol_id='04F57890' symbol='.P67L8'/>
+</OBJECT>
+<OBJECT id='04BA5DB0' name='(adi_sec_EnableInterrupt., .adi_sec_EnableInterrupt..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59BE0' name='adi_sec_EnableInterrupt.'/>
+<SYMBOL id='04F57D90' name='.P68L7'/>
+<SYMBOL id='04F57980' name='.P68L8'/>
+<SYMBOL id='04F57930' name='.P68L4'/>
+<REFERENCE symbol_id='04F57930' symbol='.P68L4'/>
+<REFERENCE symbol_id='04F57D90' symbol='.P68L7'/>
+<REFERENCE symbol_id='04F57980' symbol='.P68L8'/>
+</OBJECT>
+<OBJECT id='04BA5ED0' name='(adi_sec_Raise., .adi_sec_Raise..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52200' name='adi_sec_Raise.'/>
+<SYMBOL id='04F579D0' name='.P69L2'/>
+<SYMBOL id='04F57A20' name='.P69L4'/>
+<REFERENCE symbol_id='04F579D0' symbol='.P69L2'/>
+<REFERENCE symbol_id='04F57A20' symbol='.P69L4'/>
+</OBJECT>
+<OBJECT id='04BA5E30' name='(adi_sec_GetAddrError., .adi_sec_GetAddrError..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52430' name='adi_sec_GetAddrError.'/>
+<SYMBOL id='04F57F20' name='.P70L2'/>
+<SYMBOL id='04F57B10' name='.P70L7'/>
+<SYMBOL id='04F57B60' name='.P70L8'/>
+<SYMBOL id='04F57A70' name='.P70L4'/>
+<REFERENCE symbol_id='04F57F20' symbol='.P70L2'/>
+<REFERENCE symbol_id='04F57A70' symbol='.P70L4'/>
+<REFERENCE symbol_id='04F57B10' symbol='.P70L7'/>
+<REFERENCE symbol_id='04F57B60' symbol='.P70L8'/>
+</OBJECT>
+<OBJECT id='04BA5E50' name='(adi_sec_GetLockWriteError., .adi_sec_GetLockWriteError..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52070' name='adi_sec_GetLockWriteError.'/>
+<SYMBOL id='04F57BB0' name='.P71L2'/>
+<SYMBOL id='04F57C00' name='.P71L7'/>
+<SYMBOL id='04F57C50' name='.P71L8'/>
+<SYMBOL id='04F57DE0' name='.P71L4'/>
+<REFERENCE symbol_id='04F57BB0' symbol='.P71L2'/>
+<REFERENCE symbol_id='04F57DE0' symbol='.P71L4'/>
+<REFERENCE symbol_id='04F57C00' symbol='.P71L7'/>
+<REFERENCE symbol_id='04F57C50' symbol='.P71L8'/>
+</OBJECT>
+<OBJECT id='04BA5B70' name='(adi_SEC_ErrorHandler., .adi_SEC_ErrorHandler..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F59A00' name='adi_SEC_ErrorHandler.'/>
+<SYMBOL id='04F58330' name='.P72L30'/>
+<SYMBOL id='04F57F70' name='.P72L14'/>
+<SYMBOL id='04F57E80' name='.P72L13'/>
+<SYMBOL id='04F57E30' name='.P72L10'/>
+<SYMBOL id='04F580B0' name='.P72L11'/>
+<SYMBOL id='04F58AB0' name='.P72L7'/>
+<SYMBOL id='04F58650' name='.P72L20'/>
+<SYMBOL id='04F58380' name='.P72L21'/>
+<SYMBOL id='04F58060' name='.P72L17'/>
+<SYMBOL id='04F58100' name='.P72L18'/>
+<SYMBOL id='04F58A60' name='.P72L8'/>
+<SYMBOL id='04F58290' name='.P72L27'/>
+<SYMBOL id='04F582E0' name='.P72L28'/>
+<SYMBOL id='04F58240' name='.P72L26'/>
+<SYMBOL id='04F58420' name='.P72L29'/>
+<SYMBOL id='04F586A0' name='.P72L24'/>
+<SYMBOL id='04F581F0' name='.P72L23'/>
+<SYMBOL id='04F58010' name='.P72L15'/>
+<SYMBOL id='04F58880' name='.P72L5'/>
+<SYMBOL id='04F58920' name='.P72L3'/>
+<SYMBOL id='04F58B00' name='.P72L2'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F58B00' symbol='.P72L2'/>
+<REFERENCE symbol_id='04F58330' symbol='.P72L30'/>
+<REFERENCE symbol_id='04F58AB0' symbol='.P72L7'/>
+<REFERENCE symbol_id='04F58A60' symbol='.P72L8'/>
+<REFERENCE symbol_id='04F58880' symbol='.P72L5'/>
+<REFERENCE symbol_id='04F58880' symbol='.P72L5'/>
+<REFERENCE symbol_id='04F57E30' symbol='.P72L10'/>
+<REFERENCE symbol_id='04F57E80' symbol='.P72L13'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F57F70' symbol='.P72L14'/>
+<REFERENCE symbol_id='04F580B0' symbol='.P72L11'/>
+<REFERENCE symbol_id='04F58010' symbol='.P72L15'/>
+<REFERENCE symbol_id='04F58060' symbol='.P72L17'/>
+<REFERENCE symbol_id='04F58650' symbol='.P72L20'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F58380' symbol='.P72L21'/>
+<REFERENCE symbol_id='04F58100' symbol='.P72L18'/>
+<REFERENCE symbol_id='04F58010' symbol='.P72L15'/>
+<REFERENCE symbol_id='04F581F0' symbol='.P72L23'/>
+<REFERENCE symbol_id='04F58290' symbol='.P72L27'/>
+<REFERENCE symbol_id='04F582E0' symbol='.P72L28'/>
+<REFERENCE symbol_id='04F58240' symbol='.P72L26'/>
+<REFERENCE symbol_id='04F58420' symbol='.P72L29'/>
+<REFERENCE symbol_id='04F58420' symbol='.P72L29'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F586A0' symbol='.P72L24'/>
+<REFERENCE symbol_id='04F58010' symbol='.P72L15'/>
+<REFERENCE symbol_id='04F58920' symbol='.P72L3'/>
+</OBJECT>
+<OBJECT id='04BA5F30' name='(adi_sec_Reset., .adi_sec_Reset..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F521B0' name='adi_sec_Reset.'/>
+</OBJECT>
+<OBJECT id='04BA5D70' name='(adi_sec_Enable., .adi_sec_Enable..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F597D0' name='adi_sec_Enable.'/>
+<SYMBOL id='04F58970' name='.P74L2'/>
+<SYMBOL id='04F58B50' name='.P74L3'/>
+<REFERENCE symbol_id='04F58970' symbol='.P74L2'/>
+<REFERENCE symbol_id='04F58B50' symbol='.P74L3'/>
+</OBJECT>
+<OBJECT id='04BA6030' name='(adi_sec_Init., .adi_sec_Init..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52160' name='adi_sec_Init.'/>
+<SYMBOL id='04F58A10' name='.P75L8'/>
+<SYMBOL id='04F589C0' name='.P75L6'/>
+<SYMBOL id='04F584C0' name='.P75L5'/>
+<SYMBOL id='04F58510' name='.P75L3'/>
+<SYMBOL id='04F58470' name='.P75L2'/>
+<SYMBOL id='04F583D0' name='.P75L10'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F58470' symbol='.P75L2'/>
+<REFERENCE symbol_id='04F52520' symbol='adi_sec_ResetSCI.'/>
+<REFERENCE symbol_id='04F59AF0' symbol='adi_sec_ClearNMIStatus.'/>
+<REFERENCE symbol_id='04F584C0' symbol='.P75L5'/>
+<REFERENCE symbol_id='04F521B0' symbol='adi_sec_Reset.'/>
+<REFERENCE symbol_id='04F59730' symbol='DefaultErrorHandler.'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F59A00' symbol='adi_SEC_ErrorHandler.'/>
+<REFERENCE symbol_id='04F9E758' symbol='adi_int_InstallHandler.'/>
+<REFERENCE symbol_id='04F58A10' symbol='.P75L8'/>
+<REFERENCE symbol_id='04F583D0' symbol='.P75L10'/>
+<REFERENCE symbol_id='04F51E40' symbol='adi_sec_ResetSFI.'/>
+<REFERENCE symbol_id='04F597D0' symbol='adi_sec_Enable.'/>
+<REFERENCE symbol_id='04F589C0' symbol='.P75L6'/>
+<REFERENCE symbol_id='04F59C80' symbol='adi_sec_EnableNMI.'/>
+<REFERENCE symbol_id='04F59CD0' symbol='adi_sec_EnableSCI.'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F58510' symbol='.P75L3'/>
+</OBJECT>
+<OBJECT id='04BA5EF0' name='(adi_sec_RegisterErrorHandler., .adi_sec_RegisterErrorHandler..end)' section='libssl.dlb[adi_sec.doj](seg_swco)'>
+<SYMBOL id='04F52700' name='adi_sec_RegisterErrorHandler.'/>
+<SYMBOL id='04F586F0' name='.P77L2'/>
+<SYMBOL id='04F58560' name='.P77L4'/>
+<REFERENCE symbol_id='04F586F0' symbol='.P77L2'/>
+<REFERENCE symbol_id='04F58560' symbol='.P77L4'/>
+<REFERENCE symbol_id='04F59BE0' symbol='adi_sec_EnableInterrupt.'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F46470' symbol='gSECData.'/>
+<REFERENCE symbol_id='04F59BE0' symbol='adi_sec_EnableInterrupt.'/>
+</OBJECT>
+<OBJECT id='04BA6710' name='(0x4,0x8)' section='libc.dlb[dispatched_handler_table_ba.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA6970' name='(_adi_osal_InitInterrupts., ._adi_osal_InitInterrupts..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7F660' name='_adi_osal_InitInterrupts.'/>
+</OBJECT>
+<OBJECT id='04BA6CD0' name='(_adi_osal_MemAlloc., ._adi_osal_MemAlloc..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FB10' name='_adi_osal_MemAlloc.'/>
+<SYMBOL id='04F7F340' name='.P38L2'/>
+<SYMBOL id='04F7ED00' name='.P38L7'/>
+<SYMBOL id='04F7EDA0' name='.P38L4'/>
+<REFERENCE symbol_id='04F7D4A0' symbol='osal_snHeapIndex.'/>
+<REFERENCE symbol_id='04F7F340' symbol='.P38L2'/>
+<REFERENCE symbol_id='04F7EDA0' symbol='.P38L4'/>
+<REFERENCE symbol_id='04F9FBF8' symbol='_heap_malloc.'/>
+<REFERENCE symbol_id='04F7ED00' symbol='.P38L7'/>
+<REFERENCE symbol_id='04F7EDA0' symbol='.P38L4'/>
+</OBJECT>
+<OBJECT id='04BA6A50' name='(_adi_osal_MemFree., ._adi_osal_MemFree..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FA20' name='_adi_osal_MemFree.'/>
+<REFERENCE symbol_id='04F7D4A0' symbol='osal_snHeapIndex.'/>
+<REFERENCE symbol_id='04F9FDD8' symbol='_heap_free.'/>
+</OBJECT>
+<OBJECT id='04BA6BD0' name='(adi_osal_InstallHandler., .adi_osal_InstallHandler..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FC00' name='adi_osal_InstallHandler.'/>
+<SYMBOL id='04F7F2F0' name='.P42L2'/>
+<SYMBOL id='04F7FE30' name='.P42L7'/>
+<SYMBOL id='04F7F6B0' name='.P42L8'/>
+<SYMBOL id='04F7F3E0' name='.P42L4'/>
+<REFERENCE symbol_id='04F7F9D0' symbol='_adi_osal_IsCurrentLevelISR.'/>
+<REFERENCE symbol_id='04F7F2F0' symbol='.P42L2'/>
+<REFERENCE symbol_id='04F7F3E0' symbol='.P42L4'/>
+<REFERENCE symbol_id='04FA08C8' symbol='_adi_osal_stdWrapper.'/>
+<REFERENCE symbol_id='04FA0918' symbol='adi_rtl_register_dispatched_handler.'/>
+<REFERENCE symbol_id='04F7FE30' symbol='.P42L7'/>
+<REFERENCE symbol_id='04FA06E8' symbol='_adi_osal_gHandlerTable.'/>
+<REFERENCE symbol_id='04F7F6B0' symbol='.P42L8'/>
+</OBJECT>
+<OBJECT id='04BA6C70' name='(adi_osal_ActivateHandler., .adi_osal_ActivateHandler..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FA70' name='adi_osal_ActivateHandler.'/>
+<SYMBOL id='04F7F700' name='.P46L3'/>
+<SYMBOL id='04F7F8E0' name='.P46L2'/>
+<REFERENCE symbol_id='04F44440' symbol='adi_rtl_activate_dispatched_handler.'/>
+<REFERENCE symbol_id='04F7F8E0' symbol='.P46L2'/>
+<REFERENCE symbol_id='04F7F700' symbol='.P46L3'/>
+</OBJECT>
+<OBJECT id='04BA6A70' name='(adi_osal_DeactivateHandler., .adi_osal_DeactivateHandler..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FD90' name='adi_osal_DeactivateHandler.'/>
+<SYMBOL id='04F7FF20' name='.P48L2'/>
+<SYMBOL id='04F7FAC0' name='.P48L3'/>
+<REFERENCE symbol_id='04FA1138' symbol='adi_rtl_deactivate_dispatched_handler.'/>
+<REFERENCE symbol_id='04F7FF20' symbol='.P48L2'/>
+<REFERENCE symbol_id='04F7FAC0' symbol='.P48L3'/>
+</OBJECT>
+<OBJECT id='04BA6930' name='(adi_osal_UninstallHandler., .adi_osal_UninstallHandler..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7FB60' name='adi_osal_UninstallHandler.'/>
+<SYMBOL id='04F80010' name='.P50L2'/>
+<SYMBOL id='04F7FCF0' name='.P50L8'/>
+<SYMBOL id='04F7F930' name='.P50L7'/>
+<SYMBOL id='04F7FDE0' name='.P50L4'/>
+<REFERENCE symbol_id='04F7F9D0' symbol='_adi_osal_IsCurrentLevelISR.'/>
+<REFERENCE symbol_id='04F80010' symbol='.P50L2'/>
+<REFERENCE symbol_id='04F7FDE0' symbol='.P50L4'/>
+<REFERENCE symbol_id='04FA0DC8' symbol='adi_rtl_unregister_dispatched_handler.'/>
+<REFERENCE symbol_id='04F7F930' symbol='.P50L7'/>
+<REFERENCE symbol_id='04FA06E8' symbol='_adi_osal_gHandlerTable.'/>
+<REFERENCE symbol_id='04F7FCF0' symbol='.P50L8'/>
+</OBJECT>
+<OBJECT id='04BA69B0' name='(_adi_osal_IsCurrentLevelISR., ._adi_osal_IsCurrentLevelISR..end)' section='libosal_noos.dlb[adi_osal_arch_c.doj](seg_swco)'>
+<SYMBOL id='04F7F9D0' name='_adi_osal_IsCurrentLevelISR.'/>
+</OBJECT>
+<OBJECT id='04BA7070' name='(0x9c,0xa0)' section='libio.dlb[xfiles_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA6F30' name='(fputc., .fputc..end)' section='libio.dlb[fputc_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F80BF0' name='fputc.'/>
+<SYMBOL id='04F811E0' name='.P36L9'/>
+<SYMBOL id='04F81190' name='.P36L3'/>
+<REFERENCE symbol_id='04F81190' symbol='.P36L3'/>
+<REFERENCE symbol_id='04F811E0' symbol='.P36L9'/>
+<REFERENCE symbol_id='04F81370' symbol='_convert_FILE_table.'/>
+<REFERENCE symbol_id='04F80B50' symbol='_fputc.'/>
+</OBJECT>
+<OBJECT id='04BA7310' name='(0x39,0x3c)' section='libio.dlb[xprnt_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA7450' name='(0x43,0x44)' section='libio.dlb[xprnt_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA7150' name='(_fflush_all., ._fflush_all..end)' section='libio.dlb[fflush_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F82EF0' name='_fflush_all.'/>
+<SYMBOL id='04F823B0' name='.P34L2'/>
+<SYMBOL id='04F81F50' name='.P34L6'/>
+<REFERENCE symbol_id='04F804C0' symbol='_Files.'/>
+<REFERENCE symbol_id='04F81F50' symbol='.P34L6'/>
+<REFERENCE symbol_id='04F82A40' symbol='fflush.'/>
+<REFERENCE symbol_id='04F823B0' symbol='.P34L2'/>
+</OBJECT>
+<OBJECT id='04BA74B0' name='(fflush., .fflush..end)' section='libio.dlb[fflush_c08_any.doj](seg_swco)'>
+<SYMBOL id='04F82A40' name='fflush.'/>
+<SYMBOL id='04F82540' name='.P35L9'/>
+<SYMBOL id='04F82090' name='.P35L3'/>
+<SYMBOL id='04F825E0' name='.P35L1'/>
+<REFERENCE symbol_id='04F825E0' symbol='.P35L1'/>
+<REFERENCE symbol_id='04F82540' symbol='.P35L9'/>
+<REFERENCE symbol_id='04F81370' symbol='_convert_FILE_table.'/>
+<REFERENCE symbol_id='04F82B80' symbol='_fflush.'/>
+<REFERENCE symbol_id='04F82EF0' symbol='_fflush_all.'/>
+<REFERENCE symbol_id='04F82090' symbol='.P35L3'/>
+</OBJECT>
+<OBJECT id='04BA76F0' name='(adi_int_InstallHandler., .adi_int_InstallHandler..end)' section='libssl.dlb[adi_int.doj](seg_swco)'>
+<SYMBOL id='04F9E758' name='adi_int_InstallHandler.'/>
+<SYMBOL id='04F9E208' name='.P33L5'/>
+<SYMBOL id='04F9DDF8' name='.P33L10'/>
+<SYMBOL id='04F9E488' name='.P33L14'/>
+<SYMBOL id='04F9DEE8' name='.P33L18'/>
+<SYMBOL id='04F9E528' name='.P33L19'/>
+<SYMBOL id='04F9DF88' name='.P33L2'/>
+<SYMBOL id='04F9E118' name='.P33L21'/>
+<SYMBOL id='04F9DFD8' name='.P33L26'/>
+<SYMBOL id='04F9E1B8' name='.P33L3'/>
+<SYMBOL id='04F9E578' name='.P33L25'/>
+<SYMBOL id='04F9DD08' name='.P33L7'/>
+<REFERENCE symbol_id='04F9DF88' symbol='.P33L2'/>
+<REFERENCE symbol_id='04F9EBB8' symbol='iid_to_sid.'/>
+<REFERENCE symbol_id='04F522F0' symbol='adi_sec_SetCoreID.'/>
+<REFERENCE symbol_id='04F9E208' symbol='.P33L5'/>
+<REFERENCE symbol_id='04F9DD08' symbol='.P33L7'/>
+<REFERENCE symbol_id='04F7FC00' symbol='adi_osal_InstallHandler.'/>
+<REFERENCE symbol_id='04F9DDF8' symbol='.P33L10'/>
+<REFERENCE symbol_id='04F9DD08' symbol='.P33L7'/>
+<REFERENCE symbol_id='04F598C0' symbol='adi_sec_EnableSource.'/>
+<REFERENCE symbol_id='04F9E488' symbol='.P33L14'/>
+<REFERENCE symbol_id='04F7FB60' symbol='adi_osal_UninstallHandler.'/>
+<REFERENCE symbol_id='04F9DD08' symbol='.P33L7'/>
+<REFERENCE symbol_id='04F9DEE8' symbol='.P33L18'/>
+<REFERENCE symbol_id='04F59BE0' symbol='adi_sec_EnableInterrupt.'/>
+<REFERENCE symbol_id='04F7FA70' symbol='adi_osal_ActivateHandler.'/>
+<REFERENCE symbol_id='04F9E528' symbol='.P33L19'/>
+<REFERENCE symbol_id='04F9E1B8' symbol='.P33L3'/>
+<REFERENCE symbol_id='04F7FC00' symbol='adi_osal_InstallHandler.'/>
+<REFERENCE symbol_id='04F9E118' symbol='.P33L21'/>
+<REFERENCE symbol_id='04F9DD08' symbol='.P33L7'/>
+<REFERENCE symbol_id='04F9E578' symbol='.P33L25'/>
+<REFERENCE symbol_id='04F7FA70' symbol='adi_osal_ActivateHandler.'/>
+<REFERENCE symbol_id='04F9DFD8' symbol='.P33L26'/>
+</OBJECT>
+<OBJECT id='04BA77B0' name='(adi_int_UninstallHandler., .adi_int_UninstallHandler..end)' section='libssl.dlb[adi_int.doj](seg_swco)'>
+<SYMBOL id='04F9E7A8' name='adi_int_UninstallHandler.'/>
+<SYMBOL id='04F9DD58' name='.P41L8'/>
+<SYMBOL id='04F9E258' name='.P41L13'/>
+<SYMBOL id='04F9DCB8' name='.P41L5'/>
+<SYMBOL id='04F9DC68' name='.P41L6'/>
+<SYMBOL id='04F9E2F8' name='.P41L17'/>
+<SYMBOL id='04F9E348' name='.P41L3'/>
+<SYMBOL id='04F9DC18' name='.P41L2'/>
+<SYMBOL id='04F9E398' name='.P41L21'/>
+<SYMBOL id='04F9DBC8' name='.P41L10'/>
+<REFERENCE symbol_id='04F9DC18' symbol='.P41L2'/>
+<REFERENCE symbol_id='04FCB538' symbol='adi_rtl_sid_use_check.'/>
+<REFERENCE symbol_id='04F9EBB8' symbol='iid_to_sid.'/>
+<REFERENCE symbol_id='04F9DCB8' symbol='.P41L5'/>
+<REFERENCE symbol_id='04F59BE0' symbol='adi_sec_EnableInterrupt.'/>
+<REFERENCE symbol_id='04F9DD58' symbol='.P41L8'/>
+<REFERENCE symbol_id='04F9DBC8' symbol='.P41L10'/>
+<REFERENCE symbol_id='04F598C0' symbol='adi_sec_EnableSource.'/>
+<REFERENCE symbol_id='04F9E258' symbol='.P41L13'/>
+<REFERENCE symbol_id='04F9DBC8' symbol='.P41L10'/>
+<REFERENCE symbol_id='04F9DC68' symbol='.P41L6'/>
+<REFERENCE symbol_id='04F9E2F8' symbol='.P41L17'/>
+<REFERENCE symbol_id='04F9DBC8' symbol='.P41L10'/>
+<REFERENCE symbol_id='04F9E348' symbol='.P41L3'/>
+<REFERENCE symbol_id='04F7FD90' symbol='adi_osal_DeactivateHandler.'/>
+<REFERENCE symbol_id='04F7FB60' symbol='adi_osal_UninstallHandler.'/>
+<REFERENCE symbol_id='04F9E398' symbol='.P41L21'/>
+<REFERENCE symbol_id='04F9DBC8' symbol='.P41L10'/>
+</OBJECT>
+<OBJECT id='04BA7910' name='(adi_int_EnableInt., .adi_int_EnableInt..end)' section='libssl.dlb[adi_int.doj](seg_swco)'>
+<SYMBOL id='04F9E6B8' name='adi_int_EnableInt.'/>
+<SYMBOL id='04F9EB18' name='.P44L5'/>
+<SYMBOL id='04F9EA78' name='.P44L2'/>
+<SYMBOL id='04F9EF28' name='.P44L3'/>
+<SYMBOL id='04F9DDA8' name='.P44L10'/>
+<SYMBOL id='04F9EE38' name='.P44L11'/>
+<SYMBOL id='04F9ECA8' name='.P44L7'/>
+<REFERENCE symbol_id='04F9EA78' symbol='.P44L2'/>
+<REFERENCE symbol_id='04F9EBB8' symbol='iid_to_sid.'/>
+<REFERENCE symbol_id='04F59BE0' symbol='adi_sec_EnableInterrupt.'/>
+<REFERENCE symbol_id='04F9EB18' symbol='.P44L5'/>
+<REFERENCE symbol_id='04F9ECA8' symbol='.P44L7'/>
+<REFERENCE symbol_id='04F9EF28' symbol='.P44L3'/>
+<REFERENCE symbol_id='04F9DDA8' symbol='.P44L10'/>
+<REFERENCE symbol_id='04F7FA70' symbol='adi_osal_ActivateHandler.'/>
+<REFERENCE symbol_id='04F9EE38' symbol='.P44L11'/>
+<REFERENCE symbol_id='04F7FD90' symbol='adi_osal_DeactivateHandler.'/>
+</OBJECT>
+<OBJECT id='04BA72D0' name='(adi_int_ClearPending., .adi_int_ClearPending..end)' section='libssl.dlb[adi_int.doj](seg_swco)'>
+<SYMBOL id='04F9E848' name='adi_int_ClearPending.'/>
+<SYMBOL id='04F9E5C8' name='.P45L5'/>
+<SYMBOL id='04F9ED98' name='.P45L3'/>
+<SYMBOL id='04F9EF78' name='.P45L2'/>
+<SYMBOL id='04F9E668' name='.P45L7'/>
+<REFERENCE symbol_id='04F9EF78' symbol='.P45L2'/>
+<REFERENCE symbol_id='04F9EBB8' symbol='iid_to_sid.'/>
+<REFERENCE symbol_id='04F59960' symbol='adi_sec_ClearPendStatus.'/>
+<REFERENCE symbol_id='04F9E5C8' symbol='.P45L5'/>
+<REFERENCE symbol_id='04F9E668' symbol='.P45L7'/>
+<REFERENCE symbol_id='04F9ED98' symbol='.P45L3'/>
+</OBJECT>
+<OBJECT id='04BA7870' name='(iid_to_sid., .iid_to_sid..end)' section='libssl.dlb[adi_int.doj](seg_swco)'>
+<SYMBOL id='04F9EBB8' name='iid_to_sid.'/>
+</OBJECT>
+<OBJECT id='04BA7850' name='(adi_in_noncacheable_range., .adi_in_noncacheable_range..end)' section='libc.dlb[cache_set_range_ba.doj](seg_int_code)'>
+<SYMBOL id='04F9F428' name='adi_in_noncacheable_range.'/>
+<SYMBOL id='04F9F388' name='.P38L1'/>
+<SYMBOL id='04F9F478' name='.P38L1_end'/>
+<SYMBOL id='04F9F3D8' name='.P38L5'/>
+<SYMBOL id='04F9F298' name='.P38L19'/>
+<SYMBOL id='04F9F6F8' name='.P38L10'/>
+<SYMBOL id='04F9F838' name='.P38L9'/>
+<REFERENCE symbol_id='04F9F018' symbol='range_regs.'/>
+<REFERENCE symbol_id='04F9F568' symbol='rr_may_be_noncacheable.0.'/>
+<REFERENCE symbol_id='04F9F478' symbol='.P38L1_end'/>
+<REFERENCE symbol_id='04F9F838' symbol='.P38L9'/>
+<REFERENCE symbol_id='04F9F3D8' symbol='.P38L5'/>
+<REFERENCE symbol_id='04F9F3D8' symbol='.P38L5'/>
+<REFERENCE symbol_id='04F9F3D8' symbol='.P38L5'/>
+<REFERENCE symbol_id='04F9F6F8' symbol='.P38L10'/>
+</OBJECT>
+<OBJECT id='04BA7530' name='(rr_may_be_noncacheable.0., rr_may_be_noncacheable.0.+0x8)' section='libc.dlb[cache_set_range_ba.doj](seg_int_data)'>
+<SYMBOL id='04F9F568' name='rr_may_be_noncacheable.0.'/>
+</OBJECT>
+<OBJECT id='04BA7550' name='(__adi_wa_cces16305., .__adi_wa_cces16305..end)' section='libc.dlb[cache_set_range_ba.doj](seg_swco)'>
+<SYMBOL id='04FA00F8' name='__adi_wa_cces16305.'/>
+</OBJECT>
+<OBJECT id='04BA7D10' name='(_heap_free., ._heap_free..end)' section='libc.dlb[heap_free_ba.doj](seg_swco)'>
+<SYMBOL id='04F9FDD8' name='_heap_free.'/>
+<REFERENCE symbol_id='04FCB6C8' symbol='free.'/>
+</OBJECT>
+<OBJECT id='04BA7AB0' name='(_adi_osal_stdWrapper., ._adi_osal_stdWrapper..end)' section='libosal_noos.dlb[adi_osal_noos_arch_a.doj](seg_pmco)'>
+<SYMBOL id='04FA08C8' name='_adi_osal_stdWrapper.'/>
+<SYMBOL id='04FA0008' name='.dregs_sregs_32bit_saves'/>
+<SYMBOL id='04FA0238' name='.dregs_sregs_40bit_saves'/>
+<SYMBOL id='04FA0C38' name='.rnd32_done'/>
+<SYMBOL id='04FA0B98' name='.remaining_saves'/>
+<SYMBOL id='04FA09B8' name='.save_loop_stack_to_memory'/>
+<SYMBOL id='04FA0788' name='.save_another_loop_level'/>
+<SYMBOL id='04F9FFB8' name='.call_handler'/>
+<SYMBOL id='04FA0BE8' name='.loop_stack_empty'/>
+<SYMBOL id='04FA0288' name='.handler_return'/>
+<SYMBOL id='04F9FF68' name='.dregs_sregs_32bit_restores'/>
+<SYMBOL id='04FA0058' name='.dregs_sregs_40bit_restores'/>
+<SYMBOL id='04FA0B48' name='.remaining_restores'/>
+<SYMBOL id='04FA0508' name='.loop_stack_restore'/>
+<SYMBOL id='04FA04B8' name='.restore_another_loop_level'/>
+<SYMBOL id='04FA03C8' name='.loop_stack_restored'/>
+<REFERENCE symbol_id='04FA0238' symbol='.dregs_sregs_40bit_saves'/>
+<REFERENCE symbol_id='04FA0B98' symbol='.remaining_saves'/>
+<REFERENCE symbol_id='04FA0C38' symbol='.rnd32_done'/>
+<REFERENCE symbol_id='04FA0BE8' symbol='.loop_stack_empty'/>
+<REFERENCE symbol_id='04FA0788' symbol='.save_another_loop_level'/>
+<REFERENCE symbol_id='04FA06E8' symbol='_adi_osal_gHandlerTable.'/>
+<REFERENCE symbol_id='04FA0288' symbol='.handler_return'/>
+<REFERENCE symbol_id='04FA0058' symbol='.dregs_sregs_40bit_restores'/>
+<REFERENCE symbol_id='04FA0B48' symbol='.remaining_restores'/>
+<REFERENCE symbol_id='04FA03C8' symbol='.loop_stack_restored'/>
+<REFERENCE symbol_id='04FA04B8' symbol='.restore_another_loop_level'/>
+</OBJECT>
+<OBJECT id='04BA7A50' name='(adi_rtl_peak_dispatched_handlers., adi_rtl_peak_dispatched_handlers.+0x4)' section='libc.dlb[dispatched_handler_reg_ba.doj](seg_dmda)'>
+<SYMBOL id='04FA0558' name='adi_rtl_peak_dispatched_handlers.'/>
+</OBJECT>
+<OBJECT id='04BA7CD0' name='(adi_rtl_register_dispatched_handler., .adi_rtl_register_dispatched_handler..end)' section='libc.dlb[dispatched_handler_reg_ba.doj](seg_swco)'>
+<SYMBOL id='04FA0918' name='adi_rtl_register_dispatched_handler.'/>
+<SYMBOL id='04FA0C88' name='.P37L17'/>
+<SYMBOL id='04FA05A8' name='.P37L25'/>
+<SYMBOL id='04FA0468' name='.P37L34'/>
+<SYMBOL id='04FA05F8' name='.P37L3'/>
+<SYMBOL id='04FA0AF8' name='.P37L36'/>
+<SYMBOL id='04FA0418' name='.P37L26'/>
+<SYMBOL id='04FA0648' name='.P37L52'/>
+<SYMBOL id='04FA0828' name='.P37L37'/>
+<REFERENCE symbol_id='04FA0828' symbol='.P37L37'/>
+<REFERENCE symbol_id='04FA0AF8' symbol='.P37L36'/>
+<REFERENCE symbol_id='04F7D0E0' symbol='__sys_int_mapping_table.'/>
+<REFERENCE symbol_id='04FA05A8' symbol='.P37L25'/>
+<REFERENCE symbol_id='04F52CF0' symbol='_dispatcher_table.'/>
+<REFERENCE symbol_id='04F528E0' symbol='adi_dispatched_int_vector_table_size.'/>
+<REFERENCE symbol_id='04FA0648' symbol='.P37L52'/>
+<REFERENCE symbol_id='04FA0C88' symbol='.P37L17'/>
+<REFERENCE symbol_id='04FA0418' symbol='.P37L26'/>
+<REFERENCE symbol_id='04FA0558' symbol='adi_rtl_peak_dispatched_handlers.'/>
+<REFERENCE symbol_id='04F52CF0' symbol='_dispatcher_table.'/>
+<REFERENCE symbol_id='04FA0468' symbol='.P37L34'/>
+<REFERENCE symbol_id='04FA0558' symbol='adi_rtl_peak_dispatched_handlers.'/>
+<REFERENCE symbol_id='04FA0468' symbol='.P37L34'/>
+<REFERENCE symbol_id='04FA05A8' symbol='.P37L25'/>
+<REFERENCE symbol_id='04FA05F8' symbol='.P37L3'/>
+<REFERENCE symbol_id='04F52CF0' symbol='_dispatcher_table.'/>
+<REFERENCE symbol_id='04FA05F8' symbol='.P37L3'/>
+</OBJECT>
+<OBJECT id='04BA7970' name='(_adi_osal_gHandlerTableSize., _adi_osal_gHandlerTableSize.+0x4)' section='libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)'>
+<SYMBOL id='04FA0878' name='_adi_osal_gHandlerTableSize.'/>
+</OBJECT>
+<OBJECT id='04BA7B90' name='(0x4,0x8)' section='libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA7B10' name='(_adi_osal_gHandlerTable., _adi_osal_gHandlerTable.+0x45c)' section='libosal_noos.dlb[adi_osal_arch_int_table.doj](seg_dmda)'>
+<SYMBOL id='04FA06E8' name='_adi_osal_gHandlerTable.'/>
+</OBJECT>
+<OBJECT id='04BA7DB0' name='(adi_rtl_deactivate_dispatched_handler., .adi_rtl_deactivate_dispatched_handler..end)' section='libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)'>
+<SYMBOL id='04FA1138' name='adi_rtl_deactivate_dispatched_handler.'/>
+<SYMBOL id='04FA1098' name='.restore_state'/>
+<SYMBOL id='04FA10E8' name='.return'/>
+<REFERENCE symbol_id='04FA10E8' symbol='.return'/>
+<REFERENCE symbol_id='04FA10E8' symbol='.return'/>
+<REFERENCE symbol_id='04FA07D8' symbol='.__clear_imask'/>
+<REFERENCE symbol_id='04FA0A58' symbol='.__clear_imask1'/>
+<REFERENCE symbol_id='04FA0A08' symbol='.__clear_imask0'/>
+<REFERENCE symbol_id='04FA1098' symbol='.restore_state'/>
+</OBJECT>
+<OBJECT id='04BA7D30' name='(.__clear_imask, .__clear_imask.end)' section='libc.dlb[dispatched_handler_deactivate_ba.doj](seg_pmco)'>
+<SYMBOL id='04FA07D8' name='.__clear_imask'/>
+<SYMBOL id='04FA0A08' name='.__clear_imask0'/>
+<SYMBOL id='04FA0A58' name='.__clear_imask1'/>
+</OBJECT>
+<OBJECT id='04BA7DD0' name='(adi_rtl_unregister_dispatched_handler., .adi_rtl_unregister_dispatched_handler..end)' section='libc.dlb[dispatched_handler_unregister_ba.doj](seg_pmco)'>
+<SYMBOL id='04FA0DC8' name='adi_rtl_unregister_dispatched_handler.'/>
+<REFERENCE symbol_id='04FA0918' symbol='adi_rtl_register_dispatched_handler.'/>
+<REFERENCE symbol_id='04F529D0' symbol='_adi_no_dispatched_handler'/>
+</OBJECT>
+<OBJECT id='04BA7F50' name='(0x1,0x4)' section='libio.dlb[xparse_format_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8190' name='(0x2,0x4)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8270' name='(0x6,0x8)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8290' name='(0xa,0xc)' section='libio.dlb[xprint_a_float_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8370' name='(0x42,0x44)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8510' name='(0x46,0x48)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA81D0' name='(0x4a,0x4c)' section='libio.dlb[xprint_float_c08_d32.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA85B0' name='(0x2,0x4)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA85D0' name='(0x6,0x8)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA88D0' name='(0xa,0xc)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA86B0' name='(0xf,0x10)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8830' name='(0x13,0x14)' section='libio.dlb[xprint_fixed_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8930' name='(adi_rtl_sid_use_check., .adi_rtl_sid_use_check..end)' section='libc.dlb[adi_rtl_sid_use_check_ba.doj](seg_swco)'>
+<SYMBOL id='04FCB538' name='adi_rtl_sid_use_check.'/>
+<SYMBOL id='04FCB5D8' name='.P33L3'/>
+<REFERENCE symbol_id='04FCB5D8' symbol='.P33L3'/>
+</OBJECT>
+<OBJECT id='04BA8D10' name='(0x4,0x8)' section='libc.dlb[heaps_ba.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA8C50' name='(free., .free..end)' section='libc.dlb[free_ba.doj](seg_swco)'>
+<SYMBOL id='04FCB6C8' name='free.'/>
+<SYMBOL id='04FCB1C8' name='.P34L17'/>
+<SYMBOL id='04FCB218' name='.P34L4'/>
+<REFERENCE symbol_id='04FCB218' symbol='.P34L4'/>
+<REFERENCE symbol_id='04FCEAF8' symbol='__find_block_to_free.'/>
+<REFERENCE symbol_id='04FCB218' symbol='.P34L4'/>
+<REFERENCE symbol_id='04FCB1C8' symbol='.P34L17'/>
+<REFERENCE symbol_id='04FCB308' symbol='__heaps.'/>
+</OBJECT>
+<OBJECT id='04BA9070' name='(0x11,0x18)' section='libio.dlb[xhexdigits_c08_any.doj](seg_dmda)'>
+</OBJECT>
+<OBJECT id='04BA9290' name='(___trunc_ftoi, .___trunc_ftoi.end)' section='libcc.dlb[flt_sprt.doj](seg_pmco)'>
+<SYMBOL id='04FCC938' name='___trunc_ftoi'/>
+<SYMBOL id='04FCCD48' name='__trunc_ftoi.'/>
+<SYMBOL id='04FCCCF8' name='.trunc_ftoi_fix_finished'/>
+<REFERENCE symbol_id='04FCCCF8' symbol='.trunc_ftoi_fix_finished'/>
+</OBJECT>
+<OBJECT id='04BA8E50' name='(___dtof, .___dtof.end)' section='libcc.dlb[flt_sprt.doj](seg_pmco)'>
+<SYMBOL id='04FCC6B8' name='___dtof'/>
+<SYMBOL id='04FCC8E8' name='___ldtof'/>
+<SYMBOL id='04FCCA28' name='___truncdfsf2'/>
+<REFERENCE symbol_id='04FCE558' symbol='___lib_dtof'/>
+</OBJECT>
+<OBJECT id='04BA9470' name='(___floatunssisf2, .___floatunssisf2.end)' section='libcc.dlb[flt_sprt.doj](seg_pmco)'>
+<SYMBOL id='04FCC488' name='___floatunssisf2'/>
+<SYMBOL id='04FCCA78' name='___ultof'/>
+<SYMBOL id='04FCCAC8' name='___utof'/>
+</OBJECT>
+<OBJECT id='04BA97F0' name='(__find_block_to_free., .__find_block_to_free..end)' section='libc.dlb[heap_find_block_ba.doj](seg_swco)'>
+<SYMBOL id='04FCEAF8' name='__find_block_to_free.'/>
+<SYMBOL id='04FCDB08' name='.P35L1'/>
+<SYMBOL id='04FCDBF8' name='.P35L1_end'/>
+<SYMBOL id='04FCE058' name='.P35L49'/>
+<SYMBOL id='04FCDB58' name='.P35L14'/>
+<SYMBOL id='04FCDFB8' name='.P35L23'/>
+<SYMBOL id='04FCDC48' name='.P35L27'/>
+<SYMBOL id='04FCDC98' name='.P35L8'/>
+<REFERENCE symbol_id='04F9EE88' symbol='__installed_heap_num.'/>
+<REFERENCE symbol_id='04FCB308' symbol='__heaps.'/>
+<REFERENCE symbol_id='04FCDBF8' symbol='.P35L1_end'/>
+<REFERENCE symbol_id='04FCDFB8' symbol='.P35L23'/>
+<REFERENCE symbol_id='04FCDC98' symbol='.P35L8'/>
+<REFERENCE symbol_id='04FCDC48' symbol='.P35L27'/>
+<REFERENCE symbol_id='04FCDB58' symbol='.P35L14'/>
+<REFERENCE symbol_id='04FCDB58' symbol='.P35L14'/>
+<REFERENCE symbol_id='04FCDB58' symbol='.P35L14'/>
+<REFERENCE symbol_id='04FCDB58' symbol='.P35L14'/>
+</OBJECT>
+<OBJECT id='04BA9850' name='(___lib_dtof, .___lib_dtof.end)' section='libcc.dlb[lib_ldtof.doj](seg_pmco)'>
+<SYMBOL id='04FCE558' name='___lib_dtof'/>
+<SYMBOL id='04FCE878' name='___lib_ldtof'/>
+</OBJECT>
+</LINKPROJECT_UNNEEDED_OBJECTS>
+</DOCUMENT>

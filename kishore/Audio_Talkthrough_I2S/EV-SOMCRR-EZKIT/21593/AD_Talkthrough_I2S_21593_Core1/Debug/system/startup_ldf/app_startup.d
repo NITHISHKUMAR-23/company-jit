@@ -1,0 +1,12 @@
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/system/startup_ldf/app_startup.s
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/adi_osal.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/adi_osal_arch.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/def21593.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/interrupt.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/platform_include.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-21593.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP-2159x-core.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/ADSP_SC5xx_legacy.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/anomaly_macros_rtl.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/defSC59x_id_macros.h
+D:/kishore/Audio_Talkthrough_I2S/EV-SOMCRR-EZKIT/21593/AD_Talkthrough_I2S_21593_Core1/Debug/system/startup_ldf/app_startup.doj: C:/analog/cces/3.0.1/SHARC/include/sys/fatal_error_code.h

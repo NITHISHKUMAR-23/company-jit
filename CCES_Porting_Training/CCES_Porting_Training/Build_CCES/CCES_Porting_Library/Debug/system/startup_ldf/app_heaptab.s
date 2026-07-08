@@ -1,0 +1,117 @@
+	.file "..\system\startup_ldf\app_heaptab.c";
+//  Compilation time: Fri Feb 21 14:03:28 2025
+//  Compiler options: -c -file-attr ProjectName=CCES_Porting_Library -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision 0.0 -O -Ov100 -g -save-temps -path-output .\system\startup_ldf -DCORE0 -D_DEBUG -I../../../CCES_Porting_Training/Porting_Library/Files -ID:/CCES_Porting_Training/Build_CCES/CCES_Porting_Library/system -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo system\startup_ldf\app_heaptab.d -o system\startup_ldf\app_heaptab.doj
+//  Compiler version: 9.0.2.0 (299b81854d4c0869dabfda91e6ab288ec8ec3f47)
+//  Architecture: ADSP-21569
+//  Silicon revision: 0.0
+//  Anomalies summary:
+//   Disabled: w_anomaly_45, w_anomaly_2126x_4, w_dag_stall, w_2136x_multi, w_2136x_mem_write, w_09000014, w_09000018, w_09000020, w_07000009_1, w_07000009_2, w_09000021, w_15000003, w_09000022, w_15000004, w_15000011, w_09000023, w_15000005, w_15000016, w_15000023, w_20000022, w_20000020, w_20000024, w_20000023, w_20000009, w_20000083
+//   Enabled: w_20000002, w_20000069
+//   Always on: w_simd, w_restore_loop_stack
+
+.MESSAGE/SUPPRESS 2555;
+.MESSAGE/SUPPRESS 2561;
+.MESSAGE/SUPPRESS 2565;
+
+	.file_attr libData="HeapTable";
+	.file_attr ProjectName="CCES_Porting_Library";
+	.file_attr FuncName="llabs.";
+	.file_attr FuncName="llmin.";
+	.file_attr FuncName="llmax.";
+	.file_attr Encoding="SW";
+	.file_attr Content="CodeData";
+
+	.section/SW/DOUBLE32 seg_swco;
+
+.epctext:
+
+	.section .debug_abbrev;
+
+	.align 1;
+	.type .epcabbrev,STT_OBJECT;
+.epcabbrev:
+	.inc/binary ".\system\startup_ldf\app_heaptab.sbn", 0, 182;
+.epcabbrev.end:
+
+	.section .debug_info;
+
+	.align 1;
+	.type .epcdebug,STT_OBJECT;
+.epcdebug:
+	.byte =
+		0xC5,0x05,0x00,0x00,0x02,0x00;
+	.var = .epcabbrev;
+	.byte =
+		0x04,0x01,0x2E,0x2E,0x5C,0x73,0x79,0x73,0x74,0x65,0x6D,0x5C,
+		0x73,0x74,0x61,0x72,0x74,0x75,0x70,0x5F,0x6C,0x64,0x66,0x5C,
+		0x61,0x70,0x70,0x5F,0x68,0x65,0x61,0x70,0x74,0x61,0x62,0x2E,
+		0x63,0x00,0x0C;
+	.var = .epcline;
+	.inc/binary ".\system\startup_ldf\app_heaptab.sbn", 182, 1337;
+	.var = ldf_heap_space;
+	.byte =
+		0x00,0x00,0x00,0x00,0x01,0x0C,0x6C,0x64,0x66,0x5F,0x68,0x65,
+		0x61,0x70,0x5F,0x6C,0x65,0x6E,0x67,0x74,0x68,0x00,0x01,0x43,
+		0x02,0x00,0x00,0x05,0x03;
+	.var = ldf_heap_length;
+	.byte =
+		0x00,0x00,0x00,0x00,0x01,0x0C,0x68,0x65,0x61,0x70,0x5F,0x74,
+		0x61,0x62,0x6C,0x65,0x00,0x01,0xB9,0x05,0x00,0x00,0x05,0x03;
+	.var = heap_table.;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x0B,0x04,0x04,0x00,0x00,0x0D,0xC7,
+		0x05,0x00,0x00,0xB4,0x05,0x00,0x00,0x0E,0x02,0x00,0x01,0x00,
+		0x00,0x00;
+.epcdebug.end:
+
+	.section .debug_line;
+
+	.align 1;
+	.type .epcline,STT_OBJECT;
+.epcline:
+	.inc/binary ".\system\startup_ldf\app_heaptab.sbn", 1519, 300;
+.epcline.end:
+
+	.section .debug_pubnames;
+
+	.align 1;
+.epcpubnames:
+	.type .epcpubnames,STT_OBJECT;
+	.byte =
+		0x1D,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0xC9,0x05,0x00,0x00,0x98,0x05,0x00,0x00,0x68,0x65,0x61,0x70,
+		0x5F,0x74,0x61,0x62,0x6C,0x65,0x00,0x00,0x00,0x00,0x00;
+.epcpubnames.end:
+
+	.section .debug_aranges;
+
+	.align 1;
+.epcaranges:
+	.type .epcaranges,STT_OBJECT;
+	.byte =
+		0x14,0x00,0x00,0x00,0x02,0x00;
+	.var = .epcdebug;
+	.byte =
+		0x04,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+		0x00,0x00;
+.epcaranges.end:
+
+	.section/DOUBLE32 seg_dmda;
+
+	.align 8;
+	.global heap_table.;
+	.type heap_table.,STT_OBJECT;
+heap_table.:
+	.var = ldf_heap_space;
+	.var = ldf_heap_length;
+	.byte =
+		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+		0x00,0x00,0x00,0x00;
+.heap_table..end:
+
+	.extern ldf_heap_space;
+	.type ldf_heap_space,STT_OBJECT;
+	.extern ldf_heap_length;
+	.type ldf_heap_length,STT_OBJECT;
