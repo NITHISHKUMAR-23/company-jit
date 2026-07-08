@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_UARTDMAMode</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: Readme_UARTDMAMode</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+	  <li><a href="#UCM">User configuration macros</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Pinmuxing</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>    This example demonstrates transfer of data in DMA mode between different UART's.
+    UART transfers in case of DMA mode are non blocking and application can register a 
+    callback through which completion of DMA transfer can be tracked. This example is supported
+	both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+	<ul>
+	<li>ADSP-21593</li>
+	<li>ADSP-SC594</li>
+	<li>ADSP-SC598</li>
+	</ul>
+
+    <h3><a name="OV">3. Overview</a></h3>
+    <p>    Example opens two UART instances by default. UART DMA read/write API's are called after configuring
+    the Baud rate for communication. After completion of DMA Tx and Rx callback is invoked with a 
+    relevant event. After the Tx and Rx completion events Rx Buffer is verified to check if the data 
+    received is similar to that of Tx.<br>
+    
+    @Note: This example uses List descriptor DMA mode of operation so care must be taken that
+           ADI_PDMA_LISTDESCRIPTOR macro is enabled in adi_pdma_config.h(ADI_PDMA_LISTDESCRIPTOR is
+           enabled by default)
+    </p>
+
+    <h3><a name="HW">4. Hardware Setup</a></h3>
+    <p>         There are external connections which are required in case of this example wherein
+    EV-SOMCRR-BRKOUT probing adapter board needs to be connected to EV-ADSP-21593 or EV-ADSP-SC594 or EV-ADSP-SC598 SOM EZ-KIT.
+    </p>
+    
+	<h3><a name="UCM">5. User configuration macros</a></h3>
+    <p>
+	<pre>
+    UARTDEVA = ADI_UART_0(Default)
+    UARTDEVB = ADI_UART_1(Default)
+	</pre>
+    Only one macro should be enabled between STOP_DMA_MODE and LISTDESCRIPTOR_DMA_MODE:<br>
+	<pre>
+    #define STOP_DMA_MODE
+    #define LISTDESCRIPTOR_DMA_MODE
+	</pre>
+    </p>
+	
+    <h3><a name="EC">6. External connections</a></h3>
+    <p>           List of UART pins which are available on EV-SOMCRR-BRKOUT probing adapter 
+    <pre>
+    UART 0 Tx - Pin 22(P3)
+    UART 1 Rx - Pin 17(P4)
+
+    As per the example UARTDEVA is UART Tx and UARTDEVB is UART Rx.
+
+    By Default: UARTDEVA = UART 0
+                UARTDEVB = UART 1
+
+    @Note: care must be taken that the jumper wires are connected according to the UART configuration.
+
+    As per the configuration, UART 0 configured as Tx should be connected to UART 1 configured as Rx and it is required that a jumper wire needs to be connected between Pin 22(P3) and Pin 17(P4) on EV-SOMCRR-BRKOUT probing adapter.
+    </pre>
+    </p>
+
+    <h3><a name="REF">7. Pinmuxing</a></h3>
+    <p> Following is the pinmux configuration:</p>
+    <ul>
+      <li>UART0 (RX, TX)</li>
+      <li>UART1 (RX, TX)</li>
+	  <li>GPIO (unavailable) with ADSP-21593: PA06, PA07, PA14, PA15</li>
+	  <li>GPIO (unavailable) with ADSP-SC594: PD08, PD09, PD04, PD05</li>
+	  <li>GPIO (unavailable) with ADSP-SC598: PD08, PD09, PD04, PD05</li>
+    </ul>
+
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+	<li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+	</li>
+	<li>ADSP-SC598 SHARC+ Processor Hardware Reference Manual<br>
+	</li>
+	<li>EV-SC598-SOM Schematic<br>
+	</li>
+	<li>EV-SC594-SOM Schematic<br>
+	</li>
+	<li>EV-21593-SOM Schematic<br>
+	</li>
+	<li>EV-SOMCRR-BRKOUT Schematic<br>	
+    </li>
+    <li>EV-SOMCRR-EZKIT Schematic<br>
+    </li>
+    <li>EV-SOMCRR-EZLITE Schematic<br>
+    </li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_ospi_stigflashcommands</title>
+  <style type="text/css">
+    body {font: 16px Arial, Helvetica, Verdana;}
+    table {font: 16px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 22px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 20px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+	h4 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore® Embedded Studio Application Example<sup>®</sup></h1>
+    <h2>EV-ADSP-SC59x EZKIT Board Support Package (BSP)</h2>
+    <h3>Project Name: OSPI STIG Flash commands (ospi_stigflashcommands)</h3>
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>    
+      <li><a href="#HW">Processor</a></li>
+      <li><a href="#RUN">Overview</a></li>
+      <li><a href="#REF">User Configuration Macros</a></li>
+      <li><a href="#RUN">Hardware Setup</a></li>
+      <li><a href="#REF">Pinmuxing</a></li>
+      <li><a href="#REF">External connections</a></li>
+      <li><a href="#REF">References</a></li>
+   
+    </ol>
+
+    <h3><a name="DE">Description<br></a></h3>
+    <p>    This OSPI driver test example illustrates the use of STIG mode of the OSPI controller 
+    to send the most common flash commands and demonstrate how to send any command to the
+    flash using STIG mode. This example is supported on EV-SOMCRR-EZKIT.</p>
+	
+<p>The example does follows below steps: </p>
+<ol>
+<li>Read Man and Dev ID of the Flash device and compares it with expected values.</li>
+<li>Issues Sector Erase command to erase block 0 of Flash.</li>
+<li>Read 8 bytes from Flash in STIG mode in Single SPI mode and compares with Erase data.</li>
+<li>Set WEL bit in Status register using STIG mode.</li>
+<li>Read the WEL bit from status register till WEL is set.</li>
+<li>Write 8 Bytes in single SPI mode in STIG mode of controller.</li>
+<li>Read 8 Bytes in single SPI mode in STIG mode of controller.</li>
+<li>Enter OPI STR mode using STIG command.</li>
+<li>Read 8 Bytes in single OPI-STR mode in STIG mode of controller.</li>
+<li>Verify the read data.</li>
+<li>Reset the flash to exit the OPI-STR mode.</li>
+<li>Again read 8 Bytes in single SPI mode in STIG mode of controller and verify the data.</li>
+</ol>
+
+    <h3><a name="DE">Processor<br></a></h3>
+    <p>     ADSP-21593 </p>
+	<p>     ADSP-SC594 </p>
+	<p>     ADSP-SC598 </p>
+
+    
+    <h3><a name="DE">Overview<br></a></h3>
+    <p>     The example uses the STIG mode to do various flash operations including read and write data 
+    to flash memory. Using STIG only 8 data bytes can be read or written to flash at a time </p>
+    
+    <p>"All Done" printed to the console indicates all the STIG commands were executed successfully. </p>
+    <p> Other errors are also printed if any of the STIG operation fails in between and the code is 
+    terminated. </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">Hardware Setup<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">Pinmuxing<br></a></h3>
+    <p>   The following pins are used for the OSPI operation: </p>
+    <ol>
+    <li>  OSPI_CLK </li>
+    <li>  OSPI_MISO</li>
+    <li>  OSPI_MOSI</li>
+    <li>  OSPI_D2</li>
+    <li>  OSPI_D3</li>
+    <li>  OSPI_D4</li>
+    <li>  OSPI_D5</li>
+    <li>  OSPI_D6</li>
+    <li>  OSPI_D7</li>
+    <li>  OSPI_SEL1</li>
+    </ol>
+    
+    <h3><a name="DE">External connections<br></a></h3>
+    <p>     None </p>
+    
+    
+	
+
+    <h3><a name="REF">References</a></h3>
+    <ul>
+      <li><i>ADSP-SC59x SHARC+ Processor Hardware Reference Manual</i></li>
+      <li>EV-SC594-SOM Schematic</li>
+      <li>EV-21593-SOM Schematic</li>
+	  <li>EV-SC598-SOM Schematic</li>
+      <li>EV-SOMCRR-EZKIT Schematic</li>
+      <li>Macronix SPI Flash MX66LM1G data sheet</li>
+    </ul>
+
+</body></html>

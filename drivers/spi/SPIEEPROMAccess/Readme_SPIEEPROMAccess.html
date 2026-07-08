@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_SPIEEPROMAccess</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: SPIEEPROMAccess</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Software switch settings</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>This example tests the 1K-bit SPI Serial EEPROM (Microchip 25LC010A) memory device.  The
+	   Microchip 25LC010A EEPROM is located on the EV-ADSP-SC59x EZ-Kit.PI is used in core mode to access the EEPROM memory.
+	   This example is only supported on EV-SOMCRR-EZKIT.
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+    </p>
+      ADSP-SC59x
+    </p>
+
+    <h3><a name="OV">3. Overview</a></h3>
+    <p> The Microchip Technology Inc. 25LC010A is a 1 Kbit Serial Electrically Erasable Programmable Read-Only
+        Memory (EEPROM). The memory is accessed via a simple Serial Peripheral Interface (SPI) compatible
+        serial bus.
+		<br><br>
+	    This example uses the ADSP-SC59x SPI driver to write random data to the EEPROM.  The data is then read 
+		back and verified.For more information on driver modes of operation please refer to the driver help pages.
+    </p>
+
+    <h3><a name="HW">4. Hardware Setup</a></h3>
+    <p> None.</p>
+    
+    <h3><a name="EC">5. External connections</a></h3>
+    <p>None.</p>
+
+    <h3><a name="SWITCH">6. Software switch settings</a></h3>
+    <p> The following default EEPROM switch has been set:  </p>
+    <ul>
+        <li> ~EEPROM_EN set to 1 </li>
+    </ul>
+    <p>See ConfigSoftSwitches_EV_21593_SOM.c,ConfigSoftSwitches_EV_SC594_SOM.c, ConfigSoftSwitches_EV_SOMCRR_EZKIT.c for more information.</p>
+
+    <h3><a name="REF">7. Pinmuxing</a></h3>
+    <p> Following is the pinmux configuration:</p>
+    <ul>
+      <li>SPI0 (CLK, MISO, MOSI)</li>
+      <li>TWI2 (SCL, SDA)</li>
+      <li>GPIO (unavailable): PA06, PA07, PA08, PA14, PA15</li>
+    </ul>
+
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+	
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual : Serial Peripheral Interface (SPI)</li>
+      <li>EV-SC594-SOM Schematic</li>
+	  <li>EV-21593-SOM Schematic</li>
+	  <li>EV-SOMCRR-EZKIT Schematic</li>
+      <li>Microchip 25LC010A EEPROM data sheet</li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

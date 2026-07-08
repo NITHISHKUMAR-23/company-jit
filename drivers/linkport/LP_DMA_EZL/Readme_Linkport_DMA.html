@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+
+
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Readme_Linkport_DMA_Example</title>
+  
+
+  
+  
+  <style type="text/css">
+            body {font: 12px Arial, Helvetica, Verdana;}
+            table {font: 12px Arial, Helvetica, Verdana;}
+            h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+            h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+            h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+        </style></head><body>
+<h1>
+Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+
+<h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+
+
+<h3>Project Name: Linkport_DMA</h3>
+
+<h3>CONTENTS</h3>
+
+<ol>
+
+  <li><a href="#DE">Description</a></li>
+  <li><a href="#PR">Processor</a></li>
+  <li><a href="#TESTED">Tested with</a></li>
+  <li><a href="#OV">Overview</a></li>
+  <li><a href="#HW">Hardware Setup</a></li>
+  <li><a href="#RUN">Running the Example</a></li>
+  <li><a href="#REF">References</a></li>
+</ol>
+
+<h3><a name="DE">1. Description<br>
+</a></h3>
+
+<div style="text-align: left;">This example demonstrates the Stop DMA mode operation of the link port. The linkport 0 is the transmitter and the linkport 1 is the receiver.<br>
+</div>
+
+<h3><a name="PR">2. Processor</a></h3>
+
+<ul>
+    <p>     ADSP-21593 </p>
+    <p>     ADSP-SC594 </p>
+    <p>     ADSP-SC598 </p>
+</ul>
+
+<h3><a name="TESTED">3. Tested with</a></h3>
+
+<ul>
+
+    <p>     EV_SOMCRR-EZLITE </p>
+  </li>
+  <li>Analog Devices CrossCore Embedded Studio</li>
+  <li>ICE-2000</li>
+</ul>
+
+<h3><a name="OV">4. Overview</a></h3>
+
+<div style="text-align: left;">In this example,
+<ul>
+	<li>The Linkport uses the OCLK as the clock source from CGU. OCLK of 125 MHz configured from the default preload code.<br>
+	</li>
+	<li>The pinmux is configured to enable both the linkports and TWI2 for softconfig switch.<br>
+	</li>
+	<li>The transmitter, is configured for a Clock value of 15.625 MHz (OCLK/8 ).<br>
+	</li>
+	<li>The LP0 is configured as transmitter in DMA mode. The LP1 is configured as receiver in DMA mode.<br>
+	</li>
+	<li>The 1024 words of data are transmitted from the transmitter to receiver.<br>
+	</li>
+	<li>After the reception is over the buffers are compared to see that the data matches.<br>
+	</li>
+</ul>	
+<b>Notes:</b>
+	For all the DMA use cases the "adi_pdma_config_2156x.h" should be included in the application 
+    under the services->pdma folder. The "ADI_PDMA_LISTDESCRIPTOR" macro should be enabled for all 
+    the DMA modes except for Descriptor Array and Descriptor Array on Demand modes.	
+</div>
+
+<ol>
+
+</ol>
+
+<h3><a name="HW">5. Hardware Setup</a></h3>
+
+On the EZLITE kit connect the link port connectors  link port 0 and 1 using the SAMTECH cable.
+
+<h3><a name="DE">User Configuration Macros<br></a></h3>
+<ul>
+  <li>User should only enable either of the one macro mentioned below</li>
+<li> Enable/Disable TEST_LINKPORT_SDR_8BIT_TRANSFER_MODE<li>
+<li> Enable/DisableTEST_LINKPORT_SDR_4BIT_TRANSFER_MODE<li>
+<li> Enable/DisableTEST_LINKPORT_SDR_2BIT_TRANSFER_MODE<li>
+<li> Enable/DisableTEST_LINKPORT_DDR_4BIT_TRANSFER_MODE<li>
+<li> Enable/DisableTEST_LINKPORT_DDR_2BIT_TRANSFER_MODE<li>
+
+</ul>
+    
+<h3><a name="RUN">6. Running the Example</a><br>
+</h3>
+
+<div style="text-align: left;">
+<ol>
+  <li>Build the project, load the executable to the processor, and run it
+(press resume button in debug view or hit F5).<br>
+    <br>
+  </li>
+  <li>Look for the debug information displayed on Analog Devices
+CrossCore Embedded Studio console window.</li>
+</ol>
+</div>
+
+<span style="font-style: italic;"></span><br>
+
+<h3><a name="REF">8. References</a></h3>
+
+<ul>
+
+  <li>ADSP-2156x SHARC+ Processor Product page<br>
+  </li>
+  <li>ADSP-2156x SHARC+ Processor Datasheet<br>
+  </li>
+  <li>ADSP-2156x SHARC+ Hardware Reference Manual</li>
+  <li>ADSP-2156x SHARC+ EZLITE product page<br>
+  </li>
+  <li>ADSP-2156x SHARC+ Evaluation system manual<br>
+  </li>
+</ul>
+
+<br>
+
+<br>
+
+</body></html>

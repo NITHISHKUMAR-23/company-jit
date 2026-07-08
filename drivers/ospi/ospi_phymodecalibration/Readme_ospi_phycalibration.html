@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_ospi_phycalibration</title>
+  <style type="text/css">
+    body {font: 16px Arial, Helvetica, Verdana;}
+    table {font: 16px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 22px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 20px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+	h4 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore® Embedded Studio Application Example<sup>®</sup></h1>
+    <h2>EV-SC594-SOM and EV-SC598-SOM Board Support Package (BSP)</h2>
+    <h3>Project Name: OSPI Phy Mode Calibration and Flash Access (ospi_phycalibration)</h3>
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>    
+      <li><a href="#HW">Processor</a></li>
+      <li><a href="#RUN">Overview</a></li>
+      <li><a href="#REF">User Configuration Macros</a></li>
+      <li><a href="#RUN">Hardware Setup</a></li>
+      <li><a href="#REF">Pinmuxing</a></li>
+      <li><a href="#REF">External connections</a></li>
+      <li><a href="#REF">References</a></li>
+   
+    </ol>
+
+    <h3><a name="DE">Description<br></a></h3>
+    <p>    This OSPI driver test example illustrates the use of OSPI-Phy Auto Calibration in REF_Clock 
+           mode and read the data from the flash memory at 80Mhz.</p>
+	
+<p>The example does following: </p>
+<ol>
+<li>Initializes the SPU for making MDMA secure for memory accesses.</li>
+<li>Enables the access to ISSI Quad flash on board by configuring the soft config switch through TWI2.</li>
+<li>Erases the Block0 of flash using the STIG mode of OSPI controller.</li>
+<li>Using Non-Phy mode program 1024 bytes to flash in Single SPI mode using the Direct access mode of OSPI controller using MDMA0.</li>
+<li>Configures the ISSI IS25LP512M flash to enter the Quad IO mode.</li>
+<li>Configures the controller to do direct read transaction compatible to QSPI mode.</li>
+<li>Initialize OSPI-Phy to REF_Clock mode and do Auto Calibration to configure appropriate RXDLL and TXDLL values for further Phy mode transfers .</li>
+<li>Using Phy mode perform the read operation in Quad IO DTR mode (Command  in Single mode, Address and data sent in Quad mode) using the Direct access mode of OSPI controller using MDMA0.</li>
+<li>Verifies the read back data.</li>
+</ol>
+
+
+    <h3><a name="DE">Processor<br></a></h3>
+    <p>     ADSP-SC594 </p>
+	<p>     ADSP-SC598 </p>
+
+    
+    <h3><a name="DE">Overview<br></a></h3>
+    <p>     The example uses the Direct access mode of the OSPI controller to do the direct 
+    write accesses to the flash device. And enable Phy mode (With Auto Calibration feature) and do direct read accesses from flash device.
+	This involves configuring the controller through API provided for direct read, write accesses and Phy Init. Individual commands to configure the flash or
+    Erase the flash and done through the STIG mode </p>
+    
+    <p>"Data transfer completed successfully" and "All Done" printed to the console signifies the
+    receive buffer compares with the expected result buffer. </p>
+    <p>"Data transfer failed with errors" printed to the console signifies that the test example has failed.
+    Other errors are also printed if any of the driver operation fails in between and the code is 
+    terminated. </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">Hardware Setup<br></a></h3>
+    <p>     This example will work only with EV-SC594-SOM/EV-SC598-SOM alone, without connecting any EV-SOMCRR-EZKIT or EV-SOMCRR-EZLITE board. Since the OSPI lines are shared with 
+	another flash device in SOMCRR boards and running at High Speed (80Mhz). Connecting SOMCRR-EZKIT or EV-SOMCRR-EZLITE may cause signal integrity issues and example may fail. </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">Pinmuxing<br></a></h3>
+    <p>   The following pins are used for the OSPI operation: </p>
+    <ol>
+    <li>  OSPI_CLK </li>
+    <li>  OSPI_MISO</li>
+    <li>  OSPI_MOSI</li>
+    <li>  OSPI_D2</li>
+    <li>  OSPI_D3</li>
+    <li>  OSPI_SEL1</li>
+    </ol>
+    
+    <h3><a name="DE">External connections<br></a></h3>
+    <p>     None </p>
+    
+    
+	
+
+    <h3><a name="REF">References</a></h3>
+    <ul>
+      <li><i>ADSP-SC59x SHARC+ Processor Hardware Reference Manual</i></li>
+      <li>EV-SC594-SOM Schematic</li>
+	  <li>EV-SC598-SOM Schematic</li>
+    </ul>
+
+</body></html>

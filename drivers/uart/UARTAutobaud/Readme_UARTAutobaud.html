@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_UARTAutobaud</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: Readme_UARTAutobaud</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Pinmuxing</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>This example uses UART driver to detect the baud rate from a PC connected to the EV-SOM-EZKIT "USB to UART" connector.
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+	<ul>
+	<li>ADSP-21593</li>
+	<li>ADSP-SC594</li>
+	<li>ADSP-SC598</li>
+	</ul>
+
+
+    <h3><a name="OV">3. Overview</a></h3>
+    <p>         This example demonstrates the usage of baud rate detection automatically
+    using UART to scan the keyboard alphabets and send them onto a Terminal emulator
+    such as TeraTerm to demonstrate UART as a medium to communicate with PC.This example is supported
+	both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.
+    </p>
+
+    <h3><a name="HW">4. Hardware Setup</a></h3>
+    <p>     None
+    </p>
+    
+    <h3><a name="EC">5. External connections</a></h3>
+    <p>       Connect USB-C cable(For SC598 & SC594 REV-C)/Micro USB cable between the PC and "USB to UART" connector - P2 of EV-21593-SOM/EV-SC594-SOM EZ-Kit or 
+	P1 of EV-SC598-SOM
+    <pre>
+    On the PC open Control Panel -> Device Manager -> Ports (COM & LPT) to determine which COM port is being
+    used by the 'USB Serial Port'. Then open a serial terminal application (for example PuTTY or TeraTerm)
+    and configure a serial connection to the COM port with the settings as shown below:
+    
+    Bits Per second = 9600
+    Data bits       = 8
+    Parity          = None
+    Stop bits       = 1
+    Flow Control    = None
+    
+    Detailed steps for running the above mentioned setup
+
+ 1. Open a terminal emulating tool such as tera term on PC and set the baud rate
+    at which communication needs to be established.
+ 
+ 2. Run the example and enter "@" in the terminal emulator window so that the
+    example can detect the baud rate and it will be displayed on the console
+    window as  "Detected Baudrate is xx"
+  
+ 3. Any key pressed through keyboard will be displayed on the console window
+    and to exit from this program press "Enter"
+    </pre>
+    </p>
+
+    <h3><a name="REF">6. Pinmuxing</a></h3>
+    <p> Following is the pinmux configuration:</p>
+    <ul>
+      <li>UART0 (RX, TX)</li>
+      <li>TWI2 (SCL, SDA)</li>
+    </ul>
+
+    <h3><a name="REF">7. References</a></h3>
+    <ul>
+	<li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+	</li>
+	<li>ADSP-SC598 SHARC+ Processor Hardware Reference Manual<br>
+	</li>
+	<li>EV-SC598-SOM Schematic<br>
+	</li>
+	<li>EV-SC594-SOM Schematic<br>
+	</li>
+	<li>EV-21593-SOM Schematic<br>
+	</li>
+    <li>EV-SOMCRR-EZKIT Schematic<br>
+    </li>
+    <li>EV-SOMCRR-EZLITE Schematic<br>
+    </li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

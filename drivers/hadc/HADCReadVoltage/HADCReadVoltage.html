@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_HADCReadVoltage</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: HADCReadVoltage </h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+      <li><a href="#UC">User Configuration Macros</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>	This example demonstrates how to use HADC driver to convert and read the voltage levels via
+    House-keeping ADC in the processor. This example is supported for EV-SOMCRR-EZKIT.
+	  </p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+      <li>ADSP-21593</li>
+      <li>ADSP-SC594</li>
+	  <li>ADSP-SC598</li>
+    <h3><a name="OV">3. Overview</a></h3>
+    <p>
+    This example demonstrates how to use HADC driver to convert and read the voltage levels.<br>
+	four channels are used for ADSP-21593 and eight channels for ADSP-SC594, ADSP-SC598 in this example <br> <br>
+    --   Channel VIN0 samples the VDD_INT voltage at ~1V.<br>
+    --   Channel VIN1 samples the VDD_A voltage at ~1.8V.<br>
+    --   Channel VIN2 samples the VDD_DMC voltage at ~1.35V.<br>
+    --   Channel VIN3 samples the VDD_INT voltage at ~0.9V.<br>
+    --   Channel VIN4 samples the VDD_VREF voltage at ~1.8V.<br>	
+    --   Channel VIN5 samples the VDD_INT voltage at ~1V.<br>
+    --   Channel VIN6 samples the GND voltage at ~0V.<br>
+	--   Channel VIN7 samples the GND voltage at ~0V.<br><br>
+		
+    After reading the voltage levels, the example also checks whether those are in expected tolerance range (+-0.1V).
+    For each of the inputs, "Correct voltage" is printed if the voltage is within the range, and
+    "Incorrect voltage" is printed otherwise.
+    
+    <h3><a name="UC">4. User Configuration Macros</a></h3>
+    <ul><li>
+		PERFORM_BLOCKINGMODE  (ReadVoltage.h) <br> 
+		- When this MACRO is configured as (1), then the HADC driver uses blocking mode API to read ADC data. <br>
+    </ul></li> 	
+    <ul><li>
+    PERFORM_NONBLOCKINGMODE (ReadVoltage.h) <br> 
+    - When  this MACRO is configured as (1), then the HADC driver uses non-blocking mode API to read ADC data. <br>
+    </ul></li>  
+
+    <h3><a name="HW">5. Hardware Setup</a></h3>
+    <p> The example requires that jumpers are placed across pin 1 & 2, 3 & 4, 5 & 6 and 7 & 8 of the P4 jumper for ADSP-21593. <br>
+	The example requires that jumpers are placed across pin 1 & 2, 3 & 4, 5 & 6 and 7 & 8 of the P4 and P5 jumpers for ADSP-SC594.
+    
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>EV-SC594-SOM Schematic<br>
+  </li>
+  <li>EV-21593-SOM Schematic<br>
+  </li>
+  <li>EV-SC598-SOM Schematic<br>
+  </li>  
+  <li>EV-SOMCRR-EZKIT Schematic<br>
+  </li>
+    
+    <br>
+    <br>
+
+</body></html>

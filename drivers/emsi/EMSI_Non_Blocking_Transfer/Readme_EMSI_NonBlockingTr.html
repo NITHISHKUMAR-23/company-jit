@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_EMSI_NonBlockingTr</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name: EMSI_NonBlockingTr</h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+	  <li><a href="#UseMac">User Configuration Macros</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#EC">External connections</a></li>
+      <li><a href="#SWITCH">Software switch settings</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>
+	    Example opens eMSI instances by default. The card type is set to eMMC in adi_emsi_Open(). eMSI non-Blocking read/write  transfer API's are called after eMMC card identification and 
+	configuration  of the eMSI Clock (50 MHz for data transfer), data transfer width (8 bit), speed mode (DDR), DMA type (ADMA2), and block length(512 Bytes) for transfers. 
+	The Auto CMD23 feature is enabled  to remove overhead of driver issuing CMD23 for pre-defined  multiblock transfers. 
+	After completion of transfers callback is invoked with a relevant event. After the Tx and Rx completion events Rx Buffer is verified to check if the data 
+    received is similar to that of Tx. All Done! will be printed once all activities completed successfully.  This example is supported
+	both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.
+	</p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+    </p>
+	  <li>ADSP-SC598</li>
+    </p>
+
+    <h3><a name="OV">3. Overview</a></h3>
+    <p>    This example demonstrates non-blocking eMSI data transfer using ADMA2 DMA mode for eMMC device.
+       Application can register a callback through which completion of transfer can be tracked and error can be tracked.
+	   Example also shows usage of Auto CMD (CMD23) for predefined multi block transfers.
+    </p>
+	
+				<h3><a name="UseMac">4. User Configuration Macros<br></a></h3>
+    <p> <li> BLOCK_LENGTH: Size of the block (512 bytes) used for upcoming transfer</li>
+		<li> TOTAL_LENGTH: Size of each transfer</li>
+		<li> START_ADDRESS_BLOCK: Starting address of sector or byte of the card from where read/write transfer operations should be performed</li>
+		<li> NO_OF_BLOCKS: Number block of BLOCK_LENGTH(512 bytes) to be transferred</li>
+		<li> RCA: Relative card address which needs to be assigned to card using CMD3</li>
+		<li> DIVIDER_VALUE: eMSI Clock frequency divider value for data transfers</li>
+	</p>
+
+    <h3><a name="HW">5. Hardware Setup</a></h3>
+    <p>    None. This example can be directly run on standalone SC598-SOM board, SC598-SOM board + EV-SOMCRR-EZKIT, SC598-SOM board + EV-SOMCRR-EZLITE.
+    </p>
+    
+    <h3><a name="EC">6. External connections</a></h3>
+    <p>   None.
+    </p></li>
+
+    <h3><a name="REF">7. Pinmuxing</a></h3>
+    <p> Following is the pinmux configuration:</p>
+    <ul>
+      <li>EMSI0 (CD, CLK, CMD, D0, D1, D2, D3, D4, D5, D6, D7, LED_CONTROL, RST, WP)</li>
+      <li>TWI2 (SCL, SDA)</li>
+	  <li>    GPIO (unavailable)
+	PA14, PA15, PB15, PC04, PC06, PD15, PE01, PE06, PE08, PE09, PG01, PG02, PG08,
+	PG09, PG10, PI06</li>
+    </ul>
+
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual : Enhanced Mobile Storage Interface (eMSI)</li>
+	  <li>EV-SC598-SOM Schematic</li>
+    </ul>
+    
+    <br>
+    <br>
+
+</body></html>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.sourcegen.component.startup_ldf" name="Startup Code/LDF" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component provides the ability to generate Startup Code and LDF source files. Startup code is a procedure that initializes and configures the processor when execution jumps to the "start" address on reset.
+It sets the machine into a known state, initializes selected features, and enables the standard runtime-model.
+A Linker Description File (LDF) defines the target memory map and the placement of program sections within processor memory.
+It provides information needed to link your code. It can be used to configure memory related options, such as the placement of the system heap, system stack, and external memory.]]></component-description>
+			<product name="Startup Code/LDF" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.mcapi" name="Analog Devices' MCAPI" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of Multicore association's Multicore Communications API (MCAPI™) version 2.15]]></component-description>
+			<product name="Analog Devices implementation of Multicore Communications API (MCAPI™) v2.15" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.common.sharcxi" name="TWI Driver for SHARC" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.ssldd.pinmux.component" name="Pin Multiplexing" version="1.0.0" visible="true">
+			<component-description><![CDATA[Since some processors have more peripherals than physical pins on the chip, the user needs to configure which peripherals they want enabled and onto which set of pins.  Peripheral configuration requires an in-depth understanding of the hardware.  This component makes it easier to program the peripherals without worrying about the internal details.  The user simply selects the peripherals to enable and this component will generate the C code necessary to configure the peripherals.]]></component-description>
+			<product name="Pin Multiplexing Product" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.spu.sharcxi" name="SPU Service for SHARC" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the System Protection Unit(SPU)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.emac.common.sharcxi" name="EMAC Driver for SHARC" version="1.0.0" visible="false">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Ethernet Media Access Controller (EMAC) Driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.twi.sc59x.sharcxi" name="TWI Driver for SHARC" version="2.0.1" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Two Wire Interface Driver (TWI)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.emac.sc59x.sharcxi" name="EMAC Driver for SHARC" version="1.0.1" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the Ethernet Media Access Controller (EMAC) Driver]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+		<component id="com.analog.crosscore.addins.ssldd.gpio.sharcxi" name="GPIO Driver for SHARC" version="1.0.0" visible="true">
+			<component-description><![CDATA[This add-in provides Analog Devices' implementation of the General-Purpose input/output Port Driver (GPIO)]]></component-description>
+			<product name="Analog Devices System Services and Device Drivers" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.sourcegen.component.startup_ldf">
+			<startup_ldf-configuration>
+				<crt_and_ldf>
+					<propertygroup name="mandatory">
+						<property name="si_revision" value="0.0"/>
+						<property name="ivt_output" value="app_IVT.s"/>
+						<property name="processor" value="ADSP-SC594"/>
+						<property name="product_name" value="CrossCore(R) Embedded Studio"/>
+						<property name="crt_doj" value="app_startup.doj"/>
+						<property name="crt_output" value="app_startup.s"/>
+						<property name="ldf_output" value="app.ldf"/>
+					</propertygroup>
+					<propertygroup name="template_schemas" value="true">
+						<property name="ldf_schema" value="210.06"/>
+						<property name="startup_code_schema" value="212.01"/>
+					</propertygroup>
+					<crt>
+						<propertygroup name="cplb_init" value="true">
+							<property name="cplb_src_file" value="app_cplbtab.c"/>
+							<property name="cplb_ctrl" value="57"/>
+							<property name="cplb_obj_file" value="app_cplbtab.doj"/>
+							<property name="cplb_src_alt" value="false"/>
+						</propertygroup>
+						<propertygroup name="mem_init" value="false"/>
+						<propertygroup name="use_multicores" value="3">
+							<property name="use_core" value="1"/>
+						</propertygroup>
+						<property name="main_never_returns" value="false"/>
+						<property name="use_mt" value="false"/>
+						<property name="init_regs" value="false"/>
+						<property name="zero_return_regs" value="false"/>
+						<property name="using_cplusplus" value="true"/>
+						<property name="use_argv" value="false"/>
+						<property name="use_profiling" value="false"/>
+						<property name="use_default_handlers" value="false"/>
+						<property name="use_user_mod_crt" value="true"/>
+						<property name="use_custom_vector" value="false"/>
+						<property name="dcache_config" value="disable_dcache_and_enable_cplb"/>
+						<property name="detect_stackoverflow" value="false"/>
+						<property name="device_init" value="true"/>
+						<property name="icache_config" value="enable_icache"/>
+					</crt>
+					<ldf>
+						<propertygroup name="system_heap" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="min_size" value="2"/>
+							<property name="customized" value="false"/>
+						</propertygroup>
+						<propertygroup name="system_stack" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="customized" value="false"/>
+							<property name="min_size" value="2"/>
+						</propertygroup>
+						<propertygroup name="use_sdram" value="false">
+							<property name="partitioned" value="default"/>
+							<property name="size" value="1024"/>
+							<property name="dmc_size_0" value="1024"/>
+							<property name="size_units" value="MegaBytes"/>
+						</propertygroup>
+						<propertygroup name="running_from_internal_memory" value="true"/>
+						<propertygroup name="libraries" value="true">
+							<property name="heap_dbg_libs" value="false"/>
+							<property name="no_libdrv" value="false"/>
+							<property name="use_eh_enabled_libs" value="false"/>
+							<property name="use_fixed_point_io_libs" value="false"/>
+							<property name="use_fileio_libs" value="false"/>
+							<property name="use_alt_io_lib" value="false"/>
+						</propertygroup>
+						<property name="use_eh" value="true"/>
+						<property name="use_full_cpplib" value="false"/>
+						<property name="user_heap_src_file" value="app_heaptab.c"/>
+						<property name="use_software_modules" value="false"/>
+						<property name="use_user_mod_ldf" value="true"/>
+						<property name="use_pgo_hw" value="false"/>
+					</ldf>
+				</crt_and_ldf>
+				<sharc_caches>
+					<propertygroup name="icache" value="true">
+						<property name="disabled" value="false"/>
+						<property name="size_in_KB" value="16"/>
+					</propertygroup>
+					<propertygroup name="pmcache" value="true">
+						<property name="disabled" value="false"/>
+						<property name="size_in_KB" value="16"/>
+					</propertygroup>
+					<propertygroup name="dmcache" value="true">
+						<property name="disabled" value="false"/>
+						<property name="size_in_KB" value="16"/>
+					</propertygroup>
+					<propertygroup name="cache_ranges" value="true">
+						<property name="noncacheable_arm_sdram" value="true"/>
+					</propertygroup>
+				</sharc_caches>
+			</startup_ldf-configuration>
+		</configuration>
+		<configuration id="com.analog.crosscore.addins.mcapi">
+			<mcapi-configuration>
+				<schema>1.0</schema>
+				<mcapi-config-node-id>1</mcapi-config-node-id>
+				<mcapi-config-num-endpoints>24</mcapi-config-num-endpoints>
+				<mcapi-config-anon-endpoints>8</mcapi-config-anon-endpoints>
+				<mcapi-config-max-payload-size>256</mcapi-config-max-payload-size>
+				<mcapi-config-num-transmit-buffers>16</mcapi-config-num-transmit-buffers>
+				<mcapi-config-num-receive-buffers>1</mcapi-config-num-receive-buffers>
+				<mcapi-config-num-api-requests>31</mcapi-config-num-api-requests>
+				<mcapi-config-num-isr-requests>16</mcapi-config-num-isr-requests>
+			</mcapi-configuration>
+		</configuration>
+		<configuration id="com.analog.crosscore.ssldd.pinmux.component">
+			<pinmux-configuration processor="ADSP-SC594" version="1.0">
+				<peripheral description="Ethernet MAC" name="EMAC0">
+					<signal bit="14" mux="1" name="COL" pin="7" port="D"/>
+					<signal bit="4" mux="2" name="CRS" pin="2" port="D"/>
+					<signal bit="6" mux="0" name="MDC" pin="3" port="H"/>
+					<signal bit="8" mux="0" name="MDIO" pin="4" port="H"/>
+					<signal bit="4" mux="1" name="PTPAUXIN0" pin="2" port="I"/>
+					<signal bit="10" mux="InputTap" name="PTPAUXIN1" pin="5" port="D"/>
+					<signal bit="6" mux="InputTap" name="PTPAUXIN2" pin="3" port="D"/>
+					<signal bit="18" mux="InputTap" name="PTPAUXIN3" pin="9" port="E"/>
+					<signal bit="2" mux="1" name="PTPCLKIN0" pin="1" port="I"/>
+					<signal bit="8" mux="2" name="PTPPPS0" pin="4" port="I"/>
+					<signal bit="6" mux="2" name="PTPPPS1" pin="3" port="I"/>
+					<signal bit="10" mux="0" name="PTPPPS2" pin="5" port="I"/>
+					<signal bit="12" mux="0" name="PTPPPS3" pin="6" port="I"/>
+					<signal bit="14" mux="0" name="RXCLK_REFCLK" pin="7" port="H"/>
+					<signal bit="16" mux="0" name="RXCTL_RXDV" pin="8" port="H"/>
+					<signal bit="10" mux="0" name="RXD0" pin="5" port="H"/>
+					<signal bit="12" mux="0" name="RXD1" pin="6" port="H"/>
+					<signal bit="22" mux="0" name="RXD2" pin="11" port="H"/>
+					<signal bit="24" mux="0" name="RXD3" pin="12" port="H"/>
+					<signal bit="12" mux="1" name="RXERR" pin="6" port="D"/>
+					<signal bit="28" mux="0" name="TXCLK" pin="14" port="H"/>
+					<signal bit="26" mux="0" name="TXCTL_TXEN" pin="13" port="H"/>
+					<signal bit="18" mux="0" name="TXD0" pin="9" port="H"/>
+					<signal bit="20" mux="0" name="TXD1" pin="10" port="H"/>
+					<signal bit="30" mux="0" name="TXD2" pin="15" port="H"/>
+					<signal bit="0" mux="0" name="TXD3" pin="0" port="I"/>
+				</peripheral>
+				<peripheral description="Ethernet MAC" name="EMAC1">
+					<signal bit="6" mux="0" name="CRS" pin="3" port="F"/>
+					<signal bit="4" mux="0" name="MDC" pin="2" port="F"/>
+					<signal bit="2" mux="0" name="MDIO" pin="1" port="F"/>
+					<signal bit="22" mux="0" name="REFCLK" pin="11" port="E"/>
+					<signal bit="30" mux="0" name="RXD0" pin="15" port="E"/>
+					<signal bit="0" mux="0" name="RXD1" pin="0" port="F"/>
+					<signal bit="26" mux="0" name="TXD0" pin="13" port="E"/>
+					<signal bit="28" mux="0" name="TXD1" pin="14" port="E"/>
+					<signal bit="24" mux="0" name="TXEN" pin="12" port="E"/>
+				</peripheral>
+				<peripheral description="Two-Wire Interface" name="TWI2">
+					<signal bit="28" mux="0" name="SCL" pin="14" port="A"/>
+					<signal bit="30" mux="0" name="SDA" pin="15" port="A"/>
+				</peripheral>
+				<gpio name="Port A">
+					<signal bit="28" name="PA14" pin="14" port="A"/>
+					<signal bit="30" name="PA15" pin="15" port="A"/>
+				</gpio>
+				<gpio name="Port D">
+					<signal bit="4" name="PD02" pin="2" port="D"/>
+					<signal bit="6" name="PD03" pin="3" port="D"/>
+					<signal bit="10" name="PD05" pin="5" port="D"/>
+					<signal bit="12" name="PD06" pin="6" port="D"/>
+					<signal bit="14" name="PD07" pin="7" port="D"/>
+				</gpio>
+				<gpio name="Port E">
+					<signal bit="18" name="PE09" pin="9" port="E"/>
+					<signal bit="22" name="PE11" pin="11" port="E"/>
+					<signal bit="24" name="PE12" pin="12" port="E"/>
+					<signal bit="26" name="PE13" pin="13" port="E"/>
+					<signal bit="28" name="PE14" pin="14" port="E"/>
+					<signal bit="30" name="PE15" pin="15" port="E"/>
+				</gpio>
+				<gpio name="Port F">
+					<signal bit="0" name="PF00" pin="0" port="F"/>
+					<signal bit="2" name="PF01" pin="1" port="F"/>
+					<signal bit="4" name="PF02" pin="2" port="F"/>
+					<signal bit="6" name="PF03" pin="3" port="F"/>
+				</gpio>
+				<gpio name="Port H">
+					<signal bit="6" name="PH03" pin="3" port="H"/>
+					<signal bit="8" name="PH04" pin="4" port="H"/>
+					<signal bit="10" name="PH05" pin="5" port="H"/>
+					<signal bit="12" name="PH06" pin="6" port="H"/>
+					<signal bit="14" name="PH07" pin="7" port="H"/>
+					<signal bit="16" name="PH08" pin="8" port="H"/>
+					<signal bit="18" name="PH09" pin="9" port="H"/>
+					<signal bit="20" name="PH10" pin="10" port="H"/>
+					<signal bit="22" name="PH11" pin="11" port="H"/>
+					<signal bit="24" name="PH12" pin="12" port="H"/>
+					<signal bit="26" name="PH13" pin="13" port="H"/>
+					<signal bit="28" name="PH14" pin="14" port="H"/>
+					<signal bit="30" name="PH15" pin="15" port="H"/>
+				</gpio>
+				<gpio name="Port I">
+					<signal bit="0" name="PI00" pin="0" port="I"/>
+					<signal bit="2" name="PI01" pin="1" port="I"/>
+					<signal bit="4" name="PI02" pin="2" port="I"/>
+					<signal bit="6" name="PI03" pin="3" port="I"/>
+					<signal bit="8" name="PI04" pin="4" port="I"/>
+					<signal bit="10" name="PI05" pin="5" port="I"/>
+					<signal bit="12" name="PI06" pin="6" port="I"/>
+				</gpio>
+			</pinmux-configuration>
+		</configuration>
+	</configurations>
+</root>

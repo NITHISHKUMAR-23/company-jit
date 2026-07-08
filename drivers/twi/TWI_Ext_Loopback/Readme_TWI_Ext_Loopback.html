@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Readme_TWI_Ext_Loopback</title>
+  
+
+  
+  
+  <style type="text/css">
+            body {font: 12px Arial, Helvetica, Verdana;}
+            table {font: 12px Arial, Helvetica, Verdana;}
+            h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+            h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+            h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+        </style></head><body>
+<h1>
+Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+
+<h2>EV-ADSP-SC59x EZ-KIT Board Support Package</h2>
+
+<h3>Project Name: TWI_Ext_Loopback</h3>
+
+<h3>CONTENTS</h3>
+
+<ol>
+
+  <li><a href="#DE">Description</a></li>
+  <li><a href="#PR">Processor</a></li>
+  <li><a href="#TESTED">Tested with</a></li>
+  <li><a href="#OV">Overview</a></li>
+  <li><a href="#MACRO">User Configuration Macros</a></li>
+  <li><a href="#HW">Hardware Setup & External connections</a></li>
+  <li><a href="#PM">Pin Muxing</a></li> 
+  <li><a href="#REF">References</a></li>
+</ol>
+
+<h3><a name="DE">1. Description<br>
+</a></h3>
+
+<div style="text-align: left;">This example demonstrates transfer of data in between different TWI devices.
+This is supported both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.<br>
+<br>
+</div>
+
+<h3><a name="PR">2. Processor</a></h3>
+
+<ul>
+  <li>ADSP-21593</li>
+  <li>ADSP-SC594</li>
+  <li>ADSP-SC598</li>
+</ul>
+
+<h3><a name="TESTED">3. Tested with</a></h3>
+
+<ul>
+
+  <li>EV-21593-SOM-EZKIT/EV-SC594-SOM-EZKIT/EV-SC598-SOM-EZKIT
+  <li>Analog Devices CrossCore Embedded Studio</li>
+  <li>ICE-1000</li>
+</ul>
+
+<h3><a name="OV">4. Overview</a></h3>
+
+<div style="text-align: left;">This example demonstrates an external loopback between TWI2 and TWI1.<br>
+<br>
+At first, TWI2 is configured as Master Tx and TWI1 as Slave Rx.<br>
+<br>
+To change the mode of operation of TWIs, define the "TWI_MODE_CHANGE" in<br>
+<br>
+"TWI_Master_Slave_Mode_Test.h" . This will configure the TWI1 as Master Tx and<br>
+<br>
+TWI2 as slave Rx.<br>
+<br>
+For TWI2 and TWI1 pin muxing is done.<br>
+<br>
+<br>
+<br>
+Note:Please connect the jumper wires as mentioned below on EV-SOMCRR-BRKOUT probing adapter board.<br>
+<br>
+</div>
+
+<ol>
+
+</ol>
+
+<h3><a name="MACRO">5. User Configuration Macros</a></h3>
+
+<ul>
+  <li>TWI_MODE_CHANGE : To change the TWI mode of operation from Master to Slave & Slave to Master</li>
+</ul>
+
+<h3><a name="HW">6. Hardware Setup & External connections</a></h3>
+
+<div style="text-align: left;">There are external connections which are required in case of this example wherein<br>
+<br>
+EV-SOMCRR-BRKOUT probing adapter board needs to be connected to EV-21593-SOM-EZKIT/EV-SC594-SOM-EZKIT/EV-SC598-SOM-EZKIT<br>
+<br>
+<br>
+<br>
+Following connections should be made on EV-SOMCRR-BRKOUT probing adapter board.<br>
+<br>
+TWI2_SCL (Pin 20 in P3) <-----> TWI1_SCL (Pin 18 in P3).<br>
+<br>
+TWI2_SDA (Pin 21 in P3) <-----> TWI1_SDA (Pin 19 in P3).<br>
+<br>  
+
+<h3><a name="PM">7. Pin Muxing</a></h3>
+
+<div style="text-align: left;">TWI1 (SCL,SDA)<br>
+<div style="text-align: left;">TWI2 (SCL,SDA)<br>
+</div>
+
+
+<h3><a name="REF">8. References</a></h3>
+
+<ul>
+
+  <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>ADSP-SC598 SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+  <li>EV-SC598-SOM Schematic<br>
+  </li>  
+  <li>EV-SC594-SOM Schematic<br>
+  </li>
+  <li>EV-21593-SOM Schematic<br>
+  </li>
+  <li>EV-SOMCRR-BRKOUT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZKIT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZLITE Schematic<br>
+  </li>
+</ul>
+
+<br>
+
+<br>
+
+</body></html>

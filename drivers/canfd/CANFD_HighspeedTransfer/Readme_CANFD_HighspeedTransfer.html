@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_CANFD_HighspeedTransfer</title>
+  <style type="text/css">
+    body {font: 16px Arial, Helvetica, Verdana;}
+    table {font: 16px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 22px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 20px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+	h4 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore® Embedded Studio Application Example<sup>®</sup></h1>
+    <h2>EV-ADSP-SC59x EZKIT Board Support Package (BSP)</h2>
+    <h3>Project Name: CANFD High Speed Transfer (CANFD_HighspeedTransfer)</h3>
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>    
+      <li><a href="#HW">Processor</a></li>
+      <li><a href="#RUN">Overview</a></li>
+      <li><a href="#REF">User Configuration Macros</a></li>
+      <li><a href="#RUN">Hardware Setup</a></li>
+      <li><a href="#REF">Pinmuxing</a></li>
+      <li><a href="#REF">External connections</a></li>
+      <li><a href="#REF">References</a></li>
+   
+    </ol>
+	
+
+
+    <h3><a name="DE">Description<br></a></h3>
+    <p>    This example demonstrates the CAN transfer in Flexi-date rate transmission with bit rate switching enabled to transfer the payload at 8 Mbps. 
+	This tests transfers all the MBs of CANFD0 configured on core0(decided by configuration of ADI_CANFD0_CFG_BLOCK0_MBSIZE/ADI_CANFD1_CFG_BLOCK0_MBSIZE' and  
+	'ADI_CANFD0_CFG_BLOCK1_MBSIZE/ADI_CANFD1_CFG_BLOCK1_MBSIZE mcros in config file) set up as transmit Message  buffers.
+On core 2, all MBs of CANFD1 are configured as receive message buffers to receive the corresponding message buffers from CANFD0.
+All the buffers are configured for FD mode with Bit rate switching enabled. Since the transfer are done in Flexi-data rate, the payload size can vary from 0-64 bytes
+This example only demonstrates the Bit rate switching and configuring the payload upto 64 bytes. This example is supported only on EV-SOMCRR-EZKIT.
+<br>
+<br>The test demonstrates two things:
+<ol>
+<li>CANFD operating in FD mode at max speed. Speed during data phase is 8.0 Mbps. 
+<li>The need for Delay compensation when operating at high speeds in Fast mode. This is to ensure the correct self-sampling at high speed
+    This is enabled by setting the macro ADI_CANFD0_CFG_TRANS_DELAYCOMP_EN to 1 as CANFD0 is the transmitter. And programming the offset through 
+    ADI_CANFD0_CFG_TRANS_DELAYOFFSET to 4. 
+</ol>
+    
+   In this example one can experiment with the values of ADI_CANFD0_CFG_TRANS_DELAYOFFSET and see the working range from 0x2 to 0x9 without any error in CANFD transmission. 
+   Below and above this Delay offset there are some Bit0 errors in transmission.
+   
+This test is written to transmit upto 14 64-byte FD MBs multiple times and receive them on CANFD1. Each set of MBs is verified everytime
+to ensure the correctness of the reception. 
+
+<p>The example does following: </p>
+<ol>
+<li>Core0 configures CANFD0 to send all MBs with bit-rate switching enabled in blocking mode.</li>
+<li>Core1 configures CANFD1 to receive all the messages with data phase bit rate rate of 8 Mbps.</li>
+<li>Based on DLC macro, the payload length of each CANFD message is determined </li>
+<li>Once all messages are received, data received in all MBs is verified.</li>
+</ol>
+
+<p>CAN operation is configured for normal operation (non-FD) at 1Mbps with 80% sampling point.
+<br>CAN module clock is programmed for 80 MHz
+<br>
+<br> Prescaling divider PREDIV = 0 which results in clock of 80/(0+1) = 80 MHz
+<br> Tq = 1000/80 ns = 12.5 ns
+<br> 
+<br> Sampling point  = (SYNC_SEG + PROPSEG + PSEG1 + 2 )/(SYCN_SEG + PROPSEG + PSEG1 + 2 + PSEG2 + 1)
+<br>
+<br> SYNC_SEG = 1  (fixed)
+<br> PROPSEG = 45
+<br> PSEG1 = 16
+<br> PSEG2 = 15
+<br> 
+<br> For FD rate, BRS rate of 8.0 mbps is used by configuring following settings:
+<br> 
+<br> Prescaling divider PREDIV = 0 which results in clock of 80/(0+1) = 80 MHz
+<br> Tq = 1000/80 ns = 12.5 ns
+<br>
+<br> Sampling point  = (SYNC_SEG + PROPSEG + PSEG1 + 2 )/(SYCN_SEG + PROPSEG + PSEG1 + 2 + PSEG2 + 1)
+<br> 
+<br> SYNC_SEG = 1  (fixed)
+<br> PROPSEG = 3
+<br> PSEG1 = 2
+<br> PSEG2 = 1
+</p>
+
+    <h3><a name="DE">Processor<br></a></h3>
+    <p>     ADSP-SC594W </p>
+    <p>     ADSP-SC598W </p>
+  
+
+    
+    <h3><a name="DE">Overview<br></a></h3>
+    <p>     This example demonstrates the transmission of Flexi-date rate transmission with bit rate switching enable to transfer the payload at 8 Mbps. The payload in 
+	each message buffer can be up to 64 MB in size </p>
+
+    
+    <p>"Successfully Received data from all MBs multiple times at high speed " and "All Done" printed to the console signifies the 
+    received messages are received correctly. </p>
+    <p>"Test failed" printed to the console signifies that the test example has failed.
+    Other errors are also printed if any of the driver operation fails in between and the code is 
+    terminated. </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>
+	<ol>
+	<li>	STANDARDFRAME : This macro define whether the message buffers are transmitted with standard ID or extended ID.
+			This macro should be defined for standard frame and commented for extended frames. Macro should be defined/undefined 
+			on both core0 and core1.</li>
+	<li>	ISOCOMPLIANT_FD : This macro enables the ISO complaint FD transfers.</li>
+	<li>	DLC : This macro defines the size of CANFD payload. This can be defined depending on the number of bytes to be transferred in each payload
+	        Based on ADI_CANFD0_CFG_BLOCK0_MBSIZE/ADI_CANFD1_CFG_BLOCK0_MBSIZE macro defined in config file message buffers can be upto 64 bytes. So DLC should be
+			configured in accordance with these macros in config files for both core0 and core1</li>
+	</ol>
+			
+			</p>
+    
+    
+    <h3><a name="DE">Hardware Setup<br></a></h3>
+	<ol>
+	<li> Connect the DB9 cable between J7 and J8 on EV-SOMCRR-EZKIT
+    <li> Run core 0  to enable Core1 and Core2 and configure CANFD0 for TX
+    <li> Run core 1 to configure CANFD1 for RX
+    <li> Core1 will compare the received data with the reference data and declare the test status </p>
+    </ol>
+
+    
+    <h3><a name="DE">Pinmuxing<br></a></h3>
+    <p>   The following pins are used for the CANFD operation: </p>
+    <ol>
+    <li>  CANFD0_RX </li>
+    <li>  CANFD0_TX </li>
+	<li>  CANFD1_RX </li>
+    <li>  CANFD1_TX </li>
+    </ol>
+    
+    <h3><a name="DE">External connections<br></a></h3>
+    <p>     Connect the DB9 cable between J7 and J8 on EV-SOMCRR-EZKIT </p>
+    
+    
+
+    <h3><a name="REF">References</a></h3>
+    <ul>
+      <li><i>ADSP-SC59x SHARC+ Processor Hardware Reference Manual</i></li>
+      <li><i>ADSP-SC595/596/598 SHARC+ Processor Hardware Reference Manual</i></li>
+      <li>EV-SC594-SOM Schematic</li>
+      <li>EV-SC598-SOM Schematic</li>
+      <li>EV-SOMCRR-EZKIT Schematic</li>
+    </ul>
+
+</body></html>

@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_CANFD_RxFifo_dma</title>
+  <style type="text/css">
+    body {font: 16px Arial, Helvetica, Verdana;}
+    table {font: 16px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 22px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 20px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+	h4 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore® Embedded Studio Application Example<sup>®</sup></h1>
+    <h2>EV-ADSP-SC59x EZKIT Board Support Package (BSP)</h2>
+    <h3>Project Name: CANFD Rx FIFO DMA based transfer (CANFD_RxFifo_dma)</h3>
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>    
+      <li><a href="#HW">Processor</a></li>
+      <li><a href="#RUN">Overview</a></li>
+      <li><a href="#REF">User Configuration Macros</a></li>
+      <li><a href="#RUN">Hardware Setup</a></li>
+      <li><a href="#REF">Pinmuxing</a></li>
+      <li><a href="#REF">External connections</a></li>
+      <li><a href="#REF">References</a></li>
+   
+    </ol>
+	
+
+
+    <h3><a name="DE">Description<br></a></h3>
+    <p>    This test transfers the 64 MBs of CANFD0 set up as transmit Message  buffers. This is configured on CORE0. 
+On core 2, CANFD1 is setup  with Rx FIFO to receive the 64 MBs by setting up 64 filter IDs. The reception through FIFO 
+is done through DMA. CAN controller doesn't have an integrated DMA, so the MDMA is interfaced to CANFD RXFIFO and hardware
+support for trigger generated on FIFO fill triggers the MDMA read. This mechanism enables the FIFO read without core intervention
+Only MDMA stream 2 and 6 can be used to read the CANFD FIFO.
+This example is supported only on EV-SOMCRR-EZKIT.
+</p>
+	
+<p>The example does following: </p>
+<ol>
+<li>Core0 configures CANFD0 to send MB0 to MB63 in blocking mode.</li>
+<li>Core1 configures CANFD1 to receive 64 messages.</li>
+<li>All 64 messages, with ID 0 to 63 are received through FIFO.</li>
+<li>To enable this FIFO reception is enabled in CANFD1 and 64 FIFO filters are configured to allow 64 different IDs to be received through FIFO.</li>
+<li>Read of the the messages received in FIFO is done by MDMA.</li>
+<li>Messages received through FIFO are received in non-blocking mode.</li>
+<li>Once all messages are received, data received is verified.</li>
+</ol>
+
+<p>CAN operation is configured for normal operation (non-FD) at 1Mbps with 80% sampling point.
+<br>CAN module clock is programmed for 100 MHz. Prescaling divider PREDIV = 4 which results in clock of 100/(4+1) = 20 MHz so Tq = 1000/20 ns = 50 ns
+<br>
+<br>Sampling point  = (SYNC_SEG + PROPSEG + PSEG1 + 2 )/(SYCN_SEG + PROPSEG + PSEG1 + 2 + PSEG2 + 1)
+<br>SYNC_SEG = 1  (fixed)
+<br>PROPSEG = 9
+<br>PSEG1 = 4
+<br>PSEG2 = 3
+</p>
+
+    <h3><a name="DE">Processor<br></a></h3>
+    <p>     ADSP-SC594W </p>
+    <p>     ADSP-SC598W </p>
+
+    
+    <h3><a name="DE">Overview<br></a></h3>
+    <p>     This example demonstrates the transmission of standard CAN messages using blocking API and the reception of the messages is
+	done through FIFO in DMA mode of operation. Since CANFD does not have an integrated DMA controller, MDMA is coupled with CANFD to read the 
+	FIFO data. 'adi_canfd_RecvFifo_NonBlockingDma' API takes care of setting up the DMA and reading the data from FIFO
+	<br>Since data received by DMA is not corrected for endianness, application code needs to correct the endianness of the data received for each message</p>
+
+    
+    <p>"Successfully Received data from all MBs" and "All Done" printed to the console signifies the 
+    received messages are received correctly. </p>
+    <p>"Test failed" printed to the console signifies that the test example has failed.
+    Other errors are also printed if any of the driver operation fails in between and the code is 
+    terminated. </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     STANDARDFRAME : This macro define whether the message buffers are transmitted with standard ID or extended ID.
+			This macro should be defined for standard frame and commented for extended frames. Macro should be defined/undefined 
+			on both core0 and core1.
+			<br> ADI_CANFD1_CFG_MDMASTREAMID : This macro is defined in 'adi_canfd_config_sc59x.h' file for core1. This value can be set to either 2 or 6 to used MDMA2 or MDMA6 to read the FIFO data.
+			
+			</p>
+    
+    
+    <h3><a name="DE">Hardware Setup<br></a></h3>
+	<ol>
+	<li> Connect the DB9 cable between J7 and J8 on EV-SOMCRR-EZKIT
+    <li> Run core 0  to enable Core1 and Core2 and configure CANFD0 for TX
+    <li> Run core 1 to configure CANFD1 for RX
+    <li> Core1 will compare the received data with the reference data and declare the test status </p>
+    </ol>
+
+    
+    <h3><a name="DE">Pinmuxing<br></a></h3>
+    <p>   The following pins are used for the CANFD operation: </p>
+    <ol>
+    <li>  CANFD0_RX </li>
+    <li>  CANFD0_TX </li>
+	<li>  CANFD1_RX </li>
+    <li>  CANFD1_TX </li>
+    </ol>
+    
+    <h3><a name="DE">External connections<br></a></h3>
+    <p>     Connect the DB9 cable between J7 and J8 on EV-SOMCRR-EZKIT </p>
+    
+    
+
+    <h3><a name="REF">References</a></h3>
+    <ul>
+       <li><i>ADSP-SC59x SHARC+ Processor Hardware Reference Manual</i></li>
+      <li><i>ADSP-SC595/596/598 SHARC+ Processor Hardware Reference Manual</i></li>
+      <li>EV-SC594-SOM Schematic</li>
+      <li>EV-SC598-SOM Schematic</li>
+      <li>EV-SOMCRR-EZKIT Schematic</li>
+    </ul>
+
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_SPI_XIPCodeExecution</title>
+  <style type="text/css">
+    body {font: 16px Arial, Helvetica, Verdana;}
+    table {font: 16px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 22px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 20px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+	h4 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore® Embedded Studio Application Example<sup>®</sup></h1>
+    <h2>EV-ADSP-SC59x Board Support Package (BSP)</h2>
+    <h3>Project Name: Readme_SPI_XIPCodeExecution</h3>
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>    
+      <li><a href="#HW">Processor</a></li>
+      <li><a href="#RUN">Overview</a></li>
+      <li><a href="#REF">User Configuration Macros</a></li>
+      <li><a href="#RUN">Hardware Setup</a></li>
+      <li><a href="#REF">Pinmuxing</a></li>
+      <li><a href="#REF">External connections</a></li>
+      <li><a href="#REF">References</a></li>
+   
+    </ol>
+
+    <h3><a name="DE">Description<br></a></h3>
+    <p>    This SPI example illustrates the direct code execution (XiP)
+    from flash.</p>
+    
+     <p>   Ideally, the XiP is best done when flash is put in XiP mode and initially by sending 
+    read command only so that there is no need to send the read command subsequently.
+    However, since ISSI IS25LP512M does not have support for XiP mode, 
+    the code execution is done without putting the flash in XiP mode
+    This requires that the controller also should not to be in XiP mode so that the controller
+    sends the read commands for each instruction fetch as expected by flash.</p>
+    
+     <p>
+	 SHARC projects have post build script "post-build_21593.bat/post-build_SC594.bat/post-build_SC598" EZKIT/EZLITE placed in respective SH core1 folder of the project
+     which handles the extraction of flash opcodes from the executable using romsplitter option of elfloader.exe. 
+	 The extracted opcodes (in hex file) are then programmed to flash using cldp.
+	 The path for the flash programmer as given in the .bat file needs to be updated as per your ADSP-SC594 BSP installation path.
+	 Since post build script is run after the project build is complete, above 2 steps are executed one after the other
+	 after project build is done. After the script is executed, all the required opcodes are programmed into the flash at required address. 
+	 'post-build.bat' script needs to be added to Post-build steps under Build Steps tab C/C++ Build -> Settings in project properties
+	 This setting is configured in this particular example for reference.
+	 
+	 @Note: ICE-2000 is used by default in the file "post-build_21593.bat/post-build_SC594.bat/post-build_SC598" EZKIT/EZLITE by default.
+	        If any other ICE is used then it should be configured for the ICE being used</p>
+	
+<p>The example does following: </p>
+<ol>
+<li>Enables the access to ISSI Quad flash on board by configuring the soft config switch 
+       through TWI2.</li>
+<li>Configures the controller to do direct read transaction accesses in direct mode in 
+       standard SPI mode.</li>
+<li>Jumps to the code function placed in flash memory.</li>
+<li>If all the functional calls return correct value then the LED blink code gets executed to showcase the example.</li>
+<li>This example is supported both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.</li>
+</ol>
+
+
+    <h3><a name="DE">Processor<br></a></h3>
+    <p>     ADSP-21593 </p>
+    <p>     ADSP-SC594 </p>
+    <p>     ADSP-SC598 </p>
+		
+    <h3><a name="DE">Overview<br></a></h3>
+    
+    <p>On successfully completion of the code execution from flash, an LED blink code is executed and the LEDs can
+        be seen blinking on the SOM Carrier board	</p>
+		
+	<p>Note: When running the example a warning would pop up on the console. This is an expected warning. It's basically saying that you need to flash the ROM sections as they can't be loaded by CCES. The example does take care of this by using cldp to write the needed SPI flash blocks. <i>"Warning: section containing address 0x00F80000 is SPI memory and will be skipped during load, you must program SPI memory separately."</i></p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">Hardware Setup<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <ul>
+	  <li>Enable EV_SOMCRR_EZKIT_SUPPORT in SPI_XIPCodeExecution.h file to verify the example on EV-SOMCRR-EZKIT</li>
+	  <li>Enable EV_SOMCRR_EZLITE_SUPPORT in SPI_XIPCodeExecution.h file to verify the example on EV-SOMCRR-EZLITE</li>
+    </ul>
+    
+    
+    <h3><a name="DE">Pinmuxing<br></a></h3>
+    <p>   Following is the pinmux configuration: </p>
+    <ol>
+	  <li>TWI2 (SCL, SDA)</li>
+      <li>SPI2 (CLK, D2, D3, MISO, MOSI, RDY, SEL1)</li>
+	  <li>GPIO(unavailable) (PA00, PA01, PA02, PA03, PA04, PA05, PA14, PA15, PB05)</li>
+    </ol>
+    
+    <h3><a name="DE">External connections<br></a></h3>
+    <p>     None </p>
+    
+    
+	
+
+    <h3><a name="REF">References</a></h3>
+    <ul>
+      <li><i>ADSP-SC59x SHARC+ Processor Hardware Reference Manual</i></li>
+      <li>EV-SC594-SOM Schematic</li>
+      <li>EV-21593-SOM Schematic</li>
+      <li>EV-SOMCRR-EZKIT Schematic</li>
+      <li>EV-SOMCRR-EZLITE Schematic</li>
+      <li>ISSI SPI Flash IS25LP512M data sheet</li>
+    </ul>
+
+</body></html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_TMUAveraging</title>
+  <style type="text/css">
+    body {font: 12px Arial, Helvetica, Verdana;}
+    table {font: 12px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+    <h2>EV-ADSP-SC59x EZ-Kit Board Support Package</h2>
+    <h3>Project Name:TMU Averaging </h3>
+    <h3>CONTENTS</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>
+      <li><a href="#PR">Processor</a></li>
+      <li><a href="#OV">Overview</a></li>
+      <li><a href="#UC">User Configuration Macros</a></li>
+      <li><a href="#HW">Hardware Setup</a></li>
+      <li><a href="#REF">References</a></li>
+    </ol>
+
+    <h3><a name="DE">1. Description<br></a></h3>
+    <p>	This example demonstrates how to perform multiple ways of averaging on TMU data. This example is supported both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.
+	  </p>
+    
+    <h3><a name="PR">2. Processor</a></h3>
+      <li>ADSP-21593</li>
+      <li>ADSP-SC594</li>
+	  <li>ADSP-SC598</li>				 
+    <h3><a name="OV">3. Overview</a></h3>
+    <p>
+    This example demonstrates how to perform multiple ways of averaging on TMU data.<br><br>
+    
+    TMU data is printed to the console. <br><br>
+    </p>
+
+    <h3><a name="UC">4. User Configuration Macros</a></h3>
+    <ul><li>
+    PERFORM_HARDWARE_AVERAGING (Averaging.h) <br> 
+    - When defined, TMU hardware averaging is enabled <br>
+    </ul></li>      
+    
+    <ul><li>
+    PERFORM_SOFTWARE_AVERAGING (Averaging.h) <br> 
+    - When defined, software averaging of the TMU data with a non-blocked mechanism is used. TOTAL_COUNT determines the size of the buffer used to buffer the TMU data when averaging is applied. <br>
+    </ul></li>      
+
+    <ul><li>
+    PERFORM_SOFTWARE_AVERAGING_BLOCKED (Averaging.h) <br> 
+    - When defined, software averaging of the TMU data with a blocked mechanism is used. TOTAL_COUNT determines the size of the buffer used to buffer the TMU data when averaging is applied. <br>
+    </ul></li>      
+
+    <h3><a name="HW">5. Hardware Setup</a></h3>
+    NONE
+    
+    <h3><a name="REF">8. References</a></h3>
+    <ul>
+      <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+  </li>
+ <li>ADSP-SC595/596/598 SHARC+ Processor Hardware Reference Manual<br>
+  </li>  													   
+  <li>EV-SC594-SOM Schematic<br>
+  </li>
+  <li>EV-21593-SOM Schematic<br>
+  </li>
+ <li>EV-SC598-SOM Schematic<br>
+  </li>  								
+  <li>EV-SOMCRR-EZKIT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZLITE Schematic<br>
+  </li>
+    
+    <br>
+    <br>
+
+</body></html>

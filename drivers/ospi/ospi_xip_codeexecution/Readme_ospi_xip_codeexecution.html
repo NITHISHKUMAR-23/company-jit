@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+  <title>Readme_ospi_xip_codeexecution</title>
+  <style type="text/css">
+    body {font: 16px Arial, Helvetica, Verdana;}
+    table {font: 16px Arial, Helvetica, Verdana;}
+    h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+    h2 { font: bold 22px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    h3 { font: bold 20px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+	h4 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+    table {tet-align: left; width: 600px }
+    caption {caption-side: bottom;}
+    td {vertical-align: top;}
+    td.heading1 {vertical-align: top; width: 220px; text-align: center; font-weight: bold;}
+    td.heading2 {vertical-align: top; text-align: center; font-weight: bold;}
+    
+  </style></head>
+  <body>
+    <h1>Analog Devices, Inc. CrossCore® Embedded Studio Application Example<sup>®</sup></h1>
+    <h2>EV-ADSP-SC59x EZKIT Board Support Package (BSP)</h2>
+    <h3>Project Name: OSPI XIP Code Execution (ospi_xip_codeexecution)</h3>
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#DE">Description</a></li>    
+      <li><a href="#HW">Processor</a></li>
+      <li><a href="#RUN">Overview</a></li>
+      <li><a href="#REF">User Configuration Macros</a></li>
+      <li><a href="#RUN">Hardware Setup</a></li>
+      <li><a href="#REF">Pinmuxing</a></li>
+      <li><a href="#REF">External connections</a></li>
+      <li><a href="#REF">References</a></li>
+   
+    </ol>
+
+    <h3><a name="DE">Description<br></a></h3>
+    <p>    This OSPI driver test example illustrates the direct code execution (XiP)
+    from flash using direct mode of OSPI controller. This example works standalone on EV-SC59x-SOM/EV-21593-SOM, as well as supported on both EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.</p>
+    
+    <p>Ideally, the XiP mode in a flash device improves the execution performace by eliminating the read 
+	command for every read while executing code from flash. Very first read command is essential initially along with specific 
+	mode bits to enable the XiP mode in flash (may vary flash to flash). In ISSI IS25LP512M XiP mode is entered by sending the 0xAX mode data during 
+	the dummy cycle phase (mode bits). The example operates in DIOR mode for sending address and reading data on 2 SPI lines.</p>
+    
+    <p>The function "Code_In_Flash(uint32_t nIteration)" is 
+    mapped to flash space and this code is what is run form flash memory. So for executing from flash 
+	the binary opcodes for this this code, need to be programmed into the flash at address 0.</p>
+	
+	<p></p>
+	
+<p>The example does following: </p>
+<ol>
+<li> Enables the access to ISSI Quad flash on board by configuring the soft config switch through TWI2.</li>
+<li> Configures the controller to do direct read transaction accesses in direct mode in Dual I/O mode.</li>
+<li> Issue a Dual I/O read to flash and sends the 0xAX pattern to flash during dummy cycle causing the flash to enter XiP mode.</li>
+<li> Configures the controller to enter XiP mode immediately on next read.</li>
+<li> Jumps to the code function placed in flash memory. The code is fetched form flash in XiP mode with read command sent just once.</li>
+<li> This function is called multiple with a different parameter passed each time. Each time the function does some mathematical 
+     operation and returns the results back which is then compared with the expected value.</li>
+<li> If all the function calls return correct values the example is declared passed.</li>
+<li> After all iterations are done, flash is taken out of XiP mode by issuing a read with non 0xAX mode data during dummy cycle phase .</li>
+<li> Controller is configured to exit the XiP mode.</li>
+</ol>
+
+<p>The source code for this example is common to support three examples, SHARC core code execution for ADSP-21593 for EV-21593-SOM, SHARC core code execution for ADSP-SC594 for EV-SC594-SOM and arm core code execution for ADSP-SC594 for EV-SC593-SOM </p>
+
+<p>For SHARC projects, post build script 'post-build.bat' placed in respective SH core1 folder of the project handles the extraction of flash opcodes from the executable using romsplitter option of elfloader.exe. The extracted opcodes (in hex file) are then programmed to flash using cldp. The path for the flash programmer as given in the .bat file needs to be updated as per your ADSP-SC594 BSP installation path. Since post build script is run after the project build is complete, above 2 steps are executed one after the other  after project build is done. And after the script is executed, all the required opcodes are programmed into the flash at required address. After this loading the project and executing it will execute the code from flash as mention in above steps. 'post-build.bat' script needs to be added to Post-build steps  under Build Steps tab C/C++ Build -> Settings in project properties</p>
+
+<p>For arm project, post build script 'post-build.bat' placed in respective arm core0 folder of the project handles the extraction of flash opcodes from the executable using objcopy.exe. The extracted opcodes are extracted into a binary file 'ospi_xip_codeexec_SC594_Cortex_Core0.dat' which will be stored in Debug or Release folder depending on project configuration. For this to be done correctly, user has to make sure that the flash section defined in 'app2.ld' file under ..\ospi_xip_codeexecution\EV-SOMCRR-EZKIT\SC594\arm\ospi_xip_codeexec_SC594_Cortex_Core0\system\linker is defined as loadable (NOLOAD attribute should be removed) at line 245 (for SC594), line 238 (for SC598)
+<p>   .ospi_flash_code :</p>
+
+After this the user has to flash these opcodes to the flash using the cldp and flash programmer. Script does not take care of that.
+
+After file contents are programmed into the flash at required address. After this is done user has to modify the .ld file again to make the flash section non-loadable by modifying line 245 to this:
+
+<p>   .ospi_flash_code (NOLOAD):</p>
+
+This will make the flash section to be ignored from the final executable so that the debugger can load the executable to the processor while retaining the symbols to the code placed in flash. If the section is not defined as NOLOAD, emulator will try loading the flash section too and thus will fail in loading the executable. Once the project is build with NOLOAD attribute, the built project can be loaded and executing it will execute the code from flash as mention in above steps</p>
+
+<p>@Note: ICE-2000 is used by default in the file "post-build.bat" by default. If any other ICE is used, then it should be re-configured for the ICE being used<p>
+
+<p>@Note: In this example at the end of every build "post-build.bat" will program the flash device. So it is required to reset the board after every build and before run the example.<p>
+
+
+
+    <h3><a name="DE">Processor<br></a></h3>
+    <p>     ADSP-21593 </p>
+    <p>     ADSP-SC594 </p>
+	<p>     ADSP-SC598 </p>
+
+    
+    <h3><a name="DE">Overview<br></a></h3>
+    <p>     This OSPI driver test example illustrates the direct code execution (XiP)
+    from flash using direct mode of OSPI controller. </p>
+    
+    <p>Code Execution from Flash happened correctly" and "All Done" printed to the console signifies the code was executed from flash correctly </p>
+    <p>"Fail" printed to the console signifies that the test example has failed.
+    Other errors are also printed if any of the driver operation fails in between and the code is terminated </p>
+	
+	<p>Note: When running the example a warning would pop up on the console. This is an expected warning. It's basically saying that you need to flash the ROM sections as they can't be loaded by CCES. The example does take care of this by using cldp to write the needed SPI flash blocks. <i>"Warning: section containing address 0x00F80000 is SPI memory and will be skipped during load, you must program SPI memory separately."</i></p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+  	<ol>
+	<li>  Disable both EV_SOMCRR_EZKIT_SUPPORT & EV_SOMCRR_EZLITE_SUPPORT in ospi_xip_codeexecution.h file to verify the example in EV-SC59x-SOM/EV-21593-SOM alone without connecting any CRR boards.</li>
+    <li>  Enable EV_SOMCRR_EZKIT_SUPPORT in ospi_xip_codeexecution.h file to verify the example on EV-SOMCRR-EZKIT.</li>
+    <li>  Enable EV_SOMCRR_EZLITE_SUPPORT in ospi_xip_codeexecution.h file to verify the example on EV-SOMCRR-EZLITE.</li>
+	<p>  Note 1: By default both EV_SOMCRR_EZKIT_SUPPORT & EV_SOMCRR_EZLITE_SUPPORT are disabled in ospi_xip_codeexecution.h.
+	</p>
+	<p>  Note 2: By default EV_SOMCRR_EZKIT_SUPPORT is set as TargetSupport in post-build.bat. This should be updated based on the target carrier board.
+	</p>
+    </ol>
+    
+    
+    <h3><a name="DE">Hardware Setup<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">User Configuration Macros<br></a></h3>
+    <p>     None </p>
+    
+    
+    <h3><a name="DE">Pinmuxing<br></a></h3>
+    <p>   The following pins are used for the OSPI operation: </p>
+    <ol>
+    <li>  OSPI_CLK </li>
+    <li>  OSPI_MISO</li>
+    <li>  OSPI_MOSI</li>
+    <li>  OSPI_D2</li>
+    <li>  OSPI_D3</li>
+    <li>  OSPI_SEL1</li>
+    </ol>
+    
+    <h3><a name="DE">External connections<br></a></h3>
+    <p>     None </p>
+    
+    
+	
+
+    <h3><a name="REF">References</a></h3>
+    <ul>
+      <li><i>ADSP-SC59x SHARC+ Processor Hardware Reference Manual</i></li>
+      <li>EV-SC594-SOM Schematic</li>
+      <li>EV-21593-SOM Schematic</li>
+      <li>EV-SC598-SOM Schematic</li>
+      <li>EV-SOMCRR-EZKIT Schematic</li>
+	  <li>EV-SOMCRR-EZLITE Schematic</li>
+    </ul>
+
+</body></html>

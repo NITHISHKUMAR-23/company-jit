@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<root>
+	<installedComponents>
+		<component id="com.analog.crosscore.addins.linkerfiles" name="Linker Files" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component adds a default Abstract Page Table configuration file and Linker LD script to your project. You can then modify these files if you wish to customize them.]]></component-description>
+			<product name="Analog Devices implementation of linker files" version="1.0.0"/>
+		</component>
+		<component id="com.analog.sourcegen.component.heap_stack" name="Heap and Stack Configuration" version="1.0.0" visible="true">
+			<component-description><![CDATA[This component provides the ability to configure the heap and stack memories.]]></component-description>
+			<product name="Startup Code/LDF" version="1.0.0"/>
+		</component>
+	</installedComponents>
+	<configurations>
+		<configuration id="com.analog.crosscore.addins.linkerfiles">
+			<linker-configuration>
+				<schema>1.0</schema>
+				<linker-config-core-id>0</linker-config-core-id>
+				<linker-config-ld-file>L3</linker-config-ld-file>
+			</linker-configuration>
+		</configuration>
+		<configuration id="com.analog.sourcegen.component.heap_stack">
+			<heap_stack-configuration>
+				<crt_and_ldf>
+					<propertygroup name="mandatory">
+						<property name="si_revision" value="0.0"/>
+						<property name="processor" value="ADSP-SC598"/>
+						<property name="product_name" value="CrossCore(R) Embedded Studio"/>
+					</propertygroup>
+					<ldf>
+						<propertygroup name="system_heap" value="L3">
+							<property name="size_units" value="MB"/>
+							<property name="size" value="4"/>
+							<property name="customized" value="false"/>
+							<property name="align" value="4"/>
+						</propertygroup>
+						<propertygroup name="EL0_stack" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="align" value="64"/>
+							<property name="customized" value="false"/>
+							<property name="size" value="4"/>
+						</propertygroup>
+						<propertygroup name="EL3_stack" value="L1">
+							<property name="size_units" value="kB"/>
+							<property name="size" value="4"/>
+							<property name="customized" value="false"/>
+							<property name="align" value="64"/>
+						</propertygroup>
+						<property name="heap_stack_src_file" value="app_heap_stack.c"/>
+					</ldf>
+				</crt_and_ldf>
+			</heap_stack-configuration>
+		</configuration>
+	</configurations>
+</root>

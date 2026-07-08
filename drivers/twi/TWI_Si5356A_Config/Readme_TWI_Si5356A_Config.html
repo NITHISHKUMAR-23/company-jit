@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+  
+  <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type"><title>Readme_TWI_Si5356A_Config</title>
+  
+
+  
+  
+  <style type="text/css">
+            body {font: 12px Arial, Helvetica, Verdana;}
+            table {font: 12px Arial, Helvetica, Verdana;}
+            h1 { font: bold 24px Helvetica; color:#003366; width:100%; border-bottom:1px solid #003366; margin-top:30px; margin-bottom:30px }
+            h2 { font: bold 18px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+            h3 { font: bold 14px Helvetica; color:#000000; border:0px; margin-top:20px; margin-bottom:20px }
+        </style></head><body>
+<h1>
+Analog Devices, Inc. CrossCore(R) Embedded Studio Application Example</h1>
+
+<h2>EV-ADSP-SC59x EZ-KIT Board Support Package</h2>
+
+<h3>Project Name: TWI_Si5356A_Config</h3>
+
+<h3>CONTENTS</h3>
+
+<ol>
+
+  <li><a href="#DE">Description</a></li>
+  <li><a href="#PR">Processor</a></li>
+  <li><a href="#TESTED">Tested with</a></li>
+  <li><a href="#OV">Overview</a></li>
+  <li><a href="#MACRO">User Configuration Macros</a></li>
+  <li><a href="#HW">Hardware Setup</a></li>
+  <li><a href="#CS">ClockBuilder Software</a></li>
+  <li><a href="#EC">External connections</a></li>
+  <li><a href="#PM">Pin Muxing</a></li> 
+  <li><a href="#REF">References</a></li>
+</ol>
+
+<h3><a name="DE">1. Description<br>
+</a></h3>
+
+<div style="text-align: left;">
+This example demonstrates how to configure the Silicon Labs Si5356A clock generator output.The Si5356A device is located on the ADSP-EV-SC594-SOM/ADSP-EV-21593-SOM.
+This is supported both on EV-SOMCRR-EZKIT and EV-SOMCRR-EZLITE.<br>
+<br>
+ The clock outputs, CLK0 and CLK1 on the Si5356A are connected to the processor CLKIN (SYS_CLKIN0 and SYS_CLKIN1) and CLK4 is connected to the processor AUDIO_CLK signal, which is used in ADAU1962A.<br>
+<br>
+The Si5356A is configured using the TWI device driver.<br>
+<br>
+</div>
+
+<h3><a name="PR">2. Processor</a></h3>
+
+<ul>
+  <li>ADSP-21593</li>
+  <li>ADSP-SC594</li>
+</ul>
+
+<h3><a name="TESTED">3. Tested with</a></h3>
+
+<ul>
+
+  <li>EV-21593-SOM-EZKIT/EV-SC594-SOM-EZKIT</li>
+  <li>Analog Devices CrossCore Embedded Studio</li>
+  <li>ICE-1000</li>
+</ul>
+
+<h3><a name="OV">4. Overview</a></h3>
+
+<div style="text-align: left;">The Si5356 is a highly flexible, I2C programmable clock generator capable of synthesizing four completely non-integer related frequencies up to 200 MHz.<br>
+<br>
+The device has four banks of outputs with each bank supporting two CMOS outputs at the same frequency.<br>
+<br>
+<br>
+<br>
+The device drivers can operate in the following mode:<br>
+<br>
+1.Blocking<br>
+<br>
+<br>
+<br>
+In this example the TWI driver operates in blocking mode. For more information on driver modes of operation please refer to the driver help pages.<br>
+<br>
+</div>
+
+<ol>
+
+</ol>
+
+<h3><a name="MACRO">5. User Configuration Macros</a></h3>
+
+None
+
+<h3><a name="HW">6. Hardware Setup </a></h3>
+
+None 
+
+<h3><a name="CS">7. ClockBuilder Software</a></h3>
+
+<div style="text-align: left;">To modify the Si5356 clock output use the Silicon Labs ClockBuilder software.<br>
+<ol>
+  <li>		Download and install the Silicon Labs ClockBuilder software www.silabs.com/ClockBuilder<br>
+    <br>
+  </li>
+    <li>	Use ClockBuilder to configure the clocks.<br>
+    <br>
+  </li>
+    <li>	Save the configuration as a "C Code Header File"<br>
+    <br>
+  </li>
+    <li>	 Replace the #include configuration file in the configClocks.h file with the new configuration file:<br>
+    <br>
+	#include "audio_clk_10MHz.h" /* audio clock */<br>
+	<br>	
+  </li>
+</div>
+
+<h3><a name="EC">8. External connections</a></h3>
+
+<div style="text-align: left;">Connect an oscilloscope to the P6-20 pin on EV-SOMCRR-BRKOUT probing adapter board to measure the audio clock frequency.<br>
+<br>
+
+<h3><a name="PM">9. Pin Muxing</a></h3>
+
+<div style="text-align: left;">TWI2 (SCL,SDA)<br>
+</div>
+
+
+<h3><a name="REF">10. References</a></h3>
+
+<ul>
+
+  <li>ADSP-SC59x SHARC+ Processor Hardware Reference Manual<br>
+  </li>  
+  <li>EV-SC594-SOM Schematic<br>
+  </li>
+  <li>EV-21593-SOM Schematic<br>
+  </li>
+  <li>EV-SOMCRR-BRKOUT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZKIT Schematic<br>
+  </li>
+  <li>EV-SOMCRR-EZLITE Schematic<br>
+  </li>
+</ul>
+
+<br>
+
+<br>
+
+</body></html>
