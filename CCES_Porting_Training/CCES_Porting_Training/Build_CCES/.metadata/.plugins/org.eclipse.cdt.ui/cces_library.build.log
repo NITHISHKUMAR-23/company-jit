@@ -1,0 +1,95 @@
+15:37:39 **** Build of configuration Debug for project cces_library ****
+make all 
+'Building file: ../system/startup_ldf/app_IVT.s'
+'Invoking: CrossCore SHARC Assembler'
+easm21k -file-attr ProjectName="cces_library" -proc ADSP-21569 -si-revision 0.0 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-c98cbef303343f9907e6802fa53c1e89.txt -swc -char-size-8 -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_IVT.d" -o "system/startup_ldf/app_IVT.doj" "../system/startup_ldf/app_IVT.s"
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_IVT.s'
+' '
+'Building file: ../system/startup_ldf/app_heaptab.c'
+'Invoking: CrossCore SHARC C/C++ Compiler'
+cc21k -c -file-attr ProjectName="cces_library" -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision 0.0 -O -Ov100 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-abfa1b3c326f7018c2370d9ef0d19253.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo "system/startup_ldf/app_heaptab.d" -o "system/startup_ldf/app_heaptab.doj" "../system/startup_ldf/app_heaptab.c"
+The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_heaptab.c'
+' '
+'Building file: ../system/startup_ldf/app_startup.s'
+'Invoking: CrossCore SHARC Assembler'
+easm21k -file-attr ProjectName="cces_library" -proc ADSP-21569 -si-revision 0.0 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-c98cbef303343f9907e6802fa53c1e89.txt -swc -char-size-8 -gnu-style-dependencies -MM -Mo "system/startup_ldf/app_startup.d" -o "system/startup_ldf/app_startup.doj" "../system/startup_ldf/app_startup.s"
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/startup_ldf/app_startup.s'
+' '
+'Building file: ../system/sru/sru_config.c'
+'Invoking: CrossCore SHARC C/C++ Compiler'
+cc21k -c -file-attr ProjectName="cces_library" -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision 0.0 -O -Ov100 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-abfa1b3c326f7018c2370d9ef0d19253.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo "system/sru/sru_config.d" -o "system/sru/sru_config.doj" "../system/sru/sru_config.c"
+The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/sru/sru_config.c'
+' '
+'Building file: ../system/pinmux/GeneratedSources/pinmux_config.c'
+'Invoking: CrossCore SHARC C/C++ Compiler'
+cc21k -c -file-attr ProjectName="cces_library" -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision 0.0 -O -Ov100 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-abfa1b3c326f7018c2370d9ef0d19253.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo "system/pinmux/GeneratedSources/pinmux_config.d" -o "system/pinmux/GeneratedSources/pinmux_config.doj" "../system/pinmux/GeneratedSources/pinmux_config.c"
+The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/pinmux/GeneratedSources/pinmux_config.c'
+' '
+'Building file: ../system/mcapi/GeneratedSources/mcapi_config.c'
+'Invoking: CrossCore SHARC C/C++ Compiler'
+cc21k -c -file-attr ProjectName="cces_library" -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision 0.0 -O -Ov100 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-abfa1b3c326f7018c2370d9ef0d19253.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo "system/mcapi/GeneratedSources/mcapi_config.d" -o "system/mcapi/GeneratedSources/mcapi_config.doj" "../system/mcapi/GeneratedSources/mcapi_config.c"
+The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/mcapi/GeneratedSources/mcapi_config.c'
+' '
+'Building file: ../system/adi_initialize.c'
+'Invoking: CrossCore SHARC C/C++ Compiler'
+cc21k -c -file-attr ProjectName="cces_library" -proc ADSP-21569 -flags-compiler --no_wrap_diagnostics -si-revision 0.0 -O -Ov100 -g -DCORE0 -D_DEBUG -DADI_MCAPI @includes-abfa1b3c326f7018c2370d9ef0d19253.txt -structs-do-not-overlap -no-const-strings -no-multiline -warn-protos -double-size-32 -char-size-8 -swc -gnu-style-dependencies -MD -Mo "system/adi_initialize.d" -o "system/adi_initialize.doj" "../system/adi_initialize.c"
+The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+[Warning ea1155]  The following serial numbers are due to expire:
+EVAL-CCES-R5DY-3J6E-DCMR-8NEK-R8C6-ZRSG-R601 expires today.
+
+
+Assembler totals: 0 error(s) and 1 warning(s)
+'Finished building: ../system/adi_initialize.c'
+' '
+'Building target: cces_library.dlb'
+'Invoking: CrossCore SHARC Archiver'
+cc21k -build-lib -proc ADSP-21569 -si-revision 0.0 -o cces_library.dlb @input-file.txt
+'Finished building target: cces_library.dlb'
+' '
+
+15:37:44 Build Finished. 0 errors, 0 warnings. (took 4s.769ms)
+

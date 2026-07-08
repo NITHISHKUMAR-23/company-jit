@@ -1,0 +1,208 @@
+!SESSION 2025-02-21 15:31:05.551 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-21 15:31:10.478
+!MESSAGE 2025-02-21 15:31:10, 478 [Thread: main] INFO - CrossCore(R) Embedded Studio 3.0.1.0 w2403182
+
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-21 15:31:10.478
+!MESSAGE 2025-02-21 15:31:10, 478 [Thread: main] INFO - CCES install path: C:/analog/cces/3.0.1/; environment variable CCES_HOME: not set
+
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-21 15:31:13.822
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-21 15:31:13.822
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-21 15:31:13.822
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:31:55.638
+!MESSAGE Indexed 'cces_demo_Core1' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:31:56.655
+!MESSAGE Indexed 'cces_demo_Core1' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:32:03.335
+!MESSAGE Indexed 'cces_demo_Core1' (6 sources, 47 headers) in 1.79 sec: 3,678 declarations; 7,246 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:32:24.096
+!MESSAGE Indexed 'cces_demo_Library_Core1' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:32:25.018
+!MESSAGE Indexed 'cces_demo_Library_Core1' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:32:31.260
+!MESSAGE Indexed 'cces_demo_Library_Core1' (6 sources, 47 headers) in 1.61 sec: 3,678 declarations; 7,246 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:32:58.775
+!MESSAGE Indexed 'cces_kernal' (6 sources, 47 headers) in 1.91 sec: 3,678 declarations; 7,246 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:33:13.480
+!MESSAGE Indexed 'cces_library' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:35:11.231
+!MESSAGE Indexed 'cces_demo_Library_Core1' (6 sources, 47 headers) in 1.75 sec: 3,678 declarations; 7,246 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:35:16.292
+!MESSAGE Indexed 'cces_demo_Core1' (5 sources, 46 headers) in 1.6 sec: 3,674 declarations; 7,242 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:35:23.661
+!MESSAGE Indexed 'cces_kernal' (5 sources, 46 headers) in 1.95 sec: 3,674 declarations; 7,242 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:35:25.277
+!MESSAGE Indexed 'cces_library' (6 sources, 47 headers) in 1.62 sec: 3,678 declarations; 7,246 references; 0 unresolved inclusions; 2 syntax errors; 237 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:39:14.021
+!MESSAGE Indexed 'Library' (0 sources, 0 headers) in 0.016 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:39:14.380
+!MESSAGE Indexed 'Library' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:39:19.585
+!MESSAGE Indexed 'Library' (3 sources, 38 headers) in 1.17 sec: 2,378 declarations; 5,023 references; 0 unresolved inclusions; 2 syntax errors; 18 unresolved names (0.24%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:39:51.463
+!MESSAGE Indexed 'Kernel' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-21 15:39:56.310
+!MESSAGE Indexed 'Kernel' (3 sources, 38 headers) in 1.14 sec: 2,378 declarations; 5,023 references; 0 unresolved inclusions; 2 syntax errors; 18 unresolved names (0.24%)
+
+!ENTRY org.eclipse.core.resources 4 1 2025-02-21 15:41:17.229
+!MESSAGE Problems occurred refreshing resources
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2025-02-21 15:41:17.229
+!MESSAGE Problem finding next change, code: 5
+
+!ENTRY org.eclipse.core.resources 2 2 2025-02-21 15:46:23.331
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2025-02-21 15:46:23.331
+!MESSAGE The project description file (.project) for 'RemoteSystemsTempFiles' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY com.analog.crosscore.debug 4 0 2025-02-21 17:32:48.609
+!MESSAGE java.util.concurrent.TimeoutException while shutting down CCES debugger launch com.analog.crosscore.debug.launch.CustomLaunch@14bda7b
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-02-21 17:32:49.467
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.analog.crosscore.debug.launch.CustomLaunchBase$2$1$1
+!SESSION 2025-02-24 14:59:06.805 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-24 14:59:12.326
+!MESSAGE 2025-02-24 14:59:12, 326 [Thread: main] INFO - CrossCore(R) Embedded Studio 3.0.1.0 w2403182
+
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-24 14:59:12.326
+!MESSAGE 2025-02-24 14:59:12, 326 [Thread: main] INFO - CCES install path: C:/analog/cces/3.0.1/; environment variable CCES_HOME: not set
+
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-24 14:59:18.737
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-24 14:59:18.737
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-24 14:59:18.737
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+!SESSION 2025-02-25 10:12:57.504 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 10:13:00.083
+!MESSAGE 2025-02-25 10:13:00, 083 [Thread: main] INFO - CrossCore(R) Embedded Studio 3.0.1.0 w2403182
+
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 10:13:00.083
+!MESSAGE 2025-02-25 10:13:00, 083 [Thread: main] INFO - CCES install path: C:/analog/cces/3.0.1/; environment variable CCES_HOME: not set
+
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 10:13:05.977
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 10:13:05.992
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 10:13:05.992
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+!SESSION 2025-02-25 10:32:15.912 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 10:32:18.272
+!MESSAGE 2025-02-25 10:32:18, 272 [Thread: main] INFO - CrossCore(R) Embedded Studio 3.0.1.0 w2403182
+
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 10:32:18.272
+!MESSAGE 2025-02-25 10:32:18, 272 [Thread: main] INFO - CCES install path: C:/analog/cces/3.0.1/; environment variable CCES_HOME: not set
+
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 10:32:23.147
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 10:32:23.147
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 10:32:23.147
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+!SESSION 2025-02-25 14:26:06.759 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 14:26:10.702
+!MESSAGE 2025-02-25 14:26:10, 686 [Thread: main] INFO - CrossCore(R) Embedded Studio 3.0.1.0 w2403182
+
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 14:26:10.702
+!MESSAGE 2025-02-25 14:26:10, 702 [Thread: main] INFO - CCES install path: C:/analog/cces/3.0.1/; environment variable CCES_HOME: not set
+
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 14:26:15.910
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 14:26:15.913
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 14:26:15.913
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.core.jobs 2 2 2025-02-25 14:26:30.294
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: com.analog.crosscore.ui.intro.CCESIntroPart$3
+!SESSION 2025-02-25 14:26:32.082 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_IN
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 14:26:37.244
+!MESSAGE 2025-02-25 14:26:37, 244 [Thread: main] INFO - CrossCore(R) Embedded Studio 3.0.1.0 w2403182
+
+
+!ENTRY com.analog.crosscore.core 1 0 2025-02-25 14:26:37.244
+!MESSAGE 2025-02-25 14:26:37, 244 [Thread: main] INFO - CCES install path: C:/analog/cces/3.0.1/; environment variable CCES_HOME: not set
+
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 14:26:42.148
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 14:26:42.148
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2025-02-25 14:26:42.148
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
