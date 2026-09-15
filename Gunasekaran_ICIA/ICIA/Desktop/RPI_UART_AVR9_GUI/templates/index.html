@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jasmin Infotech – Demo Car 18ch</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/Dirac.css') }}">
+  <style>
+    /* ── Channel volume row inside each toggle-box ── */
+    .ch-vol-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .ch-vol-num {
+      font-size: 17px;
+      font-weight: bold;
+      color: #fff;
+      min-width: 24px;
+      text-align: center;
+    }
+    .chbtn {
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      line-height: 1;
+      border: 1px solid #888;
+    }
+
+    /* ── Mode panel row — holds all three switches ── */
+    .mode-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      background-color: rgba(158, 229, 229, 0.623);
+      border-radius: 10px;
+      padding: 10px 24px;
+      margin: 8px 6px 0 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* Each individual switch block inside the panel */
+    .mode-switch-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .mode-switch-block .switch-label-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+    .mode-switch-block .switch-label-row .switch {
+      flex-shrink: 0;
+    }
+    .mode-switch-block .side-label {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      min-width: 44px;
+      white-space: nowrap;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    @media (max-width: 820px) {
+      .mode-panel {
+        gap: 14px;
+        padding: 8px 12px;
+      }
+      .mode-switch-block .switch-label-row {
+        gap: 6px;
+      }
+      .mode-switch-block .side-label {
+        font-size: 12px;
+        min-width: 38px;
+      }
+    }
+    .mode-switch-block h4 {
+      margin: 0 0 2px 0;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    .mode-switch-block .status-text {
+      color: #cff;
+      font-size: 12px;
+      font-weight: 600;
+      min-height: 16px;
+      text-align: center;
+    }
+
+    /* Divider between switch blocks */
+    .panel-divider {
+      width: 1px;
+      height: 56px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* Dim the slider while a switch is mid-transition (e.g. app is
+       switching services) so the GUI still communicates state without
+       needing a separate status line. */
+    .switch input:disabled + .slider {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="heading">JASMIN INFOTECH</h1>
+  <h2 style="color:white">Demo car: 18 channel</h2>
+
+  <!-- Car image -->
+  <div class="container">
+    <img src="{{ url_for('static', filename='style/car.jpg') }}"
+         style="border-radius:20%; margin-bottom:50px; height:650px;" alt="Car">
+  </div>
+
+  <!-- ================================================================
+       MODE PANEL — Three switches side by side:
+         1. Dirac/DCX command switch  (Feature #1, existing)
+         2. DCX Configuration switch  (Feature #2, NEW)
+         3. App Toggle switch         (Feature #3, NEW)
+  ================================================================ -->
+  <div class="mode-panel">
+
+    <!-- Switch 1: DIRCA/DCX Switch -->
+    <div class="mode-switch-block">
+      <h4>DIRAC/DCX</h4>
+      <div class="switch-label-row">
+        <span class="side-label">Dirac</span>
+        <label class="switch">
+          <input id="audio_mode" type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>
+        <span class="side-label">DCX</span>
+      </div>
+    </div>
+
+    <div class="panel-divider"></div>
+
+    <!-- Switch 2:DCX Configuration -->
+    <div class="mode-switch-block">
+      <h4>DCX Configuration</h4>
+      <div class="switch-label-row">
+        <span class="side-label">5.1.2</span>
+        <label class="switch">
+          <input id="dcx_config" type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>
+        <span class="side-label">7.1.4</span>
+      </div>
+    </div>
+
+    <div class="panel-divider"></div>
+
+    <!-- Switch 3: Active Application — DCX app vs Dirac app (NEW Feature #3) -->
+    <div class="mode-switch-block">
+      <h4>Toggle</h4>
+      <div class="switch-label-row">
+        <span class="side-label">Dirac</span>
+        <label class="switch">
+          <input id="app_toggle" type="checkbox" checked>
+          <span class="slider round"></span>
+        </label>
+        <span class="side-label">DCX</span>
+      </div>
+    </div>
+
+  </div><!-- /mode-panel -->
+
+  <!-- ================================================================
+       MUTE ALL / MASTER VOLUME / BALANCE / FADER
+  ================================================================ -->
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <h2>Mute All</h2>
+    <label class="switch">
+      <input id="mute_all" type="checkbox" class="toggle-btn-checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <div class="volume-bar">
+      <span><button class="minus" id="minus_id" type="button">-</button></span>
+      <h3>Volume</h3>
+      <span class="num" id="NUM">30</span>
+      <span><button class="plus" id="plus_id" type="button">+</button></span>
+    </div>
+    <br>
+  </div>
+
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <div class="volume-bar">
+      <span><button class="minus1" id="minus_id1" type="button"> - </button></span>
+      <h3>Balance</h3>
+      <span class="num1" id="NUM1">0</span>
+      <span><button class="plus1" id="plus_id1" type="button"> + </button></span>
+    </div>
+    <br>
+  </div>
+
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <div class="volume-bar">
+      <span><button class="minus2" id="minus_id2" type="button"> - </button></span>
+      <h3>Fader</h3>
+      <span class="num2" id="NUM2">0</span>
+      <span><button class="plus2" id="plus_id2" type="button"> + </button></span>
+    </div>
+    <br>
+  </div>
+
+  <!-- ================================================================
+       18-CHANNEL GRID
+  ================================================================ -->
+  <div id="test" class="grid-container">
+
+    <div class="toggle-box">
+      <label for="spk1" class="switch">
+        <input id="spk1" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 1</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(1)">-</button>
+        <span class="ch-vol-num" id="chVol1">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(1)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk2" class="switch">
+        <input id="spk2" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 2</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(2)">-</button>
+        <span class="ch-vol-num" id="chVol2">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(2)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk3" class="switch">
+        <input id="spk3" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 3</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(3)">-</button>
+        <span class="ch-vol-num" id="chVol3">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(3)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk4" class="switch">
+        <input id="spk4" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 4</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(4)">-</button>
+        <span class="ch-vol-num" id="chVol4">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(4)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk5" class="switch">
+        <input id="spk5" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 5</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(5)">-</button>
+        <span class="ch-vol-num" id="chVol5">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(5)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk6" class="switch">
+        <input id="spk6" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 6</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(6)">-</button>
+        <span class="ch-vol-num" id="chVol6">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(6)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk7" class="switch">
+        <input id="spk7" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 7</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(7)">-</button>
+        <span class="ch-vol-num" id="chVol7">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(7)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk8" class="switch">
+        <input id="spk8" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 8</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(8)">-</button>
+        <span class="ch-vol-num" id="chVol8">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(8)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk9" class="switch">
+        <input id="spk9" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 9</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(9)">-</button>
+        <span class="ch-vol-num" id="chVol9">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(9)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk10" class="switch">
+        <input id="spk10" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 10</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(10)">-</button>
+        <span class="ch-vol-num" id="chVol10">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(10)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk11" class="switch">
+        <input id="spk11" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 11</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(11)">-</button>
+        <span class="ch-vol-num" id="chVol11">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(11)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk12" class="switch">
+        <input id="spk12" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 12</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(12)">-</button>
+        <span class="ch-vol-num" id="chVol12">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(12)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk13" class="switch">
+        <input id="spk13" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 13</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(13)">-</button>
+        <span class="ch-vol-num" id="chVol13">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(13)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk14" class="switch">
+        <input id="spk14" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 14</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(14)">-</button>
+        <span class="ch-vol-num" id="chVol14">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(14)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk15" class="switch">
+        <input id="spk15" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 15</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(15)">-</button>
+        <span class="ch-vol-num" id="chVol15">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(15)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk16" class="switch">
+        <input id="spk16" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 16</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(16)">-</button>
+        <span class="ch-vol-num" id="chVol16">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(16)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk17" class="switch">
+        <input id="spk17" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 17</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(17)">-</button>
+        <span class="ch-vol-num" id="chVol17">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(17)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk18" class="switch">
+        <input id="spk18" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 18</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(18)">-</button>
+        <span class="ch-vol-num" id="chVol18">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(18)">+</button>
+      </div>
+    </div>
+
+  </div><!-- /grid-container -->
+
+  <!-- ================================================================
+       SCRIPT 1 — MUTE ALL + SPEAKER TOGGLES + THREE MODE SWITCHES
+  ================================================================ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var API = location.protocol + '//' + location.host;
+
+    function postJSON(path, payload) {
+      return fetch(API + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(r) { return r.json(); });
+    }
+
+    var muteAll    = document.getElementById('mute_all');
+    var spkToggles = document.querySelectorAll('.spk-toggle');
+
+    /* ---- Mute All ---- */
+    muteAll.addEventListener('change', function() {
+      var isChecked = muteAll.checked;
+      spkToggles.forEach(function(t) { t.checked = isChecked; });
+      postJSON('/api/mute_all', { toggleId: 'mute_all', isChecked: isChecked })
+        .catch(function(err) { console.error('mute_all error:', err); });
+    });
+
+    /* ---- Individual speaker toggles ---- */
+    spkToggles.forEach(function(t) {
+      t.addEventListener('change', function() {
+        var isChecked = t.checked;
+        postJSON('/api/mute_all', { toggleId: t.id, isChecked: isChecked })
+          .catch(function(err) { console.error(t.id + ' error:', err); });
+
+        if (!isChecked) {
+          muteAll.checked = false;
+        } else {
+          var allOn = Array.from(spkToggles).every(function(x) { return x.checked; });
+          if (allOn) {
+            muteAll.checked = true;
+            postJSON('/api/mute_all', { toggleId: 'mute_all', isChecked: true })
+              .catch(function(err) { console.error('auto mute_all error:', err); });
+          }
+        }
+      });
+    });
+
+    /* ====================================================
+       SWITCH 1: Dirac / DCX command switch (Feature #1)
+       Existing behaviour — unchanged
+    ==================================================== */
+    var audioMode = document.getElementById('audio_mode');
+
+    audioMode.addEventListener('change', function() {
+      var isDCX = audioMode.checked;
+      var mode  = isDCX ? 'dcx' : 'dirac';
+      postJSON('/api/audio_features', { mode: mode })
+        .then(function(r) { console.log('audio_features:', r); })
+        .catch(function(err) { console.error('audio_features error:', err); });
+    });
+
+    /* ====================================================
+       SWITCH 2: DCX Configuration switch (NEW Feature #2)
+       checked (ON)  = 7.1.4  (default)
+       unchecked (OFF) = 5.1.2
+       Sends Command ID 0x20000025 via /api/dcx_config
+    ==================================================== */
+    var dcxConfig     = document.getElementById('dcx_config');
+
+    dcxConfig.addEventListener('change', function() {
+      var is714 = dcxConfig.checked;
+      postJSON('/api/dcx_config', { is714: is714 })
+        .then(function(r) { console.log('dcx_config:', r); })
+        .catch(function(err) { console.error('dcx_config error:', err); });
+    });
+
+    /* ====================================================
+       SWITCH 3: App Toggle switch (NEW Feature #3)
+       checked (ON)  = DCX mode
+       unchecked (OFF) = Dirac mode (switches to Demo_App_ACS.service)
+       Does NOT send any UART command — only calls /api/app_toggle.
+
+       No hardcoded default: actual running service is fetched from
+       /api/app_status on page load and the switch reflects that.
+    ==================================================== */
+    var appToggle = document.getElementById('app_toggle');
+
+    /* DIRAC's Flask UI is served on this port (see main.py PORT_DIRAC). */
+    var DIRAC_PORT = 5000;
+    var DIRAC_URL  = location.protocol + '//' + location.hostname + ':' + DIRAC_PORT + '/';
+
+    function setToggleUI(active) {
+      if (active === 'dirac') {
+        appToggle.checked = false;
+      } else {
+        /* 'dcx', 'none', or anything unrecognised: this page can only ever
+           be reached while the DCX Flask process is the one serving it, so
+           DCX-ON is the only status-consistent default. A 'none' result
+           here almost always means RPI_MUTE.service was started manually
+           (e.g. `python3 main.py` during testing) instead of via
+           `systemctl start RPI_MUTE.service`, so systemd doesn't see it as
+           active even though it's clearly running right now. */
+        if (active !== 'dcx') {
+          console.warn('app_status returned "' + active + '" while this DCX page is loaded — ' +
+                        'RPI_MUTE.service is likely running outside systemd. Defaulting switch to ON.');
+        }
+        appToggle.checked = true;
+      }
+    }
+
+    /* Reflect actual running service on page load (no hardcoded default). */
+    fetch(API + '/api/app_status')
+      .then(function(r) { return r.json(); })
+      .then(function(r) {
+        setToggleUI(r.ok ? r.active : 'dcx');
+      })
+      .catch(function(err) {
+        console.error('app_status error:', err);
+        /* Network/fetch failure: same reasoning as above — still default ON. */
+        setToggleUI('dcx');
+      });
+
+    /* Poll until DIRAC's UI is reachable, then navigate the browser there. */
+    function waitForDiracAndRedirect() {
+      var attempts = 0;
+      var maxAttempts = 40; /* ~20s at 500ms interval */
+      var poll = setInterval(function() {
+        attempts++;
+        fetch(DIRAC_URL, { mode: 'no-cors' })
+          .then(function() {
+            clearInterval(poll);
+            window.location.href = DIRAC_URL;
+          })
+          .catch(function() {
+            if (attempts >= maxAttempts) {
+              clearInterval(poll);
+              console.error('Dirac did not start in time — check device');
+              appToggle.disabled = false;
+            }
+          });
+      }, 500);
+    }
+
+    appToggle.addEventListener('change', function() {
+      var useDCX = appToggle.checked;
+      /* Disable toggle during service switch to prevent double-clicks */
+      appToggle.disabled = true;
+
+      postJSON('/api/app_toggle', { useDCX: useDCX })
+        .then(function(r) {
+          console.log('app_toggle:', r);
+          if (!r.ok) {
+            console.error('app_toggle failed:', r.error);
+            appToggle.checked = !useDCX;
+            appToggle.disabled = false;
+            return;
+          }
+
+          if (useDCX) {
+            /* DCX confirmed ready by the backend before responding. */
+            appToggle.disabled = false;
+          } else {
+            /* DCX is stopping itself; this page will lose its backend.
+               Poll DIRAC directly and redirect once it's serving. */
+            waitForDiracAndRedirect();
+          }
+        })
+        .catch(function(err) {
+          console.error('app_toggle error:', err);
+          appToggle.checked = !useDCX;
+          appToggle.disabled = false;
+        });
+    });
+
+    /* ---- Master Volume ---- */
+    var plus  = document.querySelector('.plus');
+    var minus = document.querySelector('.minus');
+    var num   = document.querySelector('.num');
+    var a = 30;
+
+    plus.addEventListener('click', function() {
+      a = Math.min(a + 1, 30);
+      num.textContent = a;
+      postJSON('/api/volume', { command: a }).catch(console.error);
+    });
+    minus.addEventListener('click', function() {
+      a = Math.max(a - 1, 0);
+      num.textContent = a;
+      postJSON('/api/volume', { command: a }).catch(console.error);
+    });
+
+    /* ---- Balance ---- */
+    var plus1  = document.querySelector('.plus1');
+    var minus1 = document.querySelector('.minus1');
+    var num1   = document.querySelector('.num1');
+    var a1 = 0;
+
+    plus1.addEventListener('click', function() {
+      a1 = Math.min(a1 + 1, 7);
+      num1.textContent = a1;
+      postJSON('/api/balance_level', { command: a1 }).catch(console.error);
+    });
+    minus1.addEventListener('click', function() {
+      a1 = Math.max(a1 - 1, -7);
+      num1.textContent = a1;
+      postJSON('/api/balance_level', { command: a1 }).catch(console.error);
+    });
+
+    /* ---- Fader ---- */
+    var plus2  = document.querySelector('.plus2');
+    var minus2 = document.querySelector('.minus2');
+    var num2   = document.querySelector('.num2');
+    var a2 = 0;
+
+    plus2.addEventListener('click', function() {
+      a2 = Math.min(a2 + 1, 7);
+      num2.textContent = a2;
+      postJSON('/api/fader', { command: a2 }).catch(console.error);
+    });
+    minus2.addEventListener('click', function() {
+      a2 = Math.max(a2 - 1, -7);
+      num2.textContent = a2;
+      postJSON('/api/fader', { command: a2 }).catch(console.error);
+    });
+
+  }); /* end DOMContentLoaded */
+  </script>
+
+
+  <!-- ================================================================
+       SCRIPT 2 — CHANNEL VOLUME (unchanged)
+  ================================================================ -->
+  <script>
+  var chVol = {};
+  for (var i = 1; i <= 18; i++) { chVol[i] = 30; }
+
+  function chVolUp(ch) {
+    if (chVol[ch] < 30) chVol[ch]++;
+    document.getElementById('chVol' + ch).textContent = chVol[ch];
+    sendChVol(ch, chVol[ch]);
+  }
+
+  function chVolDown(ch) {
+    if (chVol[ch] > 1) chVol[ch]--;
+    document.getElementById('chVol' + ch).textContent = chVol[ch];
+    sendChVol(ch, chVol[ch]);
+  }
+
+  function sendChVol(ch, vol) {
+    var API = location.protocol + '//' + location.host;
+    fetch(API + '/api/channel_volume', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ channel: ch, volume: vol })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(r) { console.log('ch_vol ok:', r); })
+    .catch(function(err) { console.error('ch_vol error:', err); });
+  }
+  </script>
+
+</body>
+</html>

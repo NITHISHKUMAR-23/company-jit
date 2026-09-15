@@ -1,0 +1,12 @@
+[Unit]
+Description=UART AVR9 Python Service
+After=network.target
+
+[Service]
+User=jasminuser
+WorkingDirectory=/home/jasminuser/Desktop/RPI_UART_AVR9_GUI
+ExecStart=/usr/bin/python3 /home/jasminuser/Desktop/RPI_UART_AVR9_GUI/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

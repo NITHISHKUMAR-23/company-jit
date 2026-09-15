@@ -1,0 +1,14 @@
+[Unit]
+Description=Dirac Flask Web App
+After=network.target
+
+[Service]
+User=jasminuser
+WorkingDirectory=/home/jasminuser/Desktop/Application_DIRAC_DEMO
+ExecStart=/usr/bin/python3 /home/jasminuser/Desktop/Application_DIRAC_DEMO/app.py         
+Restart=always
+Environment=FLASK_APP=app.py
+Environment=FLASK_ENV=production
+
+[Install]
+WantedBy=multi-user.target

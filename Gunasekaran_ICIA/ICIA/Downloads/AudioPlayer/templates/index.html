@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Audio Player</title>
+
+    <meta charset="utf-8">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Audio Player</h1>
+
+    <!-- Folder -->
+
+    <div class="card">
+
+        <label>Audio Folder</label>
+        <small>
+            Supported Files : .eac3, .mkv
+        </small>
+        <div class="folder">
+
+            <input
+                type="text"
+                id="folder"
+                value="/home/jasminuser/dolby">
+
+            <button id="browseBtn">
+                Load Folder
+            </button>
+
+            <button id="refreshBtn">
+                Refresh
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Playlist -->
+
+    <div class="card">
+
+        <h3>Audio Files</h3>
+        <div class="playlistInfo">
+
+            Files :
+
+            <span id="fileCount">
+
+                0
+
+            </span>
+
+        </div>
+        <select
+            id="audioList"
+            size="12">
+
+        </select>
+
+    </div>
+
+    <!-- Controls -->
+
+    <div class="card">
+
+        <div class="controls">
+
+            <button id="previousBtn" disabled>
+                ⏮ Previous
+            </button>
+
+            <button id="playBtn" >
+                ▶ Play
+            </button>
+
+            <button id="pauseBtn" disabled>
+                ⏸ Pause
+            </button>
+
+            <button id="stopBtn" disabled>
+                ⏹ Stop
+            </button>
+
+            <button id="nextBtn" disabled>
+                ⏭ Next
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Playback Mode -->
+
+    <div class="card">
+
+        <h3>Playback</h3>
+
+        <div class="playback">
+
+            <button id="normalBtn">
+
+                Normal
+
+            </button>
+
+            <button id="repeatOneBtn">
+
+                Repeat One
+
+            </button>
+
+            <button id="repeatAllBtn">
+
+                Repeat All
+
+            </button>
+
+            <button id="shuffleBtn">
+
+                Shuffle OFF
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Status -->
+
+    <div class="card">
+
+        <table>
+
+            <tr>
+
+                <td width="150">
+                    Current File
+                </td>
+
+                <td id="currentFile">
+
+                    --
+
+                </td>
+
+            </tr>
+
+            <tr>
+
+                <td>
+
+                    Status
+
+                </td>
+
+                <td id="status">
+
+                    Stopped
+
+                </td>
+
+            </tr>
+            <tr>
+
+                <td>
+
+                    Kodi
+
+                </td>
+
+                <td id="connection">
+
+                    🔴 Disconnected
+
+                </td>
+
+        </tr>
+            <tr>
+
+                <td>
+
+                    Mode
+
+                </td>
+
+                <td id="playMode">
+
+                    Normal
+
+                </td>
+
+        </tr>
+
+        </table>
+
+    </div>
+
+    <!-- Progress -->
+
+    <div class="card">
+
+    <progress
+        id="progress"
+        value="0"
+        max="100">
+
+    </progress>
+
+    <div id="percentage">
+
+        0%
+
+    </div>
+
+    <div id="time">
+
+        00:00 / 00:00
+
+    </div>
+
+</div>
+
+    <!-- Equalizer -->
+
+<div class="card">
+
+    <label>
+
+        Playback Animation
+
+    </label>
+
+    <div id="equalizer">
+
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </div>
+<div class="footer">
+
+    Raspberry Pi Audio Player
+
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
+
+</body>
+
+</html>

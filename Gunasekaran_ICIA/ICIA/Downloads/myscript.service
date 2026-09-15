@@ -1,0 +1,15 @@
+[Unit]
+Description=Run Python script on boot
+After=network.target
+
+[Service]
+ExecStart=python /home/jasminuser/Desktop/Jasmin/main.py --config /home/jasminuser/Desktop/Jasmin/Jasmin_IN_Demo_AIQ-H-P-U_DPL6-0-0_V03_250516_FINAL_DEMO.prod.interface.json
+WorkingDirectory=/home/jasminuser/Desktop/Jasmin
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=jasminuser
+
+[Install]
+WantedBy=multi-user.target
+

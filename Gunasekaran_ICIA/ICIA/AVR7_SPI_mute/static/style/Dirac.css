@@ -1,0 +1,427 @@
+.body
+{
+margin: 0;
+width: 100vw;
+height: 100vh;
+}
+
+.div
+{
+width: 100vw;
+height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 125px;
+}
+
+.heading {
+    color: whitesmoke;
+    font-size: 36px;
+}
+.left{
+    opacity: 0.6;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(99, 99, 93);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background-color: green;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px green;
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.diracmode{
+    display: flex;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 2px;
+    font-size: 20PX;
+    color: rgba(7, 7, 7, 0.801);
+}
+.dirac-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100px;
+    width: 170px;
+    justify-content: center;
+    margin-left: 330px;
+    border: 1px solid rgb(14, 14, 15);
+    background-color: rgba(158, 229, 229, 0.623);
+    border-radius: 25px;
+}
+/*
+.btn1 {
+    height: 35px;
+    width: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(125, 125, 128);
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    border-color: aliceblue;
+}
+.btn1:focus{
+    background-color: darkgreen;
+}
+.btn2 {
+    height: 35px;
+    width: 120px;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(186, 51, 51);
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    border-color: aliceblue;
+}
+.btn1:hover {
+    background-color: darkgreen;
+    color: white;
+  }
+.btn2:focus{
+    background-color: rgb(176, 8, 8);
+}
+.btn2:hover {
+    background-color: rgb(176, 8, 8);
+    color: white;
+}
+*/
+.volume-num {
+    color: rgb(41, 123, 194);
+}
+
+.volume-bar {
+    height: 20px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 310px;
+}
+
+.volume-btn {
+    font-size: 20px;
+    width: 100px
+}
+
+.music-controller {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin: 50px;
+    margin-left: 250px;
+    border: 1px solid rgb(11, 11, 11);
+    padding: 30px;
+    background-color: rgba(158, 229, 229, 0.623);
+    border-radius: 25px;
+ 
+}
+
+.music-btn1{
+    height: 35px;
+    width: 120px;
+    background-color: rgba(32, 36, 36, 0.733);
+    border: 1px solid rgb(52, 64, 64);
+    border-radius: 10px;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border-color: aliceblue;
+}
+.music-btn1:hover {
+    background-color: darkgreen;
+    color: white;
+}
+.music-btn1:focus{
+    background-color: darkgreen;
+}
+
+
+
+
+.music-btn2 {
+    height: 35px;
+    width: 120px;
+    background-color: rgba(238, 212, 19, 0.853);
+    background-color: rgba(32, 36, 36, 0.733);
+    border-radius: 10px;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border-color: aliceblue;
+}
+.music-btn2:hover {
+    background-color: darkgreen;
+    color: white;
+}
+
+.music-btn2:focus{
+    background-color: rgb(158, 148, 3);
+}
+
+.music-btn3 {
+    height: 35px;
+    width: 120px;
+    background-color: rgba(32, 36, 36, 0.733);
+    border: 1px solid rgb(52, 64, 64);
+    border-radius: 10px;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border-color: aliceblue;
+}
+.music-btn3:hover {
+    background-color: rgb(131, 4, 32);
+    color: white;
+}
+.music-btn3:focus{
+    background-color: rgb(131, 4, 32);
+}
+
+.music-btn4 {
+    height: 35px;
+    width: 120px;
+    background-color: rgba(32, 36, 36, 0.733);
+    border: 1px solid rgb(76, 78, 78);
+    border-radius: 10px;
+    margin-left: 10px;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border-color: aliceblue;
+}
+.music-btn4:hover {
+    background-color: rgb(3, 14, 78);
+    color: white;
+}
+.music-btn4:focus{
+    background-color: rgb(3, 14, 78);
+}
+
+.seats-btn1{
+    height: 35px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white; 
+    border-color: aliceblue;
+}
+.seats-btn1:hover {
+    background-color: rgb(9, 154, 170);
+}
+.seats-btn1:focus{
+    background-color: rgb(9, 154, 170);
+}
+
+.seats-btn2{
+    height: 35px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white;
+    border-color: aliceblue;
+}
+.seats-btn2:hover {
+    background-color: rgb(3, 62, 2);
+}
+.seats-btn2:focus{
+    background-color: rgb(3, 62, 2);
+}
+.seats-btn3{
+    height: 35px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white; 
+    border-color: aliceblue;
+}
+.seats-btn3:hover {
+    background-color: rgb(8, 32, 167);
+}
+.seats-btn3:focus{
+    background-color: rgb(8, 32, 167);
+}
+
+
+.seats-btn4{
+    height: 35px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white;
+    border-color: aliceblue; 
+}
+.seats-btn4:hover {
+    background-color: rgb(92, 90, 5); 
+}
+.seats-btn4:focus{
+    background-color: rgb(92, 90, 5); 
+}
+
+.seats-btn5{
+    height: 35px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white; 
+    border-color: aliceblue;
+}
+.seats-btn5:hover {
+    background-color: rgb(197, 65, 20);
+}
+.seats-btn5:focus{
+    background-color: rgb(197, 65, 20);
+}
+
+.seats-btn6{
+    height: 35px;
+    width: 130px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(32, 36, 36, 0.733);
+    color: white; 
+    border-color: aliceblue;
+}
+.seats-btn6:hover {
+    background-color: rgb(198, 32, 176);
+    color: white;
+}
+.seats-btn6:focus{
+    background-color: rgb(198, 32, 176);
+}
+
+.virtual-surround-btn{
+    height: 40px;
+    width: 200px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(53, 59, 59, 0.733);
+    color: rgb(255, 255, 255); 
+    border-color: aliceblue;
+}
+.virtual-surround-btn:hover {
+    background-color: rgba(33, 113, 113, 0.733);
+}
+.virtual-surround-btn:focus{
+    background-color: rgba(3, 61, 61, 0.733);
+}
+
+.virtual-surround {
+    margin-left: 110px;
+}
+
+.seats-container {
+    border: 1px solid black;
+    margin-left: 200px;
+    padding: 10px;
+    background-color: rgba(158, 229, 229, 0.623);
+    border-radius: 25px;
+}
+
+body {
+    background-image: url(./BG.png);
+}
+/*.volume-bar{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #343F4F;
+}*/
+
+.volume-bar {
+    height: 120px;
+    min-width: 200px;
+    background-color: rgba(158, 229, 229, 0.623);
+    margin-top: 45px;
+    border-radius: 20px;
+}
+.volume-bar span{
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.volume-bar span.num{
+    font-size: 35px;
+    pointer-events: none;
+}

@@ -1,0 +1,94 @@
+{
+  "car_model": "Hyundai Tucson",
+  "title": "Automotive Sound",
+  "subtitle": "Channels: 18",
+  "api_url": "/",
+  "update_continuously": true,
+  "update_continuously_time_ms": 300,
+  "log_file": "logs.txt",
+  "images": {
+    "bird_view": "demos/hyundai/bird_view.png",
+    "car_brand": "demos/hyundai/brand.png",
+    "car_header": "demos/hyundai/header.png"
+  },
+  "show_seats": false,
+  "seats_title": "Selected Seating",
+  "seats": [
+    {
+      "name":"Front seats",
+      "placeholders": [0, 1]
+    }
+  ],
+  "seat_placeholders_positions": [
+    [27.5, 48],
+    [60.0, 48]
+  ],
+  "tabs": [
+    {
+      "name": "Stereo",
+      "modes": [
+        {
+          "name": "AudioIQ",
+          "description": "Frequency",
+          "image": "media/audioiq.png",
+          "subtitle": "Channels: 8"
+        },
+        {
+          "name": "AudioIQ Plus",
+          "description": "Frequency & Bass Sound Field",
+          "image": "media/audioiq_plus.png",
+          "subtitle": "Channels: 12"
+        },
+        {
+          "name": "AudioIQ Unison",
+          "description": "Frequency + Impulse & Full-band Sound Field",
+          "image": "media/audioiq_unison.png"
+        },
+        {
+          "name": "AudioIQ Unison + DSU",
+          "description": "Full-band Sound Field & Dynamic spatial upmixing",
+          "image": "media/audioiq_unison_dsu_high.png"
+        }
+      ]
+    },
+    {
+      "name": "Dolby Atmos®",
+      "modes": [
+        {
+          "name": "Dolby Atmos®",
+          "description": "Powered by Dirac AudioIQ Unison",
+          "image": "media/audioiq_unison_dolby.png"
+        }
+      ]
+    }
+  ],
+  "dar_file": "Jasmin_test_250515.prod",
+  "gain": {
+    "min": 0,
+    "max": 40
+  },
+  "dar_configs": [
+    {
+      "name": "%3%2_AIQ_FS",
+      "id_mode": "AudioIQ",
+      "id_seat": "Front seats"
+    },{
+      "name": "%4%2_AIQ-P_FS",
+      "id_mode": "AudioIQ Plus",
+      "id_seat": "Front seats"
+    },{
+      "name": "%1%2_AIQ-U_FS",
+      "id_mode": "AudioIQ Unison",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%2%2_AIQ-U_DSU_FS",
+      "id_mode": "AudioIQ Unison + DSU",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%5%12_AIQ-U_FS",
+      "id_mode": "Dolby Atmos®",
+      "id_seat": "Front seats"
+    }]
+}

@@ -1,0 +1,603 @@
+{
+ "archiveMetaData": {},
+ "author": "thomas.boden@dirac.com",
+ "configurations": [
+  {
+   "name": "1_8CH_AIQ_AS",
+   "numInputs": 2,
+   "numOutputs": 18,
+   "parameters": [
+    {
+     "default": 30,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 40,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 4
+     },
+     "max": 40,
+     "min": 0,
+     "name": "Loudness",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 1,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 10000
+     },
+     "max": 1,
+     "min": 0,
+     "name": "Loudness ON/OFF",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 256
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Bass",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 257
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Mid",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 258
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Treble",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 259
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 1",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 260
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 2",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 261
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 3",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 262
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 4",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 263
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 5",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 3,
+    "minorVersion": 3,
+    "patchVersion": 2
+   },
+   "signalChainMetaData": {}
+  },
+  {
+   "name": "2_8CH_AIQ_PLUS_AS",
+   "numInputs": 2,
+   "numOutputs": 18,
+   "parameters": [
+    {
+     "default": 30,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 40,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 4
+     },
+     "max": 40,
+     "min": 0,
+     "name": "Loudness",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 1,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 10000
+     },
+     "max": 1,
+     "min": 0,
+     "name": "Loudness ON/OFF",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 256
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Bass",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 257
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Mid",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 258
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Treble",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 259
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 1",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 260
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 2",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 261
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 3",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 262
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 4",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 263
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 5",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 3,
+    "minorVersion": 3,
+    "patchVersion": 2
+   },
+   "signalChainMetaData": {}
+  },
+  {
+   "name": "3_18CH_AIQ_UNISON_FS",
+   "numInputs": 2,
+   "numOutputs": 18,
+   "parameters": [
+    {
+     "default": 30,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 5
+     },
+     "max": 40,
+     "min": 0,
+     "name": "Volume Control",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 4
+     },
+     "max": 40,
+     "min": 0,
+     "name": "Loudness",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 1,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 10000
+     },
+     "max": 1,
+     "min": 0,
+     "name": "Loudness ON/OFF",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 256
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Bass",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 257
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Mid",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 258
+     },
+     "max": 12,
+     "min": -12,
+     "name": "Tone Control - Treble",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 259
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 1",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 260
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 2",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 261
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 3",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 262
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 4",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 263
+     },
+     "max": 6,
+     "min": -6,
+     "name": "UserEQ - Band 5",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 196609
+     },
+     "max": 9,
+     "min": -9,
+     "name": "Fader",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    },
+    {
+     "default": 0,
+     "description": "",
+     "enumValues": [],
+     "formatting": "%d",
+     "id": {
+      "id": 196610
+     },
+     "max": 9,
+     "min": -9,
+     "name": "Balance",
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "unit": ""
+    }
+   ],
+   "rtCoreVersion": {
+    "majorVersion": 3,
+    "minorVersion": 3,
+    "patchVersion": 2
+   },
+   "signalChainMetaData": {}
+  },
+  {
+   "name": "4_18CH_AIQ_UNISON_DSU_FS",
+   "numInputs": 2,
+   "numOutputs": 18,
+   "parameters": [],
+   "rtCoreVersion": {
+    "majorVersion": 3,
+    "minorVersion": 3,
+    "patchVersion": 2
+   },
+   "signalChainMetaData": {}
+  }
+ ],
+ "creationTime": "2025-05-16T11:45:24Z",
+ "creator": "Flow 5.0.2",
+ "creatorVersion": {
+  "majorVersion": 5,
+  "minorVersion": 0,
+  "patchVersion": 2
+ },
+ "description": "Xover protection added",
+ "interfaceVersion": {
+  "majorVersion": 1,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "manufacturer": "Dirac",
+ "processorLibraryVersion": {
+  "majorVersion": 6,
+  "minorVersion": 0,
+  "patchVersion": 0
+ },
+ "project": "Jasmin_DemoCar",
+ "uuid": "ac4f85f4-e7bc-46a8-b3fc-e293df474d2f"
+}

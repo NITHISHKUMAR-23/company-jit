@@ -1,0 +1,12 @@
+Unit]
+Description=UART AVR9 Python Service
+After=network.target
+
+[Service]
+User=jasminuser
+ExecStart=/usr/bin/python3 /home/jasminuser/RPI_AudioPlayer/main.py
+WorkingDirectory= /home/jasminuser/RPI_AudioPlayer
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

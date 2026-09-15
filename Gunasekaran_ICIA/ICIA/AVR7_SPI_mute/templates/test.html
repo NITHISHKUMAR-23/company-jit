@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <!--link rel="stylesheet" href="./Dirac.css"-->
+	<link rel="stylesheet" href="{{ url_for('static', filename='style/Dirac.css') }}">
+
+</head>
+
+<body>
+    <h1 class="heading">JASMIN INFOTECH</h1>
+    <h2 class="heading">Sony AVR-7</h2>
+    <div class="container" >
+
+        <div class="left">
+            <!--img class="image1" src="./car.jpg"  alt=""-->
+            <img src="./static/style/car.jpg" style="border-radius: 20%; margin-bottom: 50px; height: 650px;">
+
+        </div>
+
+        <div class="right" >
+            <div class="right-container">
+                <div class="dirac-buttons">
+                    <!--button class="btn1" id="mute_on" type="button" value="0x11">MUTE ON</button-->
+                    <h2 class="diracmode">Mute All</h2>
+                    <label class="switch">
+                        <input id="mute_all" onclick="toggleValue()" type="checkbox">
+                        <span class="slider"></span>
+                      </label>
+		</div>
+	<script>
+		    
+		function toggleValue() {
+		  var element = document.getElementById("mute_on");
+		  if (element.checked) {
+		    element.value = "1";
+		  } else {
+		    element.value = "0";
+		  }
+		}
+
+	</script>
+                <div class="volume-bar">
+                    <h2>Volume </h2>
+                    <span><button class="minus" id = "minus_id" type="button">-</button></span>
+                    <span class="num" id = "NUM">0</span>
+                    <span><button class="plus" id = "plus_id" type="button">+</button></span>
+                </div>
+
+                <script>
+		const plus = document.querySelector(".plus"),
+	      	minus = document.querySelector(".minus"),
+	      	num = document.querySelector(".num");
+
+		let a = 0;
+		let min = 0,
+		max = 40;
+		plus.addEventListener("click", () => {
+		  a++;
+		  a = a < max && a >= min ? a : max;
+		  num.innerText = a;
+		  console.log(a);
+		  volume(a);
+		});
+		minus.addEventListener("click", () => {
+		  a--;
+		  a = a < max && a >= min ? a : min;
+		  num.innerText = a;
+		  console.log(a);
+		  volume(a);
+		});
+
+		
+	</script>
+
+
+                <div class="music-controller">
+                    <div>
+                         <button class="music-btn1" id="play" type="button" value="1">PLAY</button>
+                  
+                        <button class="music-btn2" id="pause" type="button" value="0">PAUSE</button>
+                       
+                    </div>
+                    <div>
+                        <button class="music-btn3" id="mute" type="button" value="0">MUTE</button>
+                        
+                        <button class="music-btn4" id="resume" type="button" value="1">RESUME</button>
+                      
+                    </div>
+                </div>
+                <div class="seats-container">
+                    <div class="seats">
+                        <div>
+                            <button class="seats-btn1" id="allseat" type="button" value="0">ALL SEAT</button>
+                            <!--button class="seats-btn1">ALL SEAT</button-->
+                            <button class="seats-btn2" id="driverseat" type="button" value="1">DRIVER SEAT</button>
+                            <!--button class="seats-btn2">DRIVER SEAT</button-->
+                             <button class="seats-btn3" id="rearseat" type="button" value="2">REAR SEAT</button>
+                            <!--button class="seats-btn3">REAR SEAT</button-->
+                        </div>
+                        <div>
+                            <button class="seats-btn4" id="6allseat" type="button" value="4">6-ALL SEAT</button>
+                            <!--button class="seats-btn4">6-ALL SEAT</button-->
+                            <button class="seats-btn5" id="8allseat" type="button" value="5">8-ALL SEAT</button>
+                            <!--button class="seats-btn5">8-ALL SEAT</button-->
+                            <button class="seats-btn6" id="12allseat" type="button" value="6">12-ALL SEAT</button>
+                            <!--button class="seats-btn6">12-ALL SEAT</button-->
+                        </div>
+                    </div>
+                    <div class="virtual-surround">
+                        <button class="virtual-surround-btn" id="vsb" type="button" value="3">2-VIRTUAL SURROUND</button>
+                        <!--button class="virtual-surround-btn">2-VIRTUAL SURROUND</button-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+
+            $(document).ready(function(){
+            var command;
+             $('#dmode').click(function(){
+                 command = $("#dmode").val();
+                 //alert(command)
+                 fun_send(command);
+                 });
+	    var command;
+             $('#play').click(function(){
+                 command = $("#play").val();
+                 //alert(command)
+                 playstop(command);
+                 });
+	    var command;
+             $('#pause').click(function(){
+                 command = $("#pause").val();
+                 //alert(command)
+                 playstop(command);
+                 });
+	   var command;
+             $('#mute').click(function(){
+                 command = $("#mute").val();
+                 //alert(command)
+                 muteresume(command);
+                 });
+           var command;
+             $('#resume').click(function(){
+                 command = $("#resume").val();
+                 //alert(command)
+                 muteresume(command);
+                 });
+
+	  var command;
+             $('#allseat').click(function(){
+                 command = $("#allseat").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+	  var command;
+             $('#driverseat').click(function(){
+                 command = $("#driverseat").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+	  var command;
+             $('#rearseat').click(function(){
+                 command = $("#rearseat").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+	  var command;
+             $('#6allseat').click(function(){
+                 command = $("#6allseat").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+	  var command;
+             $('#8allseat').click(function(){
+                 command = $("#8allseat").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+	  var command;
+             $('#12allseat').click(function(){
+                 command = $("#12allseat").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+	  var command;
+             $('#vsb').click(function(){
+                 command = $("#vsb").val();
+                 //alert(command)
+                 seatsound(command);
+                 });
+
+
+
+            });
+
+            function fun_send(command)
+            {
+                $.ajax({
+                    url: "/api/commands",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "command": command }),
+                    success: function(response)
+                    {
+                        // Display the result
+                        $("#resultContainer").text("Result: " + response.result);
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        // Print the error message to the console
+                        console.error("Error: " + error);
+
+                        // Display an error message
+                        $("#resultContainer").text("Error: " + error);
+                    }
+                });
+            };
+	function playstop(command)
+            {
+                $.ajax({
+                    url: "/api/play_stop",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "command": command }),
+                    success: function(response)
+                    {
+                        // Display the result
+                        $("#resultContainer").text("Result: " + response.result);
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        // Print the error message to the console
+                        console.error("Error: " + error);
+
+                        // Display an error message
+                        $("#resultContainer").text("Error: " + error);
+                    }
+                });
+            };
+	function muteresume(command)
+            {
+                $.ajax({
+                    url: "/api/mute_resume",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "command": command }),
+                    success: function(response)
+                    {
+                        // Display the result
+                        $("#resultContainer").text("Result: " + response.result);
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        // Print the error message to the console
+                        console.error("Error: " + error);
+
+                        // Display an error message
+                        $("#resultContainer").text("Error: " + error);
+                    }
+                });
+            };
+
+
+	function seatsound(command)
+            {
+                $.ajax({
+                    url: "/api/seat",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify({ "command": command }),
+                    success: function(response)
+                    {
+                        // Display the result
+                        $("#resultContainer").text("Result: " + response.result);
+                    },
+                    error: function(xhr, status, error)
+                    {
+                        // Print the error message to the console
+                        console.error("Error: " + error);
+
+                        // Display an error message
+                        $("#resultContainer").text("Error: " + error);
+                    }
+                });
+            };
+	function volume(command)
+		    {
+		        $.ajax({
+		            url: "/api/vol",
+		            type: "POST",
+		            contentType: "application/json",
+		            data: JSON.stringify({ "command": command }),
+		            success: function(response)
+		            {
+		                // Display the result
+		                $("#resultContainer").text("Result: " + response.result);
+		            },
+		            error: function(xhr, status, error)
+		            {
+		                // Print the error message to the console
+		                console.error("Error: " + error);
+
+		                // Display an error message
+		                $("#resultContainer").text("Error: " + error);
+		            }
+		        });
+		    };
+
+    </script>
+
+
+
+</body>
+
+</html>

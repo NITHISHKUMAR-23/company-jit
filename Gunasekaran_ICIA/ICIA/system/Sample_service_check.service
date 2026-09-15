@@ -1,0 +1,8 @@
+[Unit]
+Description=My Service
+
+[Service]
+ExecStart=/usr/bin/node /home/jasminuser/Desktop/Sample_Service/sample.py
+
+[Install]
+WantedBy=multi-user.target

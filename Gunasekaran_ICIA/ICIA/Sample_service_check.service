@@ -1,0 +1,14 @@
+[Unit]
+Description=Python HI Web Server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/jasminuser/Desktop/Sample_Service/sample1.py
+WorkingDirectory=/home/jasminuser/Desktop/Sample_Service
+Restart=always
+User=jasminuser
+
+[Install]
+WantedBy=multi-user.target
+
+

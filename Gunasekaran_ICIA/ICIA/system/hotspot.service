@@ -1,0 +1,12 @@
+[Unit]
+Description=Hotspot Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/create_ap wlan0 eth0 RaspberryPi_IDH_1 Jasmin@123
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
+ 

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jasmin Infotech – Demo Car 18ch</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/Dirac.css') }}">
+  <style>
+    /* ── Channel volume row inside each toggle-box ── */
+    .ch-vol-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      margin-top: 6px;
+    }
+    .ch-vol-num {
+      font-size: 17px;
+      font-weight: bold;
+      color: #fff;
+      min-width: 24px;
+      text-align: center;
+    }
+    .chbtn {
+      width: 34px;
+      height: 34px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      line-height: 1;
+      border: 1px solid #888;
+    }
+
+    /* ── Dirac/DCX panel ── */
+    .mode-panel {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background-color: rgba(158, 229, 229, 0.623);
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 8px 6px 0 6px;
+    }
+    .mode-panel h3 { margin: 0; color: #fff; font-size: 17px; }
+  </style>
+</head>
+
+<body>
+  <h1 class="heading">JASMIN INFOTECH</h1>
+  <h2 style="color:white">Demo car: 18 channel</h2>
+
+  <!-- Car image -->
+  <div class="container">
+    <img src="{{ url_for('static', filename='style/car.jpg') }}"
+         style="border-radius:20%; margin-bottom:50px; height:650px;" alt="Car">
+  </div>
+
+  <!-- ================================================================
+       DIRAC / DCX  (new — completely separate from mute)
+       checked = DCX (default ON),  unchecked = Dirac
+  ================================================================ -->
+  <div class="mode-panel">
+    <h3 id="modeText">DCX Enabled</h3>
+    <label class="switch">
+      <input id="audio_mode" type="checkbox" checked>
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <!-- ================================================================
+       MUTE ALL / MASTER VOLUME / BALANCE / FADER
+       Copied EXACTLY from old working code — not changed at all.
+  ================================================================ -->
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <h2>Mute All</h2>
+    <label class="switch">
+      <input id="mute_all" type="checkbox" class="toggle-btn-checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <div class="volume-bar">
+      <span><button class="minus" id="minus_id" type="button">-</button></span>
+      <h3>Volume</h3>
+      <span class="num" id="NUM">30</span>
+      <span><button class="plus" id="plus_id" type="button">+</button></span>
+    </div>
+    <br>
+  </div>
+
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <div class="volume-bar">
+      <span><button class="minus1" id="minus_id1" type="button"> - </button></span>
+      <h3>Balance</h3>
+      <span class="num1" id="NUM1">0</span>
+      <span><button class="plus1" id="plus_id1" type="button"> + </button></span>
+    </div>
+    <br>
+  </div>
+
+  <div class="container_right" style="background-color: rgba(158, 229, 229, 0.623);">
+    <div class="volume-bar">
+      <span><button class="minus2" id="minus_id2" type="button"> - </button></span>
+      <h3>Fader</h3>
+      <span class="num2" id="NUM2">0</span>
+      <span><button class="plus2" id="plus_id2" type="button"> + </button></span>
+    </div>
+    <br>
+  </div>
+
+  <!-- ================================================================
+       18-CHANNEL GRID
+       Each box has:
+         1. Mute toggle  — class="toggle-btn-checkbox spk-toggle"
+                           exactly as old working code, no onclick= attr
+         2. Channel volume row — plain <button> elements with onclick=
+                           completely separate, no class overlap with mute
+  ================================================================ -->
+  <div id="test" class="grid-container">
+
+    <div class="toggle-box">
+      <label for="spk1" class="switch">
+        <input id="spk1" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 1</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(1)">-</button>
+        <span class="ch-vol-num" id="chVol1">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(1)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk2" class="switch">
+        <input id="spk2" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 2</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(2)">-</button>
+        <span class="ch-vol-num" id="chVol2">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(2)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk3" class="switch">
+        <input id="spk3" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 3</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(3)">-</button>
+        <span class="ch-vol-num" id="chVol3">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(3)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk4" class="switch">
+        <input id="spk4" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 4</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(4)">-</button>
+        <span class="ch-vol-num" id="chVol4">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(4)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk5" class="switch">
+        <input id="spk5" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 5</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(5)">-</button>
+        <span class="ch-vol-num" id="chVol5">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(5)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk6" class="switch">
+        <input id="spk6" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 6</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(6)">-</button>
+        <span class="ch-vol-num" id="chVol6">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(6)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk7" class="switch">
+        <input id="spk7" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 7</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(7)">-</button>
+        <span class="ch-vol-num" id="chVol7">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(7)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk8" class="switch">
+        <input id="spk8" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 8</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(8)">-</button>
+        <span class="ch-vol-num" id="chVol8">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(8)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk9" class="switch">
+        <input id="spk9" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 9</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(9)">-</button>
+        <span class="ch-vol-num" id="chVol9">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(9)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk10" class="switch">
+        <input id="spk10" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 10</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(10)">-</button>
+        <span class="ch-vol-num" id="chVol10">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(10)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk11" class="switch">
+        <input id="spk11" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 11</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(11)">-</button>
+        <span class="ch-vol-num" id="chVol11">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(11)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk12" class="switch">
+        <input id="spk12" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 12</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(12)">-</button>
+        <span class="ch-vol-num" id="chVol12">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(12)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk13" class="switch">
+        <input id="spk13" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 13</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(13)">-</button>
+        <span class="ch-vol-num" id="chVol13">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(13)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk14" class="switch">
+        <input id="spk14" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 14</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(14)">-</button>
+        <span class="ch-vol-num" id="chVol14">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(14)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk15" class="switch">
+        <input id="spk15" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 15</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(15)">-</button>
+        <span class="ch-vol-num" id="chVol15">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(15)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk16" class="switch">
+        <input id="spk16" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 16</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(16)">-</button>
+        <span class="ch-vol-num" id="chVol16">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(16)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk17" class="switch">
+        <input id="spk17" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 17</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(17)">-</button>
+        <span class="ch-vol-num" id="chVol17">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(17)">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-box">
+      <label for="spk18" class="switch">
+        <input id="spk18" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+        <span class="slider round"></span>
+      </label>
+      <h5 class="text_pos">channel 18</h5>
+      <div class="ch-vol-row">
+        <button class="chbtn" type="button" onclick="chVolDown(18)">-</button>
+        <span class="ch-vol-num" id="chVol18">30</span>
+        <button class="chbtn" type="button" onclick="chVolUp(18)">+</button>
+      </div>
+    </div>
+
+  </div><!-- /grid-container -->
+
+  <div id="resultContainer" style="color:white; margin-top:10px;"></div>
+
+
+  <!-- ================================================================
+       SCRIPT 1 — MUTE ALL + SPEAKER TOGGLES
+       This is the EXACT same JS logic from the old working code.
+       Key points:
+         - NO onclick= on any checkbox element
+         - Uses addEventListener('change') which fires AFTER checkbox
+           state is updated — safe on iPad Safari
+         - mute_all change: sets all spk-toggles, sends ONE request
+         - spk change: sends that spk's state, auto-manages mute_all
+         - postJSON sends isChecked as boolean true/false
+  ================================================================ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var API = location.protocol + '//' + location.host;
+
+    function postJSON(path, payload) {
+      return fetch(API + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(r) { return r.json(); });
+    }
+
+    var muteAll    = document.getElementById('mute_all');
+    var spkToggles = document.querySelectorAll('.spk-toggle');
+
+    /* ---- Mute All ---- */
+    muteAll.addEventListener('change', function() {
+      var isChecked = muteAll.checked;
+      /* Reflect on all individual toggles */
+      spkToggles.forEach(function(t) { t.checked = isChecked; });
+      /* Send ONE request — server handles global mute */
+      postJSON('/api/mute_all', { toggleId: 'mute_all', isChecked: isChecked })
+        .then(function(res) {
+          document.getElementById('resultContainer').textContent = 'Mute All: ' + isChecked;
+        })
+        .catch(function(err) { console.error('mute_all error:', err); });
+    });
+
+    /* ---- Individual speaker toggles ---- */
+    spkToggles.forEach(function(t) {
+      t.addEventListener('change', function() {
+        var isChecked = t.checked;
+
+        /* Send this channel's mute state */
+        postJSON('/api/mute_all', { toggleId: t.id, isChecked: isChecked })
+          .catch(function(err) { console.error(t.id + ' error:', err); });
+
+        /* Auto-manage mute_all checkbox */
+        if (!isChecked) {
+          muteAll.checked = false;
+        } else {
+          var allOn = Array.from(spkToggles).every(function(x) { return x.checked; });
+          if (allOn) {
+            muteAll.checked = true;
+            postJSON('/api/mute_all', { toggleId: 'mute_all', isChecked: true })
+              .catch(function(err) { console.error('auto mute_all error:', err); });
+          }
+        }
+      });
+    });
+
+    /* ---- Dirac / DCX ---- */
+    var audioMode = document.getElementById('audio_mode');
+    var modeText  = document.getElementById('modeText');
+
+    audioMode.addEventListener('change', function() {
+      var isDCX = audioMode.checked;
+      var mode  = isDCX ? 'dcx' : 'dirac';
+      modeText.textContent = isDCX ? 'DCX Enabled' : 'Dirac Enabled';
+      postJSON('/api/audio_features', { mode: mode })
+        .then(function(r) { console.log('audio_features:', r); })
+        .catch(function(err) { console.error('audio_features error:', err); });
+    });
+
+    /* ---- Master Volume ---- */
+    var plus  = document.querySelector('.plus');
+    var minus = document.querySelector('.minus');
+    var num   = document.querySelector('.num');
+    var a = 30;
+
+    plus.addEventListener('click', function() {
+      a = Math.min(a + 1, 30);
+      num.textContent = a;
+      postJSON('/api/volume', { command: a }).catch(console.error);
+    });
+    minus.addEventListener('click', function() {
+      a = Math.max(a - 1, 0);
+      num.textContent = a;
+      postJSON('/api/volume', { command: a }).catch(console.error);
+    });
+
+    /* ---- Balance ---- */
+    var plus1  = document.querySelector('.plus1');
+    var minus1 = document.querySelector('.minus1');
+    var num1   = document.querySelector('.num1');
+    var a1 = 0;
+
+    plus1.addEventListener('click', function() {
+      a1 = Math.min(a1 + 1, 7);
+      num1.textContent = a1;
+      postJSON('/api/balance_level', { command: a1 }).catch(console.error);
+    });
+    minus1.addEventListener('click', function() {
+      a1 = Math.max(a1 - 1, -7);
+      num1.textContent = a1;
+      postJSON('/api/balance_level', { command: a1 }).catch(console.error);
+    });
+
+    /* ---- Fader ---- */
+    var plus2  = document.querySelector('.plus2');
+    var minus2 = document.querySelector('.minus2');
+    var num2   = document.querySelector('.num2');
+    var a2 = 0;
+
+    plus2.addEventListener('click', function() {
+      a2 = Math.min(a2 + 1, 7);
+      num2.textContent = a2;
+      postJSON('/api/fader', { command: a2 }).catch(console.error);
+    });
+    minus2.addEventListener('click', function() {
+      a2 = Math.max(a2 - 1, -7);
+      num2.textContent = a2;
+      postJSON('/api/fader', { command: a2 }).catch(console.error);
+    });
+
+  }); /* end DOMContentLoaded */
+  </script>
+
+
+  <!-- ================================================================
+       SCRIPT 2 — CHANNEL VOLUME
+       Completely separate from mute. Uses onclick= on plain <button>
+       elements (not checkboxes), so no iPad Safari timing issue.
+       Volume range 1–30. Independent of master volume and mute state.
+  ================================================================ -->
+  <script>
+  /* Per-channel volume state (1-indexed, channels 1..18) */
+  var chVol = {};
+  for (var i = 1; i <= 18; i++) { chVol[i] = 30; }
+
+  function chVolUp(ch) {
+    if (chVol[ch] < 30) chVol[ch]++;
+    document.getElementById('chVol' + ch).textContent = chVol[ch];
+    sendChVol(ch, chVol[ch]);
+  }
+
+  function chVolDown(ch) {
+    if (chVol[ch] > 1) chVol[ch]--;
+    document.getElementById('chVol' + ch).textContent = chVol[ch];
+    sendChVol(ch, chVol[ch]);
+  }
+
+  function sendChVol(ch, vol) {
+    var API = location.protocol + '//' + location.host;
+    fetch(API + '/api/channel_volume', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ channel: ch, volume: vol })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(r) { console.log('ch_vol ok:', r); })
+    .catch(function(err) { console.error('ch_vol error:', err); });
+  }
+  </script>
+
+</body>
+</html>

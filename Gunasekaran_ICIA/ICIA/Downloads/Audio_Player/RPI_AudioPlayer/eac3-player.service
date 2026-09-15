@@ -1,0 +1,20 @@
+[Unit]
+Description=EAC3 Audio Player GUI (Flask + mpv)
+After=network.target sound.target
+
+[Service]
+Type=simple
+User=jasminuser
+Group=jasminuser
+WorkingDirectory=/home/jasminuser/RPI_AudioPlayer
+ExecStart=/usr/bin/python3 /home/jasminuser/RPI_AudioPlayer/main.py
+Restart=on-failure
+RestartSec=3
+
+# Needed so mpv can reach the ALSA/HDMI device even though no one is
+# logged into a desktop session (this is the headless equivalent of
+# what Kodi could only do while a monitor + logged-in session existed).
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+
+[Install]
+WantedBy=multi-user.target

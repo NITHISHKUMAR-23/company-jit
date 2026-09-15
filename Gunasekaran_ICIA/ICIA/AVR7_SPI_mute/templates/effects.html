@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+volume: <input type="range" onclick="myFunction1()" id="volume" value="0">
+<p id="demo"></p>
+
+bass: <input type="range" onclick="myFunction2()" id="Bass" value="0">
+<p id="demo1"></p>
+
+Balance: <input type="range" onclick="myFunction3()" id="Balance" value="0">
+<p id="demo2"></p>
+
+Fader: <input type="range" onclick="myFunction4()" id="Fader" value="0">
+<p id="demo3"></p>
+
+MID: <input type="range" onclick="myFunction5()" id="MID" value="0">
+<p id="demo4"></p>
+
+Treble: <input type="range" onclick="myFunction6()" id="Treble" value="0">
+<p id="demo5"></p>
+
+<script>
+function myFunction1() {
+  let x = document.getElementById("volume").value;
+  document.getElementById("demo").innerHTML = x;
+}
+function myFunction2() {
+  let x1 = document.getElementById("Bass").value;
+  document.getElementById("demo1").innerHTML = x1;
+}
+function myFunction3() {
+  let x2 = document.getElementById("Balance").value;
+  document.getElementById("demo2").innerHTML = x2;
+}
+function myFunction4() {
+  let x3 = document.getElementById("Fader").value;
+  document.getElementById("demo3").innerHTML = x3;
+}
+function myFunction5() {
+  let x4 = document.getElementById("MID").value;
+  document.getElementById("demo4").innerHTML = x4;
+}
+function myFunction6() {
+  let x5 = document.getElementById("Treble").value;
+  document.getElementById("demo5").innerHTML = x5;
+}
+
+</script>
+
+</body>
+</html>

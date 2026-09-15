@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JASMIN INFOTECH</title>
+<link rel="stylesheet" href='../static/style.css'/>
+<script>
+function myFunction1() {
+  let x = document.getElementById("volume").value;
+  document.getElementById("demo").innerHTML = x;
+}
+function myFunction2() {
+  let x1 = document.getElementById("Bass").value;
+  document.getElementById("demo1").innerHTML = x1;
+}
+function myFunction3() {
+  let x2 = document.getElementById("Balance").value;
+  document.getElementById("demo2").innerHTML = x2;
+}
+function myFunction4() {
+  let x3 = document.getElementById("Fader").value;
+  document.getElementById("demo3").innerHTML = x3;
+}
+function myFunction5() {
+  let x4 = document.getElementById("MID").value;
+  document.getElementById("demo4").innerHTML = x4;
+}
+function myFunction6() {
+  let x5 = document.getElementById("Treble").value;
+  document.getElementById("demo5").innerHTML = x5;
+}
+function mute_on_off() {
+  let mute_status = document.getElementById("mute").value;
+  document.getElementById("mute_val").innerHTML = mute_status;
+}
+
+</script>
+</head>
+<body background="/home/jasminuser/rpiwebserver/templates/wallpaper.jpg">
+	<h1>JASMIN INFOTECH</h1>
+	<h2 class="disp">This webpage is hosted by Raspberry Pi @192.168.142.104</h2>
+	<br>
+	<button onclick="mute_on_off()" id="mute">Mute</button>
+	<div id="app-cover">
+    <div class="toggle-button-cover">
+      <div class="button-cover">
+        <div class="button b2" id="button-18">
+          <input type="checkbox" class="checkbox" />
+          <div class="knobs">
+            <span></span>
+          </div>
+          <div class="layer"></div>
+        </div>
+    </div>
+  </div>
+</div>
+	<p id="mute_val"></p>
+	<div class="slidecontainer">
+	volume: <input type="range" onclick="myFunction1()" id="volume" value="0" min="0" max="30">
+	<p id="demo"></p>
+
+	bass: <input type="range" onclick="myFunction2()" id="Bass" value="0" min="0" max="14">
+	<p id="demo1"></p>
+
+	Balance: <input type="range" onclick="myFunction3()" id="Balance" value="0" min="0" max="14">
+	<p id="demo2"></p>
+
+	Fader: <input type="range" onclick="myFunction4()" id="Fader" value="0" min="0" max="14">
+	<p id="demo3"></p>
+
+	MID: <input type="range" onclick="myFunction5()" id="MID" value="0" min="0" max="14">
+	<p id="demo4"></p>
+
+	Treble: <input type="range" onclick="myFunction6()" id="Treble" value="0" min="0" max="14">
+	<p id="demo5"></p>
+	</div>
+</body>
+</html>

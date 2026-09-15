@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>EAC3 Player — RPi → AVR8 → AVR9</title>
+<link rel="stylesheet" href="/static/style/player.css">
+</head>
+<body>
+
+<h1 class="heading">EAC3 Audio Player</h1>
+<h2 class="sub">RPi &rarr; AVR8 &rarr; AVR9 &rarr; Output</h2>
+
+<div class="player-card">
+
+  <!-- Now playing + equalizer -->
+  <div class="now-playing">
+    <div class="track-name" id="trackName">No track loaded</div>
+    <div class="track-state" id="trackState">&nbsp;</div>
+  </div>
+
+  <div class="eq" id="eq">
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+    <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-row">
+    <span id="posLabel">0:00</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span id="durLabel">0:00</span>
+  </div>
+
+  <!-- Transport -->
+  <div class="transport">
+    <button class="btn-prev" id="btnPrev" title="Previous">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+    </button>
+
+    <button class="btn-play" id="btnPlay" title="Play/Pause">
+      <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+    </button>
+
+    <button class="btn-next" id="btnNext" title="Next">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
+    </button>
+
+    <button class="btn-stop" id="btnStop" title="Stop">
+      <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg>
+    </button>
+  </div>
+
+  <!-- Repeat / Shuffle -->
+  <div class="mode-row">
+    <div class="mode-btn" id="btnRepeat" title="Repeat off / all / one">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 7h10v3l4-4-4-4v3H5v6h2zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2z"/></svg>
+      <span id="repeatLabel">Repeat: Off</span>
+    </div>
+    <div class="mode-btn" id="btnShuffle" title="Shuffle">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 3l4 4-4 4V8h-3.6l-2.4 3 2.4 3H21v-3l4 4-4 4v-3h-4.6l-3.2-4H8l-3-4h5.2l3.2-4H17V3z"/></svg>
+      <span>Shuffle</span>
+    </div>
+  </div>
+
+  <!-- Track list -->
+  <div class="section-title">Audio Files</div>
+  <ul class="track-list" id="trackList">
+    <li class="empty">Loading...</li>
+  </ul>
+
+  <!-- Upload -->
+  <div class="upload-row">
+    <label class="upload-btn" for="fileInput">+ Upload .eac3 file to RPi</label>
+    <input type="file" id="fileInput" accept=".eac3,.ec3">
+  </div>
+
+  <div class="status-line" id="statusLine">&nbsp;</div>
+</div>
+
+<script>
+const API = "";
+let currentTrack = null;
+let isPaused = true;
+let repeatMode = "off";   // off -> all -> one -> off
+let shuffleOn = false;
+
+const el = (id) => document.getElementById(id);
+
+function fmtTime(sec) {
+  sec = Math.max(0, Math.floor(sec || 0));
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return m + ":" + String(s).padStart(2, "0");
+}
+
+function showStatus(msg, isError) {
+  const line = el("statusLine");
+  line.textContent = msg || "";
+  line.style.color = isError ? "#f2a154" : "#7fe7e7";
+  if (msg) setTimeout(() => { if (line.textContent === msg) line.textContent = ""; }, 4000);
+}
+
+async function api(path, opts) {
+  try {
+    const res = await fetch(API + path, opts);
+    return await res.json();
+  } catch (e) {
+    showStatus("Connection error: " + e.message, true);
+    return { ok: false, error: e.message };
+  }
+}
+
+// ---------------- Track list ----------------
+async function loadTracks() {
+  const data = await api("/api/tracks");
+  if (!data.ok) return;
+  currentTrack = data.current;
+  renderTrackList(data.tracks);
+}
+
+function renderTrackList(tracks) {
+  const list = el("trackList");
+  list.innerHTML = "";
+  if (!tracks || tracks.length === 0) {
+    list.innerHTML = '<li class="empty">No .eac3 files yet — upload one below</li>';
+    return;
+  }
+  tracks.forEach((name) => {
+    const li = document.createElement("li");
+    li.className = name === currentTrack ? "active" : "";
+    li.innerHTML =
+      '<svg class="track-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">' +
+      '<path d="M8 5v14l11-7z"/></svg><span>' + name + "</span>";
+    li.addEventListener("click", () => playTrack(name));
+    list.appendChild(li);
+  });
+}
+
+async function playTrack(name) {
+  const data = await api("/api/play", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ track: name }),
+  });
+  if (data.ok) {
+    currentTrack = data.current;
+    isPaused = false;
+    refreshStatusUI();
+    loadTracks();
+  } else {
+    showStatus(data.error || "Could not play track", true);
+  }
+}
+
+// ---------------- Transport ----------------
+el("btnPlay").addEventListener("click", async () => {
+  if (!currentTrack) {
+    // nothing loaded yet — start the first track in the list
+    const data = await api("/api/play", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+    if (!data.ok) { showStatus(data.error || "Nothing to play", true); return; }
+    currentTrack = data.current;
+    isPaused = false;
+  } else {
+    const data = await api("/api/pause", { method: "POST" });
+    if (data.ok) isPaused = data.paused;
+  }
+  refreshStatusUI();
+  loadTracks();
+});
+
+el("btnStop").addEventListener("click", async () => {
+  await api("/api/stop", { method: "POST" });
+  isPaused = true;
+  refreshStatusUI();
+});
+
+el("btnNext").addEventListener("click", async () => {
+  const data = await api("/api/next", { method: "POST" });
+  if (data.ok) {
+    currentTrack = data.current;
+    isPaused = false;
+    loadTracks();
+  } else {
+    showStatus(data.error || "End of playlist", false);
+  }
+  refreshStatusUI();
+});
+
+el("btnPrev").addEventListener("click", async () => {
+  const data = await api("/api/previous", { method: "POST" });
+  if (data.ok) {
+    currentTrack = data.current;
+    isPaused = false;
+    loadTracks();
+  }
+  refreshStatusUI();
+});
+
+// ---------------- Repeat / Shuffle ----------------
+const repeatCycle = { off: "all", all: "one", one: "off" };
+const repeatLabels = { off: "Repeat: Off", all: "Repeat: All", one: "Repeat: One" };
+
+el("btnRepeat").addEventListener("click", async () => {
+  const nextMode = repeatCycle[repeatMode];
+  const data = await api("/api/repeat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mode: nextMode }),
+  });
+  if (data.ok) {
+    repeatMode = data.repeat;
+    el("repeatLabel").textContent = repeatLabels[repeatMode];
+    el("btnRepeat").classList.toggle("active", repeatMode !== "off");
+  }
+});
+
+el("btnShuffle").addEventListener("click", async () => {
+  shuffleOn = !shuffleOn;
+  const data = await api("/api/shuffle", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ enabled: shuffleOn }),
+  });
+  if (data.ok) {
+    shuffleOn = data.shuffle;
+    el("btnShuffle").classList.toggle("active", shuffleOn);
+  }
+});
+
+// ---------------- Upload ----------------
+el("fileInput").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const ext = file.name.toLowerCase();
+  if (!ext.endsWith(".eac3") && !ext.endsWith(".ec3")) {
+    showStatus("Only .eac3 / .ec3 files are allowed", true);
+    return;
+  }
+  showStatus("Uploading " + file.name + " ...", false);
+  const form = new FormData();
+  form.append("file", file);
+  const data = await api("/api/upload", { method: "POST", body: form });
+  if (data.ok) {
+    showStatus("Uploaded: " + file.name, false);
+    renderTrackList(data.tracks);
+  } else {
+    showStatus(data.error || "Upload failed", true);
+  }
+  e.target.value = "";
+});
+
+// ---------------- UI refresh helpers ----------------
+function refreshStatusUI() {
+  el("trackName").textContent = currentTrack || "No track loaded";
+  el("trackState").textContent = currentTrack ? (isPaused ? "Paused" : "Playing") : "";
+  el("iconPlay").style.display = isPaused ? "block" : "none";
+  el("iconPause").style.display = isPaused ? "none" : "block";
+  el("eq").classList.toggle("playing", !!currentTrack && !isPaused);
+}
+
+// ---------------- Poll backend status every second ----------------
+async function pollStatus() {
+  const data = await api("/api/status");
+  if (!data.ok) return;
+  currentTrack = data.current;
+  isPaused = data.paused;
+  repeatMode = data.repeat;
+  shuffleOn = data.shuffle;
+
+  el("repeatLabel").textContent = repeatLabels[repeatMode] || "Repeat: Off";
+  el("btnRepeat").classList.toggle("active", repeatMode !== "off");
+  el("btnShuffle").classList.toggle("active", shuffleOn);
+
+  el("posLabel").textContent = fmtTime(data.position);
+  el("durLabel").textContent = fmtTime(data.duration);
+  const pct = data.duration > 0 ? Math.min(100, (data.position / data.duration) * 100) : 0;
+  el("progressFill").style.width = pct + "%";
+
+  refreshStatusUI();
+  // keep the highlighted row in the track list in sync
+  document.querySelectorAll("#trackList li").forEach((li) => {
+    const nameSpan = li.querySelector("span");
+    if (!nameSpan) return;
+    li.classList.toggle("active", nameSpan.textContent === currentTrack);
+  });
+}
+
+loadTracks();
+setInterval(pollStatus, 1000);
+</script>
+</body>
+</html>

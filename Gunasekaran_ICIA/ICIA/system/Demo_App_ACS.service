@@ -1,0 +1,20 @@
+[Unit]
+Description=Run ACS and Python script together
+After=network.target
+
+[Service]
+Type=simple
+User=jasminuser
+WorkingDirectory=/home/jasminuser/Desktop/tuning-acs-1.4.2-Linux-aarch64
+ExecStart=/home/jasminuser/Desktop/tuning-acs-1.4.2-Linux-aarch64/start_both_codes.sh
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+Environment="PATH=/usr/bin:/bin:/usr/local/bin"
+
+# Redirect logs into journalctl
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

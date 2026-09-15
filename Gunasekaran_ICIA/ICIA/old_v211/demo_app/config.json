@@ -1,0 +1,117 @@
+{
+  "car_model": "Hyundai Tucson",
+  "title": "Automotive Sound",
+  "subtitle": "Channels: 18",
+  "api_url": "/",
+  "update_continuously": true,
+  "update_continuously_time_ms": 300,
+  "log_file": "logs.txt",
+  "images": {
+    "bird_view": "media/HyundaiTucson_bird_view.png",
+    "car_brand": "media/HyundaiTucson_brand.png",
+    "car_header": "media/HyundaiTucson_header.png",
+    "car_header_style": "dark"
+  },
+  "show_seats": true,
+  "seats_title": "Selected Seating",
+  "seats": [
+    {
+      "name":"Front seats",
+      "placeholders": [0, 1]
+    },{
+      "name":"Driver seat",
+      "placeholders": [1]
+    }
+  ],
+  "seat_placeholders_positions": [
+    [25.5, 53],
+    [61.8, 53]
+  ],
+  "seat_placeholder_style": {
+    "width": "41px",
+    "height": "27px",
+    "border":"2px solid #32FFEB",
+    "backgroundColor":"rgba(50, 255, 235, .4)",
+    "borderRadius": "8px"
+  },
+  "tabs": [
+    {
+      "name": "Stereo",
+      "modes": [
+        {
+          "name": "Dirac OPTEO Professional",
+          "description": "Sound field control",
+          "image": "media/opteo_professional.png"
+        },
+        {
+          "name": "Dirac VIRTUO Professional",
+          "description": "Dynamic spatial upmixing",
+          "image": "media/virtuo_professional.png"
+        },
+        {
+          "name": "Dirac OPTEO Performance",
+          "description": "Frequency response optimization",
+          "image": "media/opteo_performance.png",
+          "subtitle": "Channels: 8"
+        }
+      ]
+    },
+    {
+      "name": "Dolby Atmos",
+      "modes": [
+        {
+          "name": "Dolby Atmos",
+          "description": "Powered by Dirac Opteo Professional",
+          "image": "media/dolby_atmos.png"
+        }
+      ]
+    }
+  ],
+  "dar_file": "Jasmin_DemoCar_Opteo_Virtuo_20230929_V4.eval",
+  "gain": {
+    "min": -40,
+    "max": 0
+  },
+  "dar_configs": [
+    {
+      "name": "%1%2_FrtSeat_Opt_Prof",
+      "id_mode": "Dirac OPTEO Professional",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%2%2_DrvSeat_Opt_Prof",
+      "id_mode": "Dirac OPTEO Professional",
+      "id_seat": "Driver seat"
+    },
+    {
+      "name": "%3%2_FrtSeat_Vir_Prof",
+      "id_mode": "Dirac VIRTUO Professional",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%4%2_DrvSeat_Vir_Prof",
+      "id_mode": "Dirac VIRTUO Professional",
+      "id_seat": "Driver seat"
+    },
+    {
+      "name": "%5%2_FrtSeat_Opt_Perf",
+      "id_mode": "Dirac OPTEO Performance",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%6%2_DrvSeat_Opt_Perf",
+      "id_mode": "Dirac OPTEO Performance",
+      "id_seat": "Driver seat"
+    },
+    {
+      "name": "%7%12_FrtSeat_Opt_Pro",
+      "id_mode": "Dolby Atmos",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%8%12_DrvSeat_Opt_Pro",
+      "id_mode": "Dolby Atmos",
+      "id_seat": "Driver seat"
+    }
+  ]
+}

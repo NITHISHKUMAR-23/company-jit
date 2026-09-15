@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <!--link rel="stylesheet" href="./Dirac.css"-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/Dirac.css') }}">
+</head>
+
+<body>
+    <h1 class="heading">JASMIN INFOTECH</h1>
+    <h2 style="color:white"> Sony AVR-7</h2>
+    <div class="container" >
+
+        <div class="left">
+            <!--img class="image1" src="./car.jpg"  alt=""-->
+            <img src="./static/style/car.jpg" style="border-radius: 20%; margin-bottom: 50px; height: 650px;">
+        </div>
+	
+	<div>
+		<div class="dirac-buttons">
+                    <h2 class="diracmode">Mute All</h2>
+                    <label class="switch">
+                        <input id="mute_all" onclick="mute_all()" type="checkbox">
+                        <span class="slider"></span>
+                      </label>
+                  </div>
+		<div class="dirac-buttons">
+                    <h3>spk m1</h3>
+                    <label class="switch">
+                        <input id="spk1" onclick="spk1()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m2</h3>
+                    <label class="switch">
+                        <input id="spk2" onclick="spk2()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m3</h3>
+                    <label class="switch">
+                        <input id="spk3" onclick="spk3()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+                <div class="dirac-buttons">
+                    <h3 class="diracmode">spk m4</h3>
+                    <label class="switch">
+                        <input id="spk4" onclick="spk4()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m5</h3>
+                    <label class="switch">
+                        <input id="spk5" onclick="spk5()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m6</h3>
+                    <label class="switch">
+                        <input id="spk6" onclick="spk6()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m7</h3>
+                    <label class="switch">
+                        <input id="spk7" onclick="spk7()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+                <div class="dirac-buttons">
+                    <h3 class="diracmode">spk m8</h3>
+                    <label class="switch">
+                        <input id="spk8" onclick="spk8()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m9</h3>
+                    <label class="switch">
+                        <input id="spk9" onclick="spk9()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m10</h3>
+                    <label class="switch">
+                        <input id="spk10" onclick="spk10()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m11</h3>
+                    <label class="switch">
+                        <input id="spk11" onclick="spk11()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+                <div class="dirac-buttons">
+                    <h3 class="diracmode">spk m12</h3>
+                    <label class="switch">
+                        <input id="spk12" onclick="spk12()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m13</h3>
+                    <label class="switch">
+                        <input id="spk13" onclick="spk13()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m14</h3>
+                    <label class="switch">
+                        <input id="spk14" onclick="spk14()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m15</h3>
+                    <label class="switch">
+                        <input id="spk15" onclick="spk15()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+                <div class="dirac-buttons">
+                    <h3 class="diracmode">spk m16</h3>
+                    <label class="switch">
+                        <input id="spk16" onclick="spk16()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m17</h3>
+                    <label class="switch">
+                        <input id="spk17" onclick="spk17()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+		<div class="dirac-buttons">
+                    <h3 class="diracmode">spk m18</h3>
+                    <label class="switch">
+                        <input id="spk18" onclick="spk18()" type="checkbox">
+                        <span class="slider"></span>
+		    </label>
+		</div>
+	
+	
+		<div class="volume-bar">
+                    <span><button class="minus" id = "minus_id" type="button">-</button></span>
+		    <h3>Volume</h3>
+                    <span class="num" id = "NUM">0</span>
+                    <span><button class="plus" id = "plus_id" type="button">+</button></span>
+                </div>
+		
+		<div class="volume-bar">
+                    <span><button class="minus1" id = "minus_id1" type="button">-</button></span>
+		    <h3>Balance</h3>
+                    <span class="num1" id = "NUM1">0</span>
+                    <span><button class="plus1" id = "plus_id1" type="button">+</button></span>
+                </div>
+		
+		<div class="volume-bar">
+                    <span><button class="minus2" id = "minus_id2" type="button">-</button></span>
+		    <h3>Fader</h3>
+                    <span class="num2" id = "NUM2">0</span>
+                    <span><button class="plus2" id = "plus_id2" type="button">+</button></span>
+                </div>
+	    </div>
+	    
+    <script>
+	function mute_all() {
+	const buttonValue = $("#mute_all").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/mute_all',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk1() {
+	const buttonValue = $("#spk1").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk1',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk2() {
+	const buttonValue = $("#spk2").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk2',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk3() {
+	const buttonValue = $("#spk3").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk3',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk4() {
+	const buttonValue = $("#spk4").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk4',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk5() {
+	const buttonValue = $("#spk5").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk5',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk6() {
+	const buttonValue = $("#spk6").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk6',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk7() {
+	const buttonValue = $("#spk7").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk7',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk8() {
+	const buttonValue = $("#spk8").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk8',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk9() {
+	const buttonValue = $("#spk9").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk9',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk10() {
+	const buttonValue = $("#spk10").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk10',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk11() {
+	const buttonValue = $("#spk11").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk11',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk12() {
+	const buttonValue = $("#spk12").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk12',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk13() {
+	const buttonValue = $("#spk13").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk13',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk14() {
+	const buttonValue = $("#spk14").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk14',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk15() {
+	const buttonValue = $("#spk15").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk15',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk16() {
+	const buttonValue = $("#spk16").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk16',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk17() {
+	const buttonValue = $("#spk17").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk17',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+	function spk18() {
+	const buttonValue = $("#spk18").prop("checked") ? '1' : '0';
+	$.ajax({
+	    url: '/api/spk18',
+	    type: 'POST',
+	    data: { value: buttonValue },
+	    success: function(response) {
+		console.log('Button value sent to Python script:', buttonValue);
+		},
+	    error: function(error) {
+		console.log('Error sending button value:', error);
+		}
+	    });
+	}
+		
+    </script>
+	
+	    </div>
+	</div>
+
+    <script>
+	const plus = document.querySelector(".plus"),
+	minus = document.querySelector(".minus"),
+	num = document.querySelector(".num");
+	
+	const plus1 = document.querySelector(".plus1"),
+	minus1 = document.querySelector(".minus1"),
+	num1 = document.querySelector(".num1");
+	
+	const plus2 = document.querySelector(".plus2"),
+	minus2 = document.querySelector(".minus2"),
+	num2 = document.querySelector(".num2");
+		
+	
+
+	let a = 0;
+	let a1 = 0;
+	let a2 = 0;		
+	
+	let min = 0,
+	max = 40;
+	
+	let min1 = 0;
+	let max1 = 14;
+	//volume
+	plus.addEventListener("click", () => {
+	  a++;
+	  a = a < max && a >= min ? a : max;
+	  num.innerText = a;
+	  console.log(a);
+	  volume(a);
+	});
+	minus.addEventListener("click", () => {
+	  a--;
+	  a = a < max && a >= min ? a : min;
+	  num.innerText = a;
+	  console.log(a);
+	  volume(a);
+	});
+	
+	//balance_level
+	  plus1.addEventListener("click", () => {
+	  a1++;
+	  a1 = a1 < max1 && a1 >= min1 ? a1 : max1;
+	  num1.innerText = a1;
+	  console.log(a1);
+	  balance_level(a1);
+	});
+	minus1.addEventListener("click", () => {
+	  a1--;
+	  a1 = a1 < max1 && a1 >= min1 ? a1 : min1;
+	  num1.innerText = a1;
+	  console.log(a1);
+	  balance_level(a1);
+	});
+	
+	//fader
+	plus2.addEventListener("click", () => {
+	  a2++;
+	  a2 = a2 < max1 && a2 >= min1 ? a2 : max1;
+	  num2.innerText = a2;
+	  console.log(a2);
+	  fader(a2);
+	});
+	minus2.addEventListener("click", () => {
+	  a2--;
+	  a2 = a2 < max1 && a2 >= min1 ? a2 : min1;
+	  num2.innerText = a2;
+	  console.log(a2);
+	  fader(a2);
+	});
+	
+    function volume(command)
+		{
+		    $.ajax({
+			url: "/api/volume",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify({ "command": command }),
+			success: function(response)
+			{
+			    // Display the result
+			    $("#resultContainer").text("Result: " + response.result);
+			},
+			error: function(xhr, status, error)
+			{
+			    // Print the error message to the console
+			    console.error("Error: " + error);
+
+			    // Display an error message
+			    $("#resultContainer").text("Error: " + error);
+			}
+		    });
+		};
+			
+    function balance_level(command)
+		{
+		    $.ajax({
+			url: "/api/balance_level",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify({ "command": command }),
+			success: function(response)
+			{
+			    // Display the result
+			    $("#resultContainer").text("Result: " + response.result);
+			},
+			error: function(xhr, status, error)
+			{
+			    // Print the error message to the console
+			    console.error("Error: " + error);
+
+			    // Display an error message
+			    $("#resultContainer").text("Error: " + error);
+			}
+		    });
+		};
+		
+    function fader(command)
+		{
+		    $.ajax({
+			url: "/api/fader",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify({ "command": command }),
+			success: function(response)
+			{
+			    // Display the result
+			    $("#resultContainer").text("Result: " + response.result);
+			},
+			error: function(xhr, status, error)
+			{
+			    // Print the error message to the console
+			    console.error("Error: " + error);
+
+			    // Display an error message
+			    $("#resultContainer").text("Error: " + error);
+			}
+		    });
+		};
+    </script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+{
+ "interfaceVersion": {
+  "majorVersion": 1,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "uuid": "329e6a67-383f-49ec-9f90-e0e83a9f5db5",
+ "archiveMetaData": {},
+ "description": "",
+ "configurations": [
+  {
+   "name": "%1%Opteo_Stereo_Driverseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%2%Opteo_Stereo_Frontseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%3%Opteo_Stereo_Backseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%4%Opteo_Stereo_Allseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%5%Opteo_Atmos_Driverseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 12,
+   "numOutputs": 12
+  },
+  {
+   "name": "%6%Opteo_Atmos_Frontseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 12,
+   "numOutputs": 12
+  },
+  {
+   "name": "%7%Opteo_Atmos_Backseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 12,
+   "numOutputs": 12
+  },
+  {
+   "name": "%8%Opteo_Atmos_Allseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 12,
+   "numOutputs": 12
+  },
+  {
+   "name": "%9%Virtuo_Driverseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%10%Virtuo_Frontseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%11%Virtuo_Backseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  },
+  {
+   "name": "%12%Virtuo_Allseat",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 14
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 268435475
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": -120,
+     "max": 0,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 2
+  }
+ ],
+ "creator": "Flow 4.1.0",
+ "creatorVersion": {
+  "majorVersion": 4,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "author": "andreas.stickel@dirac.com",
+ "project": "Test_DemoApp",
+ "manufacturer": "Dirac",
+ "processorLibraryVersion": {
+  "majorVersion": 5,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "creationTime": "2023-09-15T06:40:51Z"
+}

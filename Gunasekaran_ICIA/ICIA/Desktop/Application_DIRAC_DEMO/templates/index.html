@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dirac Audio Tuning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+		function updateControlState(enabled) {
+			document.querySelectorAll('.mode-buttons button, .volume-control button').forEach(btn => {
+				btn.disabled = !enabled;
+			});
+		}
+
+		function highlightModeButton(mode) {
+			document.querySelectorAll('.mode-buttons button').forEach((btn, index) => {
+				if (index + 1 === mode) {
+					btn.classList.add('active-mode');
+				} else {
+					btn.classList.remove('active-mode');
+				}
+			});
+		}
+
+		function setMode(mode) {
+			fetch(`/set_mode/${mode}`)
+			.then(response => response.json())
+			.then(data => {
+				document.getElementById('mode-display').innerText = data.mode_name ? "Mode: " + data.mode_name : "";
+				if (data.mode_name) {
+					highlightModeButton(data.mode);
+				}
+			});
+		}
+
+		function toggleTuning() {
+			fetch('/toggle_tuning')
+			.then(r => r.json())
+			.then(data => {
+				const tbtn = document.getElementById('tuning-btn');
+				if (data.tuning) {
+					tbtn.innerText = "DIRAC Enabled";
+					tbtn.classList.remove('toggle-off');
+					tbtn.classList.add('toggle-on');
+
+					document.getElementById('mode-display').innerText =
+						data.mode_name ? "Mode: " + data.mode_name : "";
+
+					updateControlState(true);
+					highlightModeButton(data.mode);
+				} else {
+					tbtn.innerText = "DIRAC Disabled";
+					tbtn.classList.remove('toggle-on');
+					tbtn.classList.add('toggle-off');
+
+					document.getElementById('mode-display').innerText = "";
+					updateControlState(false);
+				}
+			});
+		}
+
+		// On page load, set the highlight correctly
+		document.addEventListener("DOMContentLoaded", () => {
+			updateControlState({{ 'true' if tuning else 'false' }});
+			{% if tuning %}
+			highlightModeButton({{ mode }});
+			{% endif %}
+		});
+
+
+		function volumeUp() {
+			fetch('/volume/up')
+			.then(response => response.json())
+			.then(data => {
+				document.getElementById('vol-display').innerText = data.volume;
+			});
+		}
+
+		function volumeDown() {
+			fetch('/volume/down')
+			.then(response => response.json())
+			.then(data => {
+				document.getElementById('vol-display').innerText = data.volume;
+			});
+		}
+
+		// Initialize control state on load
+		document.addEventListener("DOMContentLoaded", () => {
+			updateControlState({{ 'true' if tuning else 'false' }});
+		});
+		</script>
+</head>
+<body>
+    <div class="container">
+        <h1>🎛 Dirac Audio Tuning</h1>
+
+        <button id="tuning-btn" class="toggle-btn {{ 'toggle-on' if tuning else 'toggle-off' }}" onclick="toggleTuning()">
+            {{ 'DIRAC Enabled' if tuning else 'DIRAC Disabled' }}
+        </button>
+
+		<h2 id="mode-display">{% if mode_name %}Mode: {{ mode_name }}{% endif %}</h2>
+		<div class="mode-buttons">
+			<button onclick="setMode(1)">AudioIQ</button>
+			<button onclick="setMode(2)">AudioIQ Plus</button>
+			<button onclick="setMode(3)">AudioIQ Unison</button>
+			<button onclick="setMode(4)">AudioIQ Unison + DSU</button>
+		</div>
+
+        <h2>Volume Control</h2>
+		<div class="volume-control">
+			<button onclick="volumeDown()">➖</button>
+			<div id="vol-display" class="vol-display">{{ volume }}</div>
+			<button onclick="volumeUp()">➕</button>
+		</div>
+		
+		
+		
+    </div>
+</body>
+</html>

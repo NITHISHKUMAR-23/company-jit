@@ -1,0 +1,105 @@
+{
+  "car_model": "Hyundai Tucson",
+  "title": "Automotive Sound",
+  "subtitle": "Channels: 18",
+  "api_url": "/",
+  "update_continuously": false,
+  "update_continuously_time_ms": 300,
+  "log_file": "logs.txt",
+  "images": {
+    "bird_view": "media/HyundaiTucson_bird_view.png",
+    "car_brand": "media/HyundaiTucson_brand.png",
+    "car_header": "media/HyundaiTucson_header.png",
+    "car_header_style": "dark"
+  },
+  "show_seats": true,
+  "seats_title": "Selected Seating",
+  "seats": [
+    {
+      "name":"Front seats",
+      "placeholders": [0, 1]
+    }
+  ],
+  "seat_placeholders_positions": [
+    [25.5, 53],
+    [61.8, 53]
+  ],
+  "seat_placeholder_style": {
+    "width": "41px",
+    "height": "27px",
+    "border":"2px solid #32FFEB",
+    "backgroundColor":"rgba(50, 255, 235, .4)",
+    "borderRadius": "8px"
+  },
+  "tabs": [
+    {
+      "name": "Stereo",
+      "modes": [
+        {
+          "name": "AudioIQ Unison + DSU",
+          "description": "Full-band Sound Field & Dynamic spatial upmixing",
+          "image": "media/virtuo_professional.png"
+        },
+        {
+          "name": "AudioIQ Unison",
+          "description": "Frequency + Impulse & Full-band Sound Field",
+          "image": "media/opteo_professional.png"
+        },
+        {
+          "name": "AudioIQ Plus",
+          "description": "Frequency & Bass Sound Field",
+          "image": "media/opteo_premium.png",
+          "subtitle": "Channels: 12"
+        },
+        {
+          "name": "AudioIQ",
+          "description": "Frequency",
+          "image": "media/opteo_performance.png",
+          "subtitle": "Channels: 8"
+        }
+      ]
+    },
+    {
+      "name": "Dolby Atmos",
+      "modes": [
+        {
+          "name": "Dolby Atmos",
+          "description": "Powered by Dirac AudioIQ Unison",
+          "image": "media/dolby_atmos.png"
+        }
+      ]
+    }
+  ],
+  "dar_file": "Jasmin_IN_Demo_AIQ-H-P-U_DPL5-6-0_V02.eval.dar",
+  "gain": {
+    "min": -60,
+    "max": 0
+  },
+  "dar_configs": [
+    {
+      "name": "%3%2_AIQ_FS",
+      "id_mode": "AudioIQ",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%4%2_AIQ-P_FS",
+      "id_mode": "AudioIQ Plus",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%1%2_AIQ-U_FS",
+      "id_mode": "AudioIQ Unison",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%2%2_AIQ-U_DSU_FS",
+      "id_mode": "AudioIQ Unison + DSU",
+      "id_seat": "Front seats"
+    },
+    {
+      "name": "%5%12_AIQ-U_FS",
+      "id_mode": "Dolby Atmos",
+      "id_seat": "Front seats"
+    }
+  ]
+}

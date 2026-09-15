@@ -1,0 +1,413 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+    <!--link rel="stylesheet" href="./Dirac.css"-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/Dirac.css') }}">
+</head>
+
+<body>
+    <h1 class="heading">JASMIN INFOTECH</h1>
+    <h2 style="color:white"> Demo car: 18 channel</h2>
+    
+    
+    <div class="container"></div>
+		<img src="./static/style/car.jpg" style="border-radius: 20%; margin-bottom: 50px; height: 650px;">
+   
+
+	
+		<div style="background-color: rgba(158, 229, 229, 0.623);" class="container_right">
+			<h2>Mute All</h2>
+			<label class="switch">
+			<input id="mute_all" onclick="mute_all()" type="checkbox" class="toggle-btn-checkbox">
+			<span class="slider round"></span>
+			</label>
+		</div>
+		<div style="background-color: rgba(158, 229, 229, 0.623);" class="container_right">
+			<div class="volume-bar">
+				<span><button class="minus" id = "minus_id" type="button">-</button></span>
+				<h3>Volume</h3>
+				<span class="num" id = "NUM">30</span>
+				<span><button class="plus" id = "plus_id" type="button">+</button></span>
+			</div>
+			<br>
+			</div>
+		<div style="background-color: rgba(158, 229, 229, 0.623);" class="container_right">
+			<div class="volume-bar">
+				<span><button class="minus1" id = "minus_id1" type="button"> - </button></span>
+				<h3>Balance</h3>
+				<span class="num1" id = "NUM1">0</span>
+				<span><button class="plus1" id = "plus_id1" type="button"> + </button></span>
+			</div>
+			<br>
+			</div>
+		<div style="background-color: rgba(158, 229, 229, 0.623);" class="container_right">
+			<div class="volume-bar">
+				<span><button class="minus2" id = "minus_id2" type="button"> - </button></span>
+				<h3>Fader</h3>
+				<span class="num2" id = "NUM2">0</span>
+				<span><button class="plus2" id = "plus_id2" type="button"> + </button></span>
+			</div>
+			<br>
+			</div>
+        </div>
+	   
+	    <div id="test" class="grid-container">
+			<div class="toggle-box">
+			<label for="spk1" class="switch">
+			<input id="spk1" onclick="spk('spk1')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 1</h5>
+		</div>
+
+		<div class="toggle-box">
+			<label for="spk2" class="switch">
+			<input id="spk2" onclick="spk('spk2')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 2</h5>
+		</div>
+		
+		<div class="toggle-box">
+			<label for="spk3" class="switch">
+			<input id="spk3" onclick="spk('spk3')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 3</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk4" class="switch">
+			<input id="spk4" onclick="spk('spk4')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 4</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk5" class="switch">
+			<input id="spk5" onclick="spk('spk5')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 5</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk6" class="switch">
+			<input id="spk6" onclick="spk('spk6')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 6</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk7" class="switch">
+			<input id="spk7" onclick="spk('spk7')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 7</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk8" class="switch">
+			<input id="spk8" onclick="spk('spk8')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 8</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk9" class="switch">
+			<input id="spk9" onclick="spk('spk9')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 9</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk10" class="switch">
+			<input id="spk10" onclick="spk('spk10')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 10</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk11" class="switch">
+			<input id="spk11" onclick="spk('spk11')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 11</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk12" class="switch">
+			<input id="spk12" onclick="spk('spk12')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 12</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk13" class="switch">
+			<input id="spk13" onclick="spk('spk13')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 13</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk14" class="switch">
+			<input id="spk14" onclick="spk('spk14')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 14</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk15" class="switch">
+			<input id="spk15" onclick="spk('spk15')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 15</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk16" class="switch">
+			<input id="spk16" onclick="spk('spk16')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 16</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk17" class="switch">
+			<input id="spk17" onclick="spk('spk17')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 17</h5>
+		</div>
+		<div class="toggle-box">
+			<label for="spk18" class="switch">
+			<input id="spk18" onclick="spk('spk18')" type="checkbox" class="toggle-btn-checkbox spk-toggle">
+			<span class="slider round"></span>
+			</label>
+			<h5 class="text_pos">channel 18</h5>
+		</div>
+    </div>
+            
+        
+	    
+    <script>
+	// script.js
+	$(document).ready(function() {
+	      $(".toggle-btn-checkbox").on("change", function() {
+		if ($(this).is("#mute_all")) {
+		  // Mute All toggle is clicked
+		  mute_all();
+		} else {
+		  // Speaker M1 or M18 toggle is clicked
+		  const toggleId = $(this).attr("id");
+		  spk(toggleId);
+		}
+	      });
+
+	    function mute_all() {
+		const isChecked = $("#mute_all").is(":checked");
+		$(".spk-toggle").prop("checked", isChecked);
+		sendState("mute_all", isChecked);
+	    }
+
+	    function spk(spkId) {
+		const isChecked = $(`#${spkId}`).is(":checked");
+		sendState(spkId, isChecked);
+
+		// If either spk_m1 or spk_m2 is turned off, turn off mute_all
+		if (isChecked === false) {
+		  $("#mute_all").prop("checked", false);
+		  //sendState("mute_all", false);
+		} else {
+		  // Check if both spk_m1 and spk_m2 are ON, then turn on mute_all
+		  const spkM1Checked = $("#spk1").is(":checked");
+		  const spkM2Checked = $("#spk2").is(":checked");
+		  const spkM3Checked = $("#spk3").is(":checked");
+		  const spkM4Checked = $("#spk4").is(":checked");
+		  const spkM5Checked = $("#spk5").is(":checked");
+		  const spkM6Checked = $("#spk6").is(":checked");
+		  const spkM7Checked = $("#spk7").is(":checked");
+		  const spkM8Checked = $("#spk8").is(":checked");
+		  const spkM9Checked = $("#spk9").is(":checked");
+		  const spkM10Checked = $("#spk10").is(":checked");
+		  const spkM11Checked = $("#spk11").is(":checked");
+		  const spkM12Checked = $("#spk12").is(":checked");
+		  const spkM13Checked = $("#spk13").is(":checked");
+		  const spkM14Checked = $("#spk14").is(":checked");
+		  const spkM15Checked = $("#spk15").is(":checked");
+		  const spkM16Checked = $("#spk16").is(":checked");
+		  const spkM17Checked = $("#spk17").is(":checked");
+		  const spkM18Checked = $("#spk18").is(":checked");
+		  if (spkM1Checked && spkM2Checked && spkM3Checked && spkM4Checked && spkM5Checked && spkM6Checked && spkM7Checked && spkM8Checked && spkM9Checked && spkM10Checked && spkM11Checked && spkM12Checked && spkM13Checked && spkM14Checked && spkM15Checked && spkM16Checked && spkM17Checked && spkM18Checked  ) {
+		    $("#mute_all").prop("checked", true);
+		    sendState("mute_all", true);
+		  }
+		}
+	      }
+
+	      function sendState(toggleId, isChecked) {
+		$.ajax({
+		  url: "/api/mute_all",
+		  type: "POST",
+		  contentType: "application/json",
+		  data: JSON.stringify({ "toggleId": toggleId, "isChecked": isChecked }),
+		  success: function(response) {
+		    console.log(response);
+		  },
+		  error: function(error) {
+		    console.error("Error sending state:", error);
+		  }
+		});
+	      }
+	    });
+		
+    </script>
+	
+	    </div>
+	</div>
+
+    <script>
+	const plus = document.querySelector(".plus"),
+	minus = document.querySelector(".minus"),
+	num = document.querySelector(".num");
+	
+	const plus1 = document.querySelector(".plus1"),
+	minus1 = document.querySelector(".minus1"),
+	num1 = document.querySelector(".num1");
+	
+	const plus2 = document.querySelector(".plus2"),
+	minus2 = document.querySelector(".minus2"),
+	num2 = document.querySelector(".num2");
+		
+	
+
+	let a = 30;
+	let a1 = 0;
+	let a2 = 0;		
+	
+	let min = 0,
+	max = 30;
+	
+	let min1 = -7;
+	let max1 = 7;
+	//volume
+	plus.addEventListener("click", () => {
+	  a++;
+	  a = a < max && a >= min ? a : max;
+	  num.innerText = a;
+	  console.log(a);
+	  volume(a);
+	});
+	minus.addEventListener("click", () => {
+	  a--;
+	  a = a < max && a >= min ? a : min;
+	  num.innerText = a;
+	  console.log(a);
+	  volume(a);
+	});
+	
+	//balance_level
+	  plus1.addEventListener("click", () => {
+	  a1++;
+	  a1 = a1 < max1 && a1 >= min1 ? a1 : max1;
+	  num1.innerText = a1;
+	  console.log(a1);
+	  balance_level(a1);
+	});
+	minus1.addEventListener("click", () => {
+	  a1--;
+	  a1 = a1 < max1 && a1 >= min1 ? a1 : min1;
+	  num1.innerText = a1;
+	  console.log(a1);
+	  balance_level(a1);
+	});
+	
+	//fader
+	plus2.addEventListener("click", () => {
+	  a2++;
+	  a2 = a2 < max1 && a2 >= min1 ? a2 : max1;
+	  num2.innerText = a2;
+	  console.log(a2);
+	  fader(a2);
+	});
+	minus2.addEventListener("click", () => {
+	  a2--;
+	  a2 = a2 < max1 && a2 >= min1 ? a2 : min1;
+	  num2.innerText = a2;
+	  console.log(a2);
+	  fader(a2);
+	});
+	
+	
+    function volume(command)
+		{
+		    $.ajax({
+			url: "/api/volume",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify({ "command": command }),
+			success: function(response)
+			{
+			    // Display the result
+			    $("#resultContainer").text("Result: " + response.result);
+			},
+			error: function(xhr, status, error)
+			{
+			    // Print the error message to the console
+			    console.error("Error: " + error);
+
+			    // Display an error message
+			    $("#resultContainer").text("Error: " + error);
+			}
+		    });
+		};
+			
+    function balance_level(command)
+		{
+		    $.ajax({
+			url: "/api/balance_level",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify({ "command": command }),
+			success: function(response)
+			{
+			    // Display the result
+			    $("#resultContainer").text("Result: " + response.result);
+			},
+			error: function(xhr, status, error)
+			{
+			    // Print the error message to the console
+			    console.error("Error: " + error);
+
+			    // Display an error message
+			    $("#resultContainer").text("Error: " + error);
+			}
+		    });
+		};
+		
+    function fader(command)
+		{
+		    $.ajax({
+			url: "/api/fader",
+			type: "POST",
+			contentType: "application/json",
+			data: JSON.stringify({ "command": command }),
+			success: function(response)
+			{
+			    // Display the result
+			    $("#resultContainer").text("Result: " + response.result);
+			},
+			error: function(xhr, status, error)
+			{
+			    // Print the error message to the console
+			    console.error("Error: " + error);
+
+			    // Display an error message
+			    $("#resultContainer").text("Error: " + error);
+			}
+		    });
+		};
+		
+    </script>
+</body>
+</html>

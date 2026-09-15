@@ -1,0 +1,74 @@
+  GNU nano 7.2                       wifi_I2S.py *                              
+
+    # Play audio
+    os.system(f'aplay -D hw:3,0 "{filename}"')
+    return f"{filename} played successfully"
+
+app.run(host='0.0.0.0', port=5050)
+
+@app.route('/upload', methods=['POST'])
+def upload():
+
+    file = request.files['file']
+
+    filename = file.filename
+
+    file.save(filename)
+
+    print("Stored:", filename)
+
+    return f"{filename} stored successfully"
+from flask import Flask, request
+import os
+
+app = Flask(__name__)
+
+HTML_PAGE = '''
+<!doctype html>
+<html>
+<head>
+    <title>Audio Upload</title>
+</head>
+<body>
+    <h2>Upload WAV/MP3 File</h2>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
+'''
+
+@app.route('/')
+def index():
+    return HTML_PAGE
+
+@app.route('/upload', methods=['POST'])
+def upload():
+
+    file = request.files['file']
+
+    filename = file.filename
+
+    file.save(filename)
+
+    print("Received:", filename)
+
+    # Play audio
+    os.system(f'aplay -D hw:3,0 "{filename}"')
+    return f"{filename} played successfully"
+
+app.run(host='0.0.0.0', port=5050)
+
+@app.route('/upload', methods=['POST'])
+def upload():
+
+    file = request.files['file']
+
+    filename = file.filename
+
+    file.save(filename)
+
+    print("Stored:", filename)
+
+    return f"{filename} stored successfully"

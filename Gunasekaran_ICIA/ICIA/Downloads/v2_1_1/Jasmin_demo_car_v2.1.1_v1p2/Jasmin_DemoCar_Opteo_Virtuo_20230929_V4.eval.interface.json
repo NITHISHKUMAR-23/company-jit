@@ -1,0 +1,1624 @@
+{
+ "interfaceVersion": {
+  "majorVersion": 1,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "uuid": "5beb6f0e-79d9-4b2e-b13c-26df00894a41",
+ "archiveMetaData": {},
+ "description": "",
+ "configurations": [
+  {
+   "name": "%1%2_FrtSeat_Opt_Prof",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 256
+     },
+     "name": "Tone Control - Bass",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 257
+     },
+     "name": "Tone Control - Mid",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 258
+     },
+     "name": "Tone Control - Treble",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 259
+     },
+     "name": "UserEQ - Band 1",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 260
+     },
+     "name": "UserEQ - Band 2",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 261
+     },
+     "name": "UserEQ - Band 3",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 262
+     },
+     "name": "UserEQ - Band 4",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 263
+     },
+     "name": "UserEQ - Band 5",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 196609
+     },
+     "name": "Fader",
+     "description": "",
+     "min": -9,
+     "max": 9,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 196610
+     },
+     "name": "Balance",
+     "description": "",
+     "min": -9,
+     "max": 9,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 18
+  },
+  {
+   "name": "%2%2_DrvSeat_Opt_Prof",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 256
+     },
+     "name": "Tone Control - Bass",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 257
+     },
+     "name": "Tone Control - Mid",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 258
+     },
+     "name": "Tone Control - Treble",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 259
+     },
+     "name": "UserEQ - Band 1",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 260
+     },
+     "name": "UserEQ - Band 2",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 261
+     },
+     "name": "UserEQ - Band 3",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 262
+     },
+     "name": "UserEQ - Band 4",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 263
+     },
+     "name": "UserEQ - Band 5",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 196609
+     },
+     "name": "Fader",
+     "description": "",
+     "min": -9,
+     "max": 9,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 196610
+     },
+     "name": "Balance",
+     "description": "",
+     "min": -9,
+     "max": 9,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 18
+  },
+  {
+   "name": "%3%2_FrtSeat_Vir_Prof",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 256
+     },
+     "name": "Tone Control - Bass",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 257
+     },
+     "name": "Tone Control - Mid",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 258
+     },
+     "name": "Tone Control - Treble",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 259
+     },
+     "name": "UserEQ - Band 1",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 260
+     },
+     "name": "UserEQ - Band 2",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 261
+     },
+     "name": "UserEQ - Band 3",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 262
+     },
+     "name": "UserEQ - Band 4",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 263
+     },
+     "name": "UserEQ - Band 5",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 18
+  },
+  {
+   "name": "%4%2_DrvSeat_Vir_Prof",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 256
+     },
+     "name": "Tone Control - Bass",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 257
+     },
+     "name": "Tone Control - Mid",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 258
+     },
+     "name": "Tone Control - Treble",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 259
+     },
+     "name": "UserEQ - Band 1",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 260
+     },
+     "name": "UserEQ - Band 2",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 261
+     },
+     "name": "UserEQ - Band 3",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 262
+     },
+     "name": "UserEQ - Band 4",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 263
+     },
+     "name": "UserEQ - Band 5",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 18
+  },
+  {
+   "name": "%5%2_FrtSeat_Opt_Perf",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 8
+  },
+  {
+   "name": "%6%2_DrvSeat_Opt_Perf",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 2,
+   "numOutputs": 8
+  },
+  {
+   "name": "%7%12_FrtSeat_Opt_Pro",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 256
+     },
+     "name": "Tone Control - Bass",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 257
+     },
+     "name": "Tone Control - Mid",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 258
+     },
+     "name": "Tone Control - Treble",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 259
+     },
+     "name": "UserEQ - Band 1",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 260
+     },
+     "name": "UserEQ - Band 2",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 261
+     },
+     "name": "UserEQ - Band 3",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 262
+     },
+     "name": "UserEQ - Band 4",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 263
+     },
+     "name": "UserEQ - Band 5",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 12,
+   "numOutputs": 18
+  },
+  {
+   "name": "%8%12_DrvSeat_Opt_Pro",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {},
+   "parameters": [
+    {
+     "id": {
+      "id": 5
+     },
+     "name": "Volume Control",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 4
+     },
+     "name": "Loudness",
+     "description": "",
+     "min": 0,
+     "max": 40,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 10000
+     },
+     "name": "Loudness ON/OFF",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 1,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 256
+     },
+     "name": "Tone Control - Bass",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 257
+     },
+     "name": "Tone Control - Mid",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 258
+     },
+     "name": "Tone Control - Treble",
+     "description": "",
+     "min": -12,
+     "max": 12,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 259
+     },
+     "name": "UserEQ - Band 1",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 260
+     },
+     "name": "UserEQ - Band 2",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 261
+     },
+     "name": "UserEQ - Band 3",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 262
+     },
+     "name": "UserEQ - Band 4",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 263
+     },
+     "name": "UserEQ - Band 5",
+     "description": "",
+     "min": -6,
+     "max": 6,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    }
+   ],
+   "numInputs": 12,
+   "numOutputs": 18
+  },
+  {
+   "name": "%9%Measurement",
+   "rtCoreVersion": {
+    "majorVersion": 2,
+    "minorVersion": 0,
+    "patchVersion": 15
+   },
+   "signalChainMetaData": {
+    "bypass_gain_lin": {
+     "stringValue": "0.1"
+    },
+    "stimuli/types": {
+     "stringValue": "{\n \"stimuli\": [\n  {\n   \"type\": \"LOG_SWEEP_STIMULUS\",\n   \"variant\": 0\n  },\n  {\n   \"type\": \"PINK_NOISE_STIMULUS\",\n   \"variant\": 1\n  }\n ]\n}\n"
+    },
+    "bypass_gain_db": {
+     "stringValue": "-20"
+    },
+    "stimuli/1": {
+     "stringValue": "{\n \"variant\": 1,\n \"samplerate\": 48000\n}\n"
+    },
+    "stimuli/0": {
+     "stringValue": "{\n \"variant\": 0,\n \"samplerate\": 48000,\n \"startFreq\": 10,\n \"endFreq\": -1,\n \"length\": 240000,\n \"silence\": 24000,\n \"numPeriods\": 1,\n \"fadeOutTailHz\": 300\n}\n"
+    }
+   },
+   "parameters": [
+    {
+     "id": {
+      "id": 10
+     },
+     "name": "Trigger stimuli",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_TOGGLE",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 12
+     },
+     "name": "Marker channel",
+     "description": "",
+     "min": 0,
+     "max": 17,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 11
+     },
+     "name": "Stimuli type",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 1,
+     "type": "PARAM_TYPE_ENUMERATION",
+     "enumValues": [
+      {
+       "name": "Log sweep",
+       "value": 0
+      },
+      {
+       "name": "Pink noise",
+       "value": 1
+      }
+     ],
+     "unit": "",
+     "formatting": "%d"
+    },
+    {
+     "id": {
+      "id": 512
+     },
+     "name": "Stimuli gain 0",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 513
+     },
+     "name": "Stimuli gain 1",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 514
+     },
+     "name": "Stimuli gain 2",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 515
+     },
+     "name": "Stimuli gain 3",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 516
+     },
+     "name": "Stimuli gain 4",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 517
+     },
+     "name": "Stimuli gain 5",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 518
+     },
+     "name": "Stimuli gain 6",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 519
+     },
+     "name": "Stimuli gain 7",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 520
+     },
+     "name": "Stimuli gain 8",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 521
+     },
+     "name": "Stimuli gain 9",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 522
+     },
+     "name": "Stimuli gain 10",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 523
+     },
+     "name": "Stimuli gain 11",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 524
+     },
+     "name": "Stimuli gain 12",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 525
+     },
+     "name": "Stimuli gain 13",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 526
+     },
+     "name": "Stimuli gain 14",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 527
+     },
+     "name": "Stimuli gain 15",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 528
+     },
+     "name": "Stimuli gain 16",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    },
+    {
+     "id": {
+      "id": 529
+     },
+     "name": "Stimuli gain 17",
+     "description": "",
+     "min": 0,
+     "max": 1,
+     "default": 0,
+     "stepSize": 0.0099999997764825821,
+     "type": "PARAM_TYPE_LINEAR",
+     "enumValues": [],
+     "unit": "",
+     "formatting": "%.2f"
+    }
+   ],
+   "numInputs": 18,
+   "numOutputs": 18
+  }
+ ],
+ "creator": "Flow 4.1.0",
+ "creatorVersion": {
+  "majorVersion": 4,
+  "minorVersion": 1,
+  "patchVersion": 0
+ },
+ "author": "andreas.stickel@dirac.com",
+ "project": "Jasmin_DemoCar",
+ "manufacturer": "Dirac",
+ "processorLibraryVersion": {
+  "majorVersion": 5,
+  "minorVersion": 2,
+  "patchVersion": 0
+ },
+ "creationTime": "2023-09-29T12:59:09Z"
+}

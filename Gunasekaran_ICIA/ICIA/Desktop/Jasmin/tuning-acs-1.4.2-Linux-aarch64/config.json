@@ -1,0 +1,37 @@
+{
+    "dap_uri": "/dev/ttyS0:115200",
+    "default_configuration": "",
+    "devinfo": {
+        "manufacturer": "Dirac Research AB",
+        "name": "",
+        "model_name": "",
+        "num_speakers": 0,
+        "num_mics": 0,
+        "num_filter_slots": 0,
+        "system_name": ""
+    },
+    "tuning_capabilities": [
+        "PROXY_PARAMETER_CONTROL",
+        "MODULE_PARAMETER_CONTROL",
+        "CONFIGURATION_SWITCH",
+        "PROBES",
+        "PROFILING_PROBES",
+        "NOISE_FREE_TUNING"
+    ],
+    "probe_capabilities": [
+        "PROBE_MODULE_IN_OUT",
+        "PROBE_MODULE_INTERNAL",
+        "PROBE_MINMAX_LEVEL",
+        "PROBE_RMS"
+    ],
+    "grpc_port": 55813,
+    "upnp_enabled": true,
+    "probe_pop_interval": "0.05s",
+    "dap_poll_interval": "0.5s",
+    "use_normalized_parameters": false,
+    "rest_enabled": true,
+    "rest_address": "http://*:8099",
+    "rest_serve_folder": "",
+    "log_level": "INFO",
+    "network_interface_name": ""
+}
