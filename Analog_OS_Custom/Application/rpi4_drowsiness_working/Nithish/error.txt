@@ -1,0 +1,19 @@
+
+bash-5.2# ./drowsiness_detection 
+loading data from : lbfmodel.yaml
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.8.0) /usr/src/debug/opencv/4.8.0-r0/modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Aborted (core dumped)
+bash-5.2# ./drowsiness_detection 
+loading data from : lbfmodel.yaml
+ioctl: Invalid argument
+bash-5.2# 
+
+
+
+
+bash-5.2# ./drowsiness_detection 
+loading data from : lbfmodel.yaml
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.8.0) /usr/src/debug/opencv/4.8.0-r0/contrib/modules/face/src/facemarkLBF.cpp:487: error: (-5:Bad argument) No valid input file was given, please check the given filename. in function 'loadModel'

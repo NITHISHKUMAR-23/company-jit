@@ -1,0 +1,3 @@
+#!/bin/bash
+media-ctl -d 'platform:1f00110000.csi' -r
+...

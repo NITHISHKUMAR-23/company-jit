@@ -1,0 +1,28 @@
+This README file contains information on the contents of the meta-face_detection layer.
+
+Please see the corresponding sections below for details.
+
+Table of Contents
+=================
+
+  I. Adding the meta-face_detection layer to your build
+ II. Purpose
+
+
+I. Adding the meta-face_detection layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-face_detection'
+
+
+II. Purpose
+============
+
+Face Detection application
+  This application is used to detect and identify the person with their name.
+  
+  Uses pre-trained face detection models (e.g., Haar cascades) to identify faces.
+
+  Draws bounding boxes around detected faces for visualization.
+
+  Outputs the image or stream with marked faces.

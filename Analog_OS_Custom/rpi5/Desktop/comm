@@ -1,0 +1,30 @@
+🪜 Step 1: Set sensor and CFE formats
+sudo media-ctl -d /dev/media3 --set-v4l2 '"imx219 17-0010":0[fmt:SRGGB10_1X10/1920x1080]'
+sudo media-ctl -d /dev/media3 --set-v4l2 '"csi2":1[fmt:SRGGB16_1X16/1920x1080]'
+sudo media-ctl -d /dev/media3 --set-v4l2 '"pisp-fe":0[fmt:SRGGB16_1X16/1920x1080]'
+sudo media-ctl -d /dev/media3 --set-v4l2 '"rp1-cfe-fe-image0":0[fmt:SRGGB16_1X16/1920x1080]'
+
+🪜 Step 2: Configure BE input and link
+sudo media-ctl -d /dev/media0 --set-v4l2 '"pispbe-input":0[fmt:YUYV8_2X8/1920x1080]'
+sudo media-ctl -l '"rp1-cfe-fe-image0":0 -> "pispbe-input":0[1]'
+
+
+✅ This command creates a live link from your CFE output (/dev/video4) to the BE input (/dev/video20).
+
+🪜 Step 3: Stream from BE output
+
+Now stream and dump to file:
+
+v4l2-ctl -d /dev/video23 --set-fmt-video=width=1920,height=1080,pixelformat=YUYV --stream-mmap --stream-count=10 --stream-to=/tmp/test.yuv
+
+
+Then check:
+
+ls -lh /tmp/test.yuv
+
+
+You should now see a non-zero file size (≈4 MB per 1920×1080 YUYV frame × number of frames).
+
+If it still shows 0 bytes, we’ll check:
+
+v4l2-ctl --device=/dev/video4 --stream-mmap --stream-count=5

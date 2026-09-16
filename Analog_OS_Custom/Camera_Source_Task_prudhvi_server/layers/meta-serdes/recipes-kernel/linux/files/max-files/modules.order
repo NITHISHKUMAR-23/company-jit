@@ -1,0 +1,5 @@
+drivers/media/i2c/maxim-serdes/max_serdes_all.ko
+drivers/media/i2c/maxim-serdes/max_aggregator.ko
+drivers/media/i2c/maxim-serdes/max96717.ko
+drivers/media/i2c/maxim-serdes/max96724.ko
+drivers/media/i2c/maxim-serdes/max9296a.ko

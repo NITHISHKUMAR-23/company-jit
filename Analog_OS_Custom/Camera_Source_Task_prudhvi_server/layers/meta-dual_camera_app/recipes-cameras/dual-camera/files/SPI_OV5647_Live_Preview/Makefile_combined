@@ -1,0 +1,38 @@
+# Cross-compile safe Makefile
+
+CC ?= gcc
+CFLAGS ?= -Wall -O2 -pthread
+LDFLAGS ?= -lpthread -ljpeg
+
+# Directories
+SDIR = src
+ODIR = obj
+
+# Target executable
+TARGET = ArducamSDL_Live_combined
+
+# Source files
+SRC = $(SDIR)/ArducamSDL_Live_combined.c \
+      $(SDIR)/ArduCAM.c \
+      $(SDIR)/bcm283x_board_driver.c \
+      $(SDIR)/sccb_bus.c
+
+# Object files
+OBJ = $(patsubst $(SDIR)/%.c,$(ODIR)/%.o,$(SRC))
+
+# Compile each object
+$(ODIR)/%.o: $(SDIR)/%.c
+	@mkdir -p $(ODIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Build target
+$(TARGET): $(OBJ)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+.PHONY: clean
+clean:
+	rm -f $(ODIR)/*.o $(TARGET)
+
+.PHONY: run
+run: $(TARGET)
+	sudo ./$(TARGET)

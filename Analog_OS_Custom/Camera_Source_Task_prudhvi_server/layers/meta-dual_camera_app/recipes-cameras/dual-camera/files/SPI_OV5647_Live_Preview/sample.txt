@@ -1,0 +1,4 @@
+hi iam working for a complete live video transmission setup by using Soc as Rpi 4 B, by integrating it with GMSL 
+the live video is captured by ArduCam OV 5642 and through tehe SPI Protocol , this video is received by Rpi and then routed through DSI to the SerDes Pair and Ouput as MIPI CSI from the deserializer and then to another Rpi4 via CSI and then routed to HDMI and then Live Streamed.
+
+now i need to specifically work on Display Side Rpi , i need a code(for Rpi)so that i can receive live video via CSI and routed to Display via HDMI 

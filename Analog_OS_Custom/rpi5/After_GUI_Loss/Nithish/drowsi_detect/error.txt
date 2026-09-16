@@ -1,0 +1,70 @@
+rpi@raspberrypi:~/Nithish/drowsi_detect $ ./colour_lag_drowsiness_detection 
+loading data from : lbfmodel.yaml
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Aborted
+rpi@raspberrypi:~/Nithish/drowsi_detect $ ./colour_lag_drowsiness_detection 
+loading data from : lbfmodel.yaml
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Aborted
+rpi@raspberrypi:~/Nithish/drowsi_detect $ 
+
+
+
+
+
+
+
+
+
+
+rpi@raspberrypi:~/Nithish/drowsi_detect $ ./colour_lag_drowsiness_detection 
+loading data from : lbfmodel.yaml
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Aborted
+rpi@raspberrypi:~/Nithish/drowsi_detect $ ./colour_lag_drowsiness_detection 
+loading data from : lbfmodel.yaml
+terminate called after throwing an instance of 'cv::Exception'
+  what():  OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Aborted
+rpi@raspberrypi:~/Nithish/drowsi_detect $ 
+
+
+
+
+rpi@raspberrypi:~/Nithish/drowsi_detect $ ./colour_lag_drowsiness_detection 
+loading data from : lbfmodel.yaml
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+
+Facemark exception: OpenCV(4.10.0) ./modules/core/src/matrix_wrap.cpp:1219: error: (-215:Assertion failed) !fixedSize() || ((Mat*)obj)->size.operator()() == Size(_cols, _rows) in function 'create'
+

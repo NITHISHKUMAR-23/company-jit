@@ -1,0 +1,12 @@
+g++ -o colour_lag_drowsiness_detection colour_lag_drowsiness_detection.cpp   `pkg-config --cflags --libs opencv4`   -lopencv_face -lopencv_objdetect -lopencv_calib3d
+
+
+
+double redGain = 1.4;
+double greenGain = 1.0;
+double blueGain = 1.7;
+
+cv::convertScaleAbs(rgb, balanced, 1.2, 5); // contrast boost
+
+
+g++ -o colour_lag_drowsiness_detection colour_lag_drowsiness_detection.cpp   `pkg-config --cflags --libs opencv4`   -lopencv_face -lopencv_objdetect -lopencv_calib3d

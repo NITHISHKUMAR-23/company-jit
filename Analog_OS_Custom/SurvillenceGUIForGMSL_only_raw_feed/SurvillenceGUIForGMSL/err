@@ -1,0 +1,67 @@
+ython3 main.py 
+Traceback (most recent call last):
+  File "/home/rpi/cctv/SurvillenceGUIForGMSL/main.py", line 8, in <module>
+    window = MainWindow()
+  File "/home/rpi/cctv/SurvillenceGUIForGMSL/mainwindow.py", line 21, in __init__
+    self.init_ui()
+    ~~~~~~~~~~~~^^
+  File "/home/rpi/cctv/SurvillenceGUIForGMSL/mainwindow.py", line 87, in init_ui
+    ctrl.addAction("Resolution Settings", self.show_res_dialog)
+                                          ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MainWindow' object has no attribute 'show_res_dialog'. Did you mean: 'show_power_dialog'?
+(venv) rpi@raspberrypi:~/cctv/SurvillenceGUIForGMSL $ 
+
+
+
+
+
+(venv) rpi@raspberrypi:~/cctv/SurvillenceGUIForGMSL $ python3 main.py 
+Unable to setup routes: Invalid argument (22)
+Unable to setup routes: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+
+(python3:1804): GLib-GObject-CRITICAL **: 13:02:49.935: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+
+
+
+
+(venv) rpi@raspberrypi:~/cctv/SurvillenceGUIForGMSL $ python3 main.py 
+Traceback (most recent call last):
+  File "/home/rpi/cctv/SurvillenceGUIForGMSL/main.py", line 8, in <module>
+    w = MainWindow()
+  File "/home/rpi/cctv/SurvillenceGUIForGMSL/mainwindow.py", line 19, in __init__
+    self.apply_config()
+    ~~~~~~~~~~~~~~~~~^^
+  File "/home/rpi/cctv/SurvillenceGUIForGMSL/mainwindow.py", line 57, in apply_config
+    subprocess.run(reset_cmd, shell=True); time.sleep(1.2)
+                   ^^^^^^^^^
+NameError: name 'reset_cmd' is not defined
+(venv) rpi@raspberrypi:~/cctv/SurvillenceGUIForGMSL $ 
+
+(venv) rpi@raspberrypi:~/cctv/SurvillenceGUIForGMSL $ python3 main.py 
+Unable to setup routes: Invalid argument (22)
+Unable to setup routes: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+Unable to parse link: Invalid argument (22)
+
+
+
+
+
+
+(venv) rpi@raspberrypi:~/cctv/SurvillenceGUIForGMSL $ python3 main.py 
+Failed to enumerate Entity (-2)
+Failed to enumerate Entity (-2)
+Failed to enumerate Entity (-2)
+Failed to enumerate Entity (-2)
+Failed to enumerate Entity (-2)
+Failed to enumerate Entity (-2)
+Failed to enumerate Entity (-2)
+
+(python3:2221): GLib-GObject-CRITICAL **: 12:20:04.805: g_object_unref: assertion 'G_IS_OBJECT (object)' failed

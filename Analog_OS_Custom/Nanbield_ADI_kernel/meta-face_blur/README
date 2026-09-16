@@ -1,0 +1,28 @@
+This README file contains information on the contents of the meta-face_blur layer.
+
+Please see the corresponding sections below for details.
+
+Table of Contents
+=================
+
+  I. Adding the meta-face_blur layer to your build
+ II. Purpose
+
+
+I. Adding the meta-face_blur layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-face_blur'
+
+
+II. Purpose
+============
+
+Face Blur:
+  This application blur the human faces which are captured in the live streaming.
+  
+  Uses a face detection model (e.g., Haar cascades, SSD, or MTCNN) to locate faces.
+  
+  Applies a blur filter (Gaussian blur) to the detected face regions.
+  
+  Displays or saves the modified video with blurred faces in real-time.

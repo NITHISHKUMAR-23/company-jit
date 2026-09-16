@@ -1,0 +1,47 @@
+/home/jasminpoc/Analog_OS/custom_os/yocto/layers/meta-raspberrypi/conf/machine/include/rpi-base.inc   
+ check 
+ overlays/imx219.dtbo \
+overlays/imx477.dtbo \
+overlays/ov5647.dtbo \
+overlays/iqaudio-dac.dtbo \
+
+
+ /home/jasminpoc/Analog_OS/custom_os/nanbield_OS/layers/meta-raspberrypi/recipes-bsp/bootfiles
+ rpi-config_git.bb ------to add dtbo via meta-rpi
+ 
+  /home/jasminpoc/Camera_Source_Task/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/6.6.63+git/linux-raspberrypi4_64-standard-build/arch/arm64/boot/dts
+  ----------------------- .dtbo path
+  /home/jasminpoc/Camera_Source_Task/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/6.6.63+git/image/boot
+  ------------------------ .dtbo
+
+/home/jasminpoc/Camera_Source_Task/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/6.6.63+git/linux-raspberrypi4_64-standard-build/drivers/media/i2c
+ ---------------------- .ko files path
+
+/home/jasminpoc/Camera_Source_Task/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/6.6.63+git/image/usr/lib/modules/6.6.63-v8/kernel/drivers/media/i2c
+-------------------------- .ko.xz path
+
+ /home/jasminpoc/Analog_OS/custom_os/scarthgap_OS/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/6.6.63+git/linux-raspberrypi4_64-standard-build/drivers/media/i2c/maxim-serdes  
+ ------------------------  .o files
+ 
+ 
+ /home/jasminpoc/Analog_OS/custom_os/yocto/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/1_5.15.92+gitAUTOINC+509f4b9d68_14b35093ca-r0
+ ------------------defconfig path
+ 
+ /home/jasminpoc/Analog_OS/custom_os/yocto/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/1_5.15.92+gitAUTOINC+509f4b9d68_14b35093ca-r0/linux-raspberrypi4_64-standard-build
+ ----------------------- .config path
+ 
+ /home/jasminpoc/Analog_OS/custom_os/yocto/poky/build/tmp/work/raspberrypi4_64-poky-linux/linux-raspberrypi/1_5.15.92+gitAUTOINC+509f4b9d68_14b35093ca-r0/linux-raspberrypi4_64-standard-build/arch/arm64/boot
+ ------------------------ overlays and broadcom files after booting
+ 
+ 
+ 
+ 
+ 
+git ls-remote https://github.com/raspberrypi/picamera2.git main
+-----------------------------to get commit SRCREV 
+ 
+ 
+ 
+
+bitbake-layers show-recipes | grep python3-libcamera
+------to find recipes

@@ -1,0 +1,7 @@
+root@raspberrypi4-64:~/face# ./faceblur1 
+Cannot open device /dev/v4l-subdev5, exiting.
+Cannot open device /dev/v4l-subdev5, exiting.
+Cannot open device /dev/v4l-subdev5, exiting.
+^C
+root@raspberrypi4-64:~/face# 
+

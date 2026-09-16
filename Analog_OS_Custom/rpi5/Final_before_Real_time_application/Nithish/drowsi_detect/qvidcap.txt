@@ -1,0 +1,39 @@
+rpi@raspberrypi:~/Nithish/drowsi_detect $ qvidcap -d 0
+QStandardPaths: wrong permissions on runtime directory /run/user/1000, 0770 instead of 0700
+Pixel Format: 'RGGB' 8-bit Bayer RGRG/GBGB
+Field: None
+Colorspace: sRGB
+Transfer Function: Rec. 709
+Quantization: Full Range
+QWaylandGLContext: failed to create EGLContext, error=3009
+QWaylandGLContext: failed to create EGLContext, error=3009
+QOpenGLWidget: Failed to create context
+QWaylandGLContext: failed to create EGLContext, error=3009
+QOpenGLWidget: Failed to create context
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: QOpenGLContext creation failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, error=3009
+qt.qpa.backingstore: composeAndFlush: makeCurrent() failed
+QWaylandGLContext: failed to create EGLContext, erro

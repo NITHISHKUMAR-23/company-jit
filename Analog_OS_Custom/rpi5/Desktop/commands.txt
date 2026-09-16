@@ -1,0 +1,13 @@
+# ch0
+v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=RGGB --stream-mmap --stream-count=100 --verbose
+# ch1
+v4l2-ctl -d /dev/video1 --set-fmt-video=width=1920,height=1080,pixelformat=RGGB --stream-mmap --stream-count=100 --verbose
+
+
+
+# Make FE sink match upstream 1920x1080 RAW8
+media-ctl -d platform:1f00110000.csi -V "'pisp-fe':0 [fmt:SRGGB8_1X8/1920x1080 field:none]"
+# then capture from FE image node
+v4l2-ctl -d /dev/video4 --set-fmt-video=width=1920,height=1080,pixelformat=RGGB --stream-mmap --stream-count=100# ch0
+v4l2-ctl -d /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=RGGB --stream-mmap --stream-count=100 --verbose
+

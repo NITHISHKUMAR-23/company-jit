@@ -1,0 +1,87 @@
+# meta-dual_camera_view_app
+
+This repository contains the **meta-dual_camera_view_app** Yocto layer, which provides the recipe for the **Dual Camera Live Preview Application**.  
+
+---
+
+## 📦 Dependencies  
+
+The application depends on:  
+
+- **SDL2** (for live preview window)  
+- **SPI + GPIO support** (for Arducam OV5642 interface)  
+- **libcamera / Unicam stack** (for Raspberry Pi OV5647 CSI interface)  
+
+---
+
+## 📑 Table of Contents  
+
+1. [Adding the meta-dual_camera_view_app layer](#i-adding-the-meta-dual_camera_view_app-layer)  
+2. [Purpose](#ii-purpose)  
+3. [Recipe](#iii-recipe)  
+4. [Adding the application to local.conf](#iv-adding-the-application-to-localconf)  
+
+---
+
+## I. Adding the meta-dual_camera_view_app layer  
+
+Run the following command in your Yocto build environment:  
+
+```bash
+bitbake-layers add-layer meta-dual_camera_view_app
+```
+
+---
+
+## II. Purpose  
+
+This layer contains a recipe for the **Dual Camera Live Preview Application**, which demonstrates **simultaneous preview** of:  
+
+1. **Arducam Mini OV5642 (SPI + GPIO)**  
+   - Captures JPEG frames over SPI, decoded to RGB  
+   - GPIO pins are used for chip-select and control signals  
+   - Displayed in an SDL2 window  
+
+2. **Raspberry Pi Camera Module OV5647 (CSI)**  
+   - Connects via CSI ribbon cable  
+   - Captured using the Raspberry Pi camera stack (**libcamera**)  
+   - Shown in the same SDL2 preview window  
+
+This utility is useful for **testing and validating dual camera configurations** on Raspberry Pi boards.  
+
+---
+
+## III. Recipe  
+
+### dual-camera  
+
+The `dual-camera.bb` recipe performs the following:  
+
+- Fetches the source from the upstream repository:  
+  ```
+  URI: https://github.com/ArduCAM/RaspberryPi.git
+  ```  
+
+- Builds the **Dual Camera Live Preview** application from:  
+  ```
+  RasDual_Camera_on_RPI/SPI_OV5647_Live_Preview
+  ```  
+
+- Installs the application binary (`ArducamSDL_Live_combined`) to the target image  
+
+- Declares required runtime dependencies:  
+  - **libsdl2**  
+  - **libcamera**  
+  - **SPI/GPIO kernel support enabled**  
+
+---
+
+## IV. Adding the application to local.conf  
+
+To include the **dual-camera** application in your image, add the following line to your **local.conf** file:  
+
+```bash
+IMAGE_INSTALL:append = " dual-camera"
+```
+
+---

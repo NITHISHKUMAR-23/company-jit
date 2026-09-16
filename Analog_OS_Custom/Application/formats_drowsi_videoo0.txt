@@ -1,0 +1,531 @@
+v4l2-ctl -d /dev/video4 --set-fmt-video=width=640,height=480,pixelformat=RG16
+
+v4l2-ctl -d /dev/video4 --list-formats-ext
+
+v4l2-ctl --all -d /dev/video4
+
+v4l2-ctl --all -d /dev/video0
+
+v4l2-ctl -d /dev/video0 --get-fmt-video
+
+wget https://github.com/kurnianggoro/GSOC2017/raw/master/data/lbfmodel.yaml
+ 
+g++ -o drowsiness_detection drowsiness_detection.cpp `pkg-config --cflags --libs opencv4` -lopencv_face
+ 
+
+working formats
+
+rpi@raspberrypi:~ $ v4l2-ctl --all -d /dev/video4
+Driver Info:
+        Driver name      : rp1-cfe
+        Card type        : rp1-cfe
+        Bus info         : platform:1f00110000.csi
+        Driver version   : 6.13.7
+        Capabilities     : 0xaca00001
+                Video Capture
+                Metadata Capture
+                Metadata Output
+                I/O MC
+                Streaming
+                Extended Pix Format
+                Device Capabilities
+        Device Caps      : 0x24200001
+                Video Capture
+                I/O MC
+                Streaming
+                Extended Pix Format
+Media Driver Info:
+        Driver name      : rp1-cfe
+        Model            : rp1-cfe
+        Serial           :
+        Bus info         : platform:1f00110000.csi
+        Media version    : 6.13.7
+        Hardware revision: 0x00114666 (1132134)
+        Driver version   : 6.13.7
+Interface Info:
+        ID               : 0x03000041
+        Type             : V4L Video
+Entity Info:
+        ID               : 0x0000003f (63)
+        Name             : rp1-cfe-fe-image0
+        Function         : V4L2 I/O
+        Pad 0x01000040   : 0: Sink, Must Connect
+          Link 0x02000061: from remote pad 0x100000a of entity 'pisp-fe' (Video Scaler): Data
+Priority: 2
+Video input : 0 (rp1-cfe-fe-image0: ok)
+Format Video Capture:
+        Width/Height      : 640/480
+        Pixel Format      : 'RG16' (16-bit Bayer RGRG/GBGB)
+        Field             : None
+        Bytes per Line    : 1280
+        Size Image        : 614400
+        Colorspace        : Raw
+        Transfer Function : None
+        YCbCr/HSV Encoding: ITU-R 601
+        Quantization      : Full Range
+        Flags             :
+rpi@raspberrypi:~ $ v4l2-ctl --all -d /dev/video0
+Driver Info:
+        Driver name      : rp1-cfe
+        Card type        : rp1-cfe
+        Bus info         : platform:1f00110000.csi
+        Driver version   : 6.13.7
+        Capabilities     : 0xaca00001
+                Video Capture
+                Metadata Capture
+                Metadata Output
+                I/O MC
+                Streaming
+                Extended Pix Format
+                Device Capabilities
+        Device Caps      : 0x24a00001
+                Video Capture
+                Metadata Capture
+                I/O MC
+                Streaming
+                Extended Pix Format
+Media Driver Info:
+        Driver name      : rp1-cfe
+        Model            : rp1-cfe
+        Serial           :
+        Bus info         : platform:1f00110000.csi
+        Media version    : 6.13.7
+        Hardware revision: 0x00114666 (1132134)
+        Driver version   : 6.13.7
+Interface Info:
+        ID               : 0x03000031
+        Type             : V4L Video
+Entity Info:
+        ID               : 0x0000002f (47)
+        Name             : rp1-cfe-csi2-ch0
+        Function         : V4L2 I/O
+        Pad 0x01000030   : 0: Sink, Must Connect
+          Link 0x02000051: from remote pad 0x1000003 of entity 'csi2' (Video Interface Bridge): Data, Enabled
+Priority: 2
+Video input : 0 (rp1-cfe-csi2-ch0: ok)
+Format Video Capture:
+        Width/Height      : 1920/1080
+        Pixel Format      : 'RGGB' (8-bit Bayer RGRG/GBGB)
+        Field             : None
+        Bytes per Line    : 1920
+        Size Image        : 2073600
+        Colorspace        : Raw
+        Transfer Function : None
+        YCbCr/HSV Encoding: ITU-R 601
+        Quantization      : Full Range
+        Flags             :
+Format Metadata Capture:
+        Sample Format   : 'MC1A' (8-bit Generic Meta, 10b CSI-2)
+        Buffer Size     : 5
+rpi@raspberrypi:~ $
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// working RPI4 code with formats
+
+
+root@raspberrypi4-64:~/Nithish# v4l2-ctl --list-devices
+bcm2835-codec-decode (platform:bcm2835-codec):
+        /dev/video10
+        /dev/video11
+        /dev/video12
+        /dev/video18
+        /dev/video31
+        /dev/media3
+
+bcm2835-isp (platform:bcm2835-isp):
+        /dev/video13
+        /dev/video14
+        /dev/video15
+        /dev/video16
+        /dev/video20
+        /dev/video21
+        /dev/video22
+        /dev/video23
+        /dev/media2
+        /dev/media4
+
+unicam (platform:fe801000.csi):
+        /dev/video0
+        /dev/video1
+        /dev/media1
+
+rpivid (platform:rpivid):
+        /dev/video19
+        /dev/media0
+
+root@raspberrypi4-64:~/Nithish# media-ctl -p -d /dev/media1
+Media controller API version 6.1.35
+
+Media device information
+------------------------
+driver          unicam
+model           unicam
+serial
+bus info        platform:fe801000.csi
+hw revision     0x0
+driver version  6.1.35
+
+Device topology
+- entity 1: max96724:0 10-0027 (2 pads, 0 link)
+            type V4L2 subdev subtype Unknown flags 0
+            device node name /dev/v4l-subdev0
+        pad0: Source
+                [fmt:SBGGR8_1X8/0x0]
+        pad1: Sink
+
+- entity 4: max96717:0 23-0040 (2 pads, 0 link)
+            type V4L2 subdev subtype Unknown flags 0
+            device node name /dev/v4l-subdev1
+        pad0: Source
+                [fmt:SBGGR8_1X8/0x0]
+        pad1: Sink
+
+- entity 7: imx219 24-0010 (2 pads, 2 links)
+            type V4L2 subdev subtype Sensor flags 0
+            device node name /dev/v4l-subdev2
+        pad0: Source
+                [fmt:SRGGB8_1X8/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range
+                 crop.bounds:(8,8)/3280x2464
+                 crop:(1008,760)/1280x960]
+                -> "unicam-image":0 [ENABLED,IMMUTABLE]
+        pad1: Source
+                [fmt:unknown/16384x1 field:none
+                 crop.bounds:(8,8)/3280x2464
+                 crop:(1008,760)/1280x960]
+                -> "unicam-embedded":0 [ENABLED,IMMUTABLE]
+
+- entity 10: unicam-image (1 pad, 1 link)
+             type Node subtype V4L flags 1
+             device node name /dev/video0
+        pad0: Sink
+                <- "imx219 24-0010":0 [ENABLED,IMMUTABLE]
+
+- entity 16: unicam-embedded (1 pad, 1 link)
+             type Node subtype V4L flags 0
+             device node name /dev/video1
+        pad0: Sink
+                <- "imx219 24-0010":1 [ENABLED,IMMUTABLE]
+
+root@raspberrypi4-64:~/Nithish# media-ctl -p -d "platform:fe801000.csi"
+Media controller API version 6.1.35
+
+Media device information
+------------------------
+driver          unicam
+model           unicam
+serial
+bus info        platform:fe801000.csi
+hw revision     0x0
+driver version  6.1.35
+
+Device topology
+- entity 1: max96724:0 10-0027 (2 pads, 0 link)
+            type V4L2 subdev subtype Unknown flags 0
+            device node name /dev/v4l-subdev0
+        pad0: Source
+                [fmt:SBGGR8_1X8/0x0]
+        pad1: Sink
+
+- entity 4: max96717:0 23-0040 (2 pads, 0 link)
+            type V4L2 subdev subtype Unknown flags 0
+            device node name /dev/v4l-subdev1
+        pad0: Source
+                [fmt:SBGGR8_1X8/0x0]
+        pad1: Sink
+
+- entity 7: imx219 24-0010 (2 pads, 2 links)
+            type V4L2 subdev subtype Sensor flags 0
+            device node name /dev/v4l-subdev2
+        pad0: Source
+                [fmt:SRGGB8_1X8/640x480 field:none colorspace:raw xfer:none ycbcr:601 quantization:full-range
+                 crop.bounds:(8,8)/3280x2464
+                 crop:(1008,760)/1280x960]
+                -> "unicam-image":0 [ENABLED,IMMUTABLE]
+        pad1: Source
+                [fmt:unknown/16384x1 field:none
+                 crop.bounds:(8,8)/3280x2464
+                 crop:(1008,760)/1280x960]
+                -> "unicam-embedded":0 [ENABLED,IMMUTABLE]
+
+- entity 10: unicam-image (1 pad, 1 link)
+             type Node subtype V4L flags 1
+             device node name /dev/video0
+        pad0: Sink
+                <- "imx219 24-0010":0 [ENABLED,IMMUTABLE]
+
+- entity 16: unicam-embedded (1 pad, 1 link)
+             type Node subtype V4L flags 0
+             device node name /dev/video1
+        pad0: Sink
+                <- "imx219 24-0010":1 [ENABLED,IMMUTABLE]
+
+root@raspberrypi4-64:~/Nithish# v4l2-ctl --all -d /dev/video0
+Driver Info:
+        Driver name      : unicam
+        Card type        : unicam
+        Bus info         : platform:fe801000.csi
+        Driver version   : 6.1.35
+        Capabilities     : 0xa5a00001
+                Video Capture
+                Metadata Capture
+                I/O MC
+                Read/Write
+                Streaming
+                Extended Pix Format
+                Device Capabilities
+        Device Caps      : 0x25200001
+                Video Capture
+                I/O MC
+                Read/Write
+                Streaming
+                Extended Pix Format
+Media Driver Info:
+        Driver name      : unicam
+        Model            : unicam
+        Serial           :
+        Bus info         : platform:fe801000.csi
+        Media version    : 6.1.35
+        Hardware revision: 0x00000000 (0)
+        Driver version   : 6.1.35
+Interface Info:
+        ID               : 0x0300000c
+        Type             : V4L Video
+Entity Info:
+        ID               : 0x0000000a (10)
+        Name             : unicam-image
+        Function         : V4L2 I/O
+        Flags            : default
+        Pad 0x0100000b   : 0: Sink
+          Link 0x0200000e: from remote pad 0x1000008 of entity 'imx219 24-0010' (Camera Sensor): Data, Enabled, Immutable
+Priority: 2
+Video input : 0 (unicam-image: ok)
+Format Video Capture:
+        Width/Height      : 640/480
+        Pixel Format      : 'RGGB' (8-bit Bayer RGRG/GBGB)
+        Field             : None
+        Bytes per Line    : 640
+        Size Image        : 307200
+        Colorspace        : Raw
+        Transfer Function : None
+        YCbCr/HSV Encoding: ITU-R 601
+        Quantization      : Limited Range
+        Flags             :
+root@raspberrypi4-64:~/Nithish# v4l2-ctl --all -d /dev/video4
+Cannot open device /dev/video4, exiting.
+root@raspberrypi4-64:~/Nithish# v4l2-ctl -d /dev/video0 --get-fmt-video
+Format Video Capture:
+        Width/Height      : 640/480
+        Pixel Format      : 'RGGB' (8-bit Bayer RGRG/GBGB)
+        Field             : None
+        Bytes per Line    : 640
+        Size Image        : 307200
+        Colorspace        : Raw
+        Transfer Function : None
+        YCbCr/HSV Encoding: ITU-R 601
+        Quantization      : Limited Range
+        Flags             :
+root@raspberrypi4-64:~/Nithish# v4l2-ctl -d /dev/video0 --list-formats-ext
+ioctl: VIDIOC_ENUM_FMT
+        Type: Video Capture
+
+        [0]: 'YUYV' (YUYV 4:2:2)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [1]: 'UYVY' (UYVY 4:2:2)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [2]: 'YVYU' (YVYU 4:2:2)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [3]: 'VYUY' (VYUY 4:2:2)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [4]: 'RGBP' (16-bit RGB 5-6-5)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [5]: 'RGBR' (16-bit RGB 5-6-5 BE)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [6]: 'RGBO' (16-bit A/XRGB 1-5-5-5)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [7]: 'RGBQ' (16-bit A/XRGB 1-5-5-5 BE)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [8]: 'RGB3' (24-bit RGB 8-8-8)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [9]: 'BGR3' (24-bit BGR 8-8-8)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [10]: 'RGB4' (32-bit A/XRGB 8-8-8-8)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [11]: 'BA81' (8-bit Bayer BGBG/GRGR)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [12]: 'GBRG' (8-bit Bayer GBGB/RGRG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [13]: 'GRBG' (8-bit Bayer GRGR/BGBG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [14]: 'RGGB' (8-bit Bayer RGRG/GBGB)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [15]: 'pBAA' (10-bit Bayer BGBG/GRGR Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [16]: 'BG10' (10-bit Bayer BGBG/GRGR)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [17]: 'pGAA' (10-bit Bayer GBGB/RGRG Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [18]: 'GB10' (10-bit Bayer GBGB/RGRG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [19]: 'pgAA' (10-bit Bayer GRGR/BGBG Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [20]: 'BA10' (10-bit Bayer GRGR/BGBG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [21]: 'pRAA' (10-bit Bayer RGRG/GBGB Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [22]: 'RG10' (10-bit Bayer RGRG/GBGB)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [23]: 'pBCC' (12-bit Bayer BGBG/GRGR Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [24]: 'BG12' (12-bit Bayer BGBG/GRGR)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [25]: 'pGCC' (12-bit Bayer GBGB/RGRG Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [26]: 'GB12' (12-bit Bayer GBGB/RGRG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [27]: 'pgCC' (12-bit Bayer GRGR/BGBG Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [28]: 'BA12' (12-bit Bayer GRGR/BGBG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [29]: 'pRCC' (12-bit Bayer RGRG/GBGB Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [30]: 'RG12' (12-bit Bayer RGRG/GBGB)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [31]: 'pBEE' (14-bit Bayer BGBG/GRGR Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [32]: 'BG14' (14-bit Bayer BGBG/GRGR)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [33]: 'pGEE' (14-bit Bayer GBGB/RGRG Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [34]: 'GB14' (14-bit Bayer GBGB/RGRG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [35]: 'pgEE' (14-bit Bayer GRGR/BGBG Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [36]: 'GR14' (14-bit Bayer GRGR/BGBG)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [37]: 'pREE' (14-bit Bayer RGRG/GBGB Packed)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [38]: 'RG14' (14-bit Bayer RGRG/GBGB)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [39]: 'GREY' (8-bit Greyscale)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [40]: 'Y10P' (10-bit Greyscale (MIPI Packed))
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [41]: 'Y10 ' (10-bit Greyscale)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [42]: 'Y12P' (12-bit Greyscale (MIPI Packed))
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [43]: 'Y12 ' (12-bit Greyscale)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [44]: 'Y14P' (14-bit Greyscale (MIPI Packed))
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+        [45]: 'Y14 ' (14-bit Greyscale)
+                Size: Stepwise 16x16 - 16376x16376 with step 1/1
+root@raspberrypi4-64:~/Nithish# cd
+root@raspberrypi4-64:~# cat Desktop/video_cfg.sh
+#!/bin/bash
+
+if true
+then
+v4l2-ctl -v width=1920,height=1080,pixelformat=RGGB
+#Configure serializer subdev
+media-ctl -d "platform:fe801000.csi" --set-v4l2 '"max96717:0 23-0040":0[fmt:SRGGB8_1X8/1920x1080 field:none]'
+
+#Configure deser subdev
+media-ctl -d "platform:fe801000.csi" --set-v4l2 '"max96724:0 10-0027":0[fmt:SRGGB8_1X8/1920x1080 field:none]'
+
+#Configure camera subdev
+media-ctl -d "platform:fe801000.csi" --set-v4l2 '"imx219 24-0010":0[fmt:SRGGB8_1X8/1920x1080 field:none]'
+else
+v4l2-ctl -v width=1920,height=1080,pixelformat=pRAA
+
+ #Configure serializer subdev
+media-ctl -d "platform:fe801000.csi" --set-v4l2 '"max96717:0 23-0040":0[fmt:SRGGB10_1X10/1920x1080 field:none]'
+
+#Configure deser subdev
+media-ctl -d "platform:fe801000.csi" --set-v4l2 '"max96724:0 10-0027":0[fmt:SRGGB10_1X10/1920x1080 field:none]'
+
+#Configure camera subdev
+media-ctl -d "platform:fe801000.csi" --set-v4l2 '"imx219 24-0010":0[fmt:SRGGB10_1X10/1920x1080 field:none]'
+fi
+
+-----------------------------------------------------------------------------------------------------------------------------------------  
+
+
+root@raspberrypi4-64:~# ./Desktop/video_cfg.sh
+root@raspberrypi4-64:~# v4l2-ctl -d /dev/video0 --get-fmt-video
+Format Video Capture:
+        Width/Height      : 1920/1080
+        Pixel Format      : 'RGGB' (8-bit Bayer RGRG/GBGB)
+        Field             : None
+        Bytes per Line    : 1920
+        Size Image        : 2073600
+        Colorspace        : Raw
+        Transfer Function : None
+        YCbCr/HSV Encoding: ITU-R 601
+        Quantization      : Limited Range
+        Flags             :
+root@raspberrypi4-64:~# cd Nithish/
+root@raspberrypi4-64:~/Nithish# v4l2-ctl --all -d /dev/video0
+Driver Info:
+        Driver name      : unicam
+        Card type        : unicam
+        Bus info         : platform:fe801000.csi
+        Driver version   : 6.1.35
+        Capabilities     : 0xa5a00001
+                Video Capture
+                Metadata Capture
+                I/O MC
+                Read/Write
+                Streaming
+                Extended Pix Format
+                Device Capabilities
+        Device Caps      : 0x25200001
+                Video Capture
+                I/O MC
+                Read/Write
+                Streaming
+                Extended Pix Format
+Media Driver Info:
+        Driver name      : unicam
+        Model            : unicam
+        Serial           :
+        Bus info         : platform:fe801000.csi
+        Media version    : 6.1.35
+        Hardware revision: 0x00000000 (0)
+        Driver version   : 6.1.35
+Interface Info:
+        ID               : 0x0300000c
+        Type             : V4L Video
+Entity Info:
+        ID               : 0x0000000a (10)
+        Name             : unicam-image
+        Function         : V4L2 I/O
+        Flags            : default
+        Pad 0x0100000b   : 0: Sink
+          Link 0x0200000e: from remote pad 0x1000008 of entity 'imx219 24-0010' (Camera Sensor): Data, Enabled, Immutable
+Priority: 2
+Video input : 0 (unicam-image: ok)
+Format Video Capture:
+        Width/Height      : 1920/1080
+        Pixel Format      : 'RGGB' (8-bit Bayer RGRG/GBGB)
+        Field             : None
+        Bytes per Line    : 1920
+        Size Image        : 2073600
+        Colorspace        : Raw
+        Transfer Function : None
+        YCbCr/HSV Encoding: ITU-R 601
+        Quantization      : Limited Range
+        Flags             :
+root@raspberrypi4-64:~/Nithish#
+
+
+
+
+

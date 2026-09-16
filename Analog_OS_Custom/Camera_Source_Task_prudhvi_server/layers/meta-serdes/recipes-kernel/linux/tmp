@@ -1,0 +1,39 @@
+# Append Maxim GMSL SerDes kernel driver support for Raspberry Pi
+
+FILESEXTRAPATHS:prepend:pn-linux-raspberrypi := "${THISDIR}/files:"
+
+SRC_URI += "file://serdes.cfg"
+
+KERNEL_CONFIG_FRAGMENTS += "${WORKDIR}/serdes.cfg"
+
+SRC_URI += " \
+    file://maxim-serdes/Kconfig \
+    file://maxim-serdes/Makefile \
+    file://maxim-serdes/max96717.c \
+    file://maxim-serdes/max96724.c \
+    file://maxim-serdes/max_aggregator.c \
+    file://maxim-serdes/max_aggregator.h \
+    file://maxim-serdes/max_des.c \
+    file://maxim-serdes/max_des.h \
+    file://maxim-serdes/max_ser.c \
+    file://maxim-serdes/max_ser.h \
+    file://maxim-serdes/max_serdes.c \
+    file://maxim-serdes/max_serdes.h \
+"
+
+do_patch:append() {
+    echo "[meta-serdes] Injecting Maxim SerDes drivers into kernel..."
+
+    # Copy staged drivers into kernel source tree
+    cp -r ${WORKDIR}/maxim-serdes ${S}/drivers/media/i2c/
+
+    # Add Kconfig entry if not already there
+    if ! grep -q 'source "drivers/media/i2c/maxim-serdes/Kconfig"' ${S}/drivers/media/i2c/Kconfig; then
+        echo 'source "drivers/media/i2c/maxim-serdes/Kconfig"' >> ${S}/drivers/media/i2c/Kconfig
+    fi
+
+    # Add Makefile entry if not already there
+    if ! grep -q "obj-\$(CONFIG_VIDEO_MAXIM_SERDES)" ${S}/drivers/media/i2c/Makefile; then
+        echo "obj-\$(CONFIG_VIDEO_MAXIM_SERDES) += maxim-serdes/" >> ${S}/drivers/media/i2c/Makefile
+    fi
+}

@@ -1,0 +1,6 @@
+	# Enable your GMSL overlay
+dtoverlay=gmsl-overlay
+
+# Optional: any other camera or I2C settings required
+dtparam=i2c_arm=on
+

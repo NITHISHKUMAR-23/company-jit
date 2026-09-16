@@ -1,0 +1,25 @@
+This README file contains information on the contents of the meta-drowsiness layer.
+
+Please see the corresponding sections below for details.
+
+Table of Contents
+=================
+
+  I. Adding the meta-drowsiness layer to your build
+ II. Purpose
+
+
+I. Adding the meta-drowsiness layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-drowsiness'
+
+
+II. Purpose
+============
+
+Drowsyness Detection:
+  This application detects the driver behaviour and gives the alert in the display.
+
+  Detects drowsiness by tracking eye closure duration, yawning (mouth openness), and head orientation to monitor driver alertness effectively.
+

@@ -1,0 +1,2869 @@
+vcgencmd get_camera
+
+Expected output:
+supported=1 detected=1
+If detected=0, your camera is not recognized by the Pi.
+
+libcamera-vid -t 10 -o test.h264
+
+-----------------------------------------------------------------
+to get process id 
+
+ps aux | grep video
+
+fuser /dev/video0
+
+
+drowsiness rpi5 working 12/11/2025
+
+g++ -o colour_lag_drowsiness_detection colour_lag_drowsiness_detection.cpp   `pkg-config --cflags --libs opencv4`   -lopencv_face -lopencv_objdetect -lopencv_calib3d
+
+🧩 Option 1: Install Dlib (recommended if you want to use the accurate model)
+
+On your Raspberry Pi:
+
+sudo apt update
+sudo apt install cmake g++ make libopenblas-dev liblapack-dev libx11-dev
+sudo apt install python3-dev
+
+
+Then build and install dlib for C++:
+
+cd ~
+git clone https://github.com/davisking/dlib.git
+cd dlib
+mkdir build && cd build
+cmake ..
+cmake --build . --config Release
+sudo make install
+sudo ldconfig
+
+
+Now you can compile your program with:
+
+g++ -o colour_lag_drowsiness_detection colour_lag_drowsiness_detection.cpp \
+    `pkg-config --cflags --libs opencv4` -ldlib -llapack -lblas -lpthread
+
+// drowsiness_threaded.cpp
+// Updated: producer-consumer capture + downscale detection for speed + smoothing/calibration improvements
+// Keep other logic intact; replaced blocking capture with thread and downscale detection.
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <linux/videodev2.h>
+#include <cerrno>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <deque>
+#include <fstream>
+#include <signal.h>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
+#include <atomic>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+
+struct Buffer {
+    void* start;
+    size_t length;
+};
+
+volatile sig_atomic_t stopRequested = 0;
+void handleSig(int) { stopRequested = 1; }
+
+void xioctl(int fd, int request, void* arg) {
+    int r;
+    do { r = ioctl(fd, request, arg); }
+    while (r == -1 && (errno == EINTR || errno == EAGAIN));
+    if (r == -1) { perror("ioctl"); exit(EXIT_FAILURE); }
+}
+
+// Convert Bayer to RGB and improve image quality (keeps your color-balance and contrast steps)
+void unpackBayer8ToRGB(const void* src, void* dst, int width, int height) {
+    cv::Mat raw8(height, width, CV_8UC1, const_cast<void*>(src));
+    cv::Mat rgb;
+    cv::cvtColor(raw8, rgb, cv::COLOR_BayerRG2RGB);
+
+    // Manual color balance
+    std::vector<cv::Mat> channels(3);
+    cv::split(rgb, channels);
+    double redGain = 1.4, greenGain = 1.0, blueGain = 1.7;
+    channels[0] *= blueGain;
+    channels[1] *= greenGain;
+    channels[2] *= redGain;
+    cv::merge(channels, rgb);
+
+    // Contrast and gamma correction
+    cv::Mat balanced;
+    cv::convertScaleAbs(rgb, balanced, 1.2, 5); // contrast boost
+    cv::Mat gamma;
+    balanced.convertTo(gamma, CV_32F, 1.0 / 255.0);
+    cv::pow(gamma, 1.2, gamma);
+    gamma.convertTo(rgb, CV_8UC3, 255.0);
+
+    // copy to dst (assumes dst has enough space: width*height*3)
+    memcpy(dst, rgb.data, width * height * 3);
+}
+
+// EAR calculation
+double eyeAspectRatio(const std::vector<cv::Point2f>& eye) {
+    if (eye.size() < 6) return 0.0;
+    double A = cv::norm(eye[1] - eye[5]);
+    double B = cv::norm(eye[2] - eye[4]);
+    double C = cv::norm(eye[0] - eye[3]);
+    if (C < 1e-6) return 0.0;
+    return (A + B) / (2.0 * C);
+}
+
+// MAR calculation (robust indexes)
+double mouthAspectRatio(const std::vector<cv::Point2f>& lm) {
+    if (lm.size() <= 67) return 0.0;
+    double A = cv::norm(lm[61] - lm[67]);
+    double B = cv::norm(lm[62] - lm[66]);
+    double C = cv::norm(lm[63] - lm[65]);
+    double width = cv::norm(lm[60] - lm[64]);
+    if (width < 1e-6) return 0.0;
+    return (A + B + C) / (3.0 * width);
+}
+
+// Head pose estimate (kept identical)
+cv::Vec3d estimateHeadPose(const std::vector<cv::Point2d>& landmarks, const cv::Size& imageSize) {
+    std::vector<cv::Point3d> modelPoints = {
+        {0.0, 0.0, 0.0}, {-30.0, -30.0, -30.0}, {30.0, -30.0, -30.0},
+        {-30.0, 30.0, -30.0}, {30.0, 30.0, -30.0}, {0.0, 60.0, -30.0}
+    };
+    std::vector<cv::Point2d> imagePoints = {
+        landmarks[30], landmarks[36], landmarks[45],
+        landmarks[48], landmarks[54], landmarks[8]
+    };
+    double focalLength = imageSize.width;
+    cv::Point2d center(imageSize.width/2.0, imageSize.height/2.0);
+    cv::Mat cameraMatrix = (cv::Mat_<double>(3,3) << focalLength,0,center.x,0,focalLength,center.y,0,0,1);
+    cv::Mat distCoeffs = cv::Mat::zeros(4,1,CV_64F);
+    cv::Mat rvec, tvec;
+    if(!cv::solvePnP(modelPoints,imagePoints,cameraMatrix,distCoeffs,rvec,tvec,false,cv::SOLVEPNP_ITERATIVE)) return {0,0,0};
+    cv::Mat R; cv::Rodrigues(rvec,R);
+    cv::Mat pose = cv::Mat::zeros(3,4,CV_64F); R.copyTo(pose.colRange(0,3)); tvec.copyTo(pose.col(3));
+    cv::Mat cameraMatrixOut, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ, eulerAngles;
+    cv::decomposeProjectionMatrix(pose,cameraMatrixOut,rotMatrix,transVect,rotMatrixX,rotMatrixY,rotMatrixZ,eulerAngles);
+    return cv::Vec3d(eulerAngles.at<double>(0),eulerAngles.at<double>(1),eulerAngles.at<double>(2));
+}
+
+bool fileExists(const std::string& path) { std::ifstream f(path); return f.good(); }
+
+// --- Thread-safe bounded queue for frames (keep only most recent frame) ---
+class FrameQueue {
+public:
+    void push(const cv::Mat& m) {
+        std::unique_lock<std::mutex> lk(mtx);
+        // keep only 1 latest frame to avoid backlog (drop older)
+        queue.clear();
+        queue.push_back(m.clone());
+        lk.unlock();
+        cv.notify_one();
+    }
+    bool pop(cv::Mat& out, int wait_ms=5) {
+        std::unique_lock<std::mutex> lk(mtx);
+        if(!cv.wait_for(lk, std::chrono::milliseconds(wait_ms), [this]{ return !queue.empty(); })) return false;
+        out = queue.front().clone();
+        queue.pop_front();
+        return true;
+    }
+    void notify_all(){ cv.notify_all(); }
+private:
+    std::deque<cv::Mat> queue;
+    std::mutex mtx;
+    std::condition_variable cv;
+};
+
+int main() {
+    signal(SIGINT, handleSig);
+    signal(SIGTERM, handleSig);
+
+    const char* devName = "/dev/video0";
+    const int width = 1920, height = 1080;
+
+    int fd = open(devName, O_RDWR | O_NONBLOCK);
+    if(fd < 0) { perror("Cannot open device"); return 1; }
+
+    // Set format
+    v4l2_format fmt{};
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    fmt.fmt.pix.width = width;
+    fmt.fmt.pix.height = height;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_SRGGB8; // Bayer
+    fmt.fmt.pix.field = V4L2_FIELD_NONE;
+    xioctl(fd, VIDIOC_S_FMT, &fmt);
+
+    // Request buffers
+    v4l2_requestbuffers req{};
+    req.count = 4;
+    req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    req.memory = V4L2_MEMORY_MMAP;
+    xioctl(fd, VIDIOC_REQBUFS, &req);
+    if(req.count < 2) { std::cerr << "Insufficient buffers\n"; close(fd); return 1; }
+
+    std::vector<Buffer> buffers(req.count);
+    for(unsigned i=0;i<(unsigned)req.count;i++) {
+        v4l2_buffer buf{}; buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE; buf.memory = V4L2_MEMORY_MMAP; buf.index=i;
+        xioctl(fd, VIDIOC_QUERYBUF, &buf);
+        buffers[i].length = buf.length;
+        buffers[i].start = mmap(NULL, buf.length, PROT_READ|PROT_WRITE, MAP_SHARED, fd, buf.m.offset);
+        if(buffers[i].start==MAP_FAILED) { perror("mmap"); close(fd); return 1; }
+    }
+
+    for(unsigned i=0;i<(unsigned)req.count;i++) {
+        v4l2_buffer buf{}; buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE; buf.memory = V4L2_MEMORY_MMAP; buf.index=i;
+        xioctl(fd, VIDIOC_QBUF, &buf);
+    }
+
+    v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    xioctl(fd, VIDIOC_STREAMON, &type);
+
+    // Load models
+    const std::string facemarkModelPath = "lbfmodel.yaml";
+    const std::string faceCascadePath = "haarcascade_frontalface_default.xml";
+
+    if(!fileExists(facemarkModelPath) || !fileExists(faceCascadePath)) {
+        std::cerr << "Required models missing. Place '"<<facemarkModelPath<<"' and '"<<faceCascadePath<<"' in current folder.\n";
+        xioctl(fd, VIDIOC_STREAMOFF, &type); close(fd); return -1;
+    }
+
+    cv::Ptr<cv::face::Facemark> facemark = cv::face::FacemarkLBF::create();
+    facemark->loadModel(facemarkModelPath);
+
+    cv::CascadeClassifier face_cascade;
+    face_cascade.load(faceCascadePath);
+
+    // Frame queue between capture thread and processing
+    FrameQueue frameQueue;
+    std::atomic<bool> running(true);
+
+    // Capture thread - reads from V4L2, converts to RGB, pushes to queue
+    std::thread captureThread([&](){
+        while(running && !stopRequested) {
+            fd_set fds; FD_ZERO(&fds); FD_SET(fd,&fds);
+            timeval tv={0,5000}; // 5ms
+            int r = select(fd+1, &fds, NULL, NULL, &tv);
+            if(r < 0) { if(errno==EINTR) continue; perror("select"); break; }
+            if(r == 0) continue;
+
+            v4l2_buffer buf{}; buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE; buf.memory = V4L2_MEMORY_MMAP;
+            if(ioctl(fd, VIDIOC_DQBUF, &buf) < 0) {
+                if(errno==EAGAIN || errno==EINTR) continue;
+                perror("VIDIOC_DQBUF");
+                break;
+            }
+
+            // unpack and copy to Mat BEFORE re-queueing
+            cv::Mat rgbFull(height, width, CV_8UC3);
+            unpackBayer8ToRGB(buffers[buf.index].start, rgbFull.data, width, height);
+
+            // Requeue buffer immediately (we copied data)
+            if(ioctl(fd, VIDIOC_QBUF, &buf) < 0) {
+                perror("VIDIOC_QBUF");
+                break;
+            }
+
+            // Push only the latest frame, drop older if processing is slow
+            frameQueue.push(rgbFull);
+        }
+        // notify consumer to exit
+        frameQueue.notify_all();
+    });
+
+    // Processing and display (main thread)
+    cv::Mat frame; // full resolution
+    cv::namedWindow("Drowsiness Detection", cv::WINDOW_NORMAL);
+    cv::resizeWindow("Drowsiness Detection",1280,720);
+
+    // thresholds
+    const double DEFAULT_EAR_THRESH=0.25, DEFAULT_MAR_THRESH=0.60, DEFAULT_YAW_THRESH=25.0, DEFAULT_PITCH_THRESH=20.0, EYE_CLOSED_TIME_THRESH=1.0;
+    const size_t SMOOTHING_WINDOW = 5;
+    std::deque<double> earHistory, marHistory, yawHistory;
+    bool eyeClosed=false; auto eyeClosedStart=std::chrono::steady_clock::now(); int blinkCount=0;
+
+    // calibration
+    const int CALIB_FRAMES=30; int calibCounter=0; double calibEarSum=0.0; bool calibrated=false; double earThreshold=DEFAULT_EAR_THRESH; double marThreshold=DEFAULT_MAR_THRESH;
+
+    auto lastTime = std::chrono::steady_clock::now(); int frameCounter=0; double fps=0.0;
+
+    // For downscaling
+    const int DOWNSCALE_WIDTH = 640;
+    const int DOWNSCALE_HEIGHT = 360;
+
+    while(!stopRequested) {
+        // consume latest frame (wait up to 50ms)
+        cv::Mat current;
+        if(!frameQueue.pop(current, 50)) {
+            // no frame - small sleep
+            std::this_thread::sleep_for(std::chrono::milliseconds(5));
+            continue;
+        }
+        frame = current; // full-res frame
+
+        // prepare small image for detection/landmarks
+        double sx = (double)DOWNSCALE_WIDTH / frame.cols;
+        double sy = (double)DOWNSCALE_HEIGHT / frame.rows;
+        double scale = std::min(sx, sy);
+        cv::Mat small;
+        cv::resize(frame, small, cv::Size(), scale, scale, cv::INTER_LINEAR);
+        if(small.channels()==3) cv::cvtColor(small, small, cv::COLOR_BGR2RGB); // facemark expects BGR but our color order is BGR from unpack -> keep BGR
+
+        cv::Mat graySmall;
+        cv::cvtColor(small, graySmall, cv::COLOR_BGR2GRAY);
+
+        std::vector<cv::Rect> facesSmall;
+        face_cascade.detectMultiScale(graySmall, facesSmall, 1.1, 3, 0, cv::Size(50,50));
+
+        std::string status = "Driver: OK";
+
+        if(!facesSmall.empty()){
+            // choose largest face
+            size_t chosenIdx = 0;
+            int maxArea = 0;
+            for(size_t i=0;i<facesSmall.size();++i){
+                int a = facesSmall[i].width * facesSmall[i].height;
+                if(a>maxArea){ maxArea=a; chosenIdx=i; }
+            }
+
+            // convert face rect back to full resolution for drawing and facemark usage
+            cv::Rect faceSmall = facesSmall[chosenIdx];
+            // upscale face rect to full res
+            double invScale = 1.0/scale;
+            cv::Rect faceFull(
+                std::max(0, (int)std::round(faceSmall.x * invScale)),
+                std::max(0, (int)std::round(faceSmall.y * invScale)),
+                std::min(frame.cols - (int)std::round(faceSmall.x * invScale), (int)std::round(faceSmall.width * invScale)),
+                std::min(frame.rows - (int)std::round(faceSmall.y * invScale), (int)std::round(faceSmall.height * invScale))
+            );
+
+            // For facemark we prepare a small color image and a scaled-up rectangle list mapped to small coordinates
+            std::vector<cv::Rect> facesForFacemark;
+            facesForFacemark.push_back(faceSmall); // facemark will operate on small image (speed)
+
+            std::vector<std::vector<cv::Point2f>> landmarksSmall;
+            bool ok=false;
+            try { ok = facemark->fit(small, facesForFacemark, landmarksSmall); } catch(...) { ok=false; }
+
+            if(ok && !landmarksSmall.empty()){
+                auto lmSmall = landmarksSmall[0];
+
+                // scale landmarks back to full resolution
+                std::vector<cv::Point2f> lmFull;
+                lmFull.reserve(lmSmall.size());
+                for(auto &p : lmSmall) {
+                    cv::Point2f pf(p.x * invScale, p.y * invScale);
+                    // Clamp
+                    pf.x = std::min<float>(std::max<float>(pf.x, 0.0f), frame.cols-1.0f);
+                    pf.y = std::min<float>(std::max<float>(pf.y, 0.0f), frame.rows-1.0f);
+                    lmFull.push_back(pf);
+                }
+
+                // Extract eyes and mouth using full-res landmarks
+                std::vector<cv::Point2f> leftEye, rightEye;
+                if(lmFull.size() >= 48) {
+                    leftEye = {lmFull[36],lmFull[37],lmFull[38],lmFull[39],lmFull[40],lmFull[41]};
+                    rightEye = {lmFull[42],lmFull[43],lmFull[44],lmFull[45],lmFull[46],lmFull[47]};
+                }
+                double ear = 0.0;
+                if(!leftEye.empty() && !rightEye.empty()) ear = (eyeAspectRatio(leftEye) + eyeAspectRatio(rightEye)) / 2.0;
+
+                double mar = 0.0;
+                if(lmFull.size() > 67) mar = mouthAspectRatio(lmFull);
+
+                // head pose requires vector<Point2d>
+                std::vector<cv::Point2d> lm2d;
+                lm2d.reserve(lmFull.size());
+                for(auto &p: lmFull) lm2d.push_back(cv::Point2d(p.x, p.y));
+                cv::Vec3d euler = estimateHeadPose(lm2d, frame.size());
+                double pitch=euler[0], yaw=euler[1], roll=euler[2];
+
+                // smoothing
+                earHistory.push_back(ear); if(earHistory.size()>SMOOTHING_WINDOW) earHistory.pop_front();
+                marHistory.push_back(mar); if(marHistory.size()>SMOOTHING_WINDOW) marHistory.pop_front();
+                yawHistory.push_back(yaw); if(yawHistory.size()>SMOOTHING_WINDOW) yawHistory.pop_front();
+                auto meanDeque=[](const std::deque<double>& d){ if(d.empty()) return 0.0; double s=0; for(double v:d) s+=v; return s/d.size();};
+                double earSmooth=meanDeque(earHistory), marSmooth=meanDeque(marHistory), yawSmooth=meanDeque(yawHistory);
+
+                // calibration of EAR threshold
+                if(!calibrated){
+                    calibEarSum += earSmooth;
+                    calibCounter++;
+                    if(calibCounter >= CALIB_FRAMES){
+                        double meanOpenEar = calibEarSum / calibCounter;
+                        earThreshold = std::max(0.12, meanOpenEar * 0.50); // keep lower bound
+                        calibrated = true;
+                        std::cout << "Calibration done. meanOpenEar=" << meanOpenEar << " EAR_THRESH=" << earThreshold << std::endl;
+                    } else {
+                        status = "Calibrating...";
+                    }
+                }
+
+                double usedEarThresh = calibrated ? earThreshold : DEFAULT_EAR_THRESH;
+                double usedMarThresh = marThreshold;
+
+                if(earSmooth < usedEarThresh) {
+                    if(!eyeClosed){
+                        eyeClosedStart = std::chrono::steady_clock::now();
+                        eyeClosed = true;
+                    } else {
+                        auto duration = std::chrono::duration_cast<std::chrono::duration<double>>(std::chrono::steady_clock::now() - eyeClosedStart).count();
+                        if(duration >= EYE_CLOSED_TIME_THRESH) status = "DROWSINESS ALERT";
+                        else status = "Eyes Closed";
+                    }
+                } else {
+                    if(eyeClosed){ blinkCount++; eyeClosed = false; }
+                }
+
+                if(marSmooth > usedMarThresh) status = "Yawning";
+                else if(yawSmooth > DEFAULT_YAW_THRESH) status = "Looking Left";
+                else if(yawSmooth < -DEFAULT_YAW_THRESH) status = "Looking Right";
+                else if(pitch > DEFAULT_PITCH_THRESH) status = "Looking Down";
+
+                // Draw face rect and landmarks on full-res frame
+                cv::rectangle(frame, faceFull, cv::Scalar(0,255,0), 2);
+                for(const auto &p: lmFull) cv::circle(frame, p, 2, cv::Scalar(255,0,0), -1);
+                char info[256];
+                snprintf(info, sizeof(info), "EAR: %.3f (%.3f) MAR: %.3f Yaw: %.1f Blinks: %d", ear, earSmooth, marSmooth, yawSmooth, blinkCount);
+                cv::putText(frame, info, cv::Point(10,55), cv::FONT_HERSHEY_SIMPLEX, 0.6, cv::Scalar(255,255,255), 2);
+            } else {
+                status = "Landmarks Not Detected";
+            }
+        } else status = "No Face Detected";
+
+        // FPS calc
+        frameCounter++;
+        auto now = std::chrono::steady_clock::now();
+        double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(now-lastTime).count();
+        if(elapsed >= 1.0) { fps = frameCounter / elapsed; frameCounter = 0; lastTime = now; }
+
+        cv::putText(frame, status, cv::Point(10,30), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(0,0,255), 2);
+        char fpsbuf[64]; snprintf(fpsbuf, sizeof(fpsbuf), "FPS: %.1f", fps);
+        cv::putText(frame, fpsbuf, cv::Point(10,frame.rows-20), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0,255,255), 2);
+
+        cv::imshow("Drowsiness Detection", frame);
+        int key = cv::waitKey(1);
+        if(key == 27) { stopRequested = 1; break; }
+    }
+
+    // shutdown
+    running = false;
+    if(captureThread.joinable()) captureThread.join();
+
+    xioctl(fd, VIDIOC_STREAMOFF, &type);
+    for(auto &b:buffers) munmap(b.start,b.length);
+    close(fd);
+    cv::destroyAllWindows();
+    return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+for drowsiness
+
+
+g++ -std=c++17 drowsiness.cpp -o drowsiness `pkg-config --cflags --libs opencv4` -ldlib -llapack -lblas -lpthread
+
+
+sudo apt update
+sudo apt install libdlib-dev
+
+sudo apt install liblapack-dev libblas-dev
+
+
+wget http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+bunzip2 shape_predictor_68_face_landmarks.dat.bz2
+
+g++ -o demo demo.cpp `pkg-config --cflags --libs opencv4` -lopencv_face -lSDL2
+
+Optimized Zero-Lag Drowsiness Detection Code
+g++ -o drowsiness_detection drowsiness_detection.cpp `pkg-config --cflags --libs opencv4` -lopencv_face
+
+g++ -o colour_lag_drowsiness_detection colour_lag_drowsiness_detection.cpp `pkg-config --cflags --libs opencv4` -lopencv_face
+
+g++ -o colour_lag_drowsiness_detection colour_lag_drowsiness_detection.cpp   `pkg-config --cflags --libs opencv4`   -lopencv_face -lopencv_objdetect -lopencv_calib3d
+ 
+ 
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <linux/videodev2.h>
+#include <cerrno>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <vector>
+#include <thread>
+#include <atomic>
+#include <mutex>
+#include <condition_variable>
+#include <chrono>
+#include <opencv2/calib3d.hpp>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+
+struct Buffer {
+    void* start;
+    size_t length;
+};
+
+static void xioctl(int fd, int request, void* arg) {
+    int r;
+    do {
+        r = ioctl(fd, request, arg);
+    } while (r == -1 && (errno == EINTR || errno == EAGAIN));
+    if (r == -1) {
+        perror("ioctl");
+        exit(EXIT_FAILURE);
+    }
+}
+
+// Convert Bayer to RGB
+void unpackBayer8ToRGB(const void* src, void* dst, int width, int height) {
+    cv::Mat raw8(height, width, CV_8UC1, const_cast<void*>(src));
+    cv::Mat rgb;
+    cv::cvtColor(raw8, rgb, cv::COLOR_BayerRG2BGR);
+    memcpy(dst, rgb.data, width * height * 3);
+}
+
+double eyeAspectRatio(const std::vector<cv::Point2f>& eye) {
+    double A = cv::norm(eye[1] - eye[5]);
+    double B = cv::norm(eye[2] - eye[4]);
+    double C = cv::norm(eye[0] - eye[3]);
+    return (A + B) / (2.0 * C);
+}
+
+double mouthAspectRatio(const std::vector<cv::Point2f>& mouth) {
+    double A = cv::norm(mouth[1] - mouth[7]);
+    double B = cv::norm(mouth[2] - mouth[6]);
+    double C = cv::norm(mouth[3] - mouth[5]);
+    double width = cv::norm(mouth[0] - mouth[4]);
+    return (A + B + C) / (3.0 * width);
+}
+
+cv::Vec3d estimateHeadPose(const std::vector<cv::Point2d>& landmarks, const cv::Size& imageSize) {
+    std::vector<cv::Point3d> modelPoints = {
+        {0.0, 0.0, 0.0}, {-30.0, -30.0, -30.0}, {30.0, -30.0, -30.0},
+        {-30.0, 30.0, -30.0}, {30.0, 30.0, -30.0}, {0.0, 60.0, -30.0}
+    };
+    std::vector<cv::Point2d> imagePoints = {
+        landmarks[30], landmarks[36], landmarks[45],
+        landmarks[48], landmarks[54], landmarks[8]
+    };
+
+    double focalLength = imageSize.width;
+    cv::Point2d center(imageSize.width / 2, imageSize.height / 2);
+    cv::Mat cameraMatrix = (cv::Mat_<double>(3,3) <<
+        focalLength, 0, center.x, 0, focalLength, center.y, 0, 0, 1);
+    cv::Mat distCoeffs = cv::Mat::zeros(4,1,CV_64F);
+    cv::Mat rotationVector, translationVector;
+    bool success = cv::solvePnP(modelPoints, imagePoints, cameraMatrix,
+                                distCoeffs, rotationVector, translationVector);
+    if (!success) return cv::Vec3d(0,0,0);
+
+    cv::Mat rotationMatrix;
+    cv::Rodrigues(rotationVector, rotationMatrix);
+    cv::Mat poseMatrix = cv::Mat::zeros(3,4,CV_64F);
+    rotationMatrix.copyTo(poseMatrix(cv::Rect(0,0,3,3)));
+    translationVector.copyTo(poseMatrix.col(3));
+    cv::Mat eulerAngles;
+    cv::decomposeProjectionMatrix(poseMatrix, cv::Mat(), cv::Mat(),
+                                  cv::Mat(), cv::Mat(), cv::Mat(), cv::Mat(), eulerAngles);
+    return cv::Vec3d(eulerAngles.at<double>(0), eulerAngles.at<double>(1), eulerAngles.at<double>(2));
+}
+
+struct FrameData {
+    std::vector<unsigned char> data;
+    bool ready = false;
+};
+
+// Shared frame buffer
+std::mutex frameMutex;
+std::condition_variable frameCond;
+FrameData sharedFrame;
+std::atomic<bool> running(true);
+
+// Capture thread
+void captureThreadFunc(const char* devName, int width, int height) {
+    int fd = open(devName, O_RDWR | O_NONBLOCK);
+    if (fd < 0) { perror("open"); return; }
+
+    v4l2_format fmt{};
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    fmt.fmt.pix.width = width;
+    fmt.fmt.pix.height = height;
+    fmt.fmt.pix.pixelformat = v4l2_fourcc('R','G','G','B');
+    fmt.fmt.pix.field = V4L2_FIELD_NONE;
+    xioctl(fd, VIDIOC_S_FMT, &fmt);
+
+    v4l2_requestbuffers req{};
+    req.count = 4;
+    req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    req.memory = V4L2_MEMORY_MMAP;
+    xioctl(fd, VIDIOC_REQBUFS, &req);
+
+    std::vector<Buffer> buffers(req.count);
+    for (unsigned i = 0; i < req.count; i++) {
+        v4l2_buffer buf{};
+        buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        buf.memory = V4L2_MEMORY_MMAP;
+        buf.index = i;
+        xioctl(fd, VIDIOC_QUERYBUF, &buf);
+        buffers[i].length = buf.length;
+        buffers[i].start = mmap(NULL, buf.length, PROT_READ | PROT_WRITE, MAP_SHARED, fd, buf.m.offset);
+    }
+
+    for (unsigned i = 0; i < req.count; i++) {
+        v4l2_buffer buf{};
+        buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        buf.memory = V4L2_MEMORY_MMAP;
+        buf.index = i;
+        xioctl(fd, VIDIOC_QBUF, &buf);
+    }
+
+    v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    xioctl(fd, VIDIOC_STREAMON, &type);
+
+    std::vector<unsigned char> rgbBuffer(width * height * 3);
+
+    while (running) {
+        fd_set fds;
+        FD_ZERO(&fds);
+        FD_SET(fd, &fds);
+        timeval tv = {0, 50000}; // 50ms timeout
+        int r = select(fd + 1, &fds, NULL, NULL, &tv);
+        if (r <= 0) continue;
+
+        v4l2_buffer buf{};
+        buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+        buf.memory = V4L2_MEMORY_MMAP;
+        if (ioctl(fd, VIDIOC_DQBUF, &buf) == 0) {
+            unpackBayer8ToRGB(buffers[buf.index].start, rgbBuffer.data(), width, height);
+
+            {
+                std::unique_lock<std::mutex> lock(frameMutex);
+                sharedFrame.data = rgbBuffer;
+                sharedFrame.ready = true;
+            }
+            frameCond.notify_one();
+
+            xioctl(fd, VIDIOC_QBUF, &buf);
+        }
+    }
+
+    xioctl(fd, VIDIOC_STREAMOFF, &type);
+    for (auto& b : buffers) munmap(b.start, b.length);
+    close(fd);
+}
+
+int main() {
+    const char* devName = "/dev/video0";
+    const int width = 1280;
+    const int height = 720;
+
+    cv::CascadeClassifier face_cascade("haarcascade_frontalface_default.xml");
+    cv::Ptr<cv::face::Facemark> facemark = cv::face::FacemarkLBF::create();
+    facemark->loadModel("lbfmodel.yaml");
+
+    std::thread captureThread(captureThreadFunc, devName, width, height);
+
+    cv::namedWindow("Drowsiness Detection", cv::WINDOW_AUTOSIZE);
+
+    const double EAR_THRESH = 0.25;
+    const double MAR_THRESH = 0.65;
+    const double EYE_CLOSED_TIME_THRESH = 1.0;
+
+    bool eyeClosed = false;
+    auto eyeClosedStart = std::chrono::steady_clock::now();
+    int blinkCount = 0;
+
+    while (running) {
+        std::unique_lock<std::mutex> lock(frameMutex);
+        frameCond.wait(lock, [] { return sharedFrame.ready || !running; });
+        if (!running) break;
+        cv::Mat frame(height, width, CV_8UC3, sharedFrame.data.data());
+        sharedFrame.ready = false;
+        lock.unlock();
+
+        std::vector<cv::Rect> faces;
+        cv::Mat gray;
+        cv::cvtColor(frame, gray, cv::COLOR_BGR2GRAY);
+        face_cascade.detectMultiScale(gray, faces, 1.1, 3, 0, cv::Size(80, 80));
+
+        std::string status = "Driver: OK";
+
+        if (!faces.empty()) {
+            std::vector<std::vector<cv::Point2f>> landmarks;
+            if (facemark->fit(frame, faces, landmarks)) {
+                auto& lm = landmarks[0];
+                std::vector<cv::Point2f> leftEye = {lm[36], lm[37], lm[38], lm[39], lm[40], lm[41]};
+                std::vector<cv::Point2f> rightEye = {lm[42], lm[43], lm[44], lm[45], lm[46], lm[47]};
+                double ear = (eyeAspectRatio(leftEye) + eyeAspectRatio(rightEye)) / 2.0;
+
+                std::vector<cv::Point2f> mouth = {lm[48], lm[49], lm[50], lm[51], lm[52], lm[53], lm[54], lm[55]};
+                double mar = mouthAspectRatio(mouth);
+
+                std::vector<cv::Point2d> keyLandmarks(lm.begin(), lm.end());
+                cv::Vec3d eulerAngles = estimateHeadPose(keyLandmarks, frame.size());
+                double pitch = eulerAngles[0];
+                double yaw = eulerAngles[1];
+
+                if (ear < EAR_THRESH) {
+                    if (!eyeClosed) {
+                        eyeClosedStart = std::chrono::steady_clock::now();
+                        eyeClosed = true;
+                    } else {
+                        double duration = std::chrono::duration_cast<std::chrono::seconds>(
+                            std::chrono::steady_clock::now() - eyeClosedStart).count();
+                        if (duration >= EYE_CLOSED_TIME_THRESH)
+                            status = "DROWSINESS ALERT - Eyes Closed";
+                    }
+                } else {
+                    if (eyeClosed) {
+                        blinkCount++;
+                        eyeClosed = false;
+                    }
+                }
+
+                if (mar > MAR_THRESH)
+                    status = "Yawning";
+
+                if (yaw > 25)
+                    status = "Looking Left";
+                else if (yaw < -25)
+                    status = "Looking Right";
+                else if (pitch > 20)
+                    status = "Looking Down";
+            } else status = "Landmarks Not Detected";
+        } else status = "No Face Detected";
+
+        cv::putText(frame, status, cv::Point(10, 30),
+                    cv::FONT_HERSHEY_SIMPLEX, 0.8, cv::Scalar(0, 0, 255), 2);
+        cv::imshow("Drowsiness Detection", frame);
+
+        if (cv::waitKey(1) == 27) { // ESC
+            running = false;
+            frameCond.notify_all();
+            break;
+        }
+    }
+
+    captureThread.join();
+    cv::destroyAllWindows();
+    return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+WORKING - 18/11/2025 VERSION 2
+
+// drowsiness_yawn_only_v2.cpp
+// HIGH-ACCURACY VERSION
+// Improved EAR/MAR stability, combined alert, better calibration, cleaner logic.
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <linux/videodev2.h>
+#include <csignal>
+#include <cerrno>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <atomic>
+#include <condition_variable>
+#include <thread>
+#include <mutex>
+#include <numeric>
+#include <chrono>
+#include <deque>
+#include <algorithm>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+#include <opencv2/dnn.hpp>
+
+using namespace std;
+using namespace cv;
+
+// ------------------------------------------------- CONFIG -------------------------------------------------
+constexpr int CAP_W = 1920;
+constexpr int CAP_H = 1080;
+constexpr int PROC_W = 1280;
+constexpr int PROC_H = 720;
+
+constexpr int YUNET_SIDE = 256;
+constexpr int OPENCV_THREADS = 2;
+constexpr int V4L2_REQ_COUNT = 2;
+
+const string YUNET_MODEL = "./models/face_detection_yunet_2023mar.onnx";
+const string LBF_MODEL   = "./models/lbfmodel.yaml";
+
+// ---- Detection thresholds ----
+const double EAR_THRESH = 0.23;        // stricter EAR
+const double MAR_THRESH = 0.60;        // stricter MAR
+const double EAR_CLOSED_TIME = 1.2;    // less delay for drowsiness
+const double MAR_YAWN_TIME  = 0.55;
+
+// ---- Calibration & smoothing ----
+const double EAR_INIT_FACTOR = 0.72;
+const double MAR_INIT_FACTOR = 0.58;
+
+const double EAR_SMOOTH_ALPHA = 0.05;
+const double MAR_SMOOTH_ALPHA = 0.10;
+
+const double MIN_EAR = 0.14;
+const double MIN_MAR = 0.22;
+
+const int CALIB_FRAMES = 30;
+const int MEDIAN_WIN = 5;
+
+// ------------------------------------------------- Globals -------------------------------------------------
+struct Buffer { void* start; size_t length; };
+
+static atomic<bool> running(true);
+static mutex frameMutex;
+static condition_variable frameCond;
+static vector<unsigned char> latestRGB;
+static bool frameReady = false;
+
+// ------------------------------------------------- Helpers -------------------------------------------------
+bool fileExists(const string &p){ ifstream f(p); return f.good(); }
+void handleSig(int){ running = false; frameCond.notify_all(); }
+
+void xioctl(int fd, int request, void* arg){
+    int r;
+    do { r = ioctl(fd, request, arg); }
+    while (r == -1 && (errno == EINTR || errno == EAGAIN));
+    if (r == -1){ perror("ioctl"); exit(EXIT_FAILURE); }
+}
+
+// --- Bayer to RGB ---
+void unpackBayer8ToRGB_Full(const void* src, void* dst, int width, int height) {
+    Mat raw(height, width, CV_8UC1, const_cast<void*>(src));
+    Mat rgb;
+    cvtColor(raw, rgb, COLOR_BayerRG2RGB);
+
+    vector<Mat> ch(3);
+    split(rgb, ch);
+    ch[0] *= 1.6;     // R
+    ch[2] *= 1.35;    // B
+    merge(ch, rgb);
+
+    convertScaleAbs(rgb, rgb, 1.18, 3);
+
+    Mat gamma;
+    rgb.convertTo(gamma, CV_32F, 1.0/255);
+    pow(gamma, 1.10, gamma);
+    gamma.convertTo(rgb, CV_8UC3, 255.0);
+
+    memcpy(dst, rgb.data, width * height * 3);
+}
+
+// ------------------------------------------------- EAR / MAR -------------------------------------------------
+double ear(const vector<Point2f>& e){
+    if(e.size()<6) return 0;
+    double A = norm(e[1]-e[5]);
+    double B = norm(e[2]-e[4]);
+    double C = norm(e[0]-e[3]);
+    return (A+B)/(2*C + 1e-6);
+}
+double marInner(const vector<Point2f>& L){
+    double A=norm(L[61]-L[67]);
+    double B=norm(L[62]-L[66]);
+    double C=norm(L[60]-L[64]);
+    return (A+B)/(2*C + 1e-6);
+}
+double marOuter(const vector<Point2f>& L){
+    double A=norm(L[49]-L[59]);
+    double B=norm(L[50]-L[58]);
+    double C=norm(L[48]-L[54]);
+    return (A+B)/(2*C + 1e-6);
+}
+
+// ------------------------------------------------- Capture Thread -------------------------------------------------
+void captureThread(const char* dev){
+    int fd = open(dev, O_RDWR | O_NONBLOCK);
+    if(fd < 0){ perror("open"); return; }
+
+    v4l2_format fmt{};
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    fmt.fmt.pix.width  = CAP_W;
+    fmt.fmt.pix.height = CAP_H;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_SRGGB8;
+    fmt.fmt.pix.field = V4L2_FIELD_NONE;
+    xioctl(fd, VIDIOC_S_FMT, &fmt);
+
+    v4l2_requestbuffers req{};
+    req.count = V4L2_REQ_COUNT;
+    req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    req.memory = V4L2_MEMORY_MMAP;
+    xioctl(fd, VIDIOC_REQBUFS, &req);
+
+    vector<Buffer> bufs(req.count);
+    for(unsigned i=0;i<req.count;i++){
+        v4l2_buffer b{};
+        b.type=req.type; b.memory=req.memory; b.index=i;
+
+        xioctl(fd, VIDIOC_QUERYBUF, &b);
+        bufs[i].length=b.length;
+        bufs[i].start=mmap(NULL,b.length,PROT_READ|PROT_WRITE,MAP_SHARED,fd,b.m.offset);
+
+        xioctl(fd, VIDIOC_QBUF,&b);
+    }
+
+    v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    xioctl(fd, VIDIOC_STREAMON,&type);
+
+    vector<unsigned char> rgb(CAP_W*CAP_H*3);
+    latestRGB.resize(PROC_W*PROC_H*3);
+
+    while(running){
+        fd_set fds;
+        FD_ZERO(&fds);
+        FD_SET(fd,&fds);
+
+        timeval tv{0,5000};
+        if(select(fd+1,&fds,nullptr,nullptr,&tv) <= 0) continue;
+
+        v4l2_buffer b{};
+        b.type=type; b.memory=V4L2_MEMORY_MMAP;
+
+        if(ioctl(fd, VIDIOC_DQBUF,&b)==0){
+            unpackBayer8ToRGB_Full(bufs[b.index].start, rgb.data(), CAP_W, CAP_H);
+
+            Mat full(CAP_H, CAP_W, CV_8UC3, rgb.data());
+            Mat proc(PROC_H, PROC_W, CV_8UC3, latestRGB.data());
+            resize(full, proc, Size(PROC_W,PROC_H));
+
+            {
+                lock_guard<mutex> lk(frameMutex);
+                frameReady=true;
+            }
+            frameCond.notify_one();
+
+            xioctl(fd, VIDIOC_QBUF,&b);
+        }
+    }
+
+    xioctl(fd, VIDIOC_STREAMOFF,&type);
+    for(auto &b: bufs) munmap(b.start,b.length);
+    close(fd);
+}
+
+// ------------------------------------------------- Detection Thread -------------------------------------------------
+void detectThread(){
+    setNumThreads(OPENCV_THREADS);
+
+    Ptr<FaceDetectorYN> yunet =
+        FaceDetectorYN::create(YUNET_MODEL, "", Size(YUNET_SIDE,YUNET_SIDE), 0.45, 0.3);
+
+    Ptr<face::Facemark> facemark = face::FacemarkLBF::create();
+    facemark->loadModel(LBF_MODEL);
+
+    Mat frame(PROC_H,PROC_W,CV_8UC3);
+    Mat yunIn(YUNET_SIDE,YUNET_SIDE,CV_8UC3);
+    Mat gray;
+
+    // Calibration
+    bool earCal=false, marCal=false;
+    double eAvg=0,mAvg=0;
+    int eCount=0, mCount=0;
+
+    double eThr=EAR_THRESH;
+    double mThr=MAR_THRESH;
+
+    deque<double> eWin, mWin;
+    double eEMA=0, mEMA=0;
+
+    bool closed=false, yawn=false;
+    auto closedStart = chrono::steady_clock::now();
+    auto yawnStart   = chrono::steady_clock::now();
+
+    namedWindow("Drowsiness+Yawn",WINDOW_NORMAL);
+    resizeWindow("Drowsiness+Yawn",960,540);
+
+    while(running){
+        {   // wait frame
+            unique_lock<mutex> lk(frameMutex);
+            frameCond.wait(lk,[]{return frameReady||!running;});
+            if(!running) break;
+
+            memcpy(frame.data, latestRGB.data(), PROC_W*PROC_H*3);
+            frameReady=false;
+        }
+
+        // ---- Face Detection ----
+        resize(frame, yunIn, Size(YUNET_SIDE,YUNET_SIDE));
+        yunet->setInputSize(Size(YUNET_SIDE,YUNET_SIDE));
+
+        Mat det;
+        yunet->detect(yunIn, det);
+
+        vector<Rect> faces;
+        for(int i=0;i<det.rows;i++){
+            float c = det.at<float>(i,4);
+            if(c < 0.4) continue;
+
+            float x = det.at<float>(i,0) * PROC_W / YUNET_SIDE;
+            float y = det.at<float>(i,1) * PROC_H / YUNET_SIDE;
+            float w = det.at<float>(i,2) * PROC_W / YUNET_SIDE;
+            float h = det.at<float>(i,3) * PROC_H / YUNET_SIDE;
+
+            Rect r(cvRound(x),cvRound(y),cvRound(w),cvRound(h));
+            r &= Rect(0,0,PROC_W,PROC_H);
+            if(r.area()>0) faces.push_back(r);
+        }
+
+        string status = "Driver: OK";
+        bool alert = false;
+        bool drowsyFlag=false, yawnFlag=false;
+
+        if(!faces.empty()){
+            int idx=0;
+            for(int i=1;i<faces.size();i++)
+                if(faces[i].area()>faces[idx].area()) idx=i;
+
+            Rect f=faces[idx];
+            Rect pad=f;
+            int px=f.width/8, py=f.height/6;
+            pad.x=max(0,f.x-px);
+            pad.y=max(0,f.y-py);
+            pad.width=min(PROC_W-pad.x, f.width+px*2);
+            pad.height=min(PROC_H-pad.y, f.height+py*2);
+
+            Mat roi = frame(pad).clone();
+            cvtColor(roi, gray, COLOR_BGR2GRAY);
+
+            vector<vector<Point2f>> L;
+            vector<Rect> box={Rect(0,0,roi.cols,roi.rows)};
+            bool ok=false;
+            try{ ok=facemark->fit(gray,box,L); } catch(...){ ok=false; }
+
+            if(ok && !L.empty()){
+                auto lm=L[0];
+                for(auto &p:lm){ p.x+=pad.x; p.y+=pad.y; }
+
+                // ---------- EAR ----------
+                vector<Point2f> LE={lm[36],lm[37],lm[38],lm[39],lm[40],lm[41]};
+                vector<Point2f> RE={lm[42],lm[43],lm[44],lm[45],lm[46],lm[47]};
+                double eRaw=(ear(LE)+ear(RE))/2;
+
+                if(eEMA==0) eEMA=eRaw;
+                eEMA = 0.75*eEMA + 0.25*eRaw;
+
+                eWin.push_back(eEMA);
+                if(eWin.size()>MEDIAN_WIN) eWin.pop_front();
+                vector<double> tmpE(eWin.begin(),eWin.end());
+                sort(tmpE.begin(),tmpE.end());
+                double e = tmpE[tmpE.size()/2];
+
+                if(!earCal){
+                    if(e>0.05){
+                        eAvg=(eAvg*eCount+e)/(eCount+1);
+                        eCount++;
+                    }
+                    if(eCount>=CALIB_FRAMES){
+                        earCal=true;
+                        eThr=max(MIN_EAR, eAvg*EAR_INIT_FACTOR);
+                    }
+                } else {
+                    double t=max(MIN_EAR, eAvg*EAR_INIT_FACTOR);
+                    eThr=(1-EAR_SMOOTH_ALPHA)*eThr + EAR_SMOOTH_ALPHA*t;
+                }
+
+                // ---------- MAR ----------
+                double mi = marInner(lm);
+                double mo = marOuter(lm);
+                double mRaw = 0.6*mi + 0.4*mo;
+
+                if(mEMA==0) mEMA=mRaw;
+                mEMA = 0.70*mEMA + 0.30*mRaw;
+
+                mWin.push_back(mEMA);
+                if(mWin.size()>MEDIAN_WIN) mWin.pop_front();
+                vector<double> tmpM(mWin.begin(),mWin.end());
+                sort(tmpM.begin(),tmpM.end());
+                double m = tmpM[tmpM.size()/2];
+
+                if(!marCal){
+                    if(m>0.03){
+                        mAvg=(mAvg*mCount+m)/(mCount+1);
+                        mCount++;
+                    }
+                    if(mCount>=CALIB_FRAMES){
+                        marCal=true;
+                        mThr=max(MIN_MAR, mAvg*MAR_INIT_FACTOR);
+                    }
+                } else {
+                    double t=max(MIN_MAR, mAvg*MAR_INIT_FACTOR);
+                    mThr=(1-MAR_SMOOTH_ALPHA)*mThr + MAR_SMOOTH_ALPHA*t;
+                }
+
+                // ---------- Drowsiness Logic ----------
+                if(e < eThr){
+                    if(!closed){
+                        closed=true;
+                        closedStart=chrono::steady_clock::now();
+                    } else {
+                        if(chrono::duration<double>(
+                           chrono::steady_clock::now()-closedStart).count()
+                           >= EAR_CLOSED_TIME)
+                        {
+                            drowsyFlag=true;
+                        }
+                    }
+                } else closed=false;
+
+                // ---------- Yawn Logic ----------
+                if(m > mThr){
+                    if(!yawn){
+                        yawn=true;
+                        yawnStart=chrono::steady_clock::now();
+                    } else {
+                        if(chrono::duration<double>(
+                           chrono::steady_clock::now()-yawnStart).count()
+                           >= MAR_YAWN_TIME)
+                        {
+                            yawnFlag=true;
+                        }
+                    }
+                } else yawn=false;
+
+                // ---------- Combined Status ----------
+                if(drowsyFlag && yawnFlag){
+                    status="DROWSINESS + YAWNING";
+                    alert=true;
+                }
+                else if(drowsyFlag){
+                    status="DROWSINESS DETECTED";
+                    alert=true;
+                }
+                else if(yawnFlag){
+                    status="YAWNING DETECTED";
+                    alert=true;
+                }
+
+                rectangle(frame,pad,alert?Scalar(0,0,255):Scalar(0,255,0),2);
+
+                for(auto&p:lm) circle(frame,p,2,Scalar(255,0,0),-1);
+
+                putText(frame, format("EAR: %.3f  Thr: %.3f", e, eThr),
+                        Point(10,30),FONT_HERSHEY_SIMPLEX,0.7,{255,255,0},2);
+                putText(frame, format("MAR: %.3f  Thr: %.3f", m, mThr),
+                        Point(10,60),FONT_HERSHEY_SIMPLEX,0.7,{255,255,0},2);
+                putText(frame, status, Point(10,120),
+                        FONT_HERSHEY_SIMPLEX,1.0,
+                        alert?Scalar(0,0,255):Scalar(0,200,0),2);
+            }
+        } else {
+            putText(frame, "No Face Detected", Point(10,100),
+                    FONT_HERSHEY_SIMPLEX,0.8,{0,255,255},2);
+        }
+
+        imshow("Drowsiness+Yawn", frame);
+        if(waitKey(1)==27) break;
+    }
+}
+
+// ------------------------------------------------- MAIN -------------------------------------------------
+int main(){
+    signal(SIGINT, handleSig);
+    signal(SIGTERM, handleSig);
+
+    if(!fileExists(YUNET_MODEL)){ cerr<<"Missing YuNet model\n"; return -1; }
+    if(!fileExists(LBF_MODEL)){ cerr<<"Missing LBF model\n"; return -1; }
+
+    latestRGB.resize(PROC_W*PROC_H*3);
+
+    thread cap(captureThread, "/dev/video0");
+    thread det(detectThread);
+
+    cap.join();
+    det.join();
+    return 0;
+}
+
+
+make the detection correctly it doesn't detect drowsi and yawn properly and also if i press esc it need to close the window give the complete updated code
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+wget -O face_detection_yunet_2023mar.onnx https://huggingface.co/opencv/face_detection_yunet/resolve/main/face_detection_yunet_2023mar.onnx
+
+wget -O haarcascade_frontalface_default.xml https://raw.githubusercontent.com/opencv/opencv/master/data/haarcascades/haarcascade_frontalface_default.xml
+
+WORKING - 18/11/2025 VERSION 3 DEMO 
+
+rpi@raspberrypi:~/Nithish/git $ cat working_updated_drowsiness1.cpp
+// drowsiness_yawn_only_v2.cpp
+// HIGH-ACCURACY VERSION
+// Fixed detection logic and ESC key handling
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <linux/videodev2.h>
+#include <csignal>
+#include <cerrno>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <atomic>
+#include <condition_variable>
+#include <thread>
+#include <mutex>
+#include <numeric>
+#include <chrono>
+#include <deque>
+#include <algorithm>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+#include <opencv2/dnn.hpp>
+
+using namespace std;
+using namespace cv;
+
+// ------------------------------------------------- CONFIG -------------------------------------------------
+constexpr int CAP_W = 1920;
+constexpr int CAP_H = 1080;
+constexpr int PROC_W = 1280;
+constexpr int PROC_H = 720;
+
+constexpr int YUNET_SIDE = 256;
+constexpr int OPENCV_THREADS = 2;
+constexpr int V4L2_REQ_COUNT = 2;
+
+const string YUNET_MODEL = "./models/face_detection_yunet_2023mar.onnx";
+const string LBF_MODEL   = "./models/lbfmodel.yaml";
+
+// ---- Detection thresholds ----
+const double EAR_THRESH = 0.23;        // stricter EAR
+const double MAR_THRESH = 0.60;        // stricter MAR
+const double EAR_CLOSED_TIME = 1.2;    // seconds for drowsiness
+const double MAR_YAWN_TIME  = 0.55;   // seconds for yawn
+
+// ---- Calibration & smoothing ----
+const double EAR_INIT_FACTOR = 0.72;
+const double MAR_INIT_FACTOR = 0.58;
+
+const double EAR_SMOOTH_ALPHA = 0.05;
+const double MAR_SMOOTH_ALPHA = 0.10;
+
+const double MIN_EAR = 0.14;
+const double MIN_MAR = 0.22;
+
+const int CALIB_FRAMES = 30;
+const int MEDIAN_WIN = 5;
+
+// ------------------------------------------------- Globals -------------------------------------------------
+struct Buffer { void* start; size_t length; };
+
+static atomic<bool> running(true);
+static mutex frameMutex;
+static condition_variable frameCond;
+static vector<unsigned char> latestRGB;
+static bool frameReady = false;
+
+// ------------------------------------------------- Helpers -------------------------------------------------
+bool fileExists(const string &p){ ifstream f(p); return f.good(); }
+void handleSig(int){ running = false; frameCond.notify_all(); }
+
+void xioctl(int fd, int request, void* arg){
+    int r;
+    do { r = ioctl(fd, request, arg); }
+    while (r == -1 && (errno == EINTR || errno == EAGAIN));
+    if (r == -1){ perror("ioctl"); exit(EXIT_FAILURE); }
+}
+
+// --- Bayer to RGB ---
+void unpackBayer8ToRGB_Full(const void* src, void* dst, int width, int height) {
+    Mat raw(height, width, CV_8UC1, const_cast<void*>(src));
+    Mat rgb;
+    cvtColor(raw, rgb, COLOR_BayerRG2RGB);
+
+    vector<Mat> ch(3);
+    split(rgb, ch);
+    ch[0] *= 1.6;     // R
+    ch[2] *= 1.35;    // B
+    merge(ch, rgb);
+
+    convertScaleAbs(rgb, rgb, 1.18, 3);
+
+    Mat gamma;
+    rgb.convertTo(gamma, CV_32F, 1.0/255);
+    pow(gamma, 1.10, gamma);
+    gamma.convertTo(rgb, CV_8UC3, 255.0);
+
+    memcpy(dst, rgb.data, width * height * 3);
+}
+
+// ------------------------------------------------- EAR / MAR -------------------------------------------------
+double ear(const vector<Point2f>& e){
+    if(e.size()<6) return 0;
+    double A = norm(e[1]-e[5]);
+    double B = norm(e[2]-e[4]);
+    double C = norm(e[0]-e[3]);
+    return (A+B)/(2*C + 1e-6);
+}
+double marInner(const vector<Point2f>& L){
+    double A=norm(L[61]-L[67]);
+    double B=norm(L[62]-L[66]);
+    double C=norm(L[60]-L[64]);
+    return (A+B)/(2*C + 1e-6);
+}
+double marOuter(const vector<Point2f>& L){
+    double A=norm(L[49]-L[59]);
+    double B=norm(L[50]-L[58]);
+    double C=norm(L[48]-L[54]);
+    return (A+B)/(2*C + 1e-6);
+}
+
+// ------------------------------------------------- Capture Thread -------------------------------------------------
+void captureThread(const char* dev){
+    int fd = open(dev, O_RDWR | O_NONBLOCK);
+    if(fd < 0){ perror("open"); return; }
+
+    v4l2_format fmt{};
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    fmt.fmt.pix.width  = CAP_W;
+    fmt.fmt.pix.height = CAP_H;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_SRGGB8;
+    fmt.fmt.pix.field = V4L2_FIELD_NONE;
+    xioctl(fd, VIDIOC_S_FMT, &fmt);
+
+    v4l2_requestbuffers req{};
+    req.count = V4L2_REQ_COUNT;
+    req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    req.memory = V4L2_MEMORY_MMAP;
+    xioctl(fd, VIDIOC_REQBUFS, &req);
+
+    vector<Buffer> bufs(req.count);
+    for(unsigned i=0;i<req.count;i++){
+        v4l2_buffer b{}; b.type=req.type; b.memory=req.memory; b.index=i;
+        xioctl(fd, VIDIOC_QUERYBUF, &b);
+        bufs[i].length=b.length;
+        bufs[i].start=mmap(NULL,b.length,PROT_READ|PROT_WRITE,MAP_SHARED,fd,b.m.offset);
+        xioctl(fd, VIDIOC_QBUF,&b);
+    }
+
+    v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    xioctl(fd, VIDIOC_STREAMON,&type);
+
+    vector<unsigned char> rgb(CAP_W*CAP_H*3);
+    latestRGB.resize(PROC_W*PROC_H*3);
+
+    while(running){
+        fd_set fds;
+        FD_ZERO(&fds);
+        FD_SET(fd,&fds);
+        timeval tv{0,5000};
+        if(select(fd+1,&fds,nullptr,nullptr,&tv) <= 0) continue;
+
+        v4l2_buffer b{}; b.type=type; b.memory=V4L2_MEMORY_MMAP;
+        if(ioctl(fd, VIDIOC_DQBUF,&b)==0){
+            unpackBayer8ToRGB_Full(bufs[b.index].start, rgb.data(), CAP_W, CAP_H);
+            Mat full(CAP_H, CAP_W, CV_8UC3, rgb.data());
+            Mat proc(PROC_H, PROC_W, CV_8UC3, latestRGB.data());
+            resize(full, proc, Size(PROC_W,PROC_H));
+            {
+                lock_guard<mutex> lk(frameMutex);
+                frameReady=true;
+            }
+            frameCond.notify_one();
+            xioctl(fd, VIDIOC_QBUF,&b);
+        }
+    }
+
+    xioctl(fd, VIDIOC_STREAMOFF,&type);
+    for(auto &b: bufs) munmap(b.start,b.length);
+    close(fd);
+}
+
+// ------------------------------------------------- Detection Thread -------------------------------------------------
+void detectThread(){
+    setNumThreads(OPENCV_THREADS);
+
+    Ptr<FaceDetectorYN> yunet =
+        FaceDetectorYN::create(YUNET_MODEL, "", Size(YUNET_SIDE,YUNET_SIDE), 0.45, 0.3);
+
+    Ptr<face::Facemark> facemark = face::FacemarkLBF::create();
+    facemark->loadModel(LBF_MODEL);
+
+    Mat frame(PROC_H,PROC_W,CV_8UC3);
+    Mat yunIn(YUNET_SIDE,YUNET_SIDE,CV_8UC3);
+    Mat gray;
+
+    // Calibration
+    bool earCal=false, marCal=false;
+    double eAvg=0,mAvg=0;
+    int eCount=0, mCount=0;
+
+    double eThr=EAR_THRESH;
+    double mThr=MAR_THRESH;
+
+    deque<double> eWin, mWin;
+    double eEMA=0, mEMA=0;
+
+    bool closed=false, yawn=false;
+    auto closedStart = chrono::steady_clock::now();
+    auto yawnStart   = chrono::steady_clock::now();
+    bool closedStartFlag=false, yawnStartFlag=false;
+
+    namedWindow("Drowsiness+Yawn",WINDOW_NORMAL);
+    resizeWindow("Drowsiness+Yawn",960,540);
+
+    while(running){
+        {   // wait frame
+            unique_lock<mutex> lk(frameMutex);
+            frameCond.wait(lk,[]{return frameReady||!running;});
+            if(!running) break;
+            memcpy(frame.data, latestRGB.data(), PROC_W*PROC_H*3);
+            frameReady=false;
+        }
+
+        // ---- Face Detection ----
+        resize(frame, yunIn, Size(YUNET_SIDE,YUNET_SIDE));
+        yunet->setInputSize(Size(YUNET_SIDE,YUNET_SIDE));
+
+        Mat det;
+        yunet->detect(yunIn, det);
+
+        vector<Rect> faces;
+        for(int i=0;i<det.rows;i++){
+            float c = det.at<float>(i,4);
+            if(c < 0.4) continue;
+            float x = det.at<float>(i,0) * PROC_W / YUNET_SIDE;
+            float y = det.at<float>(i,1) * PROC_H / YUNET_SIDE;
+            float w = det.at<float>(i,2) * PROC_W / YUNET_SIDE;
+            float h = det.at<float>(i,3) * PROC_H / YUNET_SIDE;
+            Rect r(cvRound(x),cvRound(y),cvRound(w),cvRound(h));
+            r &= Rect(0,0,PROC_W,PROC_H);
+            if(r.area()>0) faces.push_back(r);
+        }
+
+        string status = "Driver: OK";
+        bool alert = false;
+        bool drowsyFlag=false, yawnFlag=false;
+
+        if(!faces.empty()){
+            int idx=0;
+            for(int i=1;i<faces.size();i++)
+                if(faces[i].area()>faces[idx].area()) idx=i;
+
+            Rect f=faces[idx];
+            Rect pad=f;
+            int px=f.width/8, py=f.height/6;
+            pad.x=max(0,f.x-px);
+            pad.y=max(0,f.y-py);
+            pad.width=min(PROC_W-pad.x, f.width+px*2);
+            pad.height=min(PROC_H-pad.y, f.height+py*2);
+
+            Mat roi = frame(pad).clone();
+            cvtColor(roi, gray, COLOR_BGR2GRAY);
+
+            vector<vector<Point2f>> L;
+            vector<Rect> box={Rect(0,0,roi.cols,roi.rows)};
+            bool ok=false;
+            try{ ok=facemark->fit(gray,box,L); } catch(...){ ok=false; }
+
+            if(ok && !L.empty()){
+                auto lm=L[0];
+                for(auto &p:lm){ p.x+=pad.x; p.y+=pad.y; }
+
+                // ---------- EAR ----------
+                vector<Point2f> LE={lm[36],lm[37],lm[38],lm[39],lm[40],lm[41]};
+                vector<Point2f> RE={lm[42],lm[43],lm[44],lm[45],lm[46],lm[47]};
+                double eRaw=(ear(LE)+ear(RE))/2;
+
+                if(eEMA==0) eEMA=eRaw;
+                eEMA = 0.75*eEMA + 0.25*eRaw;
+
+                eWin.push_back(eEMA);
+                if(eWin.size()>MEDIAN_WIN) eWin.pop_front();
+                vector<double> tmpE(eWin.begin(),eWin.end());
+                sort(tmpE.begin(),tmpE.end());
+                double e = tmpE[tmpE.size()/2];
+
+                if(!earCal){
+                    if(e>0.05){
+                        eAvg=(eAvg*eCount+e)/(eCount+1);
+                        eCount++;
+                    }
+                    if(eCount>=CALIB_FRAMES){
+                        earCal=true;
+                        eThr=max(MIN_EAR, eAvg*EAR_INIT_FACTOR);
+                    }
+                } else {
+                    double t=max(MIN_EAR, eAvg*EAR_INIT_FACTOR);
+                    eThr=(1-EAR_SMOOTH_ALPHA)*eThr + EAR_SMOOTH_ALPHA*t;
+                }
+
+                // ---------- MAR ----------
+                double mi = marInner(lm);
+                double mo = marOuter(lm);
+                double mRaw = 0.6*mi + 0.4*mo;
+
+                if(mEMA==0) mEMA=mRaw;
+                mEMA = 0.70*mEMA + 0.30*mRaw;
+
+                mWin.push_back(mEMA);
+                if(mWin.size()>MEDIAN_WIN) mWin.pop_front();
+                vector<double> tmpM(mWin.begin(),mWin.end());
+                sort(tmpM.begin(),tmpM.end());
+                double m = tmpM[tmpM.size()/2];
+
+                if(!marCal){
+                    if(m>0.03){
+                        mAvg=(mAvg*mCount+m)/(mCount+1);
+                        mCount++;
+                    }
+                    if(mCount>=CALIB_FRAMES){
+                        marCal=true;
+                        mThr=max(MIN_MAR, mAvg*MAR_INIT_FACTOR);
+                    }
+                } else {
+                    double t=max(MIN_MAR, mAvg*MAR_INIT_FACTOR);
+                    mThr=(1-MAR_SMOOTH_ALPHA)*mThr + MAR_SMOOTH_ALPHA*t;
+                }
+
+                // ---------- Drowsiness Logic ----------
+                if(e < eThr){
+                    if(!closedStartFlag){
+                        closedStartFlag=true;
+                        closedStart=chrono::steady_clock::now();
+                    } else {
+                        if(chrono::duration<double>(chrono::steady_clock::now()-closedStart).count()>=EAR_CLOSED_TIME)
+                            drowsyFlag=true;
+                    }
+                } else {
+                    closedStartFlag=false;
+                    drowsyFlag=false;
+                }
+
+                // ---------- Yawn Logic ----------
+                if(m > mThr){
+                    if(!yawnStartFlag){
+                        yawnStartFlag=true;
+                        yawnStart=chrono::steady_clock::now();
+                    } else {
+                        if(chrono::duration<double>(chrono::steady_clock::now()-yawnStart).count()>=MAR_YAWN_TIME)
+                            yawnFlag=true;
+                    }
+                } else {
+                    yawnStartFlag=false;
+                    yawnFlag=false;
+                }
+
+                // ---------- Combined Status ----------
+                if(drowsyFlag && yawnFlag){
+                    status="DROWSINESS + YAWNING";
+                    alert=true;
+                }
+                else if(drowsyFlag){
+                    status="DROWSINESS DETECTED";
+                    alert=true;
+                }
+                else if(yawnFlag){
+                    status="YAWNING DETECTED";
+                    alert=true;
+                }
+
+                rectangle(frame,pad,alert?Scalar(0,0,255):Scalar(0,255,0),2);
+                for(auto&p:lm) circle(frame,p,2,Scalar(255,0,0),-1);
+
+                putText(frame, format("EAR: %.3f  Thr: %.3f", e, eThr),
+                        Point(10,30),FONT_HERSHEY_SIMPLEX,0.7,{255,255,0},2);
+                putText(frame, format("MAR: %.3f  Thr: %.3f", m, mThr),
+                        Point(10,60),FONT_HERSHEY_SIMPLEX,0.7,{255,255,0},2);
+                putText(frame, status, Point(10,120),
+                        FONT_HERSHEY_SIMPLEX,1.0,
+                        alert?Scalar(0,0,255):Scalar(0,200,0),2);
+            }
+        } else {
+            putText(frame, "No Face Detected", Point(10,100),
+                    FONT_HERSHEY_SIMPLEX,0.8,{0,255,255},2);
+        }
+
+        imshow("Drowsiness+Yawn", frame);
+
+        // ---------- ESC Handling ----------
+        int k = waitKey(1);
+        if(k == 27){ // ESC key
+            running=false;
+            frameCond.notify_all();
+            break;
+        }
+
+        this_thread::sleep_for(chrono::milliseconds(5));
+    }
+
+    destroyAllWindows();
+}
+
+// ------------------------------------------------- MAIN -------------------------------------------------
+int main(){
+    signal(SIGINT, handleSig);
+    signal(SIGTERM, handleSig);
+
+    if(!fileExists(YUNET_MODEL)){ cerr<<"Missing YuNet model\n"; return -1; }
+    if(!fileExists(LBF_MODEL)){ cerr<<"Missing LBF model\n"; return -1; }
+
+    latestRGB.resize(PROC_W*PROC_H*3);
+
+    thread cap(captureThread, "/dev/video0");
+    thread det(detectThread);
+
+    cap.join();
+    det.join();
+    return 0;
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+g++ -std=c++17 colour_lag_drowsiness_detection_with_yunet.cpp -o drowsiness `pkg-config --cflags --libs opencv4` -lopencv_face
+
+version - 1
+
+18/11/2025 -- Down
+
+// drowsiness_improved.cpp
+// Improved drowsiness + yawning detection with MAR calibration, smoothing and temporal hysteresis
+
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <linux/videodev2.h>
+#include <csignal>
+#include <cerrno>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <atomic>
+#include <condition_variable>
+#include <thread>
+#include <mutex>
+#include <numeric>
+#include <chrono>
+#include <deque>
+#include <algorithm>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+#include <opencv2/dnn.hpp>
+
+using namespace std;
+using namespace cv;
+
+// ------------------------- CONFIG -------------------------
+constexpr int CAP_W = 1920;
+constexpr int CAP_H = 1080;
+constexpr int PROC_W = 1280; // processing width
+constexpr int PROC_H = 720;  // processing height
+constexpr int YUNET_SIDE = 256; // yuNet model input size (256 or 320)
+
+constexpr bool USE_BOX_BLUR = true; // used in blur demo (not necessary for drowsiness)
+constexpr int OPENCV_THREADS = 2;
+constexpr bool ENABLE_TIMESTAMPS = false;
+
+// V4L2
+constexpr int V4L2_REQ_COUNT = 2; // 1 or 2; 1 = lower latency
+
+// Models (adjust paths)
+const string YUNET_MODEL = "./models/face_detection_yunet_2023mar.onnx";
+const string LBF_MODEL   = "./models/lbfmodel.yaml";
+
+// thresholds & tuning
+const double EAR_INIT_FACTOR = 0.70;    // open-eye baseline multiplier -> threshold = open_avg * EAR_INIT_FACTOR
+const double EAR_SMOOTH_ALPHA = 0.04;   // EMA smoothing for earThreshold adaptation (slower)
+const double EAR_CLOSED_TIME = 1.5;     // seconds eyes must remain closed to declare drowsiness
+const double MAR_INIT_FACTOR = 0.60;    // open-mouth baseline multiplier -> threshold = open_mouth_avg * MAR_INIT_FACTOR
+const double MAR_SMOOTH_ALPHA = 0.12;   // EMA smoothing for MAR baseline adaptation
+const double MAR_MIN_THRESHOLD = 0.22;  // minimal MAR threshold clamp
+const double MAR_YAWN_DURATION = 0.6;   // seconds mouth must remain open to be considered a yawn
+const double YAW_LIMIT_DEG = 15.0;      // degrees to declare head turn
+const double MIN_EAR_THRESHOLD = 0.14;  // clamp to avoid absurdly small thresholds
+const int EAR_CALIB_FRAMES = 30;        // number of frames used to compute initial open-eyed average
+const int MAR_CALIB_FRAMES = 30;        // frames for mouth-open baseline
+const int EAR_MEDIAN_WINDOW = 5;        // median window for EAR smoothing
+const int MAR_MEDIAN_WINDOW = 5;        // median window for MAR smoothing
+
+// ------------------------- Globals -------------------------
+struct Buffer { void* start; size_t length; };
+static atomic<bool> running(true);
+static mutex frameMutex;
+static condition_variable frameCond;
+static vector<unsigned char> latestRGB;
+static bool frameReady = false;
+static atomic<uint64_t> latestFrameId{0};
+
+// ------------------------- Utilities -------------------------
+bool fileExists(const string &p){ ifstream f(p); return f.good(); }
+void handleSig(int){ running = false; frameCond.notify_all(); }
+
+void xioctl(int fd, int request, void* arg){
+    int r;
+    do { r = ioctl(fd, request, arg); }
+    while (r == -1 && (errno == EINTR || errno == EAGAIN));
+    if (r == -1) { perror("ioctl"); exit(EXIT_FAILURE); }
+}
+
+// ------------------------- Color conversion (demosaic) -------------------------
+// *** UPDATED AS REQUESTED (kept your routine) ***
+void unpackBayer8ToRGB_Full(const void* src, void* dst, int width, int height) {
+    cv::Mat raw8(height, width, CV_8UC1, const_cast<void*>(src));
+    cv::Mat rgb;
+
+    // Bayer → RGB
+    cv::cvtColor(raw8, rgb, cv::COLOR_BayerRG2RGB);
+
+    // --- Manual color balance ---
+    std::vector<cv::Mat> channels(3);
+    cv::split(rgb, channels);
+
+    double redGain   = 1.4;
+    double greenGain = 1.0;
+    double blueGain  = 1.7;
+
+    channels[0] *= blueGain;   // blue
+    channels[1] *= greenGain;  // green
+    channels[2] *= redGain;    // red
+
+    cv::merge(channels, rgb);
+
+    // --- Contrast + gamma correction ---
+    cv::Mat balanced;
+    cv::convertScaleAbs(rgb, balanced, 1.2, 5);  // contrast boost
+
+    cv::Mat gamma;
+    balanced.convertTo(gamma, CV_32F, 1.0 / 255.0);
+    cv::pow(gamma, 1.2, gamma);
+    gamma.convertTo(rgb, CV_8UC3, 255.0);
+
+    memcpy(dst, rgb.data, width * height * 3);
+}
+
+// ------------------------- EAR / MAR / Headpose -------------------------
+double eyeAspectRatio(const std::vector<Point2f>& eye) {
+    if(eye.size() < 6) return 0.0;
+    double A = norm(eye[1] - eye[5]);
+    double B = norm(eye[2] - eye[4]);
+    double C = norm(eye[0] - eye[3]);
+    return (C < 1e-6) ? 0.0 : (A + B) / (2.0 * C);
+}
+
+double mouthAspectRatioInner(const std::vector<Point2f>& lm) {
+    // expects 68-point landmarks; indices 60..67 correspond to inner mouth
+    if(lm.size() < 68) return 0.0;
+    double A = norm(lm[61] - lm[67]);
+    double B = norm(lm[62] - lm[66]);
+    double C = norm(lm[63] - lm[65]);
+    double width = norm(lm[60] - lm[64]);
+    return (width < 1e-6) ? 0.0 : (A + B + C) / (3.0 * width);
+}
+
+double mouthAspectRatioOuter(const std::vector<Point2f>& lm) {
+    // outer mouth 48..59
+    if(lm.size() < 68) return 0.0;
+    double A = norm(lm[49] - lm[59]);
+    double B = norm(lm[50] - lm[58]);
+    double C = norm(lm[51] - lm[57]);
+    double width = norm(lm[48] - lm[54]);
+    return (width < 1e-6) ? 0.0 : (A + B + C) / (3.0 * width);
+}
+
+Vec3d estimateHeadPose(const vector<Point2d>& landmarks, const Size& imageSize) {
+    static vector<Point3d> modelPoints = {
+        {0.0,0.0,0.0},{-30.0,-30.0,-30.0},{30.0,-30.0,-30.0},
+        {-30.0,30.0,-30.0},{30.0,30.0,-30.0},{0.0,60.0,-30.0}
+    };
+
+    if(landmarks.size() < 68) return Vec3d(0,0,0);
+
+    vector<Point2d> imagePoints = {
+        landmarks[30], landmarks[36], landmarks[45],
+        landmarks[48], landmarks[54], landmarks[8]
+    };
+
+    double focalLength = imageSize.width;
+    Point2d center(imageSize.width/2.0, imageSize.height/2.0);
+    Mat cameraMatrix = (Mat_<double>(3,3) <<
+        focalLength,0,center.x,
+        0,focalLength,center.y,
+        0,0,1
+    );
+    Mat dist = Mat::zeros(4,1,CV_64F);
+    Mat rvec, tvec;
+    bool ok = solvePnP(modelPoints, imagePoints, cameraMatrix, dist, rvec, tvec, false, SOLVEPNP_ITERATIVE);
+    if(!ok) return Vec3d(0,0,0);
+    Mat R; Rodrigues(rvec, R);
+    Mat pose = Mat::zeros(3,4,CV_64F);
+    R.copyTo(pose.colRange(0,3));
+    tvec.copyTo(pose.col(3));
+    Mat K, Rmat, T, RX, RY, RZ, euler;
+    decomposeProjectionMatrix(pose, K, Rmat, T, RX, RY, RZ, euler);
+    return Vec3d(euler.at<double>(0), euler.at<double>(1), euler.at<double>(2));
+}
+
+// ------------------------- Capture thread -------------------------
+void captureThread(const char* dev) {
+    int fd = open(dev, O_RDWR | O_NONBLOCK);
+    if(fd < 0){ perror("open"); return; }
+
+    v4l2_format fmt{};
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    fmt.fmt.pix.width = CAP_W;
+    fmt.fmt.pix.height = CAP_H;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_SRGGB8;
+    fmt.fmt.pix.field = V4L2_FIELD_NONE;
+    xioctl(fd, VIDIOC_S_FMT, &fmt);
+
+    v4l2_requestbuffers req{};
+    req.count = V4L2_REQ_COUNT;
+    req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    req.memory = V4L2_MEMORY_MMAP;
+    xioctl(fd, VIDIOC_REQBUFS, &req);
+
+    if(req.count < 1){
+        cerr << "[ERROR] Insufficient V4L2 buffers" << endl;
+        close(fd);
+        return;
+    }
+
+    vector<Buffer> bufs(req.count);
+    for(unsigned i=0;i<(unsigned)req.count;i++){
+        v4l2_buffer b{};
+        b.type = req.type;
+        b.memory = req.memory;
+        b.index = i;
+        xioctl(fd, VIDIOC_QUERYBUF, &b);
+        bufs[i].length = b.length;
+        bufs[i].start = mmap(NULL, b.length, PROT_READ|PROT_WRITE,
+                             MAP_SHARED, fd, b.m.offset);
+        if(bufs[i].start == MAP_FAILED){
+            perror("mmap");
+            close(fd);
+            return;
+        }
+        xioctl(fd, VIDIOC_QBUF, &b);
+    }
+
+    v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    xioctl(fd, VIDIOC_STREAMON, &type);
+
+    vector<unsigned char> rgbFull(CAP_W * CAP_H * 3);
+    latestRGB.resize(PROC_W * PROC_H * 3);
+
+    while(running){
+        fd_set fds; FD_ZERO(&fds); FD_SET(fd, &fds);
+        timeval tv{0, 5000};
+        int s = select(fd+1, &fds, NULL, NULL, &tv);
+        if(s < 0){
+            if(errno==EINTR) continue;
+            perror("select");
+            break;
+        }
+        if(s == 0) continue;
+
+        v4l2_buffer b{};
+        b.type = type;
+        b.memory = V4L2_MEMORY_MMAP;
+
+        if(ioctl(fd, VIDIOC_DQBUF, &b) == 0){
+
+            // Use the improved Bayer → RGB conversion
+            unpackBayer8ToRGB_Full(bufs[b.index].start, rgbFull.data(), CAP_W, CAP_H);
+
+            Mat fullMat(CAP_H, CAP_W, CV_8UC3, rgbFull.data());
+            Mat procMat(PROC_H, PROC_W, CV_8UC3, latestRGB.data());
+            resize(fullMat, procMat, Size(PROC_W, PROC_H), 0, 0, INTER_LINEAR);
+
+            {
+                unique_lock<mutex> lk(frameMutex);
+                frameReady = true;
+                ++latestFrameId;
+            }
+            frameCond.notify_one();
+
+            xioctl(fd, VIDIOC_QBUF, &b);
+        }
+    }
+
+    xioctl(fd, VIDIOC_STREAMOFF, &type);
+
+    for(auto &bb : bufs) munmap(bb.start, bb.length);
+    close(fd);
+}
+
+// ------------------------- Simple NMS (fallback) -------------------------
+vector<int> simpleNMS(const vector<Rect>& boxes, const vector<float>& scores, float iouThresh){
+    vector<int> idx(boxes.size());
+    iota(idx.begin(), idx.end(), 0);
+
+    sort(idx.begin(), idx.end(), [&](int a, int b){
+        return scores[a] > scores[b];
+    });
+
+    vector<int> keep;
+    vector<char> suppressed(boxes.size(), 0);
+
+    for(size_t _i=0; _i<idx.size(); ++_i){
+        int i = idx[_i];
+        if(suppressed[i]) continue;
+
+        keep.push_back(i);
+
+        for(size_t _j=_i+1; _j<idx.size(); ++_j){
+            int j = idx[_j];
+            if(suppressed[j]) continue;
+
+            float inter = (boxes[i] & boxes[j]).area();
+            float uni = boxes[i].area() + boxes[j].area() - inter;
+            if(uni <= 0) continue;
+
+            if((inter/uni) > iouThresh) suppressed[j] = 1;
+        }
+    }
+    return keep;
+}
+
+// ------------------------- Detection Thread -------------------------
+void detectThread(){
+    setNumThreads(OPENCV_THREADS);
+
+    const Size procSz(PROC_W, PROC_H);
+    const Size yunSz(YUNET_SIDE, YUNET_SIDE);
+
+    if(!fileExists(YUNET_MODEL) || !fileExists(LBF_MODEL)){
+        cerr << "[ERROR] Missing model files." << endl;
+        running = false;
+        frameCond.notify_all();
+        return;
+    }
+
+    Ptr<FaceDetectorYN> yunet =
+        FaceDetectorYN::create(YUNET_MODEL, "", yunSz, 0.45, 0.3, 5000);
+    yunet->setInputSize(yunSz);
+
+    Ptr<face::Facemark> facemark = face::FacemarkLBF::create();
+    facemark->loadModel(LBF_MODEL);
+
+    namedWindow("Drowsiness", WINDOW_NORMAL);
+    resizeWindow("Drowsiness", 960, 540);
+
+    Mat procMat(PROC_H, PROC_W, CV_8UC3);
+    Mat yunIn(yunSz.height, yunSz.width, CV_8UC3);
+    Mat gray;
+
+    // EAR calibration & smoothing state
+    bool earCalibrated = false;
+    double earOpenAvg = 0.0;
+    int earCalibCount = 0;
+    double earThreshold = 0.20; // initial fallback
+    deque<double> earMedianWindow;
+    double earEMA = 0.0; // for small smoothing of ear value
+
+    // MAR calibration & smoothing state
+    bool marCalibrated = false;
+    double marOpenAvg = 0.0;
+    int marCalibCount = 0;
+    double marThreshold = 0.30; // fallback
+    deque<double> marMedianWindow;
+    double marEMA = 0.0;
+
+    deque<double> yawHistory;
+    const int YAW_WINDOW = 10;
+    bool eyesClosed = false;
+    chrono::steady_clock::time_point eyesClosedStart;
+
+    // Yawn temporal state
+    bool mouthOpen = false;
+    chrono::steady_clock::time_point mouthOpenStart;
+
+    while(running){
+
+        {
+            unique_lock<mutex> lk(frameMutex);
+            frameCond.wait(lk, []{ return frameReady || !running; });
+            if(!running) break;
+
+            Mat wrap(PROC_H, PROC_W, CV_8UC3, latestRGB.data());
+            wrap.copyTo(procMat);
+            frameReady = false;
+        }
+
+        uint64_t frameId = latestFrameId.load();
+
+        // YuNet face detection
+        resize(procMat, yunIn, yunSz);
+        yunet->setInputSize(yunSz);
+        Mat dets;
+        yunet->detect(yunIn, dets);
+
+        vector<Rect> boxes;
+        vector<float> scores;
+
+        for(int i=0;i<dets.rows;i++){
+            float conf = dets.at<float>(i,4);
+            if(conf < 0.35f) continue;
+
+            float x = dets.at<float>(i,0) * procSz.width  / yunSz.width;
+            float y = dets.at<float>(i,1) * procSz.height / yunSz.height;
+            float w = dets.at<float>(i,2) * procSz.width  / yunSz.width;
+            float h = dets.at<float>(i,3) * procSz.height / yunSz.height;
+
+            Rect r(cvRound(x), cvRound(y), cvRound(w), cvRound(h));
+            r &= Rect(0,0,procSz.width, procSz.height);
+            if(r.area() <= 0) continue;
+
+            boxes.push_back(r);
+            scores.push_back(conf);
+        }
+
+        vector<int> keepIdx;
+        if(!boxes.empty()){
+            try{
+                dnn::NMSBoxes(boxes, scores, 0.3f, 0.45f, keepIdx, 1.f, 100);
+            }
+            catch(...){
+                keepIdx = simpleNMS(boxes, scores, 0.45f);
+            }
+        }
+
+        string status = "Driver OK";
+        bool alert = false;
+
+        if(!keepIdx.empty()){
+
+            // choose largest face (closest)
+            int best = keepIdx[0];
+            double bestArea = boxes[best].area();
+            for(int i=1;i<(int)keepIdx.size();++i){
+                int id = keepIdx[i];
+                if(boxes[id].area() > bestArea){
+                    best = id;
+                    bestArea = boxes[id].area();
+                }
+            }
+
+            Rect faceR = boxes[best];
+
+            // Expand face ROI slightly for more stable landmark detection
+            Rect faceROIpadded = faceR;
+            int padX = faceR.width / 8;
+            int padY = faceR.height / 6;
+            faceROIpadded.x = max(0, faceR.x - padX);
+            faceROIpadded.y = max(0, faceR.y - padY);
+            faceROIpadded.width = min(procMat.cols - faceROIpadded.x, faceR.width + 2*padX);
+            faceROIpadded.height = min(procMat.rows - faceROIpadded.y, faceR.height + 2*padY);
+
+            Mat faceROI = procMat(faceROIpadded).clone();
+            cvtColor(faceROI, gray, COLOR_BGR2GRAY);
+
+            vector<Rect> tmp = { Rect(0,0,faceROI.cols, faceROI.rows) };
+            vector<vector<Point2f>> landmarks;
+            bool ok = false;
+
+            try{ ok = facemark->fit(gray, tmp, landmarks); }
+            catch(...){ ok = false; }
+
+            if(ok && !landmarks.empty()){
+                auto lm = landmarks[0];
+
+                // Convert landmarks from faceROI coordinates -> full procMat coordinates
+                for(auto &p : lm){
+                    p.x += faceROIpadded.x;
+                    p.y += faceROIpadded.y;
+                }
+
+                // ensure we have 68 landmarks
+                if(lm.size() >= 68){
+                    vector<Point2f> leftEye {
+                        lm[36],lm[37],lm[38],lm[39],lm[40],lm[41]
+                    };
+                    vector<Point2f> rightEye {
+                        lm[42],lm[43],lm[44],lm[45],lm[46],lm[47]
+                    };
+
+                    double earLeft = eyeAspectRatio(leftEye);
+                    double earRight = eyeAspectRatio(rightEye);
+                    double earRaw = (earLeft + earRight) / 2.0;
+
+                    // small EMA on raw ear to filter spike noise
+                    if(earEMA == 0.0) earEMA = earRaw;
+                    earEMA = (1.0 - 0.25) * earEMA + 0.25 * earRaw;
+
+                    // median window to remove single-frame dips
+                    earMedianWindow.push_back(earEMA);
+                    if((int)earMedianWindow.size() > EAR_MEDIAN_WINDOW)
+                        earMedianWindow.pop_front();
+
+                    // compute median EAR
+                    vector<double> tmpVec(earMedianWindow.begin(), earMedianWindow.end());
+                    sort(tmpVec.begin(), tmpVec.end());
+                    double earMed = tmpVec[tmpVec.size()/2];
+
+                    // calibration: collect open-eye samples when face visible
+                    if(!earCalibrated){
+                        if(earMed > 0.06){
+                            earOpenAvg = (earOpenAvg * earCalibCount + earMed) / (earCalibCount + 1);
+                            earCalibCount++;
+                        }
+                        if(earCalibCount >= EAR_CALIB_FRAMES){
+                            earCalibrated = true;
+                            earThreshold = max(MIN_EAR_THRESHOLD, earOpenAvg * EAR_INIT_FACTOR);
+                        }
+                    } else {
+                        // adapt threshold slowly using EMA (in case head rotation / lighting changes)
+                        double target = max(MIN_EAR_THRESHOLD, earOpenAvg * EAR_INIT_FACTOR);
+                        earThreshold = (1.0 - EAR_SMOOTH_ALPHA) * earThreshold + EAR_SMOOTH_ALPHA * target;
+                    }
+
+                    // --- Mouth computations ---
+                    double marInner = mouthAspectRatioInner(lm);
+                    double marOuter = mouthAspectRatioOuter(lm);
+
+                    // use a composite MAR that is robust: weighted average of inner and outer
+                    double marRaw = 0.6 * marInner + 0.4 * marOuter;
+
+                    // normalize by face height (to reduce scale effects) - optional improvement:
+                    double faceHeight = faceR.height > 1 ? (double)faceR.height : 1.0;
+                    // small factor to reduce scale dependence:
+                    double marNormalized = marRaw; // we already divide by mouth width, so keep direct
+
+                    // EMA smoothing for MAR
+                    if(marEMA == 0.0) marEMA = marNormalized;
+                    marEMA = (1.0 - 0.25) * marEMA + 0.25 * marNormalized;
+
+                    marMedianWindow.push_back(marEMA);
+                    if((int)marMedianWindow.size() > MAR_MEDIAN_WINDOW)
+                        marMedianWindow.pop_front();
+
+                    vector<double> tmpMar(marMedianWindow.begin(), marMedianWindow.end());
+                    sort(tmpMar.begin(), tmpMar.end());
+                    double marMed = tmpMar[tmpMar.size()/2];
+
+                    // MAR calibration (collect open-mouth baseline while face present, but not necessarily yawning)
+                    if(!marCalibrated){
+                        // to avoid counting yawns during calibration, only include marMed if not huge
+                        if(marMed > 0.04 && marMed < 0.7){
+                            marOpenAvg = (marOpenAvg * marCalibCount + marMed) / (marCalibCount + 1);
+                            marCalibCount++;
+                        }
+                        if(marCalibCount >= MAR_CALIB_FRAMES){
+                            marCalibrated = true;
+                            marThreshold = max(MAR_MIN_THRESHOLD, marOpenAvg * MAR_INIT_FACTOR);
+                        }
+                    } else {
+                        double marTarget = max(MAR_MIN_THRESHOLD, marOpenAvg * MAR_INIT_FACTOR);
+                        marThreshold = (1.0 - MAR_SMOOTH_ALPHA) * marThreshold + MAR_SMOOTH_ALPHA * marTarget;
+                    }
+
+                    // Head pose yaw
+                    vector<Point2d> lm2d(lm.begin(), lm.end());
+                    double yaw = estimateHeadPose(lm2d, procMat.size())[1];
+
+                    // Eyes-closed detection (drowsiness)
+                    if(earMed < earThreshold){
+                        if(!eyesClosed){
+                            eyesClosed = true;
+                            eyesClosedStart = chrono::steady_clock::now();
+                        } else {
+                            double sec = chrono::duration<double>(chrono::steady_clock::now() - eyesClosedStart).count();
+                            if(sec >= EAR_CLOSED_TIME){
+                                status = "DROWSINESS DETECTED";
+                                alert = true;
+                            }
+                        }
+                    } else {
+                        eyesClosed = false;
+                    }
+
+                    // Yawn detection: require sustained mouth open beyond threshold
+                    if(marMed > marThreshold){
+                        if(!mouthOpen){
+                            mouthOpen = true;
+                            mouthOpenStart = chrono::steady_clock::now();
+                        } else {
+                            double sec = chrono::duration<double>(chrono::steady_clock::now() - mouthOpenStart).count();
+                            if(sec >= MAR_YAWN_DURATION){
+                                status = "YAWNING";
+                                alert = true;
+                            }
+                        }
+                    } else {
+                        mouthOpen = false;
+                    }
+
+                    // yaw history smoothing
+                    yawHistory.push_back(yaw);
+                    if((int)yawHistory.size() > YAW_WINDOW) yawHistory.pop_front();
+                    double yawAvg = accumulate(yawHistory.begin(), yawHistory.end(), 0.0) / max(1, (int)yawHistory.size());
+
+                    if(yawAvg > YAW_LIMIT_DEG){
+                        status = "TURNING RIGHT";
+                        alert = true;
+                    }
+                    else if(yawAvg < -YAW_LIMIT_DEG){
+                        status = "TURNING LEFT";
+                        alert = true;
+                    }
+
+                    // Draw results
+                    rectangle(procMat, faceROIpadded,
+                              alert ? Scalar(0,0,255) : Scalar(0,255,0),
+                              2);
+
+                    for(auto &p : lm){
+                        circle(procMat, p, 2, Scalar(255,0,0), -1);
+                    }
+
+                    // Visual debugging overlays
+                    putText(procMat, format("EAR: %.3f (thr %.3f)", earMed, earThreshold),
+                            Point(10,30), FONT_HERSHEY_SIMPLEX, 0.7, Scalar(255,255,0), 2);
+
+                    putText(procMat, format("MAR: %.3f (thr %.3f)", marMed, marThreshold),
+                            Point(10,60), FONT_HERSHEY_SIMPLEX, 0.7, Scalar(255,255,0), 2);
+
+                    putText(procMat, status,
+                            Point(10,100), FONT_HERSHEY_SIMPLEX, 1.0, alert ? Scalar(0,0,255) : Scalar(0,200,0), 2);
+                } else {
+                    // not enough landmarks
+                    putText(procMat, "Landmarks < 68", Point(10,100), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0,255,255), 2);
+                }
+            } else {
+                status = "Landmarks Not Found";
+                putText(procMat, status, Point(10,100), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0,255,255), 2);
+            }
+        } else {
+            status = "No Face Detected";
+            putText(procMat, status, Point(10,100), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(0,255,255), 2);
+        }
+
+        imshow("Drowsiness", procMat);
+        int key = waitKey(1);
+        if(key == 27) break;
+    }
+}
+
+// ------------------------- Main -------------------------
+int main(int argc, char** argv){
+    signal(SIGINT, handleSig);
+    signal(SIGTERM, handleSig);
+
+    if(!fileExists(YUNET_MODEL)){
+        cerr << "[ERROR] YuNet model not found: " << YUNET_MODEL << endl;
+        return -1;
+    }
+    if(!fileExists(LBF_MODEL)){
+        cerr << "[ERROR] LBF model not found: " << LBF_MODEL << endl;
+        return -1;
+    }
+
+    latestRGB.resize(PROC_W * PROC_H * 3);
+
+    const char* dev = "/dev/video0";
+    thread cap(captureThread, dev);
+    thread det(detectThread);
+
+    cap.join();
+    det.join();
+
+    return 0;
+}
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+g++ -std=c++17 updated_drowsiness.cpp -o updated_drowsiness \
+    `pkg-config --cflags --libs opencv4` -lopencv_face -ldlib -llapack -lblas
+	
+working version 3 --- 17/11/2025
+
+g++ -std=c++17 updated_drowsiness.cpp -o updated_drowsiness `pkg-config --cflags --libs opencv4` -lopencv_face
+
+
+	
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <linux/videodev2.h>
+#include <csignal>
+#include <cerrno>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <atomic>
+#include <condition_variable>
+#include <thread>
+#include <mutex>
+#include <numeric>
+#include <chrono>
+
+#include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+#include <opencv2/dnn.hpp>
+
+using namespace std;
+using namespace cv;
+
+// ------------------------- CONFIG -------------------------
+constexpr int CAP_W = 1920;
+constexpr int CAP_H = 1080;
+constexpr int PROC_W = 1280; // processing width
+constexpr int PROC_H = 720;  // processing height
+constexpr int YUNET_SIDE = 256; // yuNet model input size (256 or 320)
+
+constexpr bool USE_BOX_BLUR = true; // used in blur demo (not necessary for drowsiness)
+constexpr int OPENCV_THREADS = 2;
+constexpr bool ENABLE_TIMESTAMPS = false;
+
+// V4L2
+constexpr int V4L2_REQ_COUNT = 2; // 1 or 2; 1 = lower latency
+
+// Models (adjust paths)
+const string YUNET_MODEL = "./models/face_detection_yunet_2023mar.onnx";
+const string LBF_MODEL   = "./models/lbfmodel.yaml";
+
+// thresholds
+const double EAR_INIT_FACTOR = 0.35;
+const double EAR_SMOOTH_ALPHA = 0.1;
+const double EAR_CLOSED_TIME = 1.5;
+const double MAR_YAWN = 0.55;
+const double YAW_LIMIT_DEG = 15.0;
+
+// ------------------------- Globals -------------------------
+struct Buffer { void* start; size_t length; };
+static atomic<bool> running(true);
+static mutex frameMutex;
+static condition_variable frameCond;
+static vector<unsigned char> latestRGB;
+static bool frameReady = false;
+static atomic<uint64_t> latestFrameId{0};
+
+// ------------------------- Utilities -------------------------
+bool fileExists(const string &p){ ifstream f(p); return f.good(); }
+void handleSig(int){ running = false; frameCond.notify_all(); }
+
+void xioctl(int fd, int request, void* arg){
+    int r;
+    do { r = ioctl(fd, request, arg); }
+    while (r == -1 && (errno == EINTR || errno == EAGAIN));
+    if (r == -1) { perror("ioctl"); exit(EXIT_FAILURE); }
+}
+
+// ------------------------- Color conversion (demosaic) -------------------------
+// *** UPDATED AS REQUESTED ***
+void unpackBayer8ToRGB_Full(const void* src, void* dst, int width, int height) {
+    cv::Mat raw8(height, width, CV_8UC1, const_cast<void*>(src));
+    cv::Mat rgb;
+
+    // Bayer → RGB
+    cv::cvtColor(raw8, rgb, cv::COLOR_BayerRG2RGB);
+
+    // --- Manual color balance ---
+    std::vector<cv::Mat> channels(3);
+    cv::split(rgb, channels);
+
+    double redGain   = 1.4;
+    double greenGain = 1.0;
+    double blueGain  = 1.7;
+
+    channels[0] *= blueGain;   // blue
+    channels[1] *= greenGain;  // green
+    channels[2] *= redGain;    // red
+
+    cv::merge(channels, rgb);
+
+    // --- Contrast + gamma correction ---
+    cv::Mat balanced;
+    cv::convertScaleAbs(rgb, balanced, 1.2, 5);  // contrast boost
+
+    cv::Mat gamma;
+    balanced.convertTo(gamma, CV_32F, 1.0 / 255.0);
+    cv::pow(gamma, 1.2, gamma);
+    gamma.convertTo(rgb, CV_8UC3, 255.0);
+
+    memcpy(dst, rgb.data, width * height * 3);
+}
+
+// ------------------------- EAR / MAR / Headpose -------------------------
+double eyeAspectRatio(const std::vector<Point2f>& eye) {
+    double A = norm(eye[1] - eye[5]);
+    double B = norm(eye[2] - eye[4]);
+    double C = norm(eye[0] - eye[3]);
+    return (C < 1e-6) ? 0.0 : (A + B) / (2.0 * C);
+}
+
+double mouthAspectRatio(const std::vector<Point2f>& lm) {
+    double A = norm(lm[61] - lm[67]);
+    double B = norm(lm[62] - lm[66]);
+    double C = norm(lm[63] - lm[65]);
+    double width = norm(lm[60] - lm[64]);
+    return (width < 1e-6) ? 0.0 : (A + B + C) / (3.0 * width);
+}
+
+Vec3d estimateHeadPose(const vector<Point2d>& landmarks, const Size& imageSize) {
+    static vector<Point3d> modelPoints = {
+        {0.0,0.0,0.0},{-30.0,-30.0,-30.0},{30.0,-30.0,-30.0},
+        {-30.0,30.0,-30.0},{30.0,30.0,-30.0},{0.0,60.0,-30.0}
+    };
+
+    vector<Point2d> imagePoints = {
+        landmarks[30], landmarks[36], landmarks[45],
+        landmarks[48], landmarks[54], landmarks[8]
+    };
+
+    double focalLength = imageSize.width;
+    Point2d center(imageSize.width/2.0, imageSize.height/2.0);
+    Mat cameraMatrix = (Mat_<double>(3,3) <<
+        focalLength,0,center.x,
+        0,focalLength,center.y,
+        0,0,1
+    );
+    Mat dist = Mat::zeros(4,1,CV_64F);
+    Mat rvec, tvec;
+    solvePnP(modelPoints, imagePoints, cameraMatrix, dist, rvec, tvec, false, SOLVEPNP_ITERATIVE);
+    Mat R; Rodrigues(rvec, R);
+    Mat pose = Mat::zeros(3,4,CV_64F);
+    R.copyTo(pose.colRange(0,3));
+    tvec.copyTo(pose.col(3));
+    Mat K, Rmat, T, RX, RY, RZ, euler;
+    decomposeProjectionMatrix(pose, K, Rmat, T, RX, RY, RZ, euler);
+    return Vec3d(euler.at<double>(0), euler.at<double>(1), euler.at<double>(2));
+}
+
+// ------------------------- Capture thread -------------------------
+void captureThread(const char* dev) {
+    int fd = open(dev, O_RDWR | O_NONBLOCK);
+    if(fd < 0){ perror("open"); return; }
+
+    v4l2_format fmt{};
+    fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    fmt.fmt.pix.width = CAP_W;
+    fmt.fmt.pix.height = CAP_H;
+    fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_SRGGB8;
+    fmt.fmt.pix.field = V4L2_FIELD_NONE;
+    xioctl(fd, VIDIOC_S_FMT, &fmt);
+
+    v4l2_requestbuffers req{};
+    req.count = V4L2_REQ_COUNT;
+    req.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    req.memory = V4L2_MEMORY_MMAP;
+    xioctl(fd, VIDIOC_REQBUFS, &req);
+
+    if(req.count < 1){
+        cerr << "[ERROR] Insufficient V4L2 buffers" << endl;
+        close(fd);
+        return;
+    }
+
+    vector<Buffer> bufs(req.count);
+    for(unsigned i=0;i<(unsigned)req.count;i++){
+        v4l2_buffer b{};
+        b.type = req.type;
+        b.memory = req.memory;
+        b.index = i;
+        xioctl(fd, VIDIOC_QUERYBUF, &b);
+        bufs[i].length = b.length;
+        bufs[i].start = mmap(NULL, b.length, PROT_READ|PROT_WRITE,
+                             MAP_SHARED, fd, b.m.offset);
+        if(bufs[i].start == MAP_FAILED){
+            perror("mmap");
+            close(fd);
+            return;
+        }
+        xioctl(fd, VIDIOC_QBUF, &b);
+    }
+
+    v4l2_buf_type type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    xioctl(fd, VIDIOC_STREAMON, &type);
+
+    vector<unsigned char> rgbFull(CAP_W * CAP_H * 3);
+    latestRGB.resize(PROC_W * PROC_H * 3);
+
+    while(running){
+        fd_set fds; FD_ZERO(&fds); FD_SET(fd, &fds);
+        timeval tv{0, 5000};
+        int s = select(fd+1, &fds, NULL, NULL, &tv);
+        if(s < 0){
+            if(errno==EINTR) continue;
+            perror("select");
+            break;
+        }
+        if(s == 0) continue;
+
+        v4l2_buffer b{};
+        b.type = type;
+        b.memory = V4L2_MEMORY_MMAP;
+
+        if(ioctl(fd, VIDIOC_DQBUF, &b) == 0){
+
+            // Use the improved Bayer → RGB conversion
+            unpackBayer8ToRGB_Full(bufs[b.index].start, rgbFull.data(), CAP_W, CAP_H);
+
+            Mat fullMat(CAP_H, CAP_W, CV_8UC3, rgbFull.data());
+            Mat procMat(PROC_H, PROC_W, CV_8UC3, latestRGB.data());
+            resize(fullMat, procMat, Size(PROC_W, PROC_H), 0, 0, INTER_LINEAR);
+
+            {
+                unique_lock<mutex> lk(frameMutex);
+                frameReady = true;
+                ++latestFrameId;
+            }
+            frameCond.notify_one();
+
+            xioctl(fd, VIDIOC_QBUF, &b);
+        }
+    }
+
+    xioctl(fd, VIDIOC_STREAMOFF, &type);
+
+    for(auto &bb : bufs) munmap(bb.start, bb.length);
+    close(fd);
+}
+
+// ------------------------- Simple NMS -------------------------
+vector<int> simpleNMS(const vector<Rect>& boxes, const vector<float>& scores, float iouThresh){
+    vector<int> idx(boxes.size());
+    iota(idx.begin(), idx.end(), 0);
+
+    sort(idx.begin(), idx.end(), [&](int a, int b){
+        return scores[a] > scores[b];
+    });
+
+    vector<int> keep;
+    vector<char> suppressed(boxes.size(), 0);
+
+    for(size_t _i=0; _i<idx.size(); ++_i){
+        int i = idx[_i];
+        if(suppressed[i]) continue;
+
+        keep.push_back(i);
+
+        for(size_t _j=_i+1; _j<idx.size(); ++_j){
+            int j = idx[_j];
+            if(suppressed[j]) continue;
+
+            float inter = (boxes[i] & boxes[j]).area();
+            float uni = boxes[i].area() + boxes[j].area() - inter;
+            if(uni <= 0) continue;
+
+            if((inter/uni) > iouThresh) suppressed[j] = 1;
+        }
+    }
+    return keep;
+}
+
+// ------------------------- Detection Thread -------------------------
+void detectThread(){
+    setNumThreads(OPENCV_THREADS);
+
+    const Size procSz(PROC_W, PROC_H);
+    const Size yunSz(YUNET_SIDE, YUNET_SIDE);
+
+    if(!fileExists(YUNET_MODEL) || !fileExists(LBF_MODEL)){
+        cerr << "[ERROR] Missing model files." << endl;
+        running = false;
+        frameCond.notify_all();
+        return;
+    }
+
+    Ptr<FaceDetectorYN> yunet =
+        FaceDetectorYN::create(YUNET_MODEL, "", yunSz, 0.45, 0.3, 5000);
+    yunet->setInputSize(yunSz);
+
+    Ptr<face::Facemark> facemark = face::FacemarkLBF::create();
+    facemark->loadModel(LBF_MODEL);
+
+    namedWindow("Drowsiness", WINDOW_NORMAL);
+    resizeWindow("Drowsiness", 960, 540);
+
+    Mat procMat(PROC_H, PROC_W, CV_8UC3);
+    Mat yunIn(yunSz.height, yunSz.width, CV_8UC3);
+    Mat gray;
+
+    double earThreshold = 0.0;
+    bool earInitialized = false;
+
+    deque<double> yawHistory;
+    const int YAW_WINDOW = 10;
+    bool eyesClosed = false;
+    chrono::steady_clock::time_point eyesClosedStart;
+
+    while(running){
+
+        {
+            unique_lock<mutex> lk(frameMutex);
+            frameCond.wait(lk, []{ return frameReady || !running; });
+            if(!running) break;
+
+            Mat wrap(PROC_H, PROC_W, CV_8UC3, latestRGB.data());
+            wrap.copyTo(procMat);
+            frameReady = false;
+        }
+
+        uint64_t frameId = latestFrameId.load();
+
+        // YuNet face detection
+        resize(procMat, yunIn, yunSz);
+        yunet->setInputSize(yunSz);
+        Mat dets;
+        yunet->detect(yunIn, dets);
+
+        vector<Rect> boxes;
+        vector<float> scores;
+
+        for(int i=0;i<dets.rows;i++){
+            float conf = dets.at<float>(i,4);
+            if(conf < 0.35f) continue;
+
+            float x = dets.at<float>(i,0) * procSz.width  / yunSz.width;
+            float y = dets.at<float>(i,1) * procSz.height / yunSz.height;
+            float w = dets.at<float>(i,2) * procSz.width  / yunSz.width;
+            float h = dets.at<float>(i,3) * procSz.height / yunSz.height;
+
+            Rect r(cvRound(x), cvRound(y), cvRound(w), cvRound(h));
+            r &= Rect(0,0,procSz.width, procSz.height);
+            if(r.area() <= 0) continue;
+
+            boxes.push_back(r);
+            scores.push_back(conf);
+        }
+
+        vector<int> keepIdx;
+        if(!boxes.empty()){
+            try{
+                dnn::NMSBoxes(boxes, scores, 0.3f, 0.45f, keepIdx, 1.f, 100);
+            }
+            catch(...){
+                keepIdx = simpleNMS(boxes, scores, 0.45f);
+            }
+        }
+
+        string status = "Driver OK";
+        bool alert = false;
+
+        if(!keepIdx.empty()){
+
+            int best = keepIdx[0];
+            double bestArea = boxes[best].area();
+            for(int i=1;i<(int)keepIdx.size();++i){
+                int id = keepIdx[i];
+                if(boxes[id].area() > bestArea){
+                    best = id;
+                    bestArea = boxes[id].area();
+                }
+            }
+
+            Rect faceR = boxes[best];
+
+            Mat faceROI = procMat(faceR);
+            cvtColor(faceROI, gray, COLOR_BGR2GRAY);
+
+            vector<Rect> tmp = { Rect(0,0,faceR.width, faceR.height) };
+            vector<vector<Point2f>> landmarks;
+            bool ok = false;
+
+            try{ ok = facemark->fit(gray, tmp, landmarks); }
+            catch(...){ ok = false; }
+
+            if(ok && !landmarks.empty()){
+                auto lm = landmarks[0];
+
+                for(auto &p : lm){
+                    p.x += faceR.x;
+                    p.y += faceR.y;
+                }
+
+                vector<Point2f> leftEye {
+                    lm[36],lm[37],lm[38],lm[39],lm[40],lm[41]
+                };
+                vector<Point2f> rightEye {
+                    lm[42],lm[43],lm[44],lm[45],lm[46],lm[47]
+                };
+
+                double ear =
+                    (eyeAspectRatio(leftEye) +
+                     eyeAspectRatio(rightEye)) / 2.0;
+
+                double mar = mouthAspectRatio(lm);
+
+                vector<Point2d> lm2d(lm.begin(), lm.end());
+                double yaw = estimateHeadPose(lm2d, procMat.size())[1];
+
+                if(!earInitialized){
+                    earThreshold = ear * EAR_INIT_FACTOR;
+                    earInitialized = true;
+                }
+
+                earThreshold =
+                    (1.0 - EAR_SMOOTH_ALPHA) * earThreshold +
+                     EAR_SMOOTH_ALPHA     * (ear * EAR_INIT_FACTOR);
+
+                if(ear < earThreshold){
+                    if(!eyesClosed){
+                        eyesClosed = true;
+                        eyesClosedStart = chrono::steady_clock::now();
+                    } else {
+                        double sec =
+                            chrono::duration<double>(
+                                chrono::steady_clock::now() - eyesClosedStart
+                            ).count();
+
+                        if(sec >= EAR_CLOSED_TIME){
+                            status = "DROWSINESS DETECTED";
+                            alert = true;
+                        }
+                    }
+                } else {
+                    eyesClosed = false;
+                }
+
+                if(mar > MAR_YAWN){
+                    status = "YAWNING";
+                    alert = true;
+                }
+
+                yawHistory.push_back(yaw);
+                if((int)yawHistory.size() > YAW_WINDOW)
+                    yawHistory.pop_front();
+
+                double yawAvg =
+                    accumulate(yawHistory.begin(), yawHistory.end(), 0.0)
+                    / max(1,(int)yawHistory.size());
+
+                if(yawAvg > YAW_LIMIT_DEG){
+                    status = "TURNING RIGHT";
+                    alert = true;
+                }
+                else if(yawAvg < -YAW_LIMIT_DEG){
+                    status = "TURNING LEFT";
+                    alert = true;
+                }
+
+                rectangle(procMat, faceR,
+                          alert ? Scalar(0,0,255) : Scalar(0,255,0),
+                          2);
+
+                for(auto &p : lm){
+                    circle(procMat, p, 2, Scalar(255,0,0), -1);
+                }
+
+                putText(procMat, format("EAR: %.3f", ear),
+                        Point(10,30), FONT_HERSHEY_SIMPLEX,
+                        0.8, Scalar(255,255,0), 2);
+
+                putText(procMat, format("MAR: %.3f", mar),
+                        Point(10,60), FONT_HERSHEY_SIMPLEX,
+                        0.8, Scalar(255,255,0), 2);
+
+                putText(procMat, status,
+                        Point(10,100), FONT_HERSHEY_SIMPLEX,
+                        1.0, Scalar(0,0,255), 2);
+            } else {
+                status = "Landmarks Not Found";
+            }
+        } else {
+            status = "No Face Detected";
+        }
+
+        imshow("Drowsiness", procMat);
+        if(waitKey(1) == 27) break;
+    }
+}
+
+// ------------------------- Main -------------------------
+int main(int argc, char** argv){
+    signal(SIGINT, handleSig);
+    signal(SIGTERM, handleSig);
+
+    if(!fileExists(YUNET_MODEL)){
+        cerr << "[ERROR] YuNet model not found: " << YUNET_MODEL << endl;
+        return -1;
+    }
+    if(!fileExists(LBF_MODEL)){
+        cerr << "[ERROR] LBF model not found: " << LBF_MODEL << endl;
+        return -1;
+    }
+
+    latestRGB.resize(PROC_W * PROC_H * 3);
+
+    const char* dev = "/dev/video0";
+    thread cap(captureThread, dev);
+    thread det(detectThread);
+
+    cap.join();
+    det.join();
+
+    return 0;
+}
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+##########################################################################################################################################
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

@@ -1,0 +1,106 @@
+v4l2-ctl -d /dev/video23 --stream-mmap --stream-count=10 --stream-to=/tmp/test.yuv
+If that gives a “format not set” error, set one explicitly:
+
+bash
+Copy code
+v4l2-ctl -d /dev/video23 --set-fmt-video=width=1920,height=1080,pixelformat=YUYV
+v4l2-ctl -d /dev/video23 --stream-mmap --stream-count=10 --stream-to=/tmp/test.yuv
+If /dev/video23 fails, repeat with /dev/video24:
+
+bash
+Copy code
+v4l2-ctl -d /dev/video24 --set-fmt-video=width=1920,height=1080,pixelformat=YUYV
+v4l2-ctl -d /dev/video24 --stream-mmap --stream-count=10 --stream-to=/tmp/test.yuv
+🧾 Optional: See which formats each output supports
+To confirm:
+
+bash
+Copy code
+v4l2-ctl -d /dev/video23 --list-formats-ext
+v4l2-ctl -d /dev/video24 --list-formats-ext
+You should see formats like YUYV, NV12, or RGB3 — those are the ones usable for OpenCV or face detection.
+
+🎯 Next Step
+Once /tmp/test.yuv is created successfully (no “Invalid argument” errors),
+you’ll have confirmed the working video node — that’s the one to use in your face detection .cpp program (/dev/video23 or /dev/video24).
+
+Would you like me to show how to modify your face detection .cpp to use /dev/video23 (and auto-detect resolution/pixel format)?
+
+
+
+
+
+
+
+You said:
+rpi@raspberrypi:~/Desktop $ v4l2-ctl -d /dev/video23 --stream-mmap --stream-count=10 --stream-to=/tmp/test.yuv  stucked somewhere
+
+
+
+ChatGPT said:
+Good — that “stuck” behavior actually tells us something important.
+Let’s go step by step to confirm what’s happening and how to fix it.
+
+🧠 What’s happening
+When v4l2-ctl appears stuck (no output, no errors), it usually means:
+
+The camera pipeline isn’t streaming any frames.
+
+The sensor (IMX219) isn’t sending data yet, or
+
+A link between nodes (rp1-cfe → pispbe) isn’t active, or
+
+The format setup doesn’t match between stages.
+
+So the tool waits indefinitely for frames that never arrive.
+
+✅ Step 1: Check if frames are arriving
+Try running this simple command to see if the stream starts:
+
+bash
+Copy code
+v4l2-ctl -d /dev/video23 --stream-mmap --stream-count=1 --verbose
+You’ll see lines like:
+
+python-repl
+Copy code
+>>> v4l2_ctrl_handler_setup
+<...>
+<<< Captured 1 frame
+If it hangs at “VIDIOC_STREAMON”, that means no active stream source.
+
+✅ Step 2: Check if the pipeline is linked and active
+Run:
+
+bash
+Copy code
+sudo media-ctl -d /dev/media3 --print-topology | grep -A4 ENABLED
+Look for lines that show:
+
+rust
+Copy code
+"imx219 17-0010":0 -> "max96724 10-0027":0 [ENABLED,ACTIVE]
+...
+"max96724 10-0027":? -> "rp1-cfe":? [ENABLED,ACTIVE]
+...
+"rp1-cfe":? -> "pispbe":? [ENABLED,ACTIVE]
+If any of these links are not ACTIVE, the BE (/dev/video23) won’t get data.
+
+✅ Step 3: Force set sensor + CFE format
+You can reapply known formats to re-enable streaming:
+
+bash
+Copy code
+sudo media-ctl -d /dev/media3 --set-v4l2 '"imx219 17-0010":0[fmt:SRGGB10_1X10/1920x1080]'
+sudo media-ctl -d /dev/media3 --set-v4l2 '"rp1-cfe-csi2-ch0":0[fmt:SRGGB10_1X10/1920x1080]'
+Then retry:
+
+bash
+Copy code
+v4l2-ctl -d /dev/video23 --set-fmt-video=width=1920,height=1080,pixelformat=YUYV --stream-mmap --stream-count=10 --stream-to=/tmp/test.yuv
+✅ Step 4: (Optional) Try capturing directly from CFE
+If BE still doesn’t stream, test the raw data directly:
+
+bash
+Copy code
+v4l2-ctl -d /dev/video0 --stream-mmap --stream-count=10 --stream-to=/tmp/raw.yuv

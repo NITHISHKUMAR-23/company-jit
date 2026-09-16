@@ -1,0 +1,14 @@
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=red_pixel_value=800
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=green_red_pixel_value=600
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=green_blue_pixel_value=600
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=blue_pixel_value=900
+
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=exposure=1600
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=analogue_gain=100
+v4l2-ctl -d /dev/v4l-subdev4 --set-ctrl=digital_gain=1900
+
+v4l2-ctl -d /dev/v4l-subdev4 --list-ctrls
+
+
+digi gaib1550
+

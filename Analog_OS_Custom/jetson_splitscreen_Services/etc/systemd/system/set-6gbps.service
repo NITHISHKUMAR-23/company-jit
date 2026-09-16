@@ -1,0 +1,11 @@
+[Unit]
+Description=Set GMSL link speed to 6 Gbps
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/set_gmsl_6gbps.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

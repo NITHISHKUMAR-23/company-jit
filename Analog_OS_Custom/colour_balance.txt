@@ -1,0 +1,25 @@
+// Convert Bayer to RGB and improve image quality
+void unpackBayer8ToRGB(const void* src, void* dst, int width, int height) {
+    cv::Mat raw8(height, width, CV_8UC1, const_cast<void*>(src));
+    cv::Mat rgb;
+    cv::cvtColor(raw8, rgb, cv::COLOR_BayerRG2RGB);
+
+    // --- Manual color balance ---
+    std::vector<cv::Mat> channels(3);
+    cv::split(rgb, channels);
+    double redGain = 1.4, greenGain = 1.0, blueGain = 1.7;
+    channels[0] *= blueGain;
+    channels[1] *= greenGain;
+    channels[2] *= redGain;
+    cv::merge(channels, rgb);
+
+    // --- Contrast and gamma correction ---
+    cv::Mat balanced;
+    cv::convertScaleAbs(rgb, balanced, 1.2, 5); // contrast boost
+    cv::Mat gamma;
+    balanced.convertTo(gamma, CV_32F, 1.0 / 255.0);
+    cv::pow(gamma, 1.2, gamma);
+    gamma.convertTo(rgb, CV_8UC3, 255.0);
+
+    memcpy(dst, rgb.data, width * height * 3);
+}

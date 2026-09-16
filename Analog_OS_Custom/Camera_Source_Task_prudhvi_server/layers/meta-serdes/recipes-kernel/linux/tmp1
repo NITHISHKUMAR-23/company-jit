@@ -1,0 +1,58 @@
+# meta-serdes/recipes-kernel/linux/linux-raspberrypi_%.bbappend
+
+# Ensure FILESEXTRAPATHS points to *this layer’s* files
+#FILESEXTRAPATHS:prepend := "${LAYERDIR}/recipes-kernel/linux/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+
+# Include driver source and config fragments
+SRC_URI += " \
+    file://maxim-serdes \
+    file://serdes.cfg \
+"
+
+# Apply our kernel config fragment
+KERNEL_FEATURES:append = " /serdes.cfg"
+
+# ---------------------------------------------------------------
+# Step 1: Copy driver files into kernel source tree
+python do_prepare_maxim_serdes() {
+    import os, shutil
+
+    src_dir = os.path.join(d.getVar('WORKDIR'), 'maxim-serdes')
+    dst_dir = os.path.join(d.getVar('S'), 'drivers/media/i2c/maxim-serdes')
+
+    bb.utils.mkdirhier(dst_dir)
+
+    for f in os.listdir(src_dir):
+        shutil.copy2(os.path.join(src_dir, f), os.path.join(dst_dir, f))
+
+    bb.note(">>> maxim-serdes driver copied to kernel tree")
+}
+
+do_patch[prefuncs] += "do_prepare_maxim_serdes"
+
+# ---------------------------------------------------------------
+# Step 2: Patch Kconfig and Makefile to include driver
+python do_patch_maxim_serdes() {
+    import os
+
+    kconfig_file = os.path.join(d.getVar('S'), 'drivers/media/i2c/Kconfig')
+    maxim_kconfig = 'source "drivers/media/i2c/maxim-serdes/Kconfig"\n'
+    with open(kconfig_file, 'a+') as f:
+        f.seek(0)
+        content = f.read()
+        if maxim_kconfig.strip() not in content:
+            f.write('\n' + maxim_kconfig)
+
+    makefile = os.path.join(d.getVar('S'), 'drivers/media/i2c/Makefile')
+    maxim_obj = 'obj-y += maxim-serdes/\n'
+    with open(makefile, 'a+') as f:
+        f.seek(0)
+        content = f.read()
+        if maxim_obj.strip() not in content:
+            f.write('\n' + maxim_obj)
+
+    bb.note(">>> maxim-serdes Kconfig and Makefile patched")
+}
+
+do_patch[postfuncs] += "do_patch_maxim_serdes"
